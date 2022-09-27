@@ -1,11 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { https } from '../../services/axiosClient';
+import { localStorageService } from '../../services/localStorageService';
 
 const initialState = {
-  value: 0,
+  accessToken: null,
+  isloading: false,
+  isLoggedIn: !!localStorageService.user.get(),
 };
+//LOGIN
+export const loginUser = createAsyncThunk('auth/loginUser', async (user, thunkAPI) => {
+  try {
+    const res = await https.post('/api/login', user);
+    localStorageService.user.set();
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export const counterSlice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState,
   reducers: {
     increment: (state) => {
