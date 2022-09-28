@@ -2,14 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Input, Select } from 'antd';
 import './Login.scss';
-import { Link } from 'react-router-dom';
+import { loginUser } from '../../redux/auth/authSlice';
+import { on_loading } from '../../redux/isLoading/loadingSlice';
 function Login() {
-  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   const onFinish = (values) => {
-    console.log('Success:', values);
+    dispatch(loginUser(values));
+    // dispatch(on_loading(12));
   };
-
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
@@ -27,7 +27,7 @@ function Login() {
         />
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between mb-2 items-center">
               <h1 className="font-bold text-[20px]">Login</h1>
               <div className="flex items-center">
                 <Select
@@ -58,7 +58,7 @@ function Login() {
               autoComplete="off"
             >
               <Form.Item
-                name="username"
+                name="email"
                 rules={[
                   {
                     required: true,
@@ -100,7 +100,12 @@ function Login() {
               forget password
             </a>
             <div className="relative">
-              <p className="my-5 opacity-40 relative login-with">login with</p>
+              <p
+                className="my-5 text-center
+               opacity-40 relative login-with"
+              >
+                login with
+              </p>
             </div>
             <div className=""></div>
             <div>
@@ -123,8 +128,8 @@ function Login() {
             </div>
           </div>
         </div>
-        <div className="w-2/4 mb:hidden relative bg-[rgba(236,76,96,73%)] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
-          <div className="glass h-[4rem] relative w-[5rem] rouded-[0.5rem] bg-mainColor z-10">
+        <div className="w-2/4 mb:hidden sm:hidden lg:flex relative bg-[hsl(353,81%,61%)] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
+          <div className="glass h-[40rem] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
             </h1>

@@ -5,40 +5,59 @@ import { localStorageService } from '../../services/localStorageService';
 const initialState = {
   accessToken: null,
   isloading: false,
-  isLoggedIn: !!localStorageService.user.get(),
+  isLoggedIn: !!localStorageService.get('USER'),
 };
+
 //LOGIN
 export const loginUser = createAsyncThunk('auth/loginUser', async (user, thunkAPI) => {
   try {
-    const res = await https.post('/api/login', user);
-    localStorageService.user.set();
+    const res = await https.post('/api/auth/signin', user);
+    localStorageService.set('accessToken', res.data.content.token);
+    localStorageService.set('USER', res.data.content);
     return res.data;
   } catch (error) {
     console.log(error);
+    return thunkAPI.rejectWithValue(error.response.data);
   }
 });
-
-export const counterSlice = createSlice({
-  name: 'counter',
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    reset: (state) => {
+      return {
+        ...state,
+        isLoading: false,
+      };
     },
   },
+  extraReducers: (builder) => {
+    return builder
+      .addCase(loginUser.pending, (state) => {
+        return {
+          ...state,
+          isLoading: true,
+        };
+      })
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          isLoading: true,
+          accessToken: payload.token,
+          isLoggedIn: !!payload,
+        };
+      })
+      .addCase(loginUser.rejected, (state, { payload }) => {
+        return {
+          ...state,
+          isLoading: true,
+          accessToken: payload.token,
+          isLoggedIn: !!payload,
+        };
+      });
+  },
 });
-
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { reset } = authSlice.actions;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;
