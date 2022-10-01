@@ -1,0 +1,68 @@
+.glass {
+    background: rgba(183, 233, 246, 0.25);
+    backdrop-filter: blur(13px);
+    border: 1px solid rgba(255, 255, 255, 0.61);
+    width: 400px;
+    height: 550px;
+    border-radius: 0.5rem;
+}
+
+.login-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login {
+    background-image: url("https://res.cloudinary.com/dvzingci9/image/upload/v1664548282/My-portfolio/6345959_1_zh0pzj.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.ant-input {
+    padding: 14px !important;
+    width: 320px !important;
+    border-radius: 0.5rem;
+}
+
+.password {
+    // padding: 14px !important;
+    width: 320px !important;
+    border-radius: 0.5rem;
+}
+
+.ant-input-affix-wrapper {
+    padding: 0!important;
+}
+
+.ant-input-suffix {
+    margin-right: 1rem;
+}
+
+.ant-btn {
+    width: 100%;
+    color: white;
+    padding: 0.5rem;
+    background-color: #D0D0D0;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.login-with::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: black;
+    width: 38%;
+    top: 50%;
+    opacity: 0.4;
+}
+
+.login-with::before {
+    content: "";
+    left: 0;
+    top: 50%;
+    position: absolute;
+    height: 1px;
+    background-color: black;
+    width: 38%;
+    opacity: 0.4;
+}
