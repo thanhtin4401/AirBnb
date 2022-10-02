@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Select } from 'antd';
 import './Login.scss';
 import { loginUser } from '../../redux/auth/authSlice';
@@ -46,6 +46,7 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
       <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen  lg:h-[50rem]">
@@ -155,7 +156,12 @@ function Login() {
                 isSignedIn={true}
               />
               {/* </button> */}
-              <button className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]">
+              <button
+                onClick={() => {
+                  console.log(auth.isLoggedIn);
+                }}
+                className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]"
+              >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
                   alt=""
