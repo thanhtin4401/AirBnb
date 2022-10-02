@@ -2,7 +2,7 @@ import axios from 'axios';
 // import rootReducer from '../redux/reducer';
 import { useDispatch } from 'react-redux';
 import { off_loading, on_loading } from '../redux/isLoading/loadingSlice';
-// import { store } from '../redux/store';
+import { store } from '../redux/store';
 // import login from '../pages/Login/Login';
 import { localStorageService } from './localStorageService';
 
@@ -19,7 +19,7 @@ export const https = axios.create({
 // Add a request interceptor
 https.interceptors.request.use(
   function (config) {
-    // dispatch(on_loading());
+    store.dispatch(on_loading());
     return config;
   },
   function (error) {
@@ -30,35 +30,11 @@ https.interceptors.request.use(
 // Add a response interceptor
 https.interceptors.response.use(
   function (response) {
-    // store.dispatch(off_loading());
+    store.dispatch(off_loading());
     return response;
   },
   function (error) {
-    // store.dispatch(off_loading());
+    store.dispatch(off_loading());
     return Promise.reject(error);
   }
 );
-
-// https.interceptors.request.use(
-//   (config) => {
-//     const token = JSON.parse(window.localStorage.getItem('accessToken'));
-//     const auth = token ? `Bearer ${token}` : '';
-//     config.headers.common['Authorization'] = auth;
-//     s
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
-// https.interceptors.response.use(
-//   (response) => {
-//     if (response && response.data) {
-//       return response.data;
-//     }
-//     return response;
-//   },
-//   (error) => {
-//     throw error;
-//   }
-// );
