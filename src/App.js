@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 function App() {
   return (
     <div>
-      <SpinnerLoading />
+      {/* <SpinnerLoading /> */}
       <Routers />
     </div>
   );

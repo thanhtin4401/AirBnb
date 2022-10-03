@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import { Button, Skeleton } from 'antd';
 import './HomePage.scss';
 import SkeletonItem from '../../components/Skeleton/SkeletonItem';
+import CardItem from '../../components/CardItem/CardItem';
 // Render a YouTube video player
 function HomePage() {
   return (
@@ -24,8 +25,17 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <SkeletonItem />
+      <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {/* <SkeletonItem /> */}
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
       </div>
     </div>
   );
