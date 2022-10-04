@@ -16,9 +16,9 @@ export default function Routers() {
         <Route
           path="/"
           element={
-            <RequestAuth>
-              <Mainlayout />
-            </RequestAuth>
+            // <RequestAuth>
+            <Mainlayout />
+            // </RequestAuth>
           }
         >
           <Route path="/Home" element={<HomePage />}></Route>

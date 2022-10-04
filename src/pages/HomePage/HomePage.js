@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Button, Skeleton } from 'antd';
 import './HomePage.scss';
 import SkeletonItem from '../../components/Skeleton/SkeletonItem';
 import CardItem from '../../components/CardItem/CardItem';
-// Render a YouTube video player
+import { useDispatch, useSelector } from 'react-redux';
+import { getRoomList } from '../../redux/room/roomList';
+import { getLocationList } from '../../redux/room/roomLocation';
+
 function HomePage() {
+  const dispatch = useDispatch();
+  const allRoom = useSelector((state) => state.room.listRoom.allRoom);
+  const allLocation = useSelector((state) => state.room.listLocation.allLocation);
+  console.log('allRoom', allRoom);
+  console.log('allList', allLocation);
+  useEffect(() => {
+    dispatch(getRoomList());
+    dispatch(getLocationList());
+  }, []);
+  const renderRoomItem = () => {
+    return allRoom?.map((roomInfor, index) => {
+      return <CardItem key={index} roomInfor={roomInfor} />;
+    });
+  };
+
   return (
     <div>
       <div className="header h-[100vh] flex justify-center items-center">
@@ -27,15 +45,8 @@ function HomePage() {
       </div>
       <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {/* <SkeletonItem /> */}
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        {renderRoomItem()}
+        <h1>hello</h1>
       </div>
     </div>
   );

@@ -1,15 +1,11 @@
 import React from 'react';
 import './CardItem.scss';
 import { FaStar } from 'react-icons/fa';
-function CardItem() {
+function CardItem({ roomInfor }) {
   return (
     <div className="relative">
       <div className="">
-        <img
-          src="https://static01.nyt.com/images/2022/04/25/travel/20Frugal-travel1-illo/20Frugal-travel1-illo-superJumbo-v3.jpg"
-          alt=""
-          className="rounded-[1rem]"
-        />
+        <img src={`${roomInfor.hinhAnh}`} alt="" className="rounded-[1rem]" />
       </div>
       <svg
         viewBox="0 0 32 32"
@@ -32,7 +28,7 @@ function CardItem() {
       </svg>
       <div className="">
         <div className="w-full flex justify-between">
-          <h1 className="text-[18px] font-bold">Gardon Reveira itlya</h1>
+          <h1 className="text-[18px] font-bold">{roomInfor.tenPhong}</h1>
           <div className="flex justify-center items-center">
             <FaStar size="18px" className="mr-2" />
             <span className=" text-[18px]">5.0</span>

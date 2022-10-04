@@ -3,22 +3,21 @@ import { message } from 'antd';
 import { https } from '../../services/axiosClient';
 /** State **/
 const initialState = {
-  allRoom: [],
+  allLocation: [],
   isfetching: false,
-  
 };
 
-export const getRoomList = createAsyncThunk('room/list', async () => {
+export const getLocationList = createAsyncThunk('location/list', async () => {
   try {
-    const res = await https.get('/api/phong-thue');
+    const res = await https.get('/api/vi-tri');
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
 
-const listRoomSlice = createSlice({
-  name: 'room/list',
+const listLocationSlice = createSlice({
+  name: 'room/location',
   initialState,
   reducers: {
     reset: (state) => {
@@ -31,7 +30,7 @@ const listRoomSlice = createSlice({
   },
   extraReducers: (builder) => {
     return builder
-      .addCase(getRoomList.pending, (state) => {
+      .addCase(getLocationList.pending, (state) => {
         return {
           ...state,
 
@@ -39,15 +38,15 @@ const listRoomSlice = createSlice({
           isfetching: true,
         };
       })
-      .addCase(getRoomList.fulfilled, (state, { payload }) => {
+      .addCase(getLocationList.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          allRoom: payload.content,
+          allLocation: payload.content,
         };
       });
   },
 });
 
-export const { reset } = listRoomSlice.actions;
-export default listRoomSlice.reducer;
+export const { reset } = listLocationSlice.actions;
+export default listLocationSlice.reducer;
