@@ -1,0 +1,128 @@
+import React from 'react';
+import { FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa';
+function Footer() {
+  return (
+    <div className="bg-[#F7F7F7] py-8  w-full border-t-[1px] border-[#DDDDDD] ">
+      <div className="container m-auto grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="text-left">
+          <h2 className="mb-4 font-bold text-[18px]">Support</h2>
+          <ul className="text-[18px]">
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Help Center</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>AirCover</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Safety information</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Supporting people with disabilities</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Cancellation option</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Out COVID-19 Respone</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Report a neightborhood concern</a>
+            </li>
+          </ul>
+        </div>
+        <div className="text-left">
+          <h2 className="mb-4 font-bold text-[18px]">Community</h2>
+          <ul className="text-[18px]">
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Airbnb.org:disaster relief housing</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Support Afghan refugess</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Combating discrimination</a>
+            </li>
+          </ul>
+        </div>
+        <div className="text-left">
+          <h2 className="mb-4 font-bold text-[18px]">Hosting</h2>
+          <ul className="text-[18px]">
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Try hosting</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>AirCover for Hosts</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Explore hosting resources</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Visit our community forum</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>How to host responsibly</a>
+            </li>
+          </ul>
+        </div>
+        <div className="text-left">
+          <h2 className="mb-4 font-bold text-[18px]">Airbnb</h2>
+          <ul className="text-[18px]">
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Newsroom</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Learn about new feature</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Letter from our found</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Careers</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Investors</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Gift cards</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="container py-6 m-auto border-t-[1px] border-[#DDDDDD] flex justify-between items-center">
+        <div className="text-[16px]">@ clone project by ThanhTin - Dinh Danh</div>
+        <div className="">
+          <div className="language"></div>
+          <div className="USD"></div>
+          <div className="social flex justify-center">
+            <FaFacebook size="2rem" />
+            <FaInstagram size="2rem" className="mx-4" />
+            <FaGithub size="2rem" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Footer;

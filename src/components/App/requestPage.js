@@ -8,7 +8,7 @@ function RequestPage() {
   const navigate = useNavigate();
   useEffect(() => {
     if (auth) {
-      navigate('/Home');
+      navigate('/');
     }
   }, [auth]);
   return <Outlet />;
