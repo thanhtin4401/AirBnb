@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { localStorageService } from './localStorageService';
 
 export const TOKEN =
@@ -31,27 +30,3 @@ https.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-// https.interceptors.request.use(
-//   (config) => {
-//     const token = JSON.parse(window.localStorage.getItem('accessToken'));
-//     const auth = token ? `Bearer ${token}` : '';
-//     config.headers.common['Authorization'] = auth;
-//     s
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
-// https.interceptors.response.use(
-//   (response) => {
-//     if (response && response.data) {
-//       return response.data;
-//     }
-//     return response;
-//   },
-//   (error) => {
-//     throw error;
-//   }
-// );
