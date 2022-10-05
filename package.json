@@ -11,10 +11,15 @@
         "axios": "^0.27.2",
         "css-loader": "^6.7.1",
         "gapi-script": "^1.2.0",
+        "moment": "^2.29.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-google-login": "^5.2.2",
+<<<<<<< HEAD
+        "react-icons": "^4.4.0",
+=======
         "react-player": "^2.11.0",
+>>>>>>> develop
         "react-redux": "^8.0.4",
         "react-router-dom": "^6.4.1",
         "react-scripts": "5.0.1",
