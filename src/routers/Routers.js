@@ -13,15 +13,17 @@ export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Mainlayout />}>
+          <Route path="/" element={<HomePage />}></Route>
+        </Route>
         <Route
-          path="/"
+          path="/BookRoom"
           element={
-            // <RequestAuth>
-            <Mainlayout />
-            // </RequestAuth>
+            <RequestAuth>
+              <Mainlayout />
+            </RequestAuth>
           }
         >
-          <Route path="/Home" element={<HomePage />}></Route>
           <Route path="/BookRoom" element={<BookRoomPage />}></Route>
         </Route>
         <Route

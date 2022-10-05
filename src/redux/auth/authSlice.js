@@ -46,7 +46,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
-          isLoading: true,
+          isLoading: false,
           accessToken: payload.token,
           isLoggedIn: !!payload,
         };
@@ -54,9 +54,9 @@ const authSlice = createSlice({
       .addCase(loginUser.rejected, (state, { payload }) => {
         return {
           ...state,
-          isLoading: true,
+          isLoading: false,
           accessToken: payload.token,
-          isLoggedIn: !!payload,
+          isLoggedIn: false,
         };
       });
   },
