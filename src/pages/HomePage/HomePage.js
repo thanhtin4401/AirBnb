@@ -18,6 +18,7 @@ function HomePage() {
     dispatch(getRoomList());
     dispatch(getLocationList());
   }, []);
+
   const renderRoomItem = () => {
     return allRoom?.map((roomInfor, index) => {
       return <CardItem key={index} roomInfor={roomInfor} />;
