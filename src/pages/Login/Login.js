@@ -5,6 +5,8 @@ import './Login.scss';
 import { loginUser } from '../../redux/auth/authSlice';
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
+import DropdownLanguages from './DropdownLanguages';
+import { useTranslation } from 'react-i18next';
 function Login() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -46,6 +48,7 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const { t } = useTranslation();
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
@@ -58,9 +61,9 @@ function Login() {
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
             <div className="flex justify-between mb-2 items-center">
-              <h1 className="font-bold text-[20px]">Login</h1>
+              <h1 className="font-bold text-[20px]">{t('LOGIN')}</h1>
               <div className="flex items-center">
-                <Select
+                {/* <Select
                   defaultValue="VN"
                   style={{
                     width: 120,
@@ -69,7 +72,8 @@ function Login() {
                 >
                   <Option value="jack">ENG</Option>
                   <Option value="lucy">VN</Option>
-                </Select>
+                </Select> */}
+                <DropdownLanguages />
               </div>
             </div>
             <Form
