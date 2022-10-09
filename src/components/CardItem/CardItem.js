@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './CardItem.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -18,11 +18,15 @@ function CardItem({ roomInfor }) {
           className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
         /> */}
         <Swiper
+          loop={true}
           cssMode={true}
           navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
+          // mousewheel={true}
+          // keyboard={true}
+          slidesPerView={1}
+          pagination={{
+            clickable: true,
+          }}
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >

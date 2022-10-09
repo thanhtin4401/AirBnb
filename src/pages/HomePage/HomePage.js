@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRoomList } from '../../redux/room/roomList';
 import { getLocationList } from '../../redux/room/roomLocation';
 import TabsHeader from './TabsHeader';
+import FilterSlide from '../../components/FilterSlide/FilterSlide';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -58,8 +59,13 @@ function HomePage() {
           </div>
         </div>
       </div>
+      <div className="container mt-10">
+        <FilterSlide />
+      </div>
+
       <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {/* <SkeletonItem /> */}
+
         {renderRoomItem()}
       </div>
     </div>
