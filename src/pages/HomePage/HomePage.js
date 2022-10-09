@@ -7,6 +7,8 @@ import CardItem from '../../components/CardItem/CardItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoomList } from '../../redux/room/roomList';
 import { getLocationList } from '../../redux/room/roomLocation';
+import TabsHeader from './TabsHeader';
+import FilterSlide from '../../components/FilterSlide/FilterSlide';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ function HomePage() {
     dispatch(getRoomList());
     dispatch(getLocationList());
   }, []);
+
   const renderRoomItem = () => {
     return allRoom?.map((roomInfor, index) => {
       return <CardItem key={index} roomInfor={roomInfor} />;
@@ -26,27 +29,44 @@ function HomePage() {
 
   return (
     <div>
-      <div className="header h-[100vh] flex justify-center items-center">
-        <div className="text-center ">
-          <h1 className="font-bold mb-10 text-[18px] ">you can contact me and see cv of us</h1>
-          <button
-            className="btn-here-me text-[#F2555A] bg-white hover:text-white hover:bg-[#F2555A] transition-all"
-            style={{
-              padding: '20px 50px',
-              borderRadius: 68,
-              fontSize: 18,
+      <div className="header h-[100vh] pt-[70px] relative flex justify-center items-center">
+        <div className="filter-background absolute bg-[#0000007a] w-full z-10 top-0 right-0 h-full "></div>
+        <div className="flex px-[120px] container justify-between z-20 w-full h-full items-center pt-[70px]">
+          <div className="text-center w-2/4 ">
+            <h1 className="font-bold mb-10 text-white text-[40px] text-left animate__animated animate__fadeInLeft">
+              Monaco
+              <p className="text-[25px]">Mar mediterrance</p>
+            </h1>
+            {/* <button
+              className="btn-here-me text-[#F2555A] bg-white hover:text-white hover:bg-[#F2555A] transition-all"
+              style={{
+                padding: '20px 50px',
+                borderRadius: 68,
+                fontSize: 18,
 
-              fontWeight: 'bold',
-            }}
-          >
-            Default Button
-          </button>
+                fontWeight: 'bold',
+              }}
+            >
+              Default Button
+            </button> */}
+          </div>
+          <div className="text-center  overflow-hidden p-[20px 0px 100px 20px] h-full w-2/4">
+            <div className=" m-auto mt-10  grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 gap-6 animate__animated animate__fadeInUp">
+              {/* <SkeletonItem /> */}
+              <TabsHeader renderRoomItem={renderRoomItem} />
+              {/* {renderRoomItem()} */}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="container mt-10">
+        <FilterSlide />
+      </div>
+
+      <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {/* <SkeletonItem /> */}
+
         {renderRoomItem()}
-        <h1>hello</h1>
       </div>
     </div>
   );
