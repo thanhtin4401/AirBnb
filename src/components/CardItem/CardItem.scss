@@ -42,8 +42,10 @@ swiper {
     background-color: white;
     opacity: 0;
     color: black!important;
-    padding: 1.5rem;
-    border-radius: 50rem;
+    padding: 0;
+    width: 36px!important;
+    height: 36px!important;
+    border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: all 0.3s ease-in-out;
 }
@@ -52,10 +54,13 @@ swiper {
     background-color: white;
     color: black!important;
     opacity: 0;
-    padding: 1.5rem;
-    border-radius: 50rem;
+    padding: 0;
+    width: 36px!important;
+    height: 36px!important;
+    border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: all 0.3s ease-in-out;
+    border: none!important
 }
 
 .swiper-button-prev.swiper-button-disabled {
@@ -64,7 +69,7 @@ swiper {
 
 .swiper-pagination {
     margin-bottom: 10px;
-    opacity: 0.5;
+    // opacity: 1;
     .swiper-pagination-bullet {
         height: 8px!important;
         width: 8px!important;

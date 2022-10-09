@@ -59,15 +59,112 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container mt-10">
-        <FilterSlide />
+      <div className="container m-auto mt-10 mb-10">
+        <div className="mb-10">
+          <h1 className="text-xl font-bold mb-10">Explore nearby</h1>
+          <div className="grid grid-cols-4 grid-rows-2">
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">
+              <img
+                src="../../../public/img/Explore-nearby/house-2.png"
+                className="rounded-[0.2rem] mr-2 w-[40px] h-[40px]"
+                alt=""
+              />
+              <div className="">
+                <h1 className="text-lg font-bold">location name</h1>
+                <p className="opacity-60">start 250</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="filter-sticky bg-white border-b-2">
+        <div className="container  m-auto mt-10">
+          <FilterSlide />
+        </div>
       </div>
 
       <div className="container m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {/* <SkeletonItem /> */}
-
         {renderRoomItem()}
       </div>
+      <div className="container"></div>
     </div>
   );
 }

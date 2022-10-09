@@ -12,39 +12,202 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper';
 function FilterSlice() {
   return (
-    <div className="grid grid-col-12 gap-4">
-      <div className="col-start-1 col-end-3">
+    <div className="flex w-full items-center">
+      <div className="filter-wrapper w-11/12">
         <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
+          slidesPerView={10}
+          spaceBetween={10}
+          slidesPerGroup={1}
           loop={true}
+          // loopFillGroupWithBlank={true}
           pagination={{
             clickable: true,
           }}
           navigation={true}
           modules={[Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper filter"
         >
-          <SwiperSlide>Slide 6</SwiperSlide>
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
+          <SwiperSlide className="bg-white text-[black]">
+            <button className="flex flex-col items-center">
+              <img
+                src="https://res.cloudinary.com/dvzingci9/image/upload/v1665309772/airBnB/iconFilter/image_2_xqwi4p.png"
+                className="w-[24px] h-[24px]"
+                alt=""
+              />
+              <p className="block w-full">Dammiso</p>
+            </button>
+          </SwiperSlide>
         </Swiper>
       </div>
 
-      <button className="py-[17px] px-[8px] font-[400] border rounded-[1rem] col-start-11 col-end-13 flex items-center">
+      <button className="ml-2 py-[17px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth="1.5"
+          strokeWidth="3"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-4 h-4"
         >
           <path
             strokeLinecap="round"

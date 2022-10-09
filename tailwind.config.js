@@ -7,9 +7,9 @@ module.exports = {
       padding: {
         DEFAULT: '1rem',
         sm: '2rem',
-        lg: '1rem',
-        xl: '1rem',
-        '2xl': '1rem',
+        lg: '4rem',
+        xl: '2rem',
+        '2xl': '2rem',
       },
     },
     // fontFamily: {

@@ -8,21 +8,17 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+
 function CardItem({ roomInfor }) {
   return (
     <div className="relative bg-white rounded-[2rem]">
       <div className="">
-        {/* <img
-          src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
-          alt=""
-          className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
-        /> */}
         <Swiper
           loop={true}
           cssMode={true}
           navigation={true}
-          // mousewheel={true}
-          // keyboard={true}
+          mousewheel={true}
+          keyboard={true}
           slidesPerView={1}
           pagination={{
             clickable: true,

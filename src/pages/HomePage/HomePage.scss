@@ -8,3 +8,12 @@
 .btn-here-me {
     box-shadow: rgb(0 0 0 / 0%) 0px 54px 55px, rgb(0 0 0 / 0%) 0px -12px 30px, rgb(0 0 0 / 0%) 0px 4px 6px, rgb(0 0 0 / 44%) 0px 12px 13px, rgb(0 0 0 / 0%) 0px -3px 12px;
 }
+
+.filter-sticky {
+    position: -webkit-sticky;
+    position: sticky!important;
+    top: 80px;
+    z-index: 30;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
