@@ -6,8 +6,7 @@ import Header from '../components/Header/Header';
 function Mainlayout() {
   return (
     <div>
-      
-         <Header/>
+      <Header />
       <Outlet />
       <Footer />
     </div>

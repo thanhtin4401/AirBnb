@@ -34,7 +34,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -44,7 +44,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -54,7 +54,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -64,7 +64,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -74,7 +74,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -84,7 +84,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -94,7 +94,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -104,7 +104,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -114,7 +114,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -124,7 +124,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -134,7 +134,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -144,7 +144,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -154,7 +154,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -164,7 +164,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -174,7 +174,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -184,7 +184,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
           <SwiperSlide className="bg-white text-[black]">
@@ -194,7 +194,7 @@ function FilterSlice() {
                 className="w-[24px] h-[24px]"
                 alt=""
               />
-              <p className="block w-full">Dammiso</p>
+              <p className="block w-full text-[0.8rem]">Dammiso</p>
             </button>
           </SwiperSlide>
         </Swiper>

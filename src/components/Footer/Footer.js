@@ -3,12 +3,12 @@ import { FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa';
 import './Footer.scss';
 function Footer() {
   return (
-    <div className="bg-[#F7F7F7] pt-8  w-full border-t-[1px] border-[#DDDDDD] ">
+    <div className="bg-[#F7F7F7] pt-8 pb-[5rem]  w-full border-t-[1px] border-[#DDDDDD] ">
       <div className="container m-auto grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div className="text-left">
-          <h2 className="mb-4 font-bold text-[18px]">Support</h2>
-          <ul className="text-[18px]">
-            <li className="mb-4 font-200">
+          <h2 className="mb-4 font-[600] text-[0.8rem]">Support</h2>
+          <ul className="text-[0.8rem]">
+            <li className="mb-4 font-[400]">
               {' '}
               <a>Help Center</a>
             </li>
@@ -36,14 +36,50 @@ function Footer() {
               {' '}
               <a>Report a neightborhood concern</a>
             </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Safety information</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Supporting people with disabilities</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Cancellation option</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Out COVID-19 Respone</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Report a neightborhood concern</a>
+            </li>
           </ul>
         </div>
         <div className="text-left">
-          <h2 className="mb-4 font-bold text-[18px]">Community</h2>
-          <ul className="text-[18px]">
-            <li className="mb-4 font-200">
+          <h2 className="mb-4 font-[600] text-[0.8rem]">Community</h2>
+          <ul className="text-[0.8rem]">
+            <li className="mb-4 font-[400]">
               {' '}
               <a>Airbnb.org:disaster relief housing</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Support Afghan refugess</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Combating discrimination</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Support Afghan refugess</a>
+            </li>
+            <li className="mb-4 font-200">
+              {' '}
+              <a>Combating discrimination</a>
             </li>
             <li className="mb-4 font-200">
               {' '}
@@ -56,9 +92,9 @@ function Footer() {
           </ul>
         </div>
         <div className="text-left">
-          <h2 className="mb-4 font-bold text-[18px]">Hosting</h2>
-          <ul className="text-[18px]">
-            <li className="mb-4 font-200">
+          <h2 className="mb-4 font-[600] text-[0.8rem]">Hosting</h2>
+          <ul className="text-[0.8rem]">
+            <li className="mb-4 font-[400]">
               {' '}
               <a>Try hosting</a>
             </li>
@@ -81,9 +117,9 @@ function Footer() {
           </ul>
         </div>
         <div className="text-left">
-          <h2 className="mb-4 font-bold text-[18px]">Airbnb</h2>
-          <ul className="text-[18px]">
-            <li className="mb-4 font-200">
+          <h2 className="mb-4 font-[600] text-[0.8rem]">Airbnb</h2>
+          <ul className="text-[0.8rem]">
+            <li className="mb-4 font-[400]">
               {' '}
               <a>Newsroom</a>
             </li>
@@ -112,15 +148,21 @@ function Footer() {
       </div>
       <div className="footer-sticky w-full">
         <div className="container py-3 m-auto  flex justify-between items-center">
-          <div className="text-[16px] flex items-center">
+          <div className="text-[0.8] font-[400] flex items-center">
             © 2022 Airbnb, Inc.
             <div className="flex items-center">
               <span className="mx-4 inline">.</span>
-              <a href="#">Privacy</a>
+              <a className="font-[400] text-[0.8]" href="#">
+                Privacy
+              </a>
               <span className="mx-4 inline">.</span>
-              <a href="#">Privacy</a>
+              <a className="font-[400] text-[0.8]" href="#">
+                Privacy
+              </a>
               <span className="mx-4 inline">.</span>
-              <a href="#">Privacy</a>
+              <a className="font-[400] text-[0.8]" href="#">
+                Privacy
+              </a>
             </div>
           </div>
           <div className="flex items-center">
@@ -129,17 +171,18 @@ function Footer() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokewidth="2"
+                strokeWidth="2"
                 stroke="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
               >
                 <path
-                  strokelinecap="round"
-                  strokelinejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
                 />
               </svg>
-              <button href="#" className="text-[18px] font-300 hover:underline">
+
+              <button href="#" className="text-[0.8] font-[400] hover:underline">
                 English(EN)
               </button>
             </div>
@@ -150,7 +193,7 @@ function Footer() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
               >
                 <path
                   // strokeLinecap="round"
@@ -159,14 +202,14 @@ function Footer() {
                 />
               </svg>
 
-              <button href="#" className="text-[18px] font-300 hover:underline">
+              <button href="#" className="text-[0.8rem] font-[400]hover:underline">
                 USD
               </button>
             </div>
             <div className="social flex justify-center">
-              <FaFacebook size="1.5rem" />
-              <FaInstagram size="1.5rem" className="mx-4" />
-              <FaGithub size="1.5rem" />
+              <FaFacebook size="1.3rem" />
+              <FaInstagram size="1.3rem" className="mx-4" />
+              <FaGithub size="1.3rem" />
             </div>
           </div>
         </div>

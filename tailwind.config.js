@@ -6,10 +6,10 @@ module.exports = {
     container: {
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '2rem',
-        '2xl': '2rem',
+        // sm: '0.2rem',
+        // lg: '0.5rem',
+        // xl: '1rem',
+        // '2xl': '1rem',
       },
     },
     // fontFamily: {
@@ -24,13 +24,13 @@ module.exports = {
       md: '768px',
       // => @media (min-width: 768px) { ... }
 
-      lg: '1440px',
+      lg: '1024px',
       // => @media (min-width: 1024px) { ... }
 
-      xl: '1660px',
+      xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1920px',
+      '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
   },

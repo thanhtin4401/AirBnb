@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import CardItem from '../../components/CardItem/CardItem';
 import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
+import GridImgHeader from '../../components/CardItem/GridImgHeader';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -77,7 +78,11 @@ export default function TabsHeader({ props }) {
             width: '100%',
             justifyContent: 'space-around',
 
-            '& button': { color: 'white', fontSize: 22 },
+            '& button': { color: 'white', fontSize: '1rem', opacity: '0.6' },
+            '& button:hover': { opacity: '1', color: 'white' },
+            '& button:active': { opacity: '1', color: 'white' },
+            '& button:focus': { opacity: '1', color: 'white' },
+            '& button.Mui-selected': { opacity: '1', color: 'white' },
           }}
         >
           <Tab
@@ -111,7 +116,7 @@ export default function TabsHeader({ props }) {
         <CardItemHeader />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <GridImgHeader />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

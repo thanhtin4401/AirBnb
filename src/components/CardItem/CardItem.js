@@ -26,24 +26,24 @@ function CardItem({ roomInfor }) {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className="rounded-[1rem] object-cover max-h-full max-w-full">
             <img
               src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
               alt=""
-              className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
+              className="rounded-[1rem] object-cover max-h-full max-w-full"
             />
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className="rounded-[1rem] object-cover max-h-full max-w-full">
             <img
               src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
               alt=""
-              className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
+              className="rounded-[1rem] object-cover max-h-full max-w-full"
             />
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className="rounded-[1rem] object-cover max-h-full max-w-full">
             Slide 3
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className="rounded-[1rem] object-cover max-h-full max-w-full">
             Slide 4
           </SwiperSlide>
         </Swiper>
@@ -69,19 +69,19 @@ function CardItem({ roomInfor }) {
       </svg>
       <div className="mt-[8px]">
         <div className="w-full flex justify-between">
-          <h1 className="text-[18px] font-[500]">Name resort</h1>
+          <h1 className="text-[1rem] font-[400]">Name resort</h1>
           <div className="flex justify-center items-center">
-            <span className=" text-[18px] opacity-60">5.0</span>
-            <FaStar size="18px" className="ml-2 opacity-60" />
+            <span className=" text-[1rem] opacity-60">5.0</span>
+            <FaStar size="1rem" className="ml-2 opacity-60" />
           </div>
         </div>
-        <p className="text-[16px] text-left font-[400] text-[black] opacity-60">
+        <p className="text-[0.8rem] text-left font-[400] text-[black] opacity-60">
           9000km kilometers away
         </p>
-        <p className="text-[16px] text-left text-[black] opacity-60">Oct 2-9</p>
+        <p className="text-[0.8rem] text-left text-[black] opacity-60">Oct 2-9</p>
         <div className="flex items-center">
-          <p className="text-[18px] mr-2 font-[500] text-[black] ">$300</p>
-          <span className="font-300 text-[16px] font-[400] text-[black]">night</span>
+          <p className="text-[0.9rem] mr-2 font-[500] text-[black] ">$300</p>
+          <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
         </div>
       </div>
     </div>

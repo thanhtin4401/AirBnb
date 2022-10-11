@@ -139,18 +139,6 @@
     background-color: white!important;
 }
 
-.swiper-button-next:after {
-    font-size: 14px!important;
-    width: 32px;
-    height: 32px;
-    border-radius: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.447);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-}
-
 .filter {
     .swiper-button-next::before {
         content: "";
@@ -162,9 +150,6 @@
         background: black;
         background: linear-gradient(270deg, rgba(255, 255, 255, 1) 70%, rgba(0, 212, 255, 0) 100%);
     }
-}
-
-.filter {
     .swiper-button-prev::before {
         content: "";
         position: absolute;
@@ -175,16 +160,27 @@
         background: black;
         background: linear-gradient(90deg, rgba(255, 255, 255, 1) 70%, rgba(0, 212, 255, 0) 100%);
     }
-}
-
-.swiper-button-prev:after {
-    font-size: 14px!important;
-    width: 32px;
-    height: 32px;
-    border-radius: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.447);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
+    .swiper-button-prev:after {
+        font-size: 0.7rem!important;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.447);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+    }
+    .swiper-button-next:after {
+        font-size: 0.7rem!important;
+        width: 24px;
+        height: 24px;
+        border-radius: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.447);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+    }
 }
