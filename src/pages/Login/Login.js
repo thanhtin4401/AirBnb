@@ -52,7 +52,7 @@ function Login() {
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
-      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen  lg:h-[50rem]">
+      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]">
         <img
           className="absolute top-[24px] left-[24px] w-[6rem]"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
@@ -177,11 +177,11 @@ function Login() {
           </div>
         </div>
         <div className="w-2/4 mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
-          <div className="glass h-[40rem] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
+          <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
             </h1>
-            <img src="../img/img.png" className="bottom-0 absolute left-20" alt="" />
+            <img src="../img/img.png" className="bottom-0 w-[70%] absolute left-20" alt="" />
           </div>
           <img
             className="absolute right-[9rem] bottom-0 z-none"
