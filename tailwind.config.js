@@ -6,10 +6,10 @@ module.exports = {
     container: {
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '1rem',
-        xl: '1rem',
-        '2xl': '1rem',
+        // sm: '0.2rem',
+        // lg: '0.5rem',
+        // xl: '1rem',
+        // '2xl': '1rem',
       },
     },
     // fontFamily: {
