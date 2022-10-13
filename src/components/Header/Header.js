@@ -49,15 +49,15 @@ export default function Header() {
   return (
     <div
       // style={{ boxShadow: `${open ? '' : 'rgba(0, 0, 0, 0.45) 0px 20px 20px -20px'}` }}
-      style={{ borderBottom: `${open ? '' : '1px solid #c5c5c578'}` }}
+      // style={{ borderBottom: `${open ? '1px solid #c5c5c578' : ''}` }}
       className={`${
-        bg ? 'bg-transparent' : 'bg-white'
-      } fixed top-0 z-40 w-full transition duration-300`}
+        bg ? 'bg-transparent ' : 'bg-white lg:border-b-[1px] lg:border-b-[#c5c5c578]'
+      } fixed top-0 z-40 w-full transition duration-300 `}
     >
       <nav
         className={`${
           bg ? 'py-5' : 'py-3'
-        } transition-all duration-500 relative px-10 flex items-center lg:justify-between md:justify-between sm:justify-center mb:justify-center`}
+        } transition-all container mx-auto duration-500 relative  flex items-center lg:justify-between md:justify-between sm:justify-center mb:justify-center`}
       >
         {/* LEFT */}
         <div className="logo lg:block  md:hidden sm:hidden mb:hidden animate__animated animate__fadeInLeft">

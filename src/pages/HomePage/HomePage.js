@@ -41,7 +41,7 @@ function HomePage() {
 
   return (
     <div>
-      <div className="header h-[100vh] pt-[70px] relative flex justify-center items-center">
+      <div className="header h-[100vh] pt-[70px] relative mb:hidden sm:hidden lg:flex justify-center items-center">
         <div className="filter-background absolute bg-[#0000007a] w-full z-10 top-0 right-0 h-full "></div>
         <div className="flex px-[4rem] container justify-between z-20 w-full h-full items-center pt-[1rem]">
           <div className="text-center w-2/4 ">
@@ -71,7 +71,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container m-auto mt-10 mb-10">
+      <div className="container m-auto mb:mt-[10rem] sm lg:mt-10 mb-10">
         <div className="mb-10">
           <h1 className="text-[3rem] font-bold mb-10">Explore nearby</h1>
           <div className="grid mb:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-4">
@@ -171,16 +171,16 @@ function HomePage() {
         className="filter-sticky bg-white "
         style={{ boxShadow: `${openShadowFilter ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : ''}` }}
       >
-        <div className="container  m-auto mt-10">
+        <div className="mb:w-full sm:w-full lg:container m-auto mt-10">
           <FilterSlide />
         </div>
       </div>
 
-      <div className="container mb-10 m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 ">
+      <div className="container mb-10 m-auto mt-10 grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-6 ">
         {/* <SkeletonItem /> */}
         {renderRoomItem()}
       </div>
-      <div className="container mx-auto">
+      <div className="mb:w-full sm:w-full lg:container mx-auto">
         <Banner />
       </div>
       <div className="flex relative mt-10 bg-black w-full h-screen">

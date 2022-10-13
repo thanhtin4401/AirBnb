@@ -146,7 +146,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="footer-sticky w-full">
+      <div className="footer-sticky w-full mb:hidden sm:hidden lg:block">
         <div className="container py-3 m-auto  flex justify-between items-center">
           <div className="text-[0.8] font-[400] flex items-center">
             © 2022 Airbnb, Inc.

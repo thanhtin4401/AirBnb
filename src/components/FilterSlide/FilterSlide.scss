@@ -184,3 +184,14 @@
         background: white;
     }
 }
+
+@media only screen and (max-width: 1023px) {
+    .filter {
+        .swiper-button-next {
+            display: none!important;
+        }
+        .swiper-button-prev {
+            display: none!important;
+        }
+    }
+}

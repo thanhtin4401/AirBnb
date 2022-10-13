@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './FilterSlide.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,11 +11,14 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper';
 function FilterSlice() {
+  console.log('width');
+  let screenWidth = window.screen.width;
+
   return (
     <div className="flex w-full items-center">
-      <div className="filter-wrapper w-11/12">
+      <div className="filter-wrapper mb:w-full md:w-full sm:w-full lg:w-11/12">
         <Swiper
-          slidesPerView={10}
+          slidesPerView={screenWidth >= 1024 ? 10 : 5}
           spaceBetween={10}
           slidesPerGroup={1}
           loop={true}
@@ -200,7 +203,7 @@ function FilterSlice() {
         </Swiper>
       </div>
 
-      <button className="ml-2 py-[17px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center font-bold">
+      <button className="ml-2 mb:hidden sm:hidden lg:flex py-[17px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
