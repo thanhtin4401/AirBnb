@@ -16,6 +16,7 @@ function HomePage() {
   const dispatch = useDispatch();
   const allRoom = useSelector((state) => state.room.listRoom.allRoom);
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
+  const [openShadowFilter, setopenShadowFilter] = useState(false);
   console.log('allRoom', allRoom);
   console.log('allList', allLocation);
   useEffect(() => {
@@ -28,6 +29,15 @@ function HomePage() {
       return <CardItem key={index} roomInfor={roomInfor} />;
     });
   };
+  const closeNav = () => {
+    if (window.scrollY >= 1100) {
+      setopenShadowFilter(true);
+    }
+    if (window.scrollY < 1100) {
+      setopenShadowFilter(false);
+    }
+  };
+  window.addEventListener('scroll', closeNav);
 
   return (
     <div>
@@ -156,7 +166,11 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="filter-sticky bg-white ">
+
+      <div
+        className="filter-sticky bg-white "
+        style={{ boxShadow: `${openShadowFilter ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : ''}` }}
+      >
         <div className="container  m-auto mt-10">
           <FilterSlide />
         </div>
