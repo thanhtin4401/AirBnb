@@ -51,7 +51,7 @@ export default function Header() {
       // style={{ boxShadow: `${open ? '' : 'rgba(0, 0, 0, 0.45) 0px 20px 20px -20px'}` }}
       // style={{ borderBottom: `${open ? '1px solid #c5c5c578' : ''}` }}
       className={`${
-        bg ? 'bg-transparent ' : 'bg-white lg:border-b-[1px] lg:border-b-[#c5c5c578]'
+        bg ? 'lg:bg-transparent ' : 'bg-white border-b-[1px] border-b-[#c5c5c578] '
       } fixed top-0 z-40 w-full transition duration-300 `}
     >
       <nav
@@ -78,14 +78,26 @@ export default function Header() {
             style={{ boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}
             className="flex z-20 items-center px-3 py-2 rounded-3xl border border-gray-300"
           >
-            <div className={`  font-medium px-2 border-r-2`}>
-              <h1 className={`${bg ? 'text-white' : 'text-black'}`}>Địa Điểm Bất kỳ</h1>
+            <div className={`font-medium cursor-pointer px-2 border-r-2`}>
+              <h1
+                className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
+              >
+                Địa Điểm Bất kỳ
+              </h1>
             </div>
-            <div className="font-medium px-2 border-r-2">
-              <h1 className={`${bg ? 'text-white' : 'text-black'}`}>Tuần Bất Kỳ</h1>
+            <div className="font-medium  cursor-pointer px-2 border-r-2">
+              <h1
+                className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
+              >
+                Tuần Bất Kỳ
+              </h1>
             </div>
-            <div className="font-medium px-2 ">
-              <h1 className={`${bg ? 'text-white' : 'text-black'}`}>Thêm Khách</h1>
+            <div className="font-medium  cursor-pointer px-2 ">
+              <h1
+                className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
+              >
+                Thêm Khách
+              </h1>
             </div>
             <div className="p-2 bg-[#FF385C] rounded-3xl">
               <FaSearch className="text-white" />

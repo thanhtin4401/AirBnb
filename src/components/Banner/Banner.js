@@ -9,7 +9,7 @@ function Banner() {
         className="absolute w-full h-full object-cover"
       />
       <div className="overlay w-full h-full absolute top-0 left-0"></div>
-      <div className="flex justify-start pl-[10rem] z-10">
+      <div className="flex mb:justify-center sm:justify-center lg:justify-start lg:pl-[10rem] z-10 mb:w-full sm:w-full lg:w-auto">
         <div className="mb:text-center sm:text-center lg:text-left">
           <h1 className="text-[3rem] font-bold text-white">Try hosting</h1>
           <p className="text-white text-[0.8rem] font-[500] mb-4 mt-2">

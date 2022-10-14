@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa';
 import './Footer.scss';
+import FooterMobile from './FooterMobile';
 function Footer() {
   return (
     <div className="bg-[#F7F7F7] pt-8 pb-[5rem]  w-full border-t-[1px] border-[#DDDDDD] ">
@@ -213,6 +214,9 @@ function Footer() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="footer-sticky w-full mb:block sm:block lg:hidden">
+        <FooterMobile />
       </div>
     </div>
   );
