@@ -54,7 +54,6 @@
         width: 36px!important;
         height: 36px!important;
         border-radius: 50rem;
-        border: 1px solid gray;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         transition: all 0.3s ease-in-out;
         left: 0;
@@ -80,7 +79,6 @@
         width: 36px!important;
         height: 36px!important;
         border-radius: 2rem;
-        border: 1px solid gray!important;
         transition: all 0.3s ease-in-out;
         right: 0;
         &:hover {
@@ -119,13 +117,17 @@
     .swiper-wrapper {
         .swiper-slide {
             border-bottom: 4px solid white;
-            opacity: 0.6;
+            opacity: 0.7;
             transition: all 0.3s ease;
             box-sizing: border-box;
             padding: 1rem 0;
             &:hover {
                 opacity: 1;
-                border-bottom: 4px solid rgba(128, 128, 128, 0.845);
+                border-bottom: 2px solid rgba(128, 128, 128, 0.845);
+            }
+            &:active {
+                opacity: 1;
+                border-bottom: 2px solid rgba(128, 128, 128, 0.845);
             }
         }
     }
@@ -145,7 +147,7 @@
         position: absolute;
         height: 4rem;
         right: -10px;
-        width: 100px;
+        width: 50px;
         z-index: -1;
         background: black;
         background: linear-gradient(270deg, rgba(255, 255, 255, 1) 70%, rgba(0, 212, 255, 0) 100%);
@@ -155,7 +157,7 @@
         position: absolute;
         height: 4rem;
         left: -10px;
-        width: 100px;
+        width: 50px;
         z-index: -1;
         background: black;
         background: linear-gradient(90deg, rgba(255, 255, 255, 1) 70%, rgba(0, 212, 255, 0) 100%);
@@ -182,5 +184,16 @@
         justify-content: center;
         align-items: center;
         background: white;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .filter {
+        .swiper-button-next {
+            display: none!important;
+        }
+        .swiper-button-prev {
+            display: none!important;
+        }
     }
 }
