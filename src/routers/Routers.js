@@ -9,6 +9,7 @@ import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
 import HomePage from '../pages/HomePage/HomePage';
 import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
 
 export default function Routers() {
@@ -39,6 +40,9 @@ export default function Routers() {
         >
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Register" element={<Register />}></Route>
+        </Route>
+        <Route path="/" element={<Mainlayout />}>
+          <Route path="/SearchPage" element={<SearchPage />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>
