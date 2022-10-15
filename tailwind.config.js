@@ -3,7 +3,15 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {},
-
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        // sm: '0.2rem',
+        // lg: '0.5rem',
+        // xl: '1rem',
+        // '2xl': '1rem',
+      },
+    },
     // fontFamily: {
     //   sans: ["Graphik", "sans-serif"],
     //   serif: ["Merriweather", "serif"],

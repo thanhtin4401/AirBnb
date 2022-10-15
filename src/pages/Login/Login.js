@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Select } from 'antd';
 import './Login.scss';
 import { loginUser } from '../../redux/auth/authSlice';
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
+import DropdownLanguages from './DropdownLanguages';
+import { useTranslation } from 'react-i18next';
 function Login() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -46,9 +48,11 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const { t } = useTranslation();
+  const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
-      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen  lg:h-[50rem]">
+      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]">
         <img
           className="absolute top-[24px] left-[24px] w-[6rem]"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
@@ -57,9 +61,9 @@ function Login() {
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
             <div className="flex justify-between mb-2 items-center">
-              <h1 className="font-bold text-[20px]">Login</h1>
+              <h1 className="font-bold text-[20px]">{t('LOGIN')}</h1>
               <div className="flex items-center">
-                <Select
+                {/* <Select
                   defaultValue="VN"
                   style={{
                     width: 120,
@@ -68,7 +72,8 @@ function Login() {
                 >
                   <Option value="jack">ENG</Option>
                   <Option value="lucy">VN</Option>
-                </Select>
+                </Select> */}
+                <DropdownLanguages />
               </div>
             </div>
             <Form
@@ -155,7 +160,12 @@ function Login() {
                 isSignedIn={true}
               />
               {/* </button> */}
-              <button className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]">
+              <button
+                onClick={() => {
+                  console.log(auth.isLoggedIn);
+                }}
+                className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]"
+              >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
                   alt=""
@@ -167,11 +177,11 @@ function Login() {
           </div>
         </div>
         <div className="w-2/4 mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
-          <div className="glass h-[40rem] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
+          <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
             </h1>
-            <img src="../img/img.png" className="bottom-0 absolute left-20" alt="" />
+            <img src="../img/img.png" className="bottom-0 w-[70%] absolute left-20" alt="" />
           </div>
           <img
             className="absolute right-[9rem] bottom-0 z-none"
