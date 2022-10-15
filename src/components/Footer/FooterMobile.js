@@ -18,7 +18,7 @@ function FooterMobile() {
             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
           />
         </svg>
-        <p className="text-[12px] mt-2">Explorer</p>
+        <p className="text-[12px] mt-2">Explorer s</p>
       </button>
 
       <button className=" flex flex-col justify-center items-center opacity-60 py-3 focus:opacity-100 focus:font-bold focus:text-[red]">
