@@ -17,6 +17,7 @@ export default function Routers() {
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
         </Route>
         <Route
           path="/"
@@ -26,7 +27,7 @@ export default function Routers() {
             </RequestAuth>
           }
         >
-          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          {/* <Route path="/Detail-Room" element={<DetailRoomPage />}></Route> */}
         </Route>
         <Route
           path="/"

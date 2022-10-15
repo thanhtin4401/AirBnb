@@ -46,7 +46,7 @@ export default function UserNav({ bg }) {
             open ? '' : 'hidden'
           } `}
         >
-          <DropDown title={isUser ? isUser.user.name : 'Đăng kí'} />
+          <DropDown title={isUser ? 'Chào' + isUser.user.name : 'Đăng kí'} />
           {isUser ? <DropDown title={'Đăng Xuất'} /> : <DropDown title={'Đăng Nhập'} />}
           <div className="bg-gray-300 w-full h-[1px] my-[5px]"></div>
           <DropDown title={'Cho Thuê Nhà'} />

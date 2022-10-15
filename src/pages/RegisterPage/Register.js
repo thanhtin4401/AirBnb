@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Col, Form, Input, Select } from 'antd';
+
 import './Register.scss';
 import { loginUser } from '../../redux/auth/authSlice';
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
+import { Form, Input, Button, Select, DatePicker, Col, Row } from 'antd';
 function Register() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -49,6 +51,7 @@ function Register() {
     gapi.load('client:auth2', start);
   }, []);
   const { t } = useTranslation();
+  const navigater = useNavigate();
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
@@ -124,7 +127,7 @@ function Register() {
                 />
               </Form.Item>
               <Form.Item
-                name="email"
+                name="name"
                 rules={[
                   {
                     required: true,
@@ -140,24 +143,7 @@ function Register() {
                 />
               </Form.Item>
               <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your username!',
-                  },
-                ]}
-              >
-                <Input
-                  style={{ width: '100%' }}
-                  className="input border px-[14px] py-[14px] rounded-[0.5rem] 
-                  "
-                  placeholder="Input your email/phone number"
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="email"
+                name="phone"
                 rules={[
                   {
                     required: true,
@@ -168,9 +154,27 @@ function Register() {
                 <Input
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                  placeholder="Input your email/phone number"
+                  placeholder="+84 Phone Number"
                 />
               </Form.Item>
+              <Row span={24} style={{ width: '100%' }}>
+                <Col span={12} style={{ paddingRight: '0.2rem' }}>
+                  <Form.Item wrapperCol={{ sm: 24 }} style={{ width: '100%', marginRight: '1rem' }}>
+                    <DatePicker className="w-full " />
+                  </Form.Item>
+                </Col>
+                <Col span={12}>
+                  <Form.Item
+                    wrapperCol={{ sm: 24 }}
+                    style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
+                  >
+                    <Select className="w-full " placeholder="gender">
+                      <Select.Option value="demo">Nam</Select.Option>
+                      <Select.Option value="demo">Nữ</Select.Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
 
               <Button
                 className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
@@ -182,9 +186,9 @@ function Register() {
               </Button>
             </Form>
             <div className="flex justify-center w-full">
-              <a to="/" className="mt-5 text-blue text-left text-bold">
+              <Link to="/Login" className="mt-5 text-blue text-left text-bold">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>

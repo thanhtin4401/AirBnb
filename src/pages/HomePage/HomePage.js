@@ -41,7 +41,7 @@ function HomePage() {
 
   return (
     <div>
-      <div className="header h-[100vh] pt-[70px] relative mb:hidden sm:hidden lg:flex justify-center items-center">
+      <div className="header-homepage h-[100vh] pt-[70px] relative mb:hidden sm:hidden lg:flex justify-center items-center">
         <div className="filter-background absolute bg-[#0000007a] w-full z-10 top-0 right-0 h-full "></div>
         <div className="flex px-[4rem] container justify-between z-20 w-full h-full items-center pt-[1rem]">
           <div className="text-center w-2/4 ">
@@ -71,7 +71,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container m-auto mb:mt-[10rem] sm lg:mt-10 mb-10">
+      <div className="container m-auto mb:mt-[10rem] sm:mt-[10rem] lg:mt-10 mb-10">
         <div className="mb-10">
           <h1 className="text-[3rem] font-bold mb-10">Explore nearby</h1>
           <div className="grid mb:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-4">
