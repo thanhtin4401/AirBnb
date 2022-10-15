@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import UserNav from './UserNav';
 import { FaSearch } from 'react-icons/fa';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, message, Space } from 'antd';
 import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import "./Header.modul.scss"
+import { useNavigate } from 'react-router-dom';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [bg, setBg] = useState(true);
@@ -20,6 +21,7 @@ export default function Header() {
   const onSearch = (value) => {
     console.log('search:', value);
   };
+  const history = useNavigate();
   const dispatch = useDispatch();
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
   useEffect(() => {
@@ -37,11 +39,17 @@ export default function Header() {
   window.addEventListener("scroll", closeNav);
 
   const renderOption = () => { 
-    console.log(allLocation)
    return allLocation.map((item,index) => { 
     return <Option key={index} value={item.id}>{item.tenViTri}</Option>
      })
    }
+   const searchBtn = () => { 
+      if(idViTri !== 0){
+        history("/SearchPage");
+      }else{
+        message.error("Chọn vị trí cần tìm kiếm")
+      }
+    }
   return (
     <div
       style={{ boxShadow: `${open ? '' : 'rgba(0, 0, 0, 0.45) 0px 20px 20px -20px'}` }}
@@ -91,7 +99,7 @@ export default function Header() {
               <div className="flex items-center border-[1px] rounded-full">
                 <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
                   <label
-                    className={`${bg ? 'text-white':'text-black'} block text-sm font-medium text-black mr-3`}
+                    className={`${bg ? 'text-white':'text-black'} block text-sm font-medium  mr-3`}
                   >
                     Địa điểm
                   </label>
@@ -119,7 +127,7 @@ export default function Header() {
                 </div>
                 
                 <div className='px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center'>
-                    <button className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white">
+                    <button onClick={searchBtn}  className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white">
                                 Tìm kiếm
                     </button>
                 </div>

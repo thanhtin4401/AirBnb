@@ -8,6 +8,7 @@ import BookRoomPage from '../pages/BookRoomPage.js/BookRoomPage';
 import HomePage from '../pages/HomePage/HomePage';
 import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
 
 export default function Routers() {
   return (
@@ -35,6 +36,9 @@ export default function Routers() {
           }
         >
           <Route path="/Login" element={<Login />}></Route>
+        </Route>
+        <Route path="/" element={<Mainlayout />}>
+          <Route path="/SearchPage" element={<SearchPage />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>
