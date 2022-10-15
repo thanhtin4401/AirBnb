@@ -9,6 +9,7 @@
         "@fortawesome/free-regular-svg-icons": "^6.2.0",
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@fortawesome/react-fontawesome": "^0.2.0",
+        "@googlemaps/react-wrapper": "^1.1.35",
         "@material-tailwind/react": "^1.2.4",
         "@mui/material": "^5.10.8",
         "@reduxjs/toolkit": "^1.8.5",
@@ -46,7 +47,6 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-
     "browserslist": {
         "production": [
             ">0.2%",
