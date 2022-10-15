@@ -4,10 +4,12 @@ import RequestAuth from '../components/App/requestAuth';
 import RequestPage from '../components/App/requestPage';
 import Authlayout from '../layout/Authlayout';
 import Mainlayout from '../layout/Mainlayout';
-import BookRoomPage from '../pages/BookRoomPage.js/BookRoomPage';
+import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
+
 import HomePage from '../pages/HomePage/HomePage';
 import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
+import Register from '../pages/RegisterPage/Register';
 
 export default function Routers() {
   return (
@@ -17,14 +19,14 @@ export default function Routers() {
           <Route path="/" element={<HomePage />}></Route>
         </Route>
         <Route
-          path="/BookRoom"
+          path="/"
           element={
             <RequestAuth>
               <Mainlayout />
             </RequestAuth>
           }
         >
-          <Route path="/BookRoom" element={<BookRoomPage />}></Route>
+          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
         </Route>
         <Route
           path="/"
@@ -35,6 +37,7 @@ export default function Routers() {
           }
         >
           <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>

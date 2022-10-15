@@ -20,7 +20,7 @@ export default function UserNav({ bg }) {
       <h1
         className={`${
           bg ? 'text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
-        } font-medium text-sm rounded-3xl py-2 px-4  transition duration-300`}
+        } font-medium text-sm rounded-3xl py-2 px-4  transition duration-300 cursor-pointer`}
       >
         Trở Thành Chủ Nhà
       </h1>
@@ -35,10 +35,10 @@ export default function UserNav({ bg }) {
         onClick={() => {
           setOpen(!open);
         }}
-        className="flex items-center py-1 px-4 rounded-3xl border border-gray-300"
+        className="flex items-center py-1 px-[6px] hover:shadow-xl transition-all rounded-3xl border border-gray-300"
       >
-        <RiMenuFill className={`${bg ? 'text-white' : 'text-black '} text-xl`} />
-        <RiAccountCircleFill className={`${bg ? 'text-white' : 'text-black '} text-xl`} />
+        <RiMenuFill className={`${bg ? 'text-white' : 'text-black '} text-[16px] mr-[0.2rem]`} />
+        <RiAccountCircleFill className={`${bg ? 'text-white' : 'text-black '} text-[30px]`} />
       </div>
       <div className="dropdownMenu relative ">
         <ul

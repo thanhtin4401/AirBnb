@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form, Input, Select } from 'antd';
-import './Login.scss';
+import { Button, Col, Form, Input, Select } from 'antd';
+import './Register.scss';
 import { loginUser } from '../../redux/auth/authSlice';
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
-function Login() {
+function Register() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
     dispatch(loginUser(values));
@@ -61,7 +61,7 @@ function Login() {
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
             <div className="flex justify-between mb-2 items-center">
-              <h1 className="font-bold text-[20px]">{t('LOGIN')}</h1>
+              <h1 className="font-bold text-[20px]">{t('REGISTER')}</h1>
               <div className="flex items-center">
                 {/* <Select
                   defaultValue="VN"
@@ -101,8 +101,9 @@ function Login() {
                 ]}
               >
                 <Input
-                  className="input border px-[14px] py-[14px] rounded-[0.5rem] w-[320px] "
-                  placeholder="Input your email/phone number"
+                  style={{ width: '100%' }}
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem]"
+                  placeholder="Email"
                 />
               </Form.Item>
 
@@ -116,7 +117,57 @@ function Login() {
                 ]}
               >
                 <Input.Password
-                  className="border password px-[14px] py-[14px] rounded-[0.5rem] w-[320px] "
+                  style={{ width: '100%' }}
+                  className="border password px-[14px] py-[14px] rounded-[0.5rem] 
+                  "
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your username!',
+                  },
+                ]}
+              >
+                <Input
+                  style={{ width: '100%' }}
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem] 
+                  "
+                  placeholder="Full name"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your username!',
+                  },
+                ]}
+              >
+                <Input
+                  style={{ width: '100%' }}
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem] 
+                  "
+                  placeholder="Input your email/phone number"
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your username!',
+                  },
+                ]}
+              >
+                <Input
+                  style={{ width: '100%' }}
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem]"
                   placeholder="Input your email/phone number"
                 />
               </Form.Item>
@@ -127,62 +178,17 @@ function Login() {
                 size="large"
                 htmlType="submit"
               >
-                Login
+                Register
               </Button>
             </Form>
-            <div className="w-full flex justify-between">
-              <a to="/" className="mt-5 text-blue w-full inline text-left text-bold">
-                Register
+            <div className="flex justify-center w-full">
+              <a to="/" className="mt-5 text-blue text-left text-bold">
+                Login
               </a>
-              <a to="/" className="mt-5 text-blue w-full inline text-right text-bold">
-                forget password
-              </a>
-            </div>
-
-            <div className="relative">
-              <p
-                className="my-5 text-center
-               opacity-40 relative login-with"
-              >
-                login with
-              </p>
-            </div>
-            <div className=""></div>
-            <div>
-              {/* <button id="btnGoogle" className="w-full"> */}
-              {/* <img
-                  src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
-                  alt=""
-                  className="w-[22px] mr-2"
-                />
-                Google */}
-              <GoogleLogin
-                className="w-full text-center justify-center"
-                clientId={clientId}
-                buttonText="Login"
-                onSuccess={onSuccess}
-                onFailure={onFail}
-                cookiePolicy={'single_host_origin'}
-                isSignedIn={true}
-              />
-              {/* </button> */}
-              <button
-                onClick={() => {
-                  console.log(auth.isLoggedIn);
-                }}
-                className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
-                  alt=""
-                  className="w-[22px] mr-2"
-                />
-                Facebook
-              </button>
             </div>
           </div>
         </div>
-        <div className="w-2/4 mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
+        <div className="w-2/4  mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
           <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
@@ -200,4 +206,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
