@@ -11,6 +11,7 @@ import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
+import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
 
 export default function Routers() {
   return (
@@ -19,7 +20,9 @@ export default function Routers() {
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          <Route path="/Profile" element={<ProfilePageMobile />}></Route>
         </Route>
+
         <Route
           path="/"
           element={
