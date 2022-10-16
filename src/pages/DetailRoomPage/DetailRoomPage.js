@@ -1,4 +1,7 @@
 import React from 'react';
+import Comment from '../../components/Comment/Comment';
+import Map from '../../components/Map/Map';
+import RateStarReviewService from '../../components/RateStarReviewService/RateStarReviewService';
 import './DetailRoomPage.scss';
 function DetailRoomPage() {
   return (
@@ -177,6 +180,68 @@ function DetailRoomPage() {
           {/* ================= what this place offers ==================== */}
           <div className="w-full py-[2.2rem] border-b-[1px] border-[#dadada]">
             <h1 className="text-[1.625rem] font-[600]">what this place offers</h1>
+            <div className="grid grid-cols-2 w-3/4 gap-y-2 my-5 gap-x-16">
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892877/airBnB/icon%20offer%20detailpage/icon_ss0rmh.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                wifi
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892879/airBnB/icon%20offer%20detailpage/Frame-3_zslq3h.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                Pool
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892879/airBnB/icon%20offer%20detailpage/Frame_nsy3uv.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                TV
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892878/airBnB/icon%20offer%20detailpage/Frame-4_ropqpj.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                Air conditioning
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892877/airBnB/icon%20offer%20detailpage/Frame-1_e5n14s.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                Hair dryer
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892878/airBnB/icon%20offer%20detailpage/Frame-5_vobdtz.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                Breakfast
+              </p>
+              <p className="flex items-center font-[300] text-[1rem]">
+                <img
+                  src="https://res.cloudinary.com/dvzingci9/image/upload/v1665892879/airBnB/icon%20offer%20detailpage/Frame_nsy3uv.png"
+                  className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
+                  alt=""
+                />
+                long-term stays allowed
+              </p>
+            </div>
+            <button className="py-[0.75rem] px-[1.5rem] text-[1rem] font-[600] rounded-[0.5rem] border">
+              {' '}
+              Showall 14 amentities
+            </button>
           </div>
         </div>
         <div className="pl-[1rem] w-2/5">
@@ -186,13 +251,13 @@ function DetailRoomPage() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
@@ -213,9 +278,44 @@ function DetailRoomPage() {
           </div>
         </div>
       </div>
+      {/* ================= Review of user ==================== */}
+      <div className="mt-[2.5rem] w-full">
+        <div className="star flex justify-start items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5 fill-black mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+            />
+          </svg>
+          <p className="font-[600] text-[1.2rem]">4.75 . 4 reviews</p>
+        </div>
+        <div className="rate grid grid-rows-3 grid-cols-2 gap-y-4  gap-x-16 my-4">
+          <RateStarReviewService service="Cleanliness" rate="4.8" />
+          <RateStarReviewService service="Communication" rate="5.0" />
+          <RateStarReviewService service="Check-in" rate="3.5" />
+          <RateStarReviewService service="Accuracy" rate="4.0" />
+          <RateStarReviewService service="Location" rate="4.5" />
+          <RateStarReviewService service="Value" rate="3.8" />
+        </div>
+        <div className="comment w-full grid grid-cols-2 gap-y-4  gap-x-16">
+          <Comment />
+          <Comment />
+          <Comment />
+          <Comment />
+        </div>
+      </div>
       <div className="reviews"></div>
-      <div className="map">
+      <div className="map w-full mt-5">
         <h1 className="text-[1.625rem]   font-[600]">Where you'll be</h1>
+        <Map />
       </div>
     </div>
   );
