@@ -45,7 +45,7 @@ export default function Header() {
    }
    const searchBtn = () => { 
       if(idViTri !== 0){
-        history("/SearchPage");
+        history(`SearchPage/${idViTri}`);
       }else{
         message.error("Chọn vị trí cần tìm kiếm")
       }
