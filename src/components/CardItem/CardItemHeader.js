@@ -1,11 +1,11 @@
 import React from 'react';
 import './CardItemHeader.scss';
-function CardItemHeader() {
+function CardItemHeader(props) {
   return (
     <div className="relative bg-white rounded-[1rem] mb-[1.5rem] p-4 ">
       <div className="">
         <img
-          src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
+          src={props.src}
           alt=""
           className="rounded-[1rem] w-full max-h-[7rem] object-cover max-w-full"
         />
@@ -13,7 +13,7 @@ function CardItemHeader() {
 
       <div className="">
         <div className="w-full flex justify-between mt-2">
-          <h1 className=" text-[1.2rem] font-bold">Noi cai quan que gi do</h1>
+          <h1 className=" text-[1.2rem] font-bold">{props.content.title}</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -46,8 +46,8 @@ function CardItemHeader() {
             />
           </svg>
           <span className="text-[14px] font-400 text-left font-500">
-            <span className="text-black text-[0.8rem] font-bold">23</span>{' '}
-            <span className="font-[400] text-[0.8rem]"> 9000km form</span>
+            <span className="text-black text-[0.8rem] font-bold">{props.content.heart}</span>{' '}
+            <span className="font-[400] text-[0.8rem]">{props.content.text}</span>
           </span>
         </div>
       </div>

@@ -6,6 +6,14 @@
     display: none;
 }
 
+#simple-tabpanel-1 {
+    -ms-overflow-style: none;
+}
+
+#simple-tabpanel-1::-webkit-scrollbar {
+    display: none;
+}
+
 .MuiTabs-flexContainer {
     justify-content: space-around;
 }
