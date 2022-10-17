@@ -28,7 +28,7 @@ function FilterSlice() {
         <Swiper
           slidesPerView={screenWidth >= 1024 ? 10 : 5}
           spaceBetween={10}
-          slidesPerGroup={10}
+          // slidesPerGroup={10}
           loop={true}
           // loopFillGroupWithBlank={true}
           pagination={{
