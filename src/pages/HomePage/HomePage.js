@@ -11,6 +11,8 @@ import TabsHeader from './TabsHeader';
 import FilterSlide from '../../components/FilterSlide/FilterSlide';
 import Banner from '../../components/Banner/Banner';
 import BannerVideo from '../../components/Banner/BannerVideo';
+import Collection from '../../components/Collection/Collection';
+import LiveAnyway from './LiveAnyway';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -183,9 +185,17 @@ function HomePage() {
       <div className="mb:w-full sm:w-full lg:container mx-auto">
         <Banner />
       </div>
+      <div className='container mx-auto my-10'>
+        <Collection/>
+      </div>
+      <div className='container mx-auto my-20'>
+        <LiveAnyway/>
+      </div>
+      <div className="flex relative mt-10 bg-black w-full h-screen">
       <div className="flex relative mt-10 bg-black w-full h-screen mb:flex-col sm:flex-col ">
         <BannerVideo />
       </div>
+    </div>
     </div>
   );
 }
