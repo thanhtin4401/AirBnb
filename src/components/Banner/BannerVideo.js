@@ -34,7 +34,7 @@ function BannerVideo() {
           muted
         ></video>
       </div>
-      <div className="mx-auto h-full mb:flex sm:flex lg:hidden">
+      <div className="mx-auto mb:w-fill sm:w-full h-full mb:flex sm:flex lg:hidden">
         <div className="left relative flex py-[1.5rem] mb:items-end sm:items-end lg:items-center mb:w-full sm:w-full justify-center  lg:w-2/4 bg-black">
           <div className="flex flex-col justify-center mb:mb-8 lg:mb-0 sm:mb-8 items-center">
             <h1 className="mb:text-[2.5rem] sm:text-[2.5rem] lg:text-[3.5rem] font-[700] text-center text-white">

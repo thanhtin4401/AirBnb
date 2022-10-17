@@ -24,6 +24,30 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (user, thunkAP
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+
+//LOGINOUT
+export const logoutUser = createAsyncThunk('auth/logoutUser', async (user, thunkAPI) => {
+  try {
+    return user;
+  } catch (error) {
+    console.log(error);
+    message.error('Login fail');
+  }
+});
+export const registerUser = createAsyncThunk('auth/registerUser', async (user, thunkAPI) => {
+  try {
+    const res = await https.post('/api/auth/signup', user);
+    message.success('Register success');
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    message.error('Login fail');
+    return thunkAPI.rejectWithValue(error.response.data);
+  }
+});
+
+//REGISTER
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -57,6 +81,37 @@ const authSlice = createSlice({
           isLoading: false,
           accessToken: payload.token,
           isLoggedIn: false,
+        };
+      })
+      .addCase(logoutUser.pending, (state) => {
+        return {
+          ...state,
+          isLoading: true,
+        };
+      })
+      .addCase(logoutUser.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          isLoading: false,
+          isLoggedIn: false,
+        };
+      })
+      .addCase(registerUser.pending, (state) => {
+        return {
+          ...state,
+          isLoading: true,
+        };
+      })
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          isLoading: false,
+        };
+      })
+      .addCase(registerUser.rejected, (state, { payload }) => {
+        return {
+          ...state,
+          isLoading: false,
         };
       });
   },

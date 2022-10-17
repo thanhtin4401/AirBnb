@@ -9,13 +9,8 @@ function RequestAuth({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(auth);
-    console.log('hello');
-    if (!auth) {
-      // <Navigate to="/Login" />;
-      navigate('/Login');
-    }
-  }, [navigate]);
+    if (!auth.isLoggedIn) navigate('/login');
+  }, [auth.isLoggedIn, navigate]);
   return <>{children}</>;
 }
 

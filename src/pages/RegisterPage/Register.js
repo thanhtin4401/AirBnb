@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Col, Form, Input, Select } from 'antd';
+
 import './Register.scss';
 import { loginUser } from '../../redux/auth/authSlice';
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
+import { Form, Input, Button, Select, DatePicker, Col, Row } from 'antd';
 function Register() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
-    dispatch(loginUser(values));
+    console.log(values);
     // dispatch(on_loading(12));
   };
   const onFinishFailed = (errorInfo) => {
@@ -29,26 +31,9 @@ function Register() {
   const onFail = (res) => {
     console.log('fail', res);
   };
-  const clientId = '887923344894-gd09ok46pli0071vdgasta0o9fkhjj10.apps.googleusercontent.com';
-  useEffect(() => {
-    // google.accounts.id.initialize({
-    //   client_id: '887923344894-gd09ok46pli0071vdgasta0o9fkhjj10.apps.googleusercontent.com',
-    //   callback: handleCallBackRespone,
-    // });
-    // return google.accounts.id.renderButton(document.getElementById('btnGoogle'), {
-    //   theme: 'outline',
-    //   size: 'large',
-    // });
-    const clientId = '887923344894-gd09ok46pli0071vdgasta0o9fkhjj10.apps.googleusercontent.com';
-    function start() {
-      // gapi.clientId.init({
-      //   clientId: clientId,
-      //   scope: '',
-      // });
-    }
-    gapi.load('client:auth2', start);
-  }, []);
+
   const { t } = useTranslation();
+  const navigater = useNavigate();
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
@@ -92,6 +77,7 @@ function Register() {
               autoComplete="off"
             >
               <Form.Item
+                className="mb-4"
                 name="email"
                 rules={[
                   {
@@ -100,6 +86,7 @@ function Register() {
                   },
                 ]}
               >
+                <p className="">Email</p>
                 <Input
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem]"
@@ -108,6 +95,7 @@ function Register() {
               </Form.Item>
 
               <Form.Item
+                className="mb-4"
                 name="password"
                 rules={[
                   {
@@ -116,6 +104,7 @@ function Register() {
                   },
                 ]}
               >
+                <p className="">Password</p>
                 <Input.Password
                   style={{ width: '100%' }}
                   className="border password px-[14px] py-[14px] rounded-[0.5rem] 
@@ -124,7 +113,8 @@ function Register() {
                 />
               </Form.Item>
               <Form.Item
-                name="email"
+                className="mb-4"
+                name="name"
                 rules={[
                   {
                     required: true,
@@ -132,6 +122,7 @@ function Register() {
                   },
                 ]}
               >
+                <p className="">Full Name</p>
                 <Input
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem] 
@@ -139,25 +130,37 @@ function Register() {
                   placeholder="Full name"
                 />
               </Form.Item>
-              <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your username!',
-                  },
-                ]}
-              >
-                <Input
-                  style={{ width: '100%' }}
-                  className="input border px-[14px] py-[14px] rounded-[0.5rem] 
-                  "
-                  placeholder="Input your email/phone number"
-                />
-              </Form.Item>
 
+              <Row span={24} style={{ width: '100%' }}>
+                <Col span={12} style={{ paddingRight: '0.2rem' }}>
+                  <Form.Item
+                    className="mb-4"
+                    name="birday"
+                    wrapperCol={{ sm: 24 }}
+                    style={{ width: '100%', marginRight: '1rem' }}
+                  >
+                    <p className="">Birday</p>
+                    <DatePicker className="w-full " />
+                  </Form.Item>
+                </Col>
+                <Col span={12}>
+                  <Form.Item
+                    className="mb-4"
+                    wrapperCol={{ sm: 24 }}
+                    style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
+                    name="gender"
+                  >
+                    <p className="">Gender</p>
+                    <Select className="w-full " placeholder="gender">
+                      <Select.Option value="Nam">Nam</Select.Option>
+                      <Select.Option value="Nu">Nữ</Select.Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
               <Form.Item
-                name="email"
+                className="mb-4"
+                name="phone"
                 rules={[
                   {
                     required: true,
@@ -165,13 +168,13 @@ function Register() {
                   },
                 ]}
               >
+                <p className="">Phone Number</p>
                 <Input
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                  placeholder="Input your email/phone number"
+                  placeholder="+84 Phone Number"
                 />
               </Form.Item>
-
               <Button
                 className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
                 type="primary"
@@ -182,9 +185,9 @@ function Register() {
               </Button>
             </Form>
             <div className="flex justify-center w-full">
-              <a to="/" className="mt-5 text-blue text-left text-bold">
+              <Link to="/Login" className="mt-5 text-blue text-left text-bold">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>

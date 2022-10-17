@@ -7,6 +7,7 @@ import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 function Login() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -48,6 +49,7 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const navigater = useNavigate();
   const { t } = useTranslation();
   const auth = useSelector((state) => state.auth);
   return (
@@ -131,9 +133,9 @@ function Login() {
               </Button>
             </Form>
             <div className="w-full flex justify-between">
-              <a to="/" className="mt-5 text-blue w-full inline text-left text-bold">
+              <Link to="/Register" className="mt-5 text-blue w-full inline text-left text-bold">
                 Register
-              </a>
+              </Link>
               <a to="/" className="mt-5 text-blue w-full inline text-right text-bold">
                 forget password
               </a>
