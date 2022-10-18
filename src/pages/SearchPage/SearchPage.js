@@ -3,16 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CardItem from '../../components/CardItem/CardItem';
 import { roomService } from '../../services/RoomService';
-import Map from '../../components/Map/Map';
+
 
 export default function SearchPage() {
   let { id } = useParams();
   let [listRoom, setListRoom] = useState([]);
+  
   useEffect(() => {
     roomService
       .getRoomLocation(id)
       .then((res) => {
         setListRoom(res.data.content);
+        console.log(listRoom)
       })
       .catch((err) => {
         message.error(err);
@@ -42,7 +44,7 @@ export default function SearchPage() {
           </div>
         </div>
         <div className="col-span-1 h-full ">
-          <div className="my-10 h-full">
+          <div className="my-5 h-full">
             <div className="w-full h-full">
               <iframe
                 className="gmap_iframe w-full h-full"
