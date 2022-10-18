@@ -5,7 +5,7 @@ import { DatePicker, message, Space } from 'antd';
 import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
-import "./Header.modul.scss"
+import './Header.modul.scss';
 import { useNavigate } from 'react-router-dom';
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -14,13 +14,10 @@ export default function Header() {
   const { RangePicker } = DatePicker;
   const { Option } = Select;
   const onChange = (value) => {
-    console.log(`${value}`);
     setIdViTri(value);
   };
 
-  const onSearch = (value) => {
-    console.log('search:', value);
-  };
+  const onSearch = (value) => {};
   const history = useNavigate();
   const dispatch = useDispatch();
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
@@ -45,7 +42,7 @@ export default function Header() {
    }
    const searchBtn = () => { 
       if(idViTri !== 0){
-        history("/SearchPage");
+        history(`SearchPage/${idViTri}`);
       }else{
         message.error("Chọn vị trí cần tìm kiếm")
       }
@@ -66,8 +63,12 @@ export default function Header() {
         {/* LEFT */}
         <div className="logo lg:block  md:hidden sm:hidden mb:hidden animate__animated animate__fadeInLeft">
           <img
-            className="w-[130px] h-[35px]"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
+            className="w-[102px] h-[32px]"
+            src={`${
+              bg
+                ? ' https://www.pngkey.com/png/full/60-606021_horizontal-white-transparent-for-web-airbnb-logo-white.png'
+                : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png'
+            }`}
             alt=""
           />
         </div>
@@ -119,7 +120,9 @@ export default function Header() {
               <div className="flex items-center border-[1px] rounded-full">
                 <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
                   <label
-                    className={`${bg ? 'text-white':'text-black'} block text-sm font-medium  mr-3`}
+                    className={`${
+                      bg ? 'text-white' : 'text-black'
+                    } block text-sm font-medium  mr-3`}
                   >
                     Địa điểm
                   </label>
@@ -145,11 +148,14 @@ export default function Header() {
                     <RangePicker />
                   </Space>
                 </div>
-                
-                <div className='px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center'>
-                    <button onClick={searchBtn}  className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white">
-                                Tìm kiếm
-                    </button>
+
+                <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
+                  <button
+                    onClick={searchBtn}
+                    className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white"
+                  >
+                    Tìm kiếm
+                  </button>
                 </div>
               </div>
             </div>
@@ -162,5 +168,6 @@ export default function Header() {
         {/* END RIGHT */}
       </nav>
     </div>
+    
   );
 }

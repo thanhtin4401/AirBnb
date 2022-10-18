@@ -14,12 +14,16 @@ import Register from '../pages/RegisterPage/Register';
 import ManagerLayout from '../layout/ManagerLayout';
 import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
+import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
+
 export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          <Route path="/Profile" element={<ProfilePageMobile />}></Route>
         </Route>
         <Route path="/" element={<ManagerLayout />}>
           <Route path="/Manager" element={<ManagerPage />} />
@@ -29,6 +33,7 @@ export default function Routers() {
           <Route path="/user" element={<ManagerPage />} />
           <Route path="/order" element={<ManagerPage />} />
         </Route>
+
         <Route
           path="/"
           element={
@@ -37,7 +42,7 @@ export default function Routers() {
             </RequestAuth>
           }
         >
-          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          {/* <Route path="/Detail-Room" element={<DetailRoomPage />}></Route> */}
         </Route>
         <Route
           path="/"
@@ -51,7 +56,7 @@ export default function Routers() {
           <Route path="/Register" element={<Register />}></Route>
         </Route>
         <Route path="/" element={<Mainlayout />}>
-          <Route path="/SearchPage" element={<SearchPage />}></Route>
+          <Route path="/SearchPage/:id" element={<SearchPage />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>

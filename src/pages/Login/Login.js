@@ -7,6 +7,7 @@ import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 function Login() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -48,16 +49,20 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const navigater = useNavigate();
   const { t } = useTranslation();
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
       <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]">
-        <img
-          className="absolute top-[24px] left-[24px] w-[6rem]"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
-          alt=""
-        />
+        <Link className="absolute top-[24px] left-[24px]" to="/">
+          <img
+            className=" w-[6rem]"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
+            alt=""
+          />
+        </Link>
+
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
             <div className="flex justify-between mb-2 items-center">
@@ -96,7 +101,7 @@ function Login() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your username!',
+                    message: 'Please input your email!',
                   },
                 ]}
               >
@@ -131,9 +136,9 @@ function Login() {
               </Button>
             </Form>
             <div className="w-full flex justify-between">
-              <a to="/" className="mt-5 text-blue w-full inline text-left text-bold">
+              <Link to="/Register" className="mt-5 text-blue w-full inline text-left text-bold">
                 Register
-              </a>
+              </Link>
               <a to="/" className="mt-5 text-blue w-full inline text-right text-bold">
                 forget password
               </a>
