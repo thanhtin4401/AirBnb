@@ -19,8 +19,6 @@ function HomePage() {
   const allRoom = useSelector((state) => state.room.listRoom.allRoom);
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
   const [openShadowFilter, setopenShadowFilter] = useState(false);
-  console.log('allRoom', allRoom);
-  console.log('allList', allLocation);
   useEffect(() => {
     dispatch(getRoomList());
     dispatch(getLocationList());

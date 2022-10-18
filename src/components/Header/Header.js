@@ -14,13 +14,10 @@ export default function Header() {
   const { RangePicker } = DatePicker;
   const { Option } = Select;
   const onChange = (value) => {
-    console.log(`${value}`);
     setIdViTri(value);
   };
 
-  const onSearch = (value) => {
-    console.log('search:', value);
-  };
+  const onSearch = (value) => {};
   const history = useNavigate();
   const dispatch = useDispatch();
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);

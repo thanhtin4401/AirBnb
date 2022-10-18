@@ -28,7 +28,6 @@ function BannerVideo() {
           width="100%"
           className="h-full object-cover"
           src="https://res.cloudinary.com/dvzingci9/video/upload/v1665504047/airBnB/video/X2Download.app-_4K_HDR_NON_NUOC_CAO_BANG_UNESCO_GLOBAL_GEOPARK_VIETNAM.-_1080p_ruoqf8.mp4"
-          control
           autoPlay
           loop
           muted
