@@ -11,7 +11,6 @@ function ManagerLayout() {
         padding: '50px 0px 0px 370px',
       }}
     >
-      <Header />
       <Sidebar />
       <Outlet />
     </div>
