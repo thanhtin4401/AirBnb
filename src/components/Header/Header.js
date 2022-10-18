@@ -35,22 +35,18 @@ export default function Header() {
   };
   window.addEventListener('scroll', closeNav);
 
-  const renderOption = () => {
-    return allLocation.map((item, index) => {
-      return (
-        <Option key={index} value={item.id}>
-          {item.tenViTri}
-        </Option>
-      );
-    });
-  };
-  const searchBtn = () => {
-    if (idViTri !== 0) {
-      history('/SearchPage');
-    } else {
-      message.error('Chọn vị trí cần tìm kiếm');
+  const renderOption = () => { 
+   return allLocation.map((item,index) => { 
+    return <Option key={index} value={item.id}>{item.tenViTri}</Option>
+     })
+   }
+   const searchBtn = () => { 
+      if(idViTri !== 0){
+        history(`SearchPage/${idViTri}`);
+      }else{
+        message.error("Chọn vị trí cần tìm kiếm")
+      }
     }
-  };
   return (
     <div
       // style={{ boxShadow: `${open ? '' : 'rgba(0, 0, 0, 0.45) 0px 20px 20px -20px'}` }}
@@ -172,5 +168,6 @@ export default function Header() {
         {/* END RIGHT */}
       </nav>
     </div>
+    
   );
 }

@@ -70,9 +70,6 @@ export default function UserNav({ bg }) {
           } `}
         >
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-            {/* <a className="hover:text-black transition duration-100">
-              {isUser ? 'Chào ' + isUser.user.name : 'Đăng kí'}{' '}
-            </a> */}
             {isUser ? (
               <button className=" font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
                 {'Xin Chào ' + isUser.user.name}

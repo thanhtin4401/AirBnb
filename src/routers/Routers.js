@@ -45,7 +45,7 @@ export default function Routers() {
           <Route path="/Register" element={<Register />}></Route>
         </Route>
         <Route path="/" element={<Mainlayout />}>
-          <Route path="/SearchPage" element={<SearchPage />}></Route>
+          <Route path="/SearchPage/:id" element={<SearchPage />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>

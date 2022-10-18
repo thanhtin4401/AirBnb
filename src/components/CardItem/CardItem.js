@@ -69,7 +69,7 @@ function CardItem({ roomInfor }) {
       </svg>
       <div className="mt-[8px]">
         <div className="w-full flex justify-between">
-          <h1 className="text-[1rem] font-[500]">Lac Duong, Vietnam</h1>
+          <h1 className="text-[1rem] font-[500]">{roomInfor.tenPhong}</h1>
           <div className="flex justify-center items-center">
             <FaStar size="0.8rem" className="mr-2" />
             <span className=" text-[1rem] font-[300]">5.0</span>
