@@ -74,8 +74,8 @@ export default function UserNav({ bg }) {
               {isUser ? 'Chào ' + isUser.user.name : 'Đăng kí'}{' '}
             </a> */}
             {isUser ? (
-              <button className=" font-[700] transition duration-100 text-[#FF385C]">
-                {'Chào ' + isUser.user.name}
+              <button className=" font-[700] transition duration-100 text-[#FF385C] overflow-hidden w-full">
+                {'Xin Chào ' + isUser.user.name}
               </button>
             ) : (
               <Link

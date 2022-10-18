@@ -7,6 +7,7 @@ const initialState = {
   accessToken: null,
   isloading: false,
   isLoggedIn: !!localStorageService.get('USER'),
+  registerSuccess: false,
 };
 
 //LOGIN
@@ -34,9 +35,9 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async (user, thunk
     message.error('Login fail');
   }
 });
-export const registerUser = createAsyncThunk('auth/registerUser', async (user, thunkAPI) => {
+export const registerUser = createAsyncThunk('auth/registerUser', async (infor, thunkAPI) => {
   try {
-    const res = await https.post('/api/auth/signup', user);
+    const res = await https.post('/api/auth/signup', infor);
     message.success('Register success');
     return res.data;
   } catch (error) {
@@ -106,12 +107,14 @@ const authSlice = createSlice({
         return {
           ...state,
           isLoading: false,
+          registerSuccess: true,
         };
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         return {
           ...state,
           isLoading: false,
+          registerSuccess: false,
         };
       });
   },
