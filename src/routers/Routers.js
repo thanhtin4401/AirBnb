@@ -11,13 +11,23 @@ import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
-
+import ManagerLayout from '../layout/ManagerLayout';
+import ManagerPage from '../pages/ManagerPage/ManagerPage';
+import 'boxicons/css/boxicons.min.css';
 export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
+        </Route>
+        <Route path="/" element={<ManagerLayout />}>
+          <Route path="/Manager" element={<ManagerPage />} />
+          <Route index element={<ManagerPage />} />
+          <Route path="/started" element={<ManagerPage />} />
+          <Route path="/calendar" element={<ManagerPage />} />
+          <Route path="/user" element={<ManagerPage />} />
+          <Route path="/order" element={<ManagerPage />} />
         </Route>
         <Route
           path="/"
