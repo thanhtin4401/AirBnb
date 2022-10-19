@@ -6,7 +6,7 @@ import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import './Header.modul.scss';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [bg, setBg] = useState(true);
@@ -23,8 +23,11 @@ export default function Header() {
   };
   const history = useNavigate();
   const dispatch = useDispatch();
+  let { id } = useParams();
+ 
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
   useEffect(() => {
+    
     dispatch(getLocationList());
   }, []);
   const closeNav = () => {
@@ -64,6 +67,7 @@ export default function Header() {
         } transition-all container mx-auto duration-500 relative  flex items-center lg:justify-between md:justify-between sm:justify-center mb:justify-center`}
       >
         {/* LEFT */}
+        <NavLink to="/">
         <div className="logo lg:block  md:hidden sm:hidden mb:hidden animate__animated animate__fadeInLeft">
           <img
             className="w-[102px] h-[32px]"
@@ -75,6 +79,7 @@ export default function Header() {
             alt=""
           />
         </div>
+        </NavLink>
         {/* END LEFT */}
 
         {/* MIDDLE */}
@@ -84,23 +89,23 @@ export default function Header() {
               setOpen(!open);
             }}
             style={{ boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}
-            className="flex z-20 items-center px-3 py-2 rounded-3xl border border-gray-300"
+            className="flex z-20 items-center px-3 py-2 rounded-3xl border border-gray-300 "
           >
-            <div className={`font-medium cursor-pointer px-2 border-r-2`}>
+            <div className={`font-medium cursor-pointer px-2 lg:border-r-2 md:border-r-2 lg:w-[130px] md:w[130px] sm:w-[280px] mb:w-[280px]`}>
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
                 Địa Điểm Bất kỳ
               </h1>
             </div>
-            <div className="font-medium  cursor-pointer px-2 border-r-2">
+            <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden border-r-2">
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
                 Tuần Bất Kỳ
               </h1>
             </div>
-            <div className="font-medium  cursor-pointer px-2 ">
+            <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden ">
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
@@ -116,7 +121,7 @@ export default function Header() {
             className={`${
               bg ? 'bg-transparent top-[80px]' : 'bg-white top-[70px]'
             } absolute left-0  transition-all duration-500  w-full ${
-              open ? 'h-[80px]' : 'overflow-hidden h-0'
+              open ? 'h-[80px]' : 'overflow-hidden h-0 '
             }`}
           >
             <div className="flex items-center justify-center  h-full">
@@ -125,7 +130,7 @@ export default function Header() {
                   <label
                     className={`${
                       bg ? 'text-white' : 'text-black'
-                    } block text-sm font-medium  mr-3`}
+                    } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
                   >
                     Địa điểm
                   </label>
@@ -134,7 +139,7 @@ export default function Header() {
                       width: 160,
                     }}
                     showSearch
-                    placeholder=""
+                    placeholder="Vị Trí"
                     optionFilterProp="children"
                     className=""
                     onChange={onChange}
