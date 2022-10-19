@@ -16,6 +16,7 @@ import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
 import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import MessagePage from '../pages/MessagePage/MessagePage';
 
 export default function Routers() {
   return (
@@ -25,15 +26,16 @@ export default function Routers() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
           <Route path="/Profile" element={<ProfilePage />}></Route>
+          <Route path="/Message" element={<MessagePage />}></Route>
         </Route>
-        <Route path="/" element={<ManagerLayout />}>
+        {/* <Route path="/" element={<ManagerLayout />}>
           <Route path="/Manager" element={<ManagerPage />} />
           <Route index element={<ManagerPage />} />
           <Route path="/started" element={<ManagerPage />} />
           <Route path="/calendar" element={<ManagerPage />} />
           <Route path="/user" element={<ManagerPage />} />
           <Route path="/order" element={<ManagerPage />} />
-        </Route>
+        </Route> */}
 
         <Route
           path="/"
