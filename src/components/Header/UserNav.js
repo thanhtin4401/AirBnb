@@ -69,7 +69,7 @@ export default function UserNav({ bg }) {
             open ? '' : 'hidden'
           } `}
         >
-          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">  
             {isUser ? (
               <button className=" font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
                 {'Xin Chào ' + isUser.user.name}

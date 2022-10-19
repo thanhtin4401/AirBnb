@@ -15,14 +15,14 @@ function Login() {
     // dispatch(on_loading(12));
   };
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+   
   };
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
+   
   };
   const { Option } = Select;
   const handleCallBackRespone = (res) => {
-    console.log('token' + res.credential);
+ 
   };
   const onSuccess = (res) => {
     console.log('res', res);
