@@ -5,8 +5,8 @@ import RateStarReviewService from '../../components/RateStarReviewService/RateSt
 import './DetailRoomPage.scss';
 function DetailRoomPage() {
   return (
-    <div className="container mx-auto">
-      <div className="header mt-[10rem] mb-[2rem]">
+    <div className="container mx-auto py-5">
+      <div className="header mt-[6rem] mb-[2rem]">
         <h1 className="text-[1.625rem] font-[500]">
           Adaaran Club Rannalhi, Maldives, Water Bungalows
         </h1>
@@ -271,6 +271,16 @@ function DetailRoomPage() {
               Reserve
             </button>
             <p className="text-center text-[0.875rem] font-[300]">You won't be charged yet</p>
+            <div className="py-6">
+              <div className="flex items-center justify-between w-full">
+                <span className="font-[300] text-[1rem] underline ">Show price details</span>
+                <span className="font-[300] text-[1rem]">$506</span>
+              </div>
+              <div className="flex items-center justify-between w-full mt-2">
+                <span className="font-[300] text-[1rem] underline ">Service fee</span>
+                <span className="font-[300] text-[1rem]">$506</span>
+              </div>
+            </div>
             <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
               <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
               <p className="text-[0.875rem] font-[400]">2.30.217 total</p>

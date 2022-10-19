@@ -6,7 +6,6 @@ function RateStarReviewService(props) {
   };
   const [rate, setrate] = useState(props.rate);
 
-  console.log(calRatestar(props.rate));
   return (
     <div className="flex justify-between">
       <span className="text-[1rem]">{props.service}</span>

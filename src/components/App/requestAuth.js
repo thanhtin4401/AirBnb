@@ -5,7 +5,7 @@ import { localStorageService } from '../../services/localStorageService';
 
 function RequestAuth({ children }) {
   const auth = useSelector((state) => state.auth.isLoggedIn);
-  console.log(auth);
+
   const navigate = useNavigate();
 
   useEffect(() => {

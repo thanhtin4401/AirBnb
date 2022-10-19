@@ -11,11 +11,10 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper';
 function FilterSlice() {
-  console.log('width');
   const [screen, setScreen] = useState(window.screen.width);
   // let screenWidth = window.screen.width;
   const [screenWidth, setscreenWidth] = useState(0);
-  console.log(screen);
+
   useEffect(() => {
     setScreen(window.screen.width);
   }, [screen]);

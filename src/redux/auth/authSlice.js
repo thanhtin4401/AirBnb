@@ -20,7 +20,6 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (user, thunkAP
 
     return res.data;
   } catch (error) {
-    console.log(error);
     message.error('Login fail');
     return thunkAPI.rejectWithValue(error.response.data);
   }
@@ -31,7 +30,6 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async (user, thunk
   try {
     return user;
   } catch (error) {
-    console.log(error);
     message.error('Login fail');
   }
 });
@@ -41,7 +39,6 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (infor, 
     message.success('Register success');
     return res.data;
   } catch (error) {
-    console.log(error);
     message.error('Login fail');
     return thunkAPI.rejectWithValue(error.response.data);
   }
