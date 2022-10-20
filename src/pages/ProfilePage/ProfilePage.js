@@ -45,7 +45,7 @@ export default function ProfilePage() {
           {/* RIGHT */}
           <div className="lg:col-span-9 md:col-span-12 sm:col-span-12 mb:col-span-12">
             <div className="py-5 lg:px-10 md:px-0 sm:px-0 mb:px-0">
-              <div className="flex justify-between my-3">
+              <div className="flex justify-between m-3">
                 <h1 className="font-bold text-xl flex items-center">
                   <BsPersonSquare className="mr-3 text-[#FF385C]" />
                   Thông Tin

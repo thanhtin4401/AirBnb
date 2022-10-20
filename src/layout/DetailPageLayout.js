@@ -6,7 +6,9 @@ import Header from '../components/Header/Header';
 function DetailPageLayout() {
   return (
     <div>
-      <Header />
+      <div className="mb:hidden sm:hidden md:block">
+        <Header className="" />
+      </div>
       <Outlet />
       <Footer />
     </div>
