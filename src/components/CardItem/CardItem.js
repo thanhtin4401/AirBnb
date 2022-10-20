@@ -8,10 +8,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import { Link } from 'react-router-dom';
 
 function CardItem({ roomInfor }) {
   return (
-    <div className="relative bg-white rounded-[2rem]">
+    <Link to={`/detail-room/${roomInfor.id}`} className="relative bg-white rounded-[2rem]">
       <div className="">
         <Swiper
           loop={true}
@@ -69,7 +70,7 @@ function CardItem({ roomInfor }) {
       </svg>
       <div className="mt-[8px]">
         <div className="w-full flex justify-between">
-          <h1 className="text-[1rem] font-[500]">Lac Duong, Vietnam</h1>
+          <h1 className="text-[1rem] font-[500]">{roomInfor.tenPhong}</h1>
           <div className="flex justify-center items-center">
             <FaStar size="0.8rem" className="mr-2" />
             <span className=" text-[1rem] font-[300]">5.0</span>
@@ -84,7 +85,7 @@ function CardItem({ roomInfor }) {
           <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

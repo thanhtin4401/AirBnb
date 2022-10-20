@@ -9,7 +9,6 @@ function App() {
   useEffect(() => {
     const lang = localStorageService.get('lang') || 'EN';
     i18next.changeLanguage(lang);
-    console.log(lang);
   }, []);
   return (
     <div>

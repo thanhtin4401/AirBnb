@@ -9,6 +9,7 @@ import { message } from 'antd';
 import { loginUser, logoutUser } from '../../redux/auth/authSlice';
 export default function UserNav({ bg }) {
   const [open, setOpen] = useState(false);
+  const [openLanguage, setOpenLanguage] = useState(false);
   const [isUser, setisUser] = useState('');
   const [user, setuser] = useState(localStorageService.get('USER'));
   useEffect(() => {
@@ -42,12 +43,27 @@ export default function UserNav({ bg }) {
         Trở Thành Chủ Nhà
       </h1>
       <div
+      onClick={() => { 
+        setOpenLanguage(!openLanguage)
+       }}
         className={`${
           bg ? 'sm:text-black lg:text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
         } rounded-3xl py-2 px-2 transition duration-300 mx-2`}
       >
         <TbWorld className="text-xl " />
       </div>
+        {/* DROPDOWN LANGUAGE */}
+      <div className='dropdownLanguge relative '>
+          <ul  className={`${openLanguage ? '' : 'hidden'} animate__animated animate__fadeInUp bg-white dropdownLanguage rounded-xl border border-gray-300 transition duration-500`}>
+              <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+                <a className="hover:text-black transition duration-100">Tiếng Việt</a>
+              </li>
+              <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+                <a className="hover:text-black transition duration-100">English</a>
+              </li>
+          
+          </ul>
+        </div>
       <div
         onClick={() => {
           setOpen(!open);
@@ -63,18 +79,16 @@ export default function UserNav({ bg }) {
           className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
         />
       </div>
+      {/* DROPDOWN INFOR */}
       <div className="dropdownMenu relative ">
         <ul
-          className={`animate__animated animate__backInUp  bg-white dropdown rounded-xl border border-gray-300 transition duration-500 ${
+          className={`animate__animated animate__fadeInUp  bg-white dropdown rounded-xl border border-gray-300 transition duration-500 ${
             open ? '' : 'hidden'
           } `}
         >
-          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-            {/* <a className="hover:text-black transition duration-100">
-              {isUser ? 'Chào ' + isUser.user.name : 'Đăng kí'}{' '}
-            </a> */}
+          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">  
             {isUser ? (
-              <button className=" font-[700] transition duration-100 text-[#FF385C] overflow-hidden w-full">
+              <button className=" font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
                 {'Xin Chào ' + isUser.user.name}
               </button>
             ) : (
