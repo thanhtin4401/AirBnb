@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Comment from '../../components/Comment/Comment';
 import Map from '../../components/Map/Map';
 import RateStarReviewService from '../../components/RateStarReviewService/RateStarReviewService';
 import './DetailRoomPage.scss';
+import { DatePicker, Space, Select } from 'antd';
+
 function DetailRoomPage() {
+  const { RangePicker } = DatePicker;
+  const { Option } = Select;
   return (
     <div className="container mx-auto py-5">
       <div className="header mt-[6rem] mb-[2rem]">
@@ -244,7 +248,7 @@ function DetailRoomPage() {
             </button>
           </div>
         </div>
-        <div className="pl-[1rem] w-2/5">
+        <div className="pl-[6rem] w-2/5">
           <div className=" p-[1.5rem] card-total border rounded-[0.5rem]">
             <div className="flex items-end">
               <svg
@@ -263,6 +267,206 @@ function DetailRoomPage() {
               </svg>
               <p className="font-[500] text-[1rem] mx-1">42.000</p>
               <span className="text-[0.8rem] font-[300]">night</span>
+            </div>
+            <div className="w-full mb-4 py-2">
+              <div className="w-full relative border-[1px] rounded-lg border-black">
+                <div className="w-full flex justify-between  border-b-[1px] border-black">
+                  {/* <Space direction="vertical" size={12}>
+                    <RangePicker />
+                  </Space> */}
+                  <div className=" p-[12px] transition-all cursor-pointer border-r-[1px] border-black w-2/4">
+                    <h2 className="font-[700] text-[1rem] mb-1">Date Start</h2>
+                    <p>20/11/2022</p>
+                  </div>
+                  <div className=" p-[12px] transition-all cursor-pointer w-2/4">
+                    <h2 className="font-[700] text-[1rem] mb-1">Date Start</h2>
+                    <p>20/11/2022</p>
+                  </div>
+                </div>
+                <div className="py-2 p-[12px]  flex justify-between items-center transition-all cursor-pointer">
+                  <div>
+                    <h2 className="font-[400] text-[1rem]">GUESTS</h2>
+                    <p className="font-[300] text-[1rem] mt-1">1 guests</p>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </div>
+                <div className="absolute bg-white w-full top-[100%] z-10 rounded-lg border left-0 p-[12px]">
+                  <div className="flex items-center w-full my-[12px]">
+                    <div className="w-[70%] flex flex-col ">
+                      <p className="text-[0.8rem] font-[600]">Adults</p>
+                      <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                    </div>
+                    <div className="w-[30%] flex items-center justify-center ">
+                      <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem]"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+
+                      <p className="text-[1rem] mx-2">1</p>
+                      <button className="hover:opacity-100 transition-all opacity-70">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem] "
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full my-[12px]">
+                    <div className="w-[70%] flex flex-col ">
+                      <p className="text-[0.8rem] font-[600]">Adults</p>
+                      <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                    </div>
+                    <div className="w-[30%] flex items-center justify-center ">
+                      <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem]"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+
+                      <p className="text-[1rem] mx-2">1</p>
+                      <button className="hover:opacity-100 transition-all opacity-70">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem] "
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex items-center w-full my-[12px]">
+                    <div className="w-[70%] flex flex-col ">
+                      <p className="text-[0.8rem] font-[600]">Adults</p>
+                      <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                    </div>
+                    <div className="w-[30%] flex items-center justify-center ">
+                      <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem]"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+
+                      <p className="text-[1rem] mx-2">1</p>
+                      <button className="hover:opacity-100 transition-all opacity-70">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="0.8"
+                          stroke="currentColor"
+                          className="w-[2.5rem] cursor-pointer h-[2.5rem] "
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <p className="font-[300] text-[0.8rem]">
+                    This place has a maximum of 8 guests, not including infants. Pets aren't
+                    allowed.
+                  </p>
+                  <p className="text-right w-full underline cursor-pointer font[600] text-[1rem]">
+                    Close
+                  </p>
+                </div>
+              </div>
+              <h2 className="my-4">CANCELLATIONPOLICES</h2>
+              <div className="w-full border-black border rounded-lg">
+                <div className="flex justify-between p-[12px] items-center border-b-[1px] border-black">
+                  <p className="font-[300] text-[1rem]">Non-refunable</p>
+                  <input
+                    type="radio"
+                    name="refund"
+                    value="non-refund"
+                    className="w-[32px] h-[32px] rounded-[5rem]"
+                  />
+                </div>
+                <div className="flex justify-between p-[12px] items-center ">
+                  <p className="font-[300] text-[1rem] w-[90%]">
+                    Non-refunable br <br />
+                    <span className="text-[0.8rem] opacity-70 block font-[300]">
+                      Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a
+                      partial refund.
+                    </span>
+                  </p>
+
+                  <input
+                    type="radio"
+                    name="refund"
+                    value="refund"
+                    className="w-[32px] h-[32px] rounded-[5rem]"
+                  />
+                </div>
+              </div>
             </div>
             <button
               style={{ background: 'linear-gradient(91.46deg, #E61E4F 18.59%, #D70566 94.48%)' }}

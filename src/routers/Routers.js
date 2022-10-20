@@ -24,7 +24,7 @@ export default function Routers() {
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>
           <Route path="/Profile" element={<ProfilePage />}></Route>
           <Route path="/Message" element={<MessagePage />}></Route>
         </Route>
