@@ -30,7 +30,7 @@ export default function SearchPage() {
   return (
     <div className=" lg:mt-0 md:mt-10 sm:mt-10 mb:mt-10">
       <div className="container mx-auto grid lg:grid-cols-2 md:col-span-1 sm:col-span-1 mb:col-span-1 gap-5 ">
-        <div className="col-span-1 mb-10 mt-16">
+        <div className="col-span-1 mb-10 mt-20">
           <div className='mb-10'>
             <h1 className='text-base font-medium'>{listRoom?.length} Experiences</h1>
             <h1 className="font-bold text-2xl "> Experiences near you</h1>
