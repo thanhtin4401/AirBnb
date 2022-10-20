@@ -3,3 +3,18 @@
     position: sticky;
     top: 80px;
 }
+
+.dropdown-detail {
+    width: 100%!important;
+    .ant-select-selector {
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+        .ant-select-selection-item {
+            font-weight: 400;
+            font-size: 1rem;
+        }
+    }
+    .ant-select-arrow {
+        display: none!important;
+    }
+}
