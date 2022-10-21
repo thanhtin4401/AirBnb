@@ -45,6 +45,7 @@ export default function UserNav({ bg }) {
       <div
       onClick={() => { 
         setOpenLanguage(!openLanguage)
+        setOpen(false)
        }}
         className={`${
           bg ? 'sm:text-black lg:text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
@@ -67,6 +68,7 @@ export default function UserNav({ bg }) {
       <div
         onClick={() => {
           setOpen(!open);
+          setOpenLanguage(false)
         }}
         className="flex items-center py-1 px-[6px] hover:shadow-xl transition-all rounded-3xl border border-gray-300"
       >
@@ -88,9 +90,9 @@ export default function UserNav({ bg }) {
         >
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">  
             {isUser ? (
-              <button className=" font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
+              <Link to="/Profile" className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
                 {'Xin Chào ' + isUser.user.name}
-              </button>
+              </Link>
             ) : (
               <Link
                 to="/Register"
@@ -99,6 +101,13 @@ export default function UserNav({ bg }) {
                 Đăng Kí
               </Link>
             )}
+          </li>
+          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+            {isUser ? (
+              <Link to="/Trip" className="w-full block h-full text-left hover:text-black transition duration-100">
+                {'Chuyến đi'}
+              </Link>
+            ) : "" }
           </li>
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
             {isUser ? (
