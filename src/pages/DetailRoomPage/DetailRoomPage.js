@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Comment from '../../components/Comment/Comment';
 import Map from '../../components/Map/Map';
 import RateStarReviewService from '../../components/RateStarReviewService/RateStarReviewService';
@@ -13,17 +13,32 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import TotalReserce from './TotalReserce';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCommentUser } from '../../redux/comment/commentSlice';
+import { useSelect } from '@material-tailwind/react';
+import CommentPush from '../../components/Comment/CommentPush';
 function DetailRoomPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { RangePicker } = DatePicker;
   const { Option } = Select;
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
+  const [listComment, setListComment] = useState([]);
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
+
+  const state = useSelector((state) => state.state);
+  const roomId = useParams();
+  console.log(roomId);
+
+  useEffect(() => {
+    dispatch(getCommentUser(roomId));
+  }, []);
+
   return (
     <>
       <div className="container mx-auto pb-5 mb:pt-[0px] sm:pt-[0px] md:pt-[6rem]">
@@ -386,8 +401,8 @@ function DetailRoomPage() {
             <RateStarReviewService service="Location" rate="4.5" />
             <RateStarReviewService service="Value" rate="3.8" />
           </div>
-          {/* comment w-full grid grid-cols-2 gap-y-4  gap-x-16 */}
-          <div className="w-full">
+
+          <div className="md:hidden w-full">
             <Swiper
               slidesPerView={2}
               spaceBetween={20}
@@ -424,10 +439,15 @@ function DetailRoomPage() {
                 <Comment />
               </SwiperSlide>
             </Swiper>
-            {/* <Comment />
+          </div>
+          <div className="mb:hidden sm:hidden md:grid  comment w-full grid-cols-2 gap-y-4  gap-x-16 ">
             <Comment />
             <Comment />
-            <Comment /> */}
+            <Comment />
+            <Comment />
+          </div>
+          <div className="w-full mt-6">
+            <CommentPush />
           </div>
         </div>
         <div className="reviews"></div>
