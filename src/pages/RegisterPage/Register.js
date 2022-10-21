@@ -18,7 +18,6 @@ function Register() {
   const onFinish = (values) => {
     let birthday = moment(values.birthday).format('dd / mm / yyyy');
 
-    console.log('birthday:', birthday);
     const infor = {
       name: values.name,
       email: values.email,
@@ -43,19 +42,9 @@ function Register() {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
+
   const { Option } = Select;
-  const handleCallBackRespone = (res) => {
-    console.log('token' + res.credential);
-  };
-  const onSuccess = (res) => {
-    console.log('res', res);
-  };
-  const onFail = (res) => {
-    console.log('fail', res);
-  };
+
 
   const { t } = useTranslation();
   const navigater = useNavigate();

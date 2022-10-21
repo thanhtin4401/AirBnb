@@ -8,10 +8,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import { Link } from 'react-router-dom';
 
 function CardItem({ roomInfor }) {
   return (
-    <div className="relative bg-white rounded-[2rem]">
+    <Link to={`/detail-room/${roomInfor.id}`} className="relative bg-white rounded-[2rem]">
       <div className="">
         <Swiper
           loop={true}
@@ -84,7 +85,7 @@ function CardItem({ roomInfor }) {
           <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

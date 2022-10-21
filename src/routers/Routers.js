@@ -16,6 +16,8 @@ import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
 import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import MessagePage from '../pages/MessagePage/MessagePage';
+import DetailPageLayout from '../layout/DetailPageLayout';
 import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
 
 export default function Routers() {
@@ -24,10 +26,15 @@ export default function Routers() {
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          {/* <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route> */}
           <Route path="/Profile" element={<ProfilePage />}></Route>
+          <Route path="/Message" element={<MessagePage />}></Route>
           <Route path="/Trip" element={<InfoTripPage />}></Route>
         </Route>
+        <Route path="/Detail-Room" element={<DetailPageLayout />}>
+          <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>
+        </Route>
+
         {/* <Route path="/" element={<ManagerLayout />}>
           <Route path="/Manager" element={<ManagerPage />} />
           <Route index element={<ManagerPage />} />
