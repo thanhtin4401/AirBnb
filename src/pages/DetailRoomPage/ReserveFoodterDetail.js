@@ -1,10 +1,16 @@
-import React from 'react';
+import { hasLoadedNamespace } from 'i18next';
+import React, { useState } from 'react';
+import TotalReserce from './TotalReserce';
 
 function ReserveFoodterDetail() {
+  const [isReserve, setisReserve] = useState(false);
+  const handleIsReserve = () => {
+    setisReserve(!isReserve);
+  };
   return (
     <div className="w-full mb:block sm:block md:hidden bg-white bottom-0 py-[12px] border-t-[1px] fixed z-40">
       <div className="container mx-auto">
-        <div className="flex justify-between">
+        <div className={`justify-between ${isReserve ? 'hidden' : 'flex'}`}>
           <div className="flex flex-col">
             <div className="flex items-center">
               <svg
@@ -26,9 +32,26 @@ function ReserveFoodterDetail() {
             </div>
             <p className="underline text-[1rem] font-[300] ">Oct 21-26</p>
           </div>
-          <button className="py-[6] px-[24px] bg-[#FF385C] text-white rounded-lg">Reserce</button>
+          <button
+            onClick={() => {
+              handleIsReserve();
+            }}
+            className="py-[6] px-[24px] bg-[#FF385C] text-white rounded-lg"
+          >
+            Reserce
+          </button>
         </div>
+
+        <TotalReserce mobile={'true'} handleIsReserve={handleIsReserve} isReserve={isReserve} />
       </div>
+      <div
+        className={`absolute bottom-[100%] w-full bg-[#0000006b] h-full ${
+          isReserve ? 'block' : 'hidden'
+        }`}
+        onClick={() => {
+          handleIsReserve();
+        }}
+      ></div>
     </div>
   );
 }
