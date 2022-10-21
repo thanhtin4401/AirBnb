@@ -7,12 +7,14 @@ const initialState = {
   isfetching: false,
 };
 
-export const getCommentUser = createAsyncThunk('user/comment-list', async () => {
+export const getCommentUser = createAsyncThunk('user/comment-list', async (id) => {
   try {
-    const res = await https.get('/api/phong-thue');
+    const res = await https.get(`api/binh-luan/lay-binh-luan-theo-phong/${id}`);
+    console.log('cai qq gi vay:', res.data);
     return res.data;
   } catch (error) {
-    message.error(error.response.data.message);
+    // message.error(error.response.data.message);
+    console.log(error);
   }
 });
 

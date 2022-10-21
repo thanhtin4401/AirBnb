@@ -30,13 +30,28 @@ function DetailRoomPage() {
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
-
-  const state = useSelector((state) => state.state);
+  const allComment = useSelector((state) => state.comment.allComment);
   const roomId = useParams();
-  console.log(roomId);
+  const handleRenderComment = () => {
+    return allComment?.map((item, index) => {
+      return <Comment data={item} hello={'hello'} key={index} />;
+    });
+  };
+  const handleRenderCommentMobile = () => {
+    return allComment?.map((item, index) => {
+      return (
+        <SwiperSlide key={index}>
+          <Comment data={item} />
+        </SwiperSlide>
+      );
+    });
+  };
 
+  console.log(roomId.roomId);
+
+  console.log('allComment', allComment);
   useEffect(() => {
-    dispatch(getCommentUser(roomId));
+    dispatch(getCommentUser(roomId.roomId));
   }, []);
 
   return (
@@ -411,40 +426,11 @@ function DetailRoomPage() {
               }}
               className="mySwiper md:hidden comment-detail"
             >
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Comment />
-              </SwiperSlide>
+              {handleRenderCommentMobile()}
             </Swiper>
           </div>
           <div className="mb:hidden sm:hidden md:grid  comment w-full grid-cols-2 gap-y-4  gap-x-16 ">
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
+            {handleRenderComment()}
           </div>
           <div className="w-full mt-6">
             <CommentPush />

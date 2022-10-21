@@ -57,3 +57,41 @@
         object-fit: cover;
     }
 }
+
+.datestart {
+    h2 {
+        transition: all 0.2s ease;
+    }
+    p {
+        transition: all 0.2s ease;
+    }
+    &:hover {
+        h2 {
+            color: #FF385C;
+        }
+        p {
+            color: #FF385C;
+        }
+    }
+}
+
+.dateend {
+    h2 {
+        transition: all 0.2s ease;
+    }
+    p {
+        transition: all 0.2s ease;
+    }
+    &:hover {
+        h2 {
+            color: #FF385C;
+        }
+        p {
+            color: #FF385C;
+        }
+    }
+}
+
+.guestsSelect {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

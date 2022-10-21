@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css';
+import { DateRange } from 'react-date-range';
+import DateRangeComp from './DateRangeComp';
+import './DetailRoomPage.scss';
+import './DetailRoomPage';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
@@ -10,6 +15,9 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
   const [adults, setAdults] = useState(1);
   const [infants, setInfants] = useState(0);
   const [guets, setGuets] = useState(1);
+  const [dateStart, setDateStart] = useState('dd/mm/yyy');
+  const [dateEnh, setDateEnd] = useState('dd/mm/yyy');
+  const [openDateRange, setOpenDateRange] = useState(false);
   const handlePlus = (name) => {
     if (name == 'children') {
       setChildren(children + 1);
@@ -33,6 +41,9 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
       setInfants(infants - 1);
       setGuets(guets - 1);
     }
+  };
+  const handleOpenDateRange = () => {
+    setOpenDateRange(true);
   };
   return (
     <div
@@ -59,6 +70,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
           <p className="font-[500] text-[1.2rem] mx-1">42.000</p>
           <span className="text-[0.6rem] font-[300]">night</span>
         </div>
+
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -85,15 +97,22 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
             {/* <Space direction="vertical" size={12}>
                     <RangePicker />
                   </Space> */}
-            <div className=" p-[12px] transition-all cursor-pointer border-r-[1px] border-black w-2/4">
-              <h2 className="font-[700] text-[1rem] mb-1">Date Start</h2>
+            <div
+              onClick={handleOpenDateRange}
+              className=" datestart p-[12px] transition-all cursor-pointer border-r-[1px] border-black w-2/4"
+            >
+              <h2 className="font-[700]  text-[1rem] mb-1">Date Start</h2>
               <p>20/11/2022</p>
             </div>
-            <div className=" p-[12px] transition-all cursor-pointer w-2/4">
-              <h2 className="font-[700] text-[1rem] mb-1">Date Start</h2>
+            <div
+              onClick={handleOpenDateRange}
+              className=" dateend p-[12px] transition-all cursor-pointer w-2/4"
+            >
+              <h2 className="font-[700] text-[1rem] mb-1">Date End</h2>
               <p>20/11/2022</p>
             </div>
           </div>
+          <DateRangeComp openDateRange={openDateRange} setOpenDateRange={setOpenDateRange} />
           <div
             className="py-2 p-[12px]  flex justify-between items-center transition-all cursor-pointer"
             onClick={handleIsGuestsSelect}
@@ -116,7 +135,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
           <div
             className={`${
               isGuestsSelect ? 'block' : 'hidden'
-            } absolute bg-white w-full top-[100%] z-10 rounded-lg border left-0 p-[12px]`}
+            } absolute bg-white w-full guestsSelect top-[100%] z-10 rounded-lg border left-0 p-[12px]`}
           >
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
@@ -283,6 +302,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
             <p className="font-[300] text-[0.8rem]">
               This place has a maximum of 8 guests, not including infants. Pets aren't allowed.
             </p>
+
             <p
               onClick={handleIsGuestsSelect}
               className="text-right w-full underline cursor-pointer font[600] text-[1rem]"
