@@ -7,7 +7,7 @@ function DetailPageLayout() {
   return (
     <div>
       <div className="mb:hidden sm:hidden md:block">
-        <Header className="" />
+        <Header />
       </div>
       <Outlet />
       <Footer />

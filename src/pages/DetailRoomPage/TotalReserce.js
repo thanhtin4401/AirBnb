@@ -1,15 +1,39 @@
 import React, { useState } from 'react';
 
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
-  console.log('handleIsReserve: ', handleIsReserve);
-  console.log('isReserve: ', isReserve);
-  console.log('mobile: ', mobile);
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
-
+  const [children, setChildren] = useState(0);
+  const [adults, setAdults] = useState(1);
+  const [infants, setInfants] = useState(0);
+  const [guets, setGuets] = useState(1);
+  const handlePlus = (name) => {
+    if (name == 'children') {
+      setChildren(children + 1);
+      setGuets(guets + 1);
+    } else if (name == 'adults') {
+      setAdults(adults + 1);
+      setGuets(guets + 1);
+    } else if (name == 'infants') {
+      setInfants(infants + 1);
+      setGuets(guets + 1);
+    }
+  };
+  const handleMinus = (name) => {
+    if (name == 'children') {
+      setChildren(children - 1);
+      setGuets(guets - 1);
+    } else if (name == 'adults') {
+      setAdults(adults - 1);
+      setGuets(guets - 1);
+    } else if (name == 'infants') {
+      setInfants(infants - 1);
+      setGuets(guets - 1);
+    }
+  };
   return (
     <div
       className={`p-[1.5rem] card-total border rounded-[0.5rem] ${
@@ -76,7 +100,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
           >
             <div className="">
               <h2 className="font-[400] text-[1rem]">GUESTS</h2>
-              <p className="font-[300] text-[1rem] mt-1">1 guests</p>
+              <p className="font-[300] text-[1rem] mt-1">{guets} guests</p>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +124,13 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
                 <span className="text-[0.8rem] font-[300]">Age 13+</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
-                <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                <button
+                  onClick={() => handleMinus('adults')}
+                  disabled={adults == 1 ? true : false}
+                  className={` transition-all ${
+                    adults == 1 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -117,8 +147,14 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
                   </svg>
                 </button>
 
-                <p className="text-[1rem] mx-2">1</p>
-                <button className="hover:opacity-100 transition-all opacity-70">
+                <p className="text-[1rem] mx-2">{adults}</p>
+                <button
+                  onClick={() => handlePlus('adults')}
+                  disabled={adults == 9 ? true : false}
+                  className={` transition-all ${
+                    adults == 9 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -138,11 +174,17 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
             </div>
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
-                <p className="text-[0.8rem] font-[600]">Adults</p>
-                <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                <p className="text-[0.8rem] font-[600]">Children</p>
+                <span className="text-[0.8rem] font-[300]">Age 12 - 16</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
-                <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                <button
+                  onClick={() => handleMinus('children')}
+                  disabled={children == 0 ? true : false}
+                  className={` transition-all ${
+                    children == 0 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -159,8 +201,14 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
                   </svg>
                 </button>
 
-                <p className="text-[1rem] mx-2">1</p>
-                <button className="hover:opacity-100 transition-all opacity-70">
+                <p className="text-[1rem] mx-2">{children}</p>
+                <button
+                  onClick={() => handlePlus('children')}
+                  disabled={children == 9 ? true : false}
+                  className={` transition-all ${
+                    children == 9 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -180,11 +228,17 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
             </div>
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
-                <p className="text-[0.8rem] font-[600]">Adults</p>
-                <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                <p className="text-[0.8rem] font-[600]">Infants</p>
+                <span className="text-[0.8rem] font-[300]">Under 2</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
-                <button className="hover:opacity-100 transition-all opacity-20" disabled>
+                <button
+                  onClick={() => handleMinus('infants')}
+                  disabled={infants == 0 ? true : false}
+                  className={` transition-all ${
+                    infants == 0 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -201,8 +255,14 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
                   </svg>
                 </button>
 
-                <p className="text-[1rem] mx-2">1</p>
-                <button className="hover:opacity-100 transition-all opacity-70">
+                <p className="text-[1rem] mx-2">{infants}</p>
+                <button
+                  onClick={() => handlePlus('infants')}
+                  disabled={infants == 9 ? true : false}
+                  className={` transition-all ${
+                    infants == 9 ? 'opacity-30' : 'opacity-70 hover:opacity-100'
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
