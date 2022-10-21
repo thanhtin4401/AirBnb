@@ -386,11 +386,48 @@ function DetailRoomPage() {
             <RateStarReviewService service="Location" rate="4.5" />
             <RateStarReviewService service="Value" rate="3.8" />
           </div>
-          <div className="comment w-full grid grid-cols-2 gap-y-4  gap-x-16">
+          {/* comment w-full grid grid-cols-2 gap-y-4  gap-x-16 */}
+          <div className="w-full">
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={20}
+              pagination={{
+                clickable: true,
+              }}
+              className="mySwiper md:hidden comment-detail"
+            >
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Comment />
+              </SwiperSlide>
+            </Swiper>
+            {/* <Comment />
             <Comment />
             <Comment />
-            <Comment />
-            <Comment />
+            <Comment /> */}
           </div>
         </div>
         <div className="reviews"></div>

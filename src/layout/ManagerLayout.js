@@ -1,8 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../layout/Sidebar/Sidebar';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
 
 function ManagerLayout() {
   return (
