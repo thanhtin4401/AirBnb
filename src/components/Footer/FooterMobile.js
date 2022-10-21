@@ -31,7 +31,7 @@ function FooterMobile() {
 
         <button
           onClick={() => {
-            navigate('/');
+            navigate('/wishlist');
           }}
           className=" flex flex-col justify-center items-center opacity-60 py-3 focus:opacity-100 focus:font-bold focus:text-[red]"
         >
@@ -53,7 +53,7 @@ function FooterMobile() {
         </button>
         <button
           onClick={() => {
-            navigate('/');
+            navigate('/trip');
           }}
           className=" flex flex-col justify-center items-center opacity-60 py-3 focus:opacity-100 focus:font-bold focus:text-[red]"
         >
