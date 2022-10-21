@@ -7,19 +7,21 @@ function Comment() {
         <img
           src="https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg"
           alt=""
-          className="w-[2.2rem] h-[2.2rem] rounded-[50%] mr-2"
+          className="mb:w-[32px] mb:h-[32px] sm:w-[32px] sm:h-[32px] md:w-[2.2rem] md:h-[2.2rem] rounded-[50%] mr-2"
         />
-        <div className="">
+        <div className="text-left">
           <p className="font-[600] text-[1rem]">Name</p>
-          <span className="font-[400] text-[0.8rem] text-[#717171]">September 2022</span>
+          <p className="font-[400] text-[0.8rem] text-[#717171]">September 2022</p>
         </div>
       </div>
       <div className="">
-        <p className="font-[300]">
+        <p className="font-[300] text-left text-[0.8rem]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque accusantium quibusdam
           maiores laudantium delectus, labore qui expedita saepe sed ducimus?
         </p>
-        <button className="underline flex items-center font-[600]  mt-2">Show more </button>
+        <button className="underline flex items-center font-[600] text-[0.8rem] mt-2">
+          Show more{' '}
+        </button>
       </div>
     </div>
   );
