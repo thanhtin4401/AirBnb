@@ -33,8 +33,18 @@ export default function UserNav({ bg }) {
       message.success('Đăng xuất thành công!');
     }, 1000);
   };
+  const closeDropDown = () => { 
+    setOpen(false)
+    setOpenLanguage(false)
+   }
   return (
+    <>
+    <div onClick={() => { 
+      setOpenLanguage(false)
+      setOpen(false)
+     }} className={`${open || openLanguage ? "animate__fadeIn animate__animated fixed top-0 left-0 w-screen h-screen bg-transparent" : "hidden"}`}></div>
     <div className="relative flex items-center lg:flex  md:flex sm:flex  mb:hidden animate__animated animate__fadeInRight">
+    
       <h1
         className={`${
           bg ? 'sm:text-black lg:text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
@@ -90,7 +100,7 @@ export default function UserNav({ bg }) {
         >
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">  
             {isUser ? (
-              <Link to="/Profile" className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
+              <Link onClick={() => { closeDropDown() }} to="/Profile" className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full">
                 {'Xin Chào ' + isUser.user.name}
               </Link>
             ) : (
@@ -102,12 +112,23 @@ export default function UserNav({ bg }) {
               </Link>
             )}
           </li>
-            {isUser ? (
+            {user.user.role == "USER" ? (
+          <Link onClick={() => { closeDropDown() }}  to="/trip">
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <Link to="/Trip" className="w-full block h-full text-left hover:text-black transition duration-100">
+              <a  className="w-full block h-full text-left hover:text-black transition duration-100">
                 {'Chuyến đi'}
-              </Link>
+              </a>
           </li>
+          </Link>
+          ) : "" }
+          {user.user.role == "admin" ? (
+          <Link onClick={() => { closeDropDown() }}  to="/Manager">
+          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+              <a  className="w-full block h-full text-left hover:text-black transition duration-100">
+                {'Quản lý'}
+              </a>
+          </li>
+          </Link>
           ) : "" }
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
             {isUser ? (
@@ -139,5 +160,6 @@ export default function UserNav({ bg }) {
         </ul>
       </div>
     </div>
+    </>
   );
 }

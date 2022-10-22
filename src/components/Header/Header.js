@@ -58,6 +58,59 @@ export default function Header() {
         bg ? 'lg:bg-transparent ' : 'bg-white border-b-[1px] border-b-[#c5c5c578] '
       } fixed top-0 z-40 w-full transition duration-300 `}
     >
+       {/* Search Home */}
+       <div
+            style={{ boxShadow: 'rgb(0 0 0 / 9%) 0px 4px 2px' }}
+            className={`${
+              bg ? 'bg-transparent top-[80px]' : 'bg-white top-[70px]'
+            } absolute left-0  transition-all duration-500  w-full ${
+              open ? 'h-[80px]' : 'overflow-hidden h-0 '
+            }`}
+          >
+            <div className="flex items-center justify-center  h-full">
+              <div className="flex items-center border-[1px] rounded-full">
+                <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
+                  <label
+                    className={`${
+                      bg ? 'text-white' : 'text-black'
+                    } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
+                  >
+                    Địa điểm
+                  </label>
+                  <Select
+                    style={{
+                      width: 160,
+                    }}
+                    showSearch
+                    placeholder="Vị Trí"
+                    optionFilterProp="children"
+                    className=""
+                    onChange={onChange}
+                    onSearch={onSearch}
+                    filterOption={(input, option) =>
+                      option.children.toLowerCase().includes(input.toLowerCase())
+                    }
+                  >
+                    {renderOption()}
+                  </Select>
+                </div>
+                <div className="lg:block  md:hidden sm:hidden mb:hidden px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
+                  <Space direction="vertical" size={12}>
+                    <RangePicker />
+                  </Space>
+                </div>
+
+                <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
+                  <button
+                    onClick={searchBtn}
+                    className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white"
+                  >
+                    Tìm kiếm
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
       <nav
         className={`${
           bg ? 'py-5' : 'py-3'
@@ -113,58 +166,7 @@ export default function Header() {
               <FaSearch className="text-white" />
             </div>
           </div>
-          <div
-            style={{ boxShadow: 'rgb(0 0 0 / 9%) 0px 4px 2px' }}
-            className={`${
-              bg ? 'bg-transparent top-[80px]' : 'bg-white top-[70px]'
-            } absolute left-0  transition-all duration-500  w-full ${
-              open ? 'h-[80px]' : 'overflow-hidden h-0 '
-            }`}
-          >
-            <div className="flex items-center justify-center  h-full">
-              <div className="flex items-center border-[1px] rounded-full">
-                <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
-                  <label
-                    className={`${
-                      bg ? 'text-white' : 'text-black'
-                    } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
-                  >
-                    Địa điểm
-                  </label>
-                  <Select
-                    style={{
-                      width: 160,
-                    }}
-                    showSearch
-                    placeholder="Vị Trí"
-                    optionFilterProp="children"
-                    className=""
-                    onChange={onChange}
-                    onSearch={onSearch}
-                    filterOption={(input, option) =>
-                      option.children.toLowerCase().includes(input.toLowerCase())
-                    }
-                  >
-                    {renderOption()}
-                  </Select>
-                </div>
-                <div className="lg:block  md:hidden sm:hidden mb:hidden px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
-                  <Space direction="vertical" size={12}>
-                    <RangePicker />
-                  </Space>
-                </div>
-
-                <div className="px-5 py-3 hover:bg-gray-200 transition duration-300 rounded-full h-full flex flex-wrap justify-center items-center">
-                  <button
-                    onClick={searchBtn}
-                    className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white"
-                  >
-                    Tìm kiếm
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </>
         {/* END MIDDLE */}
 
