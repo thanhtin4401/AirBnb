@@ -12,7 +12,7 @@ const [changeBtn,setChangeBtn] = useState(false)
   return (
     <div className="container mx-auto">
       <div className="mt-24 mb-10">
-        <div className="grid grid-cols-12 mt-5 gap-10">
+        <div className="grid grid-cols-12 mt-5">
         {/* LEFT */}
           <div className="lg:col-span-3 md:col-span-12 sm:col-span-12 mb:col-span-12 border-[1px] border-[#666] rounded-xl">
             <div className="py-5 px-6">

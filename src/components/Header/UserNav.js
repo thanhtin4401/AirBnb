@@ -34,7 +34,7 @@ export default function UserNav({ bg }) {
     }, 1000);
   };
   return (
-    <div className="flex items-center lg:flex  md:flex sm:flex  mb:hidden animate__animated animate__fadeInRight">
+    <div className="relative flex items-center lg:flex  md:flex sm:flex  mb:hidden animate__animated animate__fadeInRight">
       <h1
         className={`${
           bg ? 'sm:text-black lg:text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
@@ -102,13 +102,13 @@ export default function UserNav({ bg }) {
               </Link>
             )}
           </li>
-          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
             {isUser ? (
+          <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
               <Link to="/Trip" className="w-full block h-full text-left hover:text-black transition duration-100">
                 {'Chuyến đi'}
               </Link>
-            ) : "" }
           </li>
+          ) : "" }
           <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
             {isUser ? (
               <button
