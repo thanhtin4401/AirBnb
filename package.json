@@ -29,6 +29,7 @@
         "mapbox-gl": "^2.10.0",
         "moment": "^2.29.4",
         "react": "^18.2.0",
+        "react-date-range": "^1.4.0",
         "react-dom": "^18.2.0",
         "react-google-login": "^5.2.2",
         "react-i18next": "^11.18.6",
