@@ -16,6 +16,12 @@ import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
 import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
 import HotelManager from '../pages/HotelManager/HotelManager';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import MessagePage from '../pages/MessagePage/MessagePage';
+import DetailPageLayout from '../layout/DetailPageLayout';
+import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
+import Wishlists from '../pages/WishlistsPage/WishlistsPage';
+import UserManager from '../pages/UserManager/UserManager';
 
 export default function Routers() {
   return (
@@ -23,19 +29,23 @@ export default function Routers() {
       <Routes>
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/Detail-Room" element={<DetailRoomPage />}></Route>
+          <Route path="/Profile-Person" element={<ProfilePage />}></Route>
           <Route path="/Profile" element={<ProfilePageMobile />}></Route>
+          <Route path="/Message" element={<MessagePage />}></Route>
+          <Route path="/Trip" element={<InfoTripPage />}></Route>
+          <Route path="/Wishlist" element={<Wishlists />}></Route>
         </Route>
-        <React.Fragment>
-          <Route path="/Manager" element={<ManagerLayout />}>
-            <Route path="/Manager/Home" element={<ManagerPage />} />
-            <Route path="/Manager/Hotel" element={<HotelManager />} />
-            <Route path="" element={<ManagerPage />} />
-            <Route path="" element={<ManagerPage />} />
-            <Route path="" element={<ManagerPage />} />
-            <Route path="" element={<ManagerPage />} />
-          </Route>
-        </React.Fragment>
+        <Route path="/Detail-Room" element={<DetailPageLayout />}>
+          <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>
+        </Route>
+
+        <Route path="/Manager" element={<ManagerLayout />}>
+          <Route path="/Manager/Home" element={<ManagerPage />} />
+          <Route path="/Manager/User" element={<UserManager />} />
+          {/* <Route path="/calendar" element={<ManagerPage />} />
+          <Route path="/user" element={<ManagerPage />} />
+          <Route path="/order" element={<ManagerPage />} /> */}
+        </Route>
 
         <Route
           path="/"

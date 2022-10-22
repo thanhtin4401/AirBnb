@@ -14,6 +14,7 @@ const initialState = {
 export const loginUser = createAsyncThunk('auth/loginUser', async (user, thunkAPI) => {
   try {
     const res = await https.post('/api/auth/signin', user);
+
     localStorageService.set('accessToken', res.data.content.token);
     localStorageService.set('USER', res.data.content);
     message.success('login success');

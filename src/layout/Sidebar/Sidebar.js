@@ -50,6 +50,7 @@ const Sidebar = () => {
     }, 50);
   }, []);
 
+  // change active index
   useEffect(() => {
     const curPath = window.location.pathname.split('/')[1];
     const activeItem = sidebarNavItems.findIndex((item) => item.section === curPath);
@@ -58,7 +59,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar__logo">AirBnb</div>
+      <div className="sidebar__logo">Animate</div>
       <div ref={sidebarRef} className="sidebar__menu">
         <div
           ref={indicatorRef}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './FilterSlide.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,21 +11,18 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper';
 function FilterSlice() {
-  const [screen, setScreen] = useState(window.screen.width);
+  const [screen, setScreen] = useState(window.innerWidth);
+  const resize = () => {
+    setScreen(window.innerWidth);
+  };
+  window.addEventListener('resize', resize);
   // let screenWidth = window.screen.width;
-  const [screenWidth, setscreenWidth] = useState(0);
 
-  useEffect(() => {
-    setScreen(window.screen.width);
-  }, [screen]);
-  useEffect(() => {
-    setscreenWidth(window.screen.width);
-  }, []);
   return (
     <div className="flex w-full items-center">
       <div className="filter-wrapper mb:w-full md:w-full sm:w-full lg:w-11/12">
         <Swiper
-          slidesPerView={screenWidth >= 1024 ? 10 : 5}
+          slidesPerView={screen >= 1024 ? 10 : 5}
           spaceBetween={10}
           // slidesPerGroup={10}
           loop={true}
