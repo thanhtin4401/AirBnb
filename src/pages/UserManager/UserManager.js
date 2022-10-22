@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserList } from '../../redux/manager/user';
 function UserManager() {
   const { Search } = Input;
+  const dispatch = useDispatch();
+  const allUserList = useSelector((state) => state.manager.user.allUser);
+  console.log(allUserList);
+  useEffect(() => {
+    dispatch(getUserList());
+  }, []);
   const columns = [
     {
       title: 'ID',
@@ -93,7 +101,7 @@ function UserManager() {
       />{' '}
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={allUserList}
         scroll={{
           x: 1300,
         }}
