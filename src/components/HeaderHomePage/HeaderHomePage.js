@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import UserNav from './UserNav';
+import UserNav from './UserNavHomePage';
 import { FaSearch } from 'react-icons/fa';
 import { DatePicker, message, Space } from 'antd';
 import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
-import './Header.modul.scss';
+import './HeaderHomePage.modul.scss';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-export default function Header() {
+export default function HeaderHomePage() {
   const [open, setOpen] = useState(false);
-  const [bg, setBg] = useState(false);
+  const [bg, setBg] = useState(true);
   const [idViTri, setIdViTri] = useState(0);
   const { RangePicker } = DatePicker;
   const { Option } = Select;
@@ -26,16 +26,16 @@ export default function Header() {
   useEffect(() => {
     dispatch(getLocationList());
   }, []);
-  // const closeNav = () => {
-  //   if (window.scrollY == 0) {
-  //     setBg(true);
-  //   }
-  //   if (window.scrollY >= 100) {
-  //     setOpen(false);
-  //     setBg(false);
-  //   }
-  // };
-  // window.addEventListener('scroll', closeNav);
+  const closeNav = () => {
+    if (window.scrollY == 0) {
+      setBg(true);
+    }
+    if (window.scrollY >= 100) {
+      setOpen(false);
+      setBg(false);
+    }
+  };
+  window.addEventListener('scroll', closeNav);
 
   const renderOption = () => {
     return allLocation.map((item, index) => {

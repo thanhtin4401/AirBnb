@@ -3,13 +3,13 @@ import { message } from 'antd';
 import { https } from '../../services/axiosClient';
 /** State **/
 const initialState = {
-  allRoom: [],
+  // allRoom: [],
   isfetching: false,
 };
 
-export const getRoomList = createAsyncThunk('room/list', async () => {
+export const bookingRoom = createAsyncThunk('room/list', async (data) => {
   try {
-    const res = await https.get('/api/phong-thue');
+    const res = await https.get('/api/dat-phong', data);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -17,36 +17,34 @@ export const getRoomList = createAsyncThunk('room/list', async () => {
 });
 
 const bookingRoomSlice = createSlice({
-  name: 'room/list',
+  name: 'booking',
   initialState,
   reducers: {
     reset: (state) => {
       return {
         ...state,
-        allRoom: [],
+
         isfetching: false,
       };
     },
   },
   extraReducers: (builder) => {
     return builder
-      .addCase(getRoomList.pending, (state) => {
+      .addCase(bookingRoom.pending, (state) => {
         return {
           ...state,
 
-          allRoom: null,
           isfetching: true,
         };
       })
-      .addCase(getRoomList.fulfilled, (state, { payload }) => {
+      .addCase(bookingRoom.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          allRoom: payload.content,
         };
       });
   },
 });
 
-export const { reset } = listRoomSlice.actions;
-export default listRoomSlice.reducer;
+export const { reset } = bookingRoomSlice.actions;
+export default bookingRoomSlice.reducer;
