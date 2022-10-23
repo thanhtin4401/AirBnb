@@ -9,6 +9,8 @@ import './DetailRoomPage';
 import { Button, Modal } from 'antd';
 import { localStorageService } from '../../services/localStorageService';
 import useFormItemStatus from 'antd/lib/form/hooks/useFormItemStatus';
+import { useDispatch } from 'react-redux';
+import { bookingRoom } from '../../redux/room/roomBooking';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
@@ -22,6 +24,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
   const [guets, setGuets] = useState(1);
   const [dateBooking, setDateBooking] = useState([]);
   const [openDateRange, setOpenDateRange] = useState(false);
+  const dispatch = useDispatch();
   const handlePlus = (name) => {
     if (name == 'children') {
       setChildren(children + 1);
@@ -55,13 +58,6 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
 
   const handleOk = () => {
     setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
-  const onFinish = () => {
     const bookRoom = {
       maPhong: roomId.roomId,
       ngayDen: dateBooking.startDate,
@@ -69,7 +65,13 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
       soLuongKhach: guets,
       maNguoiDung: localStorageService.get('USER').user.id,
     };
+    dispatch(bookingRoom(bookRoom));
   };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       className={`p-[1.5rem] card-total border rounded-[0.5rem] ${
