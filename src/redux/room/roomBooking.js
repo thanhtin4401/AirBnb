@@ -11,6 +11,7 @@ const initialState = {
 export const bookingRoom = createAsyncThunk('room/list', async (data) => {
   try {
     const res = await https.get('/api/dat-phong', data);
+    message.success('dat phong thanh cong');
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -20,7 +21,7 @@ export const bookingRoom = createAsyncThunk('room/list', async (data) => {
 export const detailInfoRoom = createAsyncThunk('room/detail', async (id) => {
   try {
     const res = await https.get(`/api/phong-thue/${id}`);
-    console.log('detail', res.data.content);
+
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
