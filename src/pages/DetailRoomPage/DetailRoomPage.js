@@ -385,7 +385,7 @@ function DetailRoomPage() {
             </div>
           </div>
           <div className="pl-[6rem] mb:hidden sm:hidden md:block w-2/5">
-            <TotalReserce mobile={false} desktop={true} />
+            <TotalReserce mobile={false} desktop={true} roomId={roomId} />
           </div>
         </div>
 
@@ -442,7 +442,7 @@ function DetailRoomPage() {
           <Map />
         </div>
       </div>
-      <ReserveFoodterDetail />
+      <ReserveFoodterDetail roomId={roomId} />
     </>
   );
 }

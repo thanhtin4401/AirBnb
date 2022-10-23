@@ -4,10 +4,15 @@ import 'react-date-range/dist/theme/default.css';
 import { DateRange } from 'react-date-range';
 import DateRangeComp from './DateRangeComp';
 import './DetailRoomPage.scss';
+import './TotalReserce.scss';
 import './DetailRoomPage';
-function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
+import { Button, Modal } from 'antd';
+import { localStorageService } from '../../services/localStorageService';
+import useFormItemStatus from 'antd/lib/form/hooks/useFormItemStatus';
+function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
@@ -15,8 +20,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
   const [adults, setAdults] = useState(1);
   const [infants, setInfants] = useState(0);
   const [guets, setGuets] = useState(1);
-  const [dateStart, setDateStart] = useState('dd/mm/yyy');
-  const [dateEnh, setDateEnd] = useState('dd/mm/yyy');
+  const [dateBooking, setDateBooking] = useState([]);
   const [openDateRange, setOpenDateRange] = useState(false);
   const handlePlus = (name) => {
     if (name == 'children') {
@@ -44,6 +48,27 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
   };
   const handleOpenDateRange = () => {
     setOpenDateRange(true);
+  };
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const onFinish = () => {
+    const bookRoom = {
+      maPhong: roomId.roomId,
+      ngayDen: dateBooking.startDate,
+      ngayDi: dateBooking.endDate,
+      soLuongKhach: guets,
+      maNguoiDung: localStorageService.get('USER').user.id,
+    };
   };
   return (
     <div
@@ -102,17 +127,21 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
               className=" datestart p-[12px] transition-all cursor-pointer border-r-[1px] border-black w-2/4"
             >
               <h2 className="font-[700]  text-[1rem] mb-1">Date Start</h2>
-              <p>20/11/2022</p>
+              <p>{dateBooking.startDate}</p>
             </div>
             <div
               onClick={handleOpenDateRange}
               className=" dateend p-[12px] transition-all cursor-pointer w-2/4"
             >
               <h2 className="font-[700] text-[1rem] mb-1">Date End</h2>
-              <p>20/11/2022</p>
+              <p>{dateBooking.endDate}</p>
             </div>
           </div>
-          <DateRangeComp openDateRange={openDateRange} setOpenDateRange={setOpenDateRange} />
+          <DateRangeComp
+            openDateRange={openDateRange}
+            setOpenDateRange={setOpenDateRange}
+            setDateBooking={setDateBooking}
+          />
           <div
             className="py-2 p-[12px]  flex justify-between items-center transition-all cursor-pointer"
             onClick={handleIsGuestsSelect}
@@ -364,12 +393,43 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop }) {
       <button
         style={{ background: 'linear-gradient(91.46deg, #E61E4F 18.59%, #D70566 94.48%)' }}
         className="flex mb-[0.75rem] py-[0.75rem] justify-center font-bold text-[1.1rem] text-white w-full rounded-[8px] "
-        onClick={() => {
-          handleIsReserve('hello');
-        }}
+        onClick={showModal}
       >
         Reserve
       </button>
+      <>
+        {/* <Button type="primary" onClick={showModal}>
+          Open Modal
+        </Button> */}
+        <Modal
+          className="modal-reserce"
+          title="Basic Modal"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[600] text-[1rem] ">Tên Khách sạn</span>
+            <span className="font-[300] text-[1rem]">$506</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[600] text-[1rem] ">Số lượng Khách:</span>
+            <span className="font-[300] text-[1rem]">{guets}</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[300] text-[1rem] ">Ngày đến:</span>
+            <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[300] text-[1rem]">Ngày trả:</span>
+            <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
+          </div>
+          <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
+            <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
+            <p className="text-[1rem] font-[600]">2.30.217 total</p>
+          </div>
+        </Modal>
+      </>
       <p className="text-center text-[0.875rem] font-[300]">You won't be charged yet</p>
       <div className="py-4">
         <div className="flex items-center justify-between w-full">
