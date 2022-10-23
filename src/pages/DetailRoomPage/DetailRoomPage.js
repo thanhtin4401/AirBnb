@@ -19,9 +19,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCommentUser } from '../../redux/comment/commentSlice';
 import { useSelect } from '@material-tailwind/react';
 import CommentPush from '../../components/Comment/CommentPush';
+import { detailInfoRoom } from '../../redux/room/roomBooking';
 function DetailRoomPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { RangePicker } = DatePicker;
   const { Option } = Select;
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
@@ -30,8 +32,15 @@ function DetailRoomPage() {
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
+
   const allComment = useSelector((state) => state.comment.allComment);
+  const roomDetailInfo = useSelector((state) => state.room.bookingRoom.detailInfoRoom);
+  console.log('roomDetailInfo', roomDetailInfo);
+  const state = useSelector((state) => state.state);
   const roomId = useParams();
+  useEffect(() => {
+    dispatch(detailInfoRoom(roomId.roomId));
+  }, []);
   const handleRenderComment = () => {
     return allComment?.map((item, index) => {
       return <Comment data={item} hello={'hello'} key={index} />;
