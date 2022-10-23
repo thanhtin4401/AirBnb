@@ -1,18 +1,20 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
+import FooterMobile from '../components/Footer/FooterMobile';
+import FooterSticky from '../components/Footer/FooterSticky';
 import HeaderHomePage from '../components/HeaderHomePage/HeaderHomePage';
-function DetailPageLayout() {
+
+function Mainlayout() {
   return (
     <div>
-      <div className="mb:hidden sm:hidden md:block">
-        <Header />
-      </div>
+      <HeaderHomePage />
       <Outlet />
       <Footer />
+      <FooterSticky />
+      <FooterMobile />
     </div>
   );
 }
 
-export default DetailPageLayout;
+export default Mainlayout;

@@ -4,6 +4,7 @@ import RequestAuth from '../components/App/requestAuth';
 import RequestPage from '../components/App/requestPage';
 import Authlayout from '../layout/Authlayout';
 import Mainlayout from '../layout/Mainlayout';
+import Homelayout from '../layout/Homelayout';
 import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
 
 import HomePage from '../pages/HomePage/HomePage';
@@ -25,8 +26,10 @@ export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Mainlayout />}>
+        <Route path="/" element={<Homelayout />}>
           <Route path="/" element={<HomePage />}></Route>
+        </Route>
+        <Route path="/" element={<Mainlayout />}>
           <Route path="/Profile-Person" element={<ProfilePage />}></Route>
           <Route path="/Profile" element={<ProfilePageMobile />}></Route>
           <Route path="/Message" element={<MessagePage />}></Route>
@@ -46,16 +49,6 @@ export default function Routers() {
           <Route path="/order" element={<ManagerPage />} />
         </Route> */}
 
-        <Route
-          path="/"
-          element={
-            <RequestAuth>
-              <Mainlayout />
-            </RequestAuth>
-          }
-        >
-          {/* <Route path="/Detail-Room" element={<DetailRoomPage />}></Route> */}
-        </Route>
         <Route
           path="/"
           element={

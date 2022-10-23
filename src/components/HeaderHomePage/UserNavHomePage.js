@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TbWorld } from 'react-icons/tb';
 import { RiAccountCircleFill, RiMenuFill } from 'react-icons/ri';
-import './UserNav.modul.scss';
+import './UserNavHomePage.modul.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { localStorageService } from '../../services/localStorageService';
 import { useDispatch } from 'react-redux';
@@ -113,7 +113,7 @@ export default function UserNav({ bg }) {
                   onClick={() => {
                     closeDropDown();
                   }}
-                  to="/Profile-person"
+                  to="/Profile"
                   className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full"
                 >
                   {'Xin Chào ' + isUser?.user?.name}

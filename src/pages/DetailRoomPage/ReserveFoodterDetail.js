@@ -2,7 +2,7 @@ import { hasLoadedNamespace } from 'i18next';
 import React, { useState } from 'react';
 import TotalReserce from './TotalReserce';
 
-function ReserveFoodterDetail() {
+function ReserveFoodterDetail(props) {
   const [isReserve, setisReserve] = useState(false);
   const handleIsReserve = () => {
     setisReserve(!isReserve);
@@ -42,7 +42,12 @@ function ReserveFoodterDetail() {
           </button>
         </div>
 
-        <TotalReserce mobile={'true'} handleIsReserve={handleIsReserve} isReserve={isReserve} />
+        <TotalReserce
+          mobile={'true'}
+          handleIsReserve={handleIsReserve}
+          roomId={props.roomId}
+          isReserve={isReserve}
+        />
       </div>
       <div
         className={`absolute bottom-[100%] w-full bg-[#0000006b] h-full ${
