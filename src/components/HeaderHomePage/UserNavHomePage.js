@@ -7,10 +7,12 @@ import { localStorageService } from '../../services/localStorageService';
 import { useDispatch } from 'react-redux';
 import { message } from 'antd';
 import { loginUser, logoutUser } from '../../redux/auth/authSlice';
+import { userService } from '../../services/userService';
 export default function UserNav({ bg }) {
   const [open, setOpen] = useState(false);
   const [openLanguage, setOpenLanguage] = useState(false);
   const [isUser, setisUser] = useState('');
+  const [userAPI, setUserAPI] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
   useEffect(() => {
     if (user) {
@@ -21,6 +23,16 @@ export default function UserNav({ bg }) {
   useEffect(() => {
     setisUser(user);
   }, [user]);
+  useEffect(() => {
+    userService
+      .getUser(user?.user.id)
+      .then((res) => {
+        setUserAPI(res.data.content)
+      })
+      .catch((err) => {
+        message.error(err.response.data)
+      });
+  },[]);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -96,9 +108,9 @@ export default function UserNav({ bg }) {
               bg ? 'sm:text-black lg:text-white' : 'text-black '
             } text-[16px] mr-[0.2rem]`}
           />
-          <RiAccountCircleFill
+           {userAPI?.avatar === "" ? <RiAccountCircleFill
             className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
-          />
+          /> : <img className='w-[25px] h-[25px] object-cover rounded-[50%]' src={`${userAPI?.avatar}`} />}
         </div>
         {/* DROPDOWN INFOR */}
         <div className="dropdownMenu relative ">
@@ -113,10 +125,10 @@ export default function UserNav({ bg }) {
                   onClick={() => {
                     closeDropDown();
                   }}
-                  to="/Profile"
+                  to="/Profile-person"
                   className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full"
                 >
-                  {'Xin Chào ' + isUser?.user?.name}
+                  {'Xin Chào ' + userAPI?.name}
                 </Link>
               ) : (
                 <Link

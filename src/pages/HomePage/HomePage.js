@@ -29,6 +29,7 @@ function HomePage() {
       return <CardItem key={index} roomInfor={roomInfor} />;
     });
   };
+
   const closeNav = () => {
     if (window.scrollY >= 1100) {
       setopenShadowFilter(true);

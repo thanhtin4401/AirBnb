@@ -26,16 +26,13 @@ export default function Header() {
   useEffect(() => {
     dispatch(getLocationList());
   }, []);
-  // const closeNav = () => {
-  //   if (window.scrollY == 0) {
-  //     setBg(true);
-  //   }
-  //   if (window.scrollY >= 100) {
-  //     setOpen(false);
-  //     setBg(false);
-  //   }
-  // };
-  // window.addEventListener('scroll', closeNav);
+  const closeNav = () => {
+   
+    if (window.scrollY >= 100) {
+      setOpen(false);
+    }
+  };
+  window.addEventListener('scroll', closeNav);
 
   const renderOption = () => {
     return allLocation.map((item, index) => {
