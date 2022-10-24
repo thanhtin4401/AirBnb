@@ -136,6 +136,7 @@ export default function ProfilePage() {
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">Tên: {userAPI?.name}</h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
+                    className="profilepage-input"
                       onChange={(e) => {
                         setName(e.target.value);
                       }}
@@ -150,6 +151,7 @@ export default function ProfilePage() {
                   </h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
+                    className="profilepage-input"
                       onChange={(e) => {
                         setBirthday(e.target.value);
                       }}
@@ -161,6 +163,7 @@ export default function ProfilePage() {
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">Email: {userAPI?.email}</h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
+                    className="profilepage-input"
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -174,6 +177,7 @@ export default function ProfilePage() {
                   </h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
+                    className="profilepage-input"
                       onChange={(e) => {
                         setPhone(e.target.value);
                       }}

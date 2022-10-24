@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, TextArea } from 'antd';
+import './CommentPush.scss';
 function CommentPush() {
   const { TextArea } = Input;
   const onFinish = (values) => {
@@ -31,7 +32,7 @@ function CommentPush() {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item>
+          <Form.Item name="comment">
             <TextArea className="w-full" rows={4} />
           </Form.Item>
 

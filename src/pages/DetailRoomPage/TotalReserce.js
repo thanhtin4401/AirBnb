@@ -9,59 +9,78 @@ import './DetailRoomPage';
 import { Button, Modal } from 'antd';
 import { localStorageService } from '../../services/localStorageService';
 import useFormItemStatus from 'antd/lib/form/hooks/useFormItemStatus';
-function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
+import { useDispatch, useSelector } from 'react-redux';
+import { bookingRoom } from '../../redux/room/roomBooking';
+import { useNavigate } from 'react-router-dom';
+function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, total, setTotal }) {
+  const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenLogin, setIsModalOpenLogin] = useState(false);
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
+  const auth = useSelector((state) => state.auth.isLoggedIn);
+
+  console.log('total', total);
   const [children, setChildren] = useState(0);
   const [adults, setAdults] = useState(1);
   const [infants, setInfants] = useState(0);
   const [guets, setGuets] = useState(1);
   const [dateBooking, setDateBooking] = useState([]);
   const [openDateRange, setOpenDateRange] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handlePlus = (name) => {
     if (name == 'children') {
       setChildren(children + 1);
       setGuets(guets + 1);
+      setTotal(total + 50);
     } else if (name == 'adults') {
       setAdults(adults + 1);
+      setTotal(total + 100);
       setGuets(guets + 1);
     } else if (name == 'infants') {
       setInfants(infants + 1);
       setGuets(guets + 1);
+      setTotal(total + 10);
     }
   };
   const handleMinus = (name) => {
     if (name == 'children') {
       setChildren(children - 1);
       setGuets(guets - 1);
+      setTotal(total - 50);
     } else if (name == 'adults') {
       setAdults(adults - 1);
       setGuets(guets - 1);
+      setTotal(total - 100);
     } else if (name == 'infants') {
       setInfants(infants - 1);
       setGuets(guets - 1);
+      setTotal(total - 10);
     }
   };
   const handleOpenDateRange = () => {
     setOpenDateRange(true);
   };
   const showModal = () => {
-    setIsModalOpen(true);
+    if (auth) {
+      setIsModalOpen(true);
+    } else {
+      setIsModalOpenLogin(true);
+    }
   };
-
+  const handleOkLogin = () => {
+    setIsModalOpenLogin(false);
+    navigate('/Login');
+  };
+  const handleCancelLogin = () => {
+    setIsModalOpenLogin(false);
+  };
   const handleOk = () => {
     setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
-  const onFinish = () => {
     const bookRoom = {
       maPhong: roomId.roomId,
       ngayDen: dateBooking.startDate,
@@ -69,7 +88,13 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
       soLuongKhach: guets,
       maNguoiDung: localStorageService.get('USER').user.id,
     };
+    dispatch(bookingRoom(bookRoom));
   };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       className={`p-[1.5rem] card-total border rounded-[0.5rem] ${
@@ -92,7 +117,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
               d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <p className="font-[500] text-[1.2rem] mx-1">42.000</p>
+          <p className="font-[500] text-[1.2rem] mx-1">{total}</p>
           <span className="text-[0.6rem] font-[300]">night</span>
         </div>
 
@@ -403,7 +428,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
         </Button> */}
         <Modal
           className="modal-reserce"
-          title="Basic Modal"
+          title="Bill Confirm"
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}
@@ -414,20 +439,43 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
           </div>
           <div className="flex items-center justify-between w-full">
             <span className="font-[600] text-[1rem] ">Số lượng Khách:</span>
-            <span className="font-[300] text-[1rem]">{guets}</span>
+            <span className="font-[600] text-[1rem]">{guets}</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[300] text-[1rem] ">Ngày đến:</span>
+            <span className="font-[300] text-[0.8rem] ">children:</span>
+            <span className="font-[300] text-[0.8rem]">{children} x 50$</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[300] text-[0.8rem] ">adults:</span>
+            <span className="font-[300] text-[0.8rem]">{adults} x 100$</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[300] text-[0.8rem] ">infants:</span>
+            <span className="font-[300] text-[0.8rem]">{infants} x 10$</span>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <span className="font-[600] text-[1rem] ">Ngày đến:</span>
             <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[300] text-[1rem]">Ngày trả:</span>
+            <span className="font-[600] text-[1rem]">Ngày trả:</span>
             <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
           </div>
           <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
             <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
-            <p className="text-[1rem] font-[600]">2.30.217 total</p>
+            <p className="text-[1rem] font-[600]">{total} total</p>
           </div>
+        </Modal>
+        <Modal
+          className="modal-reserce"
+          title="Login confirm"
+          open={isModalOpenLogin}
+          onOk={handleOkLogin}
+          onCancel={handleCancelLogin}
+        >
+          <p className="w-full text-center font-600 text-[1rem]">
+            Plese login to booking room.thank you
+          </p>
         </Modal>
       </>
       <p className="text-center text-[0.875rem] font-[300]">You won't be charged yet</p>
@@ -443,7 +491,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId }) {
       </div>
       <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
         <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
-        <p className="text-[1rem] font-[600]">2.30.217 total</p>
+        <p className="text-[1rem] font-[600]">{total} total</p>
       </div>
       <button
         onClick={() => {

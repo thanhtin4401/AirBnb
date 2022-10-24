@@ -19,9 +19,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCommentUser } from '../../redux/comment/commentSlice';
 import { useSelect } from '@material-tailwind/react';
 import CommentPush from '../../components/Comment/CommentPush';
+
+import { detailInfoRoom } from '../../redux/room/roomBooking';
 function DetailRoomPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const allComment = useSelector((state) => state.comment.allComment);
+  const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
+  const [total, setTotal] = useState(roomDetailInfo?.giaTien);
   const { RangePicker } = DatePicker;
   const { Option } = Select;
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
@@ -30,8 +35,14 @@ function DetailRoomPage() {
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
-  const allComment = useSelector((state) => state.comment.allComment);
+
   const roomId = useParams();
+  useEffect(() => {
+    dispatch(detailInfoRoom(roomId.roomId));
+  }, []);
+  useEffect(() => {
+    dispatch(detailInfoRoom(roomId.roomId));
+  }, [roomId.roomId]);
   const handleRenderComment = () => {
     return allComment?.map((item, index) => {
       return <Comment data={item} hello={'hello'} key={index} />;
@@ -385,7 +396,13 @@ function DetailRoomPage() {
             </div>
           </div>
           <div className="pl-[6rem] mb:hidden sm:hidden md:block w-2/5">
-            <TotalReserce mobile={false} desktop={true} roomId={roomId} />
+            <TotalReserce
+              total={total}
+              mobile={false}
+              desktop={true}
+              roomId={roomId}
+              setTotal={setTotal}
+            />
           </div>
         </div>
 
@@ -442,7 +459,7 @@ function DetailRoomPage() {
           <Map />
         </div>
       </div>
-      <ReserveFoodterDetail roomId={roomId} />
+      <ReserveFoodterDetail roomId={roomId} total={total} setTotal={setTotal} />
     </>
   );
 }
