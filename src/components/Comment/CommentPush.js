@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, TextArea } from 'antd';
+import './CommentPush.scss';
 function CommentPush() {
   const { TextArea } = Input;
   const onFinish = (values) => {

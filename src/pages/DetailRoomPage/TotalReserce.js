@@ -11,14 +11,18 @@ import { localStorageService } from '../../services/localStorageService';
 import useFormItemStatus from 'antd/lib/form/hooks/useFormItemStatus';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookingRoom } from '../../redux/room/roomBooking';
+import { useNavigate } from 'react-router-dom';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, total, setTotal }) {
   const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenLogin, setIsModalOpenLogin] = useState(false);
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
   };
+  const auth = useSelector((state) => state.auth.isLoggedIn);
+
   console.log('total', total);
   const [children, setChildren] = useState(0);
   const [adults, setAdults] = useState(1);
@@ -27,6 +31,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
   const [dateBooking, setDateBooking] = useState([]);
   const [openDateRange, setOpenDateRange] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handlePlus = (name) => {
     if (name == 'children') {
       setChildren(children + 1);
@@ -61,9 +66,19 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
     setOpenDateRange(true);
   };
   const showModal = () => {
-    setIsModalOpen(true);
+    if (auth) {
+      setIsModalOpen(true);
+    } else {
+      setIsModalOpenLogin(true);
+    }
   };
-
+  const handleOkLogin = () => {
+    setIsModalOpenLogin(false);
+    navigate('/Login');
+  };
+  const handleCancelLogin = () => {
+    setIsModalOpenLogin(false);
+  };
   const handleOk = () => {
     setIsModalOpen(false);
     const bookRoom = {
@@ -450,6 +465,17 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
             <p className="text-[1rem] font-[600]">{total} total</p>
           </div>
+        </Modal>
+        <Modal
+          className="modal-reserce"
+          title="Login confirm"
+          open={isModalOpenLogin}
+          onOk={handleOkLogin}
+          onCancel={handleCancelLogin}
+        >
+          <p className="w-full text-center font-600 text-[1rem]">
+            Plese login to booking room.thank you
+          </p>
         </Modal>
       </>
       <p className="text-center text-[0.875rem] font-[300]">You won't be charged yet</p>
