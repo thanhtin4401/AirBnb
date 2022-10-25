@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './FilterSlide.scss';
 import { Button, Modal } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { InputNumber, Space } from 'antd';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -26,6 +26,9 @@ function FilterSlice() {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+  const onChange = (value) => {
+    console.log('changed', value);
   };
   return (
     <div className="flex w-full items-center">
@@ -245,10 +248,36 @@ function FilterSlice() {
           </SwiperSlide>
         </Swiper>
       </div>
-
+      <div className="md:hidden fixed bottom-[6rem] w-full flex justify-center">
+        <button
+          onClick={showModal}
+          className="text-[12px] lg:flex py-[14px] px-[8px] border rounded-[1rem] bg-white flex items-center justify-center "
+          style={{
+            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px',
+          }}
+        >
+          <div className="w-full flex justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2.5"
+              stroke="currentColor"
+              className="w-4 h-4 mr-2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+              />
+            </svg>
+            <p className="font-[500]">Filter</p>
+          </div>
+        </button>
+      </div>
       <button
         onClick={showModal}
-        className="ml-2 mb:hidden text-[12px] sm:hidden lg:flex py-[14px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center"
+        className="ml-2 mb:hidden  text-[12px] sm:hidden lg:flex py-[14px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center"
       >
         <div className="w-full flex justify-center">
           <svg
@@ -270,7 +299,7 @@ function FilterSlice() {
       </button>
       <Modal
         className="filter-popup"
-        title="Basic Modal"
+        title="Filter"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -280,12 +309,28 @@ function FilterSlice() {
           <div className="flex w-full justify-between items-center">
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
               <p className="font-[300] text-[0.6rem]">Min price</p>
-              <input type="text" />
+              <div>
+                <InputNumber
+                  className="price-input"
+                  defaultValue={1000}
+                  formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                  onChange={onChange}
+                />
+              </div>
             </div>
             <p className="mx-4">~</p>
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
               <p className="font-[300] text-[0.6rem]">Min price</p>
-              <input type="text" />
+              <div>
+                <InputNumber
+                  className="price-input"
+                  defaultValue={1000}
+                  formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                  onChange={onChange}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -330,25 +375,19 @@ function FilterSlice() {
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              any
+              4
             </span>
           </label>
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              2
+              6
             </span>
           </label>
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              any
-            </span>
-          </label>
-          <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
-            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              2
+              8+
             </span>
           </label>
         </div>
