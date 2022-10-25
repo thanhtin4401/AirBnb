@@ -1,77 +1,73 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { message } from 'antd';
 import { https } from '../../services/axiosClient';
-/** State **/
 const initialState = {
-  allUser: [],
+  allLocation: [],
   isfetching: false,
   content: {},
 };
-
-export const getUserList = createAsyncThunk('user/list', async () => {
+export const getLocationList = createAsyncThunk('location/list', async () => {
   try {
-    const res = await https.get('/api/users');
+    const res = await https.get('/api/vi-tri');
     console.log('res', res);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-
-export const pushUser = createAsyncThunk('user/push', async (data) => {
+export const pushLocation = createAsyncThunk('location/push', async (data) => {
   try {
-    const res = await https.post('/api/users', data);
+    const res = await https.post('/api/vi-tri', data);
     console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-export const deleteUser = createAsyncThunk('user/delete', async (id) => {
+export const deleteLocation = createAsyncThunk('location/delete', async (id) => {
   try {
-    const res = await https.post(`/api/users/id=${id}`);
+    const res = await https.post(`/api/vi-tri/id=${id}`);
     console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-
-const userSlice = createSlice({
-  name: 'user',
+const locationSlice = createSlice({
+  name: 'location',
   initialState,
   reducers: {
     reset: (state) => {
       return {
         ...state,
-        allRoom: [],
+        allLocation: [],
         isfetching: false,
       };
     },
   },
   extraReducers: (builder) => {
     return builder
-      .addCase(getUserList.pending, (state) => {
+      .addCase(getLocationList.pending, (state) => {
         return {
           ...state,
-          allUser: null,
+          allLocation: null,
           isfetching: true,
         };
       })
-      .addCase(getUserList.fulfilled, (state, { payload }) => {
+      .addCase(getLocationList.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          allUser: payload?.content,
+          allLocation: payload?.content,
         };
       })
-      .addCase(deleteUser.pending, (state) => {
+      .addCase(deleteLocation.pending, (state) => {
         return {
           ...state,
           isfetching: true,
         };
       })
-      .addCase(deleteUser.fulfilled, (state, { payload }) => {
+      .addCase(deleteLocation.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
@@ -81,5 +77,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { reset } = userSlice.actions;
-export default userSlice.reducer;
+export const { reset } = locationSlice.actions;
+export default locationSlice.reducer;

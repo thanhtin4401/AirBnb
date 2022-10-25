@@ -1,44 +1,40 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { message } from 'antd';
 import { https } from '../../services/axiosClient';
-/** State **/
 const initialState = {
-  allUser: [],
+  allRoom: [],
   isfetching: false,
   content: {},
 };
-
-export const getUserList = createAsyncThunk('user/list', async () => {
+export const getRoomList = createAsyncThunk('room/list', async () => {
   try {
-    const res = await https.get('/api/users');
+    const res = await https.get('/api/phong-thue');
     console.log('res', res);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-
-export const pushUser = createAsyncThunk('user/push', async (data) => {
+export const pushRoom = createAsyncThunk('room/push', async (data) => {
   try {
-    const res = await https.post('/api/users', data);
+    const res = await https.post('/api/phong-thue', data);
     console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-export const deleteUser = createAsyncThunk('user/delete', async (id) => {
+export const deleteRoom = createAsyncThunk('room/delete', async (id) => {
   try {
-    const res = await https.post(`/api/users/id=${id}`);
+    const res = await https.post(`/api/phong-thue/id=${id}`);
     console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);
   }
 });
-
-const userSlice = createSlice({
-  name: 'user',
+const roomSlice = createSlice({
+  name: 'room',
   initialState,
   reducers: {
     reset: (state) => {
@@ -51,27 +47,27 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     return builder
-      .addCase(getUserList.pending, (state) => {
+      .addCase(getRoomList.pending, (state) => {
         return {
           ...state,
-          allUser: null,
+          allRoom: null,
           isfetching: true,
         };
       })
-      .addCase(getUserList.fulfilled, (state, { payload }) => {
+      .addCase(getRoomList.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          allUser: payload?.content,
+          allRoom: payload?.content,
         };
       })
-      .addCase(deleteUser.pending, (state) => {
+      .addCase(deleteRoom.pending, (state) => {
         return {
           ...state,
           isfetching: true,
         };
       })
-      .addCase(deleteUser.fulfilled, (state, { payload }) => {
+      .addCase(deleteRoom.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
@@ -81,5 +77,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { reset } = userSlice.actions;
-export default userSlice.reducer;
+export const { reset } = roomSlice.actions;
+export default roomSlice.reducer;

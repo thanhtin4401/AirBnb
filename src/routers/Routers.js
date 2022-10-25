@@ -22,6 +22,8 @@ import DetailPageLayout from '../layout/DetailPageLayout';
 import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
 import Wishlists from '../pages/WishlistsPage/WishlistsPage';
 import UserManager from '../pages/UserManager/UserManager';
+import RoomManager from '../pages/RoomManager/RoomManager';
+import LocationManager from '../pages/LocationManager/LocationManager';
 
 export default function Routers() {
   return (
@@ -42,9 +44,9 @@ export default function Routers() {
         <Route path="/Manager" element={<ManagerLayout />}>
           <Route path="/Manager/Home" element={<ManagerPage />} />
           <Route path="/Manager/User" element={<UserManager />} />
-          {/* <Route path="/calendar" element={<ManagerPage />} />
-          <Route path="/user" element={<ManagerPage />} />
-          <Route path="/order" element={<ManagerPage />} /> */}
+          <Route path="/Manager/Room" element={<RoomManager />} />
+          <Route path="/Manager/Location" element={<LocationManager />} />
+          {/* <Route path="/order" element={<ManagerPage />} /> */}
         </Route>
 
         <Route

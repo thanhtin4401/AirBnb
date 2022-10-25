@@ -3,14 +3,14 @@ import { Table } from 'antd';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserList } from '../../redux/manager/user';
-function UserManager() {
+import { getLocationList } from '../../redux/manager/location';
+function LocationManager() {
   const { Search } = Input;
   const dispatch = useDispatch();
-  const allUserList = useSelector((state) => state.manager.user.allUser);
-  console.log(allUserList);
+  const allLocationList = useSelector((state) => state.manager.location.allLocation);
+  console.log(allLocationList);
   useEffect(() => {
-    dispatch(getUserList());
+    dispatch(getLocationList());
   }, []);
   const columns = [
     {
@@ -21,42 +21,28 @@ function UserManager() {
       fixed: 'left',
     },
     {
-      title: 'Tên',
+      title: 'Tên Vị Trí',
       width: 100,
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'tenViTri',
+      key: 'tenViTri',
       fixed: 'left',
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
+      title: 'Tỉnh Thành',
+      dataIndex: 'tinhThanh',
       key: '1',
     },
     {
-      title: 'Pass',
-      dataIndex: 'pass',
+      title: 'Quốc Gia',
+      dataIndex: 'quocGia',
       key: '2',
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
+      title: 'Hình Ảnh',
+      dataIndex: 'hinhAnh',
       key: '3',
     },
-    {
-      title: 'Birthday',
-      dataIndex: 'birthday',
-      key: '4',
-    },
-    {
-      title: 'Avatar',
-      dataIndex: 'avatar',
-      key: '5',
-    },
-    {
-      title: 'Role',
-      dataIndex: 'role',
-      key: '6',
-    },
+
     {
       title: 'Action',
       key: 'operation',
@@ -77,7 +63,7 @@ function UserManager() {
   const onSearch = (value) => console.log(value);
   return (
     <div>
-      <h1>Quản lí người dùng</h1>
+      <h1>Quản lí vị trí khách sạn</h1>
       <Search
         className="mb-5"
         placeholder="input search text"
@@ -88,7 +74,7 @@ function UserManager() {
       />{' '}
       <Table
         columns={columns}
-        dataSource={allUserList}
+        dataSource={allLocationList}
         scroll={{
           x: 1300,
         }}
@@ -97,4 +83,4 @@ function UserManager() {
   );
 }
 
-export default UserManager;
+export default LocationManager;
