@@ -6,7 +6,7 @@ import './DetailRoomPage.scss';
 import { DatePicker, Space, Select } from 'antd';
 import ReserveFoodterDetail from './ReserveFoodterDetail';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { dataIMG } from '../../Data/Data';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -35,17 +35,32 @@ function DetailRoomPage() {
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
   const [listComment, setListComment] = useState([]);
+  const allRoom = useSelector((state) => state.room.listRoom.allRoom);
+
   const handleIsGuestsSelect = () => {
     setisGuestsSelect(!isGuestsSelect);
+  };
+  const [imgRoomList, setImgRoomList] = useState([]);
+  const renderRoomItem = (id) => {
+    let room = allRoom?.map((item, index) => {
+      return { ...item, data: dataIMG[index] };
+    });
+    let ImgRoom = room.filter((item) => {
+      return item.id == id;
+    });
+    console.log('ImgRoom', ImgRoom);
+    setImgRoomList(ImgRoom);
   };
 
   const roomId = useParams();
   console.log('roomId', roomId);
   useEffect(() => {
     dispatch(detailInfoRoom(roomId.roomId));
+    renderRoomItem(roomId.roomId);
   }, []);
   useEffect(() => {
     dispatch(detailInfoRoom(roomId.roomId));
+    renderRoomItem(roomId.roomId);
   }, [roomId.roomId]);
   const handleRenderComment = () => {
     return allComment?.map((item, index) => {
@@ -153,19 +168,51 @@ function DetailRoomPage() {
             >
               <SwiperSlide className=" bg-black">
                 <img
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img1
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
               </SwiperSlide>
               <SwiperSlide className=" bg-black">
                 <img
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img2
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
               </SwiperSlide>
               <SwiperSlide className=" bg-black">
                 <img
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img3
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
+                  alt=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className=" bg-black">
+                <img
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img4
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
+                  alt=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className=" bg-black">
+                <img
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img5
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
               </SwiperSlide>
@@ -216,27 +263,50 @@ function DetailRoomPage() {
               <div className="grid grid-cols-4 grid-rows-2 gap-4">
                 <img
                   className="rounded-[0.5rem] row-span-2 col-span-2 w-full"
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img1
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
                 <img
                   className="rounded-[0.5rem]"
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img2
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
                 <img
                   className="rounded-[0.5rem]"
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img3
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
+                <div className="overflow-hidden col-span-1">
+                  <img
+                    className="rounded-[0.5rem] object-cover col-span-1"
+                    src={`${
+                      imgRoomList
+                        ? imgRoomList[0]?.data.img4
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                    }`}
+                    alt=""
+                  />
+                </div>
+
                 <img
                   className="rounded-[0.5rem]"
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
-                  alt=""
-                />
-                <img
-                  className="rounded-[0.5rem]"
-                  src="https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png"
+                  src={`${
+                    imgRoomList
+                      ? imgRoomList[0]?.data.img5
+                      : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
+                  }`}
                   alt=""
                 />
               </div>
