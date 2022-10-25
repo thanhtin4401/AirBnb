@@ -26,6 +26,7 @@ function DetailRoomPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allComment = useSelector((state) => state.comment.allComment);
+  const commentSuccess = useSelector((state) => state.comment.commentSuccess);
   const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
   const isFetching = useSelector((state) => state.room.bookingRoom.isfetching);
   const [total, setTotal] = useState(roomDetailInfo?.giaTien);
@@ -39,6 +40,7 @@ function DetailRoomPage() {
   };
 
   const roomId = useParams();
+  console.log('roomId', roomId);
   useEffect(() => {
     dispatch(detailInfoRoom(roomId.roomId));
   }, []);
@@ -64,8 +66,13 @@ function DetailRoomPage() {
 
   console.log('allComment', allComment);
   useEffect(() => {
+    console.log('roomId.roomId', roomId.roomId);
     dispatch(getCommentUser(roomId.roomId));
   }, []);
+  useEffect(() => {
+    console.log('roomId.roomId');
+    dispatch(getCommentUser(roomId.roomId));
+  }, [roomId.roomId, commentSuccess]);
 
   return (
     <>
