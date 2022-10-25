@@ -262,7 +262,7 @@ function DetailRoomPage() {
             <div className="image mb-2 mb:hidden sm:hidden md:block">
               <div className="grid grid-cols-4 grid-rows-2 gap-4">
                 <img
-                  className="rounded-[0.5rem] row-span-2 col-span-2 w-full"
+                  className="rounded-[0.5rem] row-span-2 col-span-2 w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img1
@@ -271,7 +271,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem]"
+                  className="rounded-[0.5rem] w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img2
@@ -280,7 +280,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem]"
+                  className="rounded-[0.5rem] w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img3
@@ -301,7 +301,7 @@ function DetailRoomPage() {
                 </div>
 
                 <img
-                  className="rounded-[0.5rem]"
+                  className="rounded-[0.5rem] w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img5
