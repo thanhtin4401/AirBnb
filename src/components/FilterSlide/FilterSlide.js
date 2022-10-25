@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './FilterSlide.scss';
 import { Button, Modal } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { InputNumber, Space } from 'antd';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -26,6 +26,9 @@ function FilterSlice() {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+  const onChange = (value) => {
+    console.log('changed', value);
   };
   return (
     <div className="flex w-full items-center">
@@ -270,7 +273,7 @@ function FilterSlice() {
       </button>
       <Modal
         className="filter-popup"
-        title="Basic Modal"
+        title="Filter"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -280,12 +283,26 @@ function FilterSlice() {
           <div className="flex w-full justify-between items-center">
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
               <p className="font-[300] text-[0.6rem]">Min price</p>
-              <input type="text" />
+              <div>
+                <InputNumber
+                  defaultValue={1000}
+                  formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                  onChange={onChange}
+                />
+              </div>
             </div>
             <p className="mx-4">~</p>
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
               <p className="font-[300] text-[0.6rem]">Min price</p>
-              <input type="text" />
+              <div>
+                <InputNumber
+                  defaultValue={1000}
+                  formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                  onChange={onChange}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -330,25 +347,19 @@ function FilterSlice() {
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              any
+              4
             </span>
           </label>
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              2
+              6
             </span>
           </label>
           <label className="cursor-pointer">
             <input className="radio-btn" type="radio" name="bed" />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              any
-            </span>
-          </label>
-          <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
-            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              2
+              8+
             </span>
           </label>
         </div>

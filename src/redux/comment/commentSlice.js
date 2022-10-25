@@ -4,13 +4,15 @@ import { https } from '../../services/axiosClient';
 /** State **/
 const initialState = {
   allComment: [],
+  commentSuccess: false,
   isfetching: false,
 };
 
 export const getCommentUser = createAsyncThunk('user/comment-list', async (id) => {
   try {
     const res = await https.get(`api/binh-luan/lay-binh-luan-theo-phong/${id}`);
-
+    message.error('sai');
+    console.log('comment', res.data);
     return res.data;
   } catch (error) {
     // message.error(error.response.data.message);
@@ -21,7 +23,7 @@ export const postCommentUser = createAsyncThunk('user/comment-post', async (comm
   try {
     const res = await https.post(`api/binh-luan`, comment);
     console.log('res comment:', res);
-    // return res.data;
+    return res.data;
   } catch (error) {
     console.log(error);
   }
@@ -67,6 +69,7 @@ const listCommentSlice = createSlice({
         return {
           ...state,
           isfetching: false,
+          commentSuccess: true,
         };
       });
   },
