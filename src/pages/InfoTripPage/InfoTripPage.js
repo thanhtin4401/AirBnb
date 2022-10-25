@@ -64,7 +64,7 @@ export default function InfoTripPage() {
               onClick={() => {
                 deleteOrderRoom(item.id);
               }}
-              className="px-3 py-1 bg-red-500 font-bold text-white rounded-xl"
+              className="px-3 py-1 bg-[#FF385C] font-bold text-white rounded-xl"
             >
               Hủy
             </button>
@@ -92,7 +92,7 @@ export default function InfoTripPage() {
         )}
 
         <div className="lg:col-span-3 md:col-span-12 mb:col-span-12 sm:col-span-12 py-6 px-10 bg-[#F7F7F9] rounded-xl">
-          <h1 className="text-[#000] font-bold text-base mb-3">
+          <h1 className="text-[#FF385C] font-bold text-base mb-3">
             Bạn muốn tận hưởng cuộc sống này hơn không?
           </h1>
           <h1 className="text-[#000] text-sm mb-5">
@@ -100,7 +100,7 @@ export default function InfoTripPage() {
           </h1>
           <Link
             to="/"
-            className="px-4 py-2 border border-gray-500 font-medium text-base rounded-xl"
+            className="px-4 py-2 border border-gray-500 font-medium text-base rounded-xl hover:text-[#FF385C]"
           >
             Let's go
           </Link>

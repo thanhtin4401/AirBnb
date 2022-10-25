@@ -13,23 +13,31 @@ import Banner from '../../components/Banner/Banner';
 import BannerVideo from '../../components/Banner/BannerVideo';
 import Collection from '../../components/Collection/Collection';
 import LiveAnyway from './LiveAnyway';
-
+import {dataIMG} from '../../Data/Data'
 function HomePage() {
   const dispatch = useDispatch();
   const allRoom = useSelector((state) => state.room.listRoom.allRoom);
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
   const [openShadowFilter, setopenShadowFilter] = useState(false);
+  const [newRoom,setNewRoom] = useState([]);
   useEffect(() => {
     dispatch(getRoomList());
     dispatch(getLocationList());
   }, []);
 
+  useEffect(() => { 
+    setNewRoom(allRoom)
+   },[allRoom])
   const renderRoomItem = () => {
-    return allRoom?.map((roomInfor, index) => {
+    let room =  newRoom?.map((item,index) => { 
+            return {...item,data : dataIMG[index]}
+         })
+    return room?.slice(0,15).map((roomInfor, index) => {
       return <CardItem key={index} roomInfor={roomInfor} />;
     });
   };
-
+ 
+  
   const closeNav = () => {
     if (window.scrollY >= 1100) {
       setopenShadowFilter(true);
