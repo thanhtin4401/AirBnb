@@ -260,3 +260,18 @@ input[type="radio"]:checked~span {
     background-color: black;
     color: white
 }
+
+.price-input {
+    border: none;
+    width: 100%;
+    .ant-input-number-handler-wrap {
+        display: none;
+    }
+    .ant-input-number-input-wrap {
+        width: 100%;
+        .ant-input-number-input {
+            padding: 0;
+            width: 100%;
+        }
+    }
+}
