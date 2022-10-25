@@ -8,9 +8,11 @@ const initialState = {
   isfetching: false,
 };
 
-export const bookingRoom = createAsyncThunk('room/list', async (data) => {
+export const bookingRoom = createAsyncThunk('room/booking', async (data) => {
   try {
-    const res = await https.get('/api/dat-phong', data);
+    const res = await https.post('/api/dat-phong', data);
+    message.success(res.data.message);
+    console.log('res:', res);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -20,7 +22,7 @@ export const bookingRoom = createAsyncThunk('room/list', async (data) => {
 export const detailInfoRoom = createAsyncThunk('room/detail', async (id) => {
   try {
     const res = await https.get(`/api/phong-thue/${id}`);
-    console.log('detail', res.data.content);
+    console.log("res.data:",res.data);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProfilePageMobile() {
   return (
-    <div className="container w-full mx-auto py-6">
+    <div className="container w-full mx-auto pb-6 pt-[5rem]">
       <div className="mb-6">
         <img
           className="rounded-[5rem] w-[45px] h-[45px]"
