@@ -6,5 +6,9 @@ export let userService = {
      },
      putUser : (idUser,user) => {
         return https.put(`/api/users/${idUser}`,user)
+     },
+     uploadAvt:(formData) => {
+      return https.post(`/api/users/upload-avatar`,formData)
      }
+
 }
