@@ -27,12 +27,12 @@ export default function UserNav({ bg }) {
     userService
       .getUser(user?.user.id)
       .then((res) => {
-        setUserAPI(res.data.content)
+        setUserAPI(res.data.content);
       })
       .catch((err) => {
-        message.error(err.response.data)
+        message.error(err.response.data);
       });
-  },[]);
+  }, []);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -89,10 +89,10 @@ export default function UserNav({ bg }) {
             } animate__animated animate__fadeInUp bg-white dropdownLanguage rounded-xl border border-gray-300 transition duration-500`}
           >
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <a className="hover:text-black transition duration-100">Tiếng Việt</a>
+              <p className="hover:text-black transition duration-100">Tiếng Việt</p>
             </li>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <a className="hover:text-black transition duration-100">English</a>
+              <p className="hover:text-black transition duration-100">English</p>
             </li>
           </ul>
         </div>
@@ -108,9 +108,16 @@ export default function UserNav({ bg }) {
               bg ? 'sm:text-black lg:text-white' : 'text-black '
             } text-[16px] mr-[0.2rem]`}
           />
-           {userAPI?.avatar === "" ? <RiAccountCircleFill
-            className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
-          /> : <img className='w-[25px] h-[25px] object-cover rounded-[50%]' src={`${userAPI?.avatar}`} />}
+          {userAPI?.avatar === '' ? (
+            <RiAccountCircleFill
+              className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
+            />
+          ) : (
+            <img
+              className="w-[25px] h-[25px] object-cover rounded-[50%]"
+              src={`${userAPI?.avatar}`}
+            />
+          )}
         </div>
         {/* DROPDOWN INFOR */}
         <div className="dropdownMenu relative ">
@@ -147,9 +154,9 @@ export default function UserNav({ bg }) {
                 to="/trip"
               >
                 <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-                  <a className="w-full block h-full text-left hover:text-black transition duration-100">
+                  <p className="w-full block h-full text-left hover:text-black transition duration-100">
                     {'Chuyến đi'}
-                  </a>
+                  </p>
                 </li>
               </Link>
             ) : (
@@ -163,9 +170,9 @@ export default function UserNav({ bg }) {
                 to="/Manager"
               >
                 <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-                  <a className="w-full block h-full text-left hover:text-black transition duration-100">
+                  <p className="w-full block h-full text-left hover:text-black transition duration-100">
                     {'Quản lý'}
-                  </a>
+                  </p>
                 </li>
               </Link>
             ) : (
@@ -190,13 +197,13 @@ export default function UserNav({ bg }) {
             </li>
             <div className="bg-gray-300 w-full h-[1px] my-[5px]"></div>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <a className="hover:text-black transition duration-100">Cho Thuê Nhà</a>
+              <p className="hover:text-black transition duration-100">Cho Thuê Nhà</p>
             </li>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <a className="hover:text-black transition duration-100">Tổ chức Trải Nghiệm</a>
+              <p className="hover:text-black transition duration-100">Tổ chức Trải Nghiệm</p>
             </li>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <a className="hover:text-black transition duration-100">Trợ Giúp</a>
+              <p className="hover:text-black transition duration-100">Trợ Giúp</p>
             </li>
           </ul>
         </div>

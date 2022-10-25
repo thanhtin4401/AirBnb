@@ -22,7 +22,7 @@ export const bookingRoom = createAsyncThunk('room/booking', async (data) => {
 export const detailInfoRoom = createAsyncThunk('room/detail', async (id) => {
   try {
     const res = await https.get(`/api/phong-thue/${id}`);
-    console.log('res.data:', res.data);
+    console.log("res.data:",res.data);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
