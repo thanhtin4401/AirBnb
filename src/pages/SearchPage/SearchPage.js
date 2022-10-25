@@ -71,7 +71,7 @@ export default function SearchPage() {
                 frameBorder="0"
                 scrolling="no"
                 marginHeight="0"
-                marginHidth="0"
+                // marginhidth="0"
                 src="https://maps.google.com/maps?width=1001&amp;height=567&amp;hl=en&amp;q=ho chi minh&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
               ></iframe>
             </div>

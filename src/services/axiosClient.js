@@ -7,7 +7,7 @@ export const https = axios.create({
   baseURL: process.env.REACT_APP_API_KEY,
   headers: {
     TokenCybersoft: TOKEN,
-    Authorization: 'Bearer ' + localStorageService.get('USER')?.Token,
+    token: localStorageService.get('accessToken'),
   },
 });
 

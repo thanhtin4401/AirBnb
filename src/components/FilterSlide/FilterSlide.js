@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './FilterSlide.scss';
-
+import { Button, Modal } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -17,7 +17,16 @@ function FilterSlice() {
   };
   window.addEventListener('resize', resize);
   // let screenWidth = window.screen.width;
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="flex w-full items-center">
       <div className="filter-wrapper mb:w-full md:w-full sm:w-full lg:w-11/12">
@@ -237,7 +246,10 @@ function FilterSlice() {
         </Swiper>
       </div>
 
-      <button className="ml-2 mb:hidden text-[12px] sm:hidden lg:flex py-[14px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center">
+      <button
+        onClick={showModal}
+        className="ml-2 mb:hidden text-[12px] sm:hidden lg:flex py-[14px] px-[8px] border rounded-[1rem] w-1/12 flex items-center justify-center"
+      >
         <div className="w-full flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -256,6 +268,91 @@ function FilterSlice() {
           <p className="font-[500]">Filter</p>
         </div>
       </button>
+      <Modal
+        className="filter-popup"
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="price pb-4 border-b-[1px]">
+          <h1 className="font-[600] text-[1rem]">Price range</h1>
+          <div className="flex w-full justify-between items-center">
+            <div className="p-2 w-2/4 border-[1px] rounded-lg">
+              <p className="font-[300] text-[0.6rem]">Min price</p>
+              <input type="text" />
+            </div>
+            <p className="mx-4">~</p>
+            <div className="p-2 w-2/4 border-[1px] rounded-lg">
+              <p className="font-[300] text-[0.6rem]">Min price</p>
+              <input type="text" />
+            </div>
+          </div>
+        </div>
+        <div className="check pb-4 border-b-[1px]">
+          <h1 className="font-[600] text-[1rem] mb-4">Type of place</h1>
+          <div className="grid grid-cols-2 gap-4">
+            <label className="cursor-pointer flex items-center">
+              <input className="radio-btn mr-2" type="checkbox" name="bed" />
+              <div className="">
+                <p className="text-[1rem] font-[400]">Private room</p>
+                <p className="text-[0.6rem] font-[300]">
+                  Your own room in a home or a hotel, plus some shared common spaces
+                </p>
+              </div>
+            </label>
+            <label className="cursor-pointer flex items-center">
+              <input className="radio-btn mr-2" type="checkbox" name="bed" />
+              <div className="">
+                <p className="text-[1rem] font-[400]">Private room</p>
+                <p className="text-[0.6rem] font-[300]">
+                  Your own room in a home or a hotel, plus some shared common spaces
+                </p>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div className="bed">
+          <h1 className="font-[600] text-[1rem]">Rooms and beds</h1>
+          <p className="font-[400] text-[0.8rem] my-4">Bedrooms</p>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              any
+            </span>
+          </label>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              2
+            </span>
+          </label>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              any
+            </span>
+          </label>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              2
+            </span>
+          </label>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              any
+            </span>
+          </label>
+          <label className="cursor-pointer">
+            <input className="radio-btn" type="radio" name="bed" />
+            <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
+              2
+            </span>
+          </label>
+        </div>
+      </Modal>
     </div>
   );
 }
