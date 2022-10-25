@@ -26,7 +26,7 @@ function CommentPush(props) {
         maPhong: props.roomId,
         maNguoiBinhLuan: localStorageService.get('USER').user.id,
         ngayBinhLuan: date,
-        noiDung: values,
+        noiDung: values.comment,
         saoBinhLuan: rateCount,
       };
 
