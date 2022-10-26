@@ -6,14 +6,15 @@ import DateRangeComp from './DateRangeComp';
 import './DetailRoomPage.scss';
 import './TotalReserce.scss';
 import './DetailRoomPage';
-import { Button, Modal } from 'antd';
+import { Button, Modal, notification } from 'antd';
 import { localStorageService } from '../../services/localStorageService';
 import useFormItemStatus from 'antd/lib/form/hooks/useFormItemStatus';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookingRoom } from '../../redux/room/roomBooking';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, total, setTotal }) {
-  const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
+  const isBookingSuccess = useSelector((state) => state.room.bookingRoom.isBookingSuccess);
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,8 +23,6 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
     setisGuestsSelect(!isGuestsSelect);
   };
   const auth = useSelector((state) => state.auth.isLoggedIn);
-
-  console.log('total', total);
   const [children, setChildren] = useState(0);
   const [adults, setAdults] = useState(1);
   const [infants, setInfants] = useState(0);
@@ -95,6 +94,18 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    if (isBookingSuccess) {
+      openNotificationWithIcon('success');
+    }
+  }, [isBookingSuccess]);
+  const openNotificationWithIcon = (type) => {
+    notification[type]({
+      message: 'Đặt phòng thành công',
+      description:
+        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    });
+  };
   return (
     <div
       className={`p-[1.5rem] card-total border rounded-[0.5rem] ${
@@ -137,7 +148,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             />
           </svg>
           <p className="text-[0.8rem] font-[500] mx-1">4.8</p>
-          <span> . </span>
+
           <span className="text-[0.8rem] font-[500] opacity-60 underline">5 review</span>
         </div>
       </div>

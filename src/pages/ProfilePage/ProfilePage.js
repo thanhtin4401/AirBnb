@@ -37,13 +37,9 @@ export default function ProfilePage() {
     userService
       .getUser(idUser)
       .then((res) => {
-        console.log(res.data.content);
         setUserApi(res.data.content);
         setAvatar(res.data.content.avatar)
       })
-      .catch((err) => {
-        console.log(err);
-      });
   }, []);
   const putInfo = () => {
     name === '' ? (userPut.name = userAPI.name) : (userPut.name = name);

@@ -41,7 +41,6 @@ export default function UserNav({ bg }) {
       localStorageService.remove('accessToken');
       setuser(null);
       dispatch(logoutUser(null));
-      message.success('Đăng xuất thành công!');
     }, 1000);
   };
   const closeDropDown = () => {
