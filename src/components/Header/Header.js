@@ -27,7 +27,6 @@ export default function Header() {
     dispatch(getLocationList());
   }, []);
   const closeNav = () => {
-   
     if (window.scrollY >= 100) {
       setOpen(false);
     }
@@ -84,7 +83,7 @@ export default function Header() {
                 showSearch
                 placeholder="Vị Trí"
                 optionFilterProp="children"
-                className=""
+                className="dropdow-header"
                 onChange={onChange}
                 onSearch={onSearch}
                 filterOption={(input, option) =>

@@ -14,22 +14,12 @@ function Login() {
     dispatch(loginUser(values));
     // dispatch(on_loading(12));
   };
-  const onFinishFailed = (errorInfo) => {
-   
-  };
-  const handleChange = (value) => {
-   
-  };
+  const onFinishFailed = (errorInfo) => {};
+  const handleChange = (value) => {};
   const { Option } = Select;
-  const handleCallBackRespone = (res) => {
- 
-  };
-  const onSuccess = (res) => {
-    console.log('res', res);
-  };
-  const onFail = (res) => {
-    console.log('fail', res);
-  };
+  const handleCallBackRespone = (res) => {};
+  const onSuccess = (res) => {};
+  const onFail = (res) => {};
   const clientId = '887923344894-gd09ok46pli0071vdgasta0o9fkhjj10.apps.googleusercontent.com';
   useEffect(() => {
     // google.accounts.id.initialize({

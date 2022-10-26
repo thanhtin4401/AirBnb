@@ -12,6 +12,7 @@ function Mainlayout() {
       <Outlet />
       <Footer />
       <FooterSticky />
+      
       <FooterMobile />
     </div>
   );

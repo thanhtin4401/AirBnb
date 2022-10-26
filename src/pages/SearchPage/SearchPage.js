@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CardItem from '../../components/CardItem/CardItem';
 import { roomService } from '../../services/RoomService';
-import {dataIMG} from '../../Data/Data'
+import { dataIMG } from '../../Data/Data';
 export default function SearchPage() {
   //https://source.unsplash.com/random random ảnh
   let { id } = useParams();
@@ -12,19 +12,19 @@ export default function SearchPage() {
     roomService
       .getRoomLocation(id)
       .then((res) => {
-        setListRoom(res.data.content);
+        setListRoom(res.data?.content);
       })
       .catch((err) => {
         message.error(err);
       });
   }, [id]);
   const renderRoomLocation = () => {
-    let room = listRoom?.map((item,index) => {
-      let random =Math.floor(Math.random() * 10);
-      random++; 
-      console.log('random++: ', random++);
-      return {...item,data : dataIMG[random]}
-   })
+    let room = listRoom?.map((item, index) => {
+      let random = Math.floor(Math.random() * 10);
+      random++;
+
+      return { ...item, data: dataIMG[random] };
+    });
     return room?.map((item, index) => {
       return (
         <div className="col-span-1" key={index}>
