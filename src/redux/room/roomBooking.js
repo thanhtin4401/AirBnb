@@ -3,16 +3,16 @@ import { message } from 'antd';
 import { https } from '../../services/axiosClient';
 /** State **/
 const initialState = {
-  // allRoom: [],
   roomDetail: [],
+  price: 0,
   isfetching: false,
+  isBookingSuccess: false,
 };
 
 export const bookingRoom = createAsyncThunk('room/booking', async (data) => {
   try {
     const res = await https.post('/api/dat-phong', data);
-    message.success(res.data.message);
-    console.log('res:', res);
+
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -22,7 +22,6 @@ export const bookingRoom = createAsyncThunk('room/booking', async (data) => {
 export const detailInfoRoom = createAsyncThunk('room/detail', async (id) => {
   try {
     const res = await https.get(`/api/phong-thue/${id}`);
-    console.log("res.data:",res.data);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -36,7 +35,9 @@ const bookingRoomSlice = createSlice({
     reset: (state) => {
       return {
         ...state,
-
+        roomDetail: [],
+        price: 0,
+        isBookingSuccess: false,
         isfetching: false,
       };
     },
@@ -46,7 +47,7 @@ const bookingRoomSlice = createSlice({
       .addCase(bookingRoom.pending, (state) => {
         return {
           ...state,
-
+          isBookingSuccess: false,
           isfetching: true,
         };
       })
@@ -54,12 +55,13 @@ const bookingRoomSlice = createSlice({
         return {
           ...state,
           isfetching: false,
+          isBookingSuccess: true,
         };
       })
       .addCase(detailInfoRoom.pending, (state) => {
         return {
           ...state,
-          roomDetail: [],
+
           isfetching: true,
         };
       })
@@ -67,6 +69,7 @@ const bookingRoomSlice = createSlice({
         return {
           ...state,
           roomDetail: payload.content,
+          price: payload.content.giaTien,
           isfetching: false,
         };
       });

@@ -87,7 +87,7 @@ export default function HeaderHomePage() {
                 showSearch
                 placeholder="Vị Trí"
                 optionFilterProp="children"
-                className=""
+                className="dropdow-header"
                 onChange={onChange}
                 onSearch={onSearch}
                 filterOption={(input, option) =>

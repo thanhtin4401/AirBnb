@@ -1,8 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './FilterSlide.scss';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Checkbox, Slider } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { InputNumber, Space } from 'antd';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -15,6 +16,13 @@ function FilterSlice() {
   const resize = () => {
     setScreen(window.innerWidth);
   };
+  const [filterForm, setFilterForm] = useState({
+    minPrice: 0,
+    maxPrice: 0,
+    pool: false,
+    driver: false,
+    countBed: 0,
+  });
   window.addEventListener('resize', resize);
   // let screenWidth = window.screen.width;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,13 +31,45 @@ function FilterSlice() {
   };
   const handleOk = () => {
     setIsModalOpen(false);
+    console.log('filterForm:', filterForm);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const onChange = (value) => {
-    console.log('changed', value);
+  const onChangeMinPrice = (value) => {
+    console.log('filterForm1', value);
+    setFilterForm({
+      ...filterForm,
+      minPrice: value,
+    });
   };
+  const onChangeMaxPrice = (value) => {
+    setFilterForm({
+      ...filterForm,
+      maxPrice: value,
+    });
+  };
+  const isPoolChecked = (e) => {
+    console.log('filterForm2', e.target.checked);
+    setFilterForm({
+      ...filterForm,
+      pool: e.target.checked,
+    });
+  };
+  const isDriverChecked = (e) => {
+    setFilterForm({
+      ...filterForm,
+      driver: e.target.checked,
+    });
+  };
+  const [rangePrice, setRangePrice] = useState([0, 0]);
+  function onChange(value) {
+    setRangePrice(value);
+  }
+
+  function onAfterChange(value) {
+    console.log('onAfterChange: ', value);
+  }
   return (
     <div className="flex w-full items-center">
       <div className="filter-wrapper mb:w-full md:w-full sm:w-full lg:w-11/12">
@@ -248,7 +288,7 @@ function FilterSlice() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="md:hidden fixed bottom-[6rem] w-full flex justify-center">
+      <div className="lg:hidden z-10 fixed bottom-[6rem] w-full flex justify-center">
         <button
           onClick={showModal}
           className="text-[12px] lg:flex py-[14px] px-[8px] border rounded-[1rem] bg-white flex items-center justify-center "
@@ -306,16 +346,29 @@ function FilterSlice() {
       >
         <div className="price pb-4 border-b-[1px]">
           <h1 className="font-[600] text-[1rem]">Price range</h1>
+          <Slider
+            range
+            step={10}
+            min={0}
+            max={10000}
+            defaultValue={[1000, 5000]}
+            onChange={onChange}
+            onAfterChange={onAfterChange}
+          />
           <div className="flex w-full justify-between items-center">
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
               <p className="font-[300] text-[0.6rem]">Min price</p>
               <div>
                 <InputNumber
+                  disabled
+                  value={rangePrice[0]}
                   className="price-input"
                   defaultValue={1000}
+                  max="100000"
+                  min="0"
                   formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                  onChange={onChange}
+                  onChang={onChangeMinPrice}
                 />
               </div>
             </div>
@@ -324,11 +377,13 @@ function FilterSlice() {
               <p className="font-[300] text-[0.6rem]">Min price</p>
               <div>
                 <InputNumber
+                  disabled
+                  value={rangePrice[1]}
                   className="price-input"
-                  defaultValue={1000}
+                  defaultValue={5000}
                   formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                  onChange={onChange}
+                  onChange={onChangeMaxPrice}
                 />
               </div>
             </div>
@@ -338,22 +393,25 @@ function FilterSlice() {
           <h1 className="font-[600] text-[1rem] mb-4">Type of place</h1>
           <div className="grid grid-cols-2 gap-4">
             <label className="cursor-pointer flex items-center">
-              <input className="radio-btn mr-2" type="checkbox" name="bed" />
-              <div className="">
-                <p className="text-[1rem] font-[400]">Private room</p>
-                <p className="text-[0.6rem] font-[300]">
-                  Your own room in a home or a hotel, plus some shared common spaces
-                </p>
-              </div>
+              {/* <input type="checkbox" value="pool" name="bed" /> */}
+              <Checkbox className="radio-btn mr-2" onChange={isPoolChecked}>
+                <div className="">
+                  <p className="text-[1rem] font-[400]">Pool</p>
+                  <p className="text-[0.6rem] font-[300]">
+                    Your own room in a home or a hotel, plus some shared common spaces
+                  </p>
+                </div>
+              </Checkbox>
             </label>
             <label className="cursor-pointer flex items-center">
-              <input className="radio-btn mr-2" type="checkbox" name="bed" />
-              <div className="">
-                <p className="text-[1rem] font-[400]">Private room</p>
-                <p className="text-[0.6rem] font-[300]">
-                  Your own room in a home or a hotel, plus some shared common spaces
-                </p>
-              </div>
+              <Checkbox className="radio-btn mr-2" onChange={isDriverChecked}>
+                <div className="">
+                  <p className="text-[1rem] font-[400]">Driver</p>
+                  <p className="text-[0.6rem] font-[300]">
+                    Your own room in a home or a hotel, plus some shared common spaces
+                  </p>
+                </div>
+              </Checkbox>
             </label>
           </div>
         </div>

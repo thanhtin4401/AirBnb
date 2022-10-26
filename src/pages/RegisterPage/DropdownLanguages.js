@@ -29,7 +29,7 @@ function DropdownLanguages() {
           <button
             onClick={handleisOpenSelection}
             type="button"
-            className="flex text-[12px] items-center  w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100"
+            className="flex text-[12px] items-center  w-full justify-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
@@ -57,7 +57,7 @@ function DropdownLanguages() {
         <div
           className={`${
             isOpenSelect ? 'block' : 'hidden'
-          } absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          } absolute right-0 z-10 mt-2 w-40 origin-top-right  bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"

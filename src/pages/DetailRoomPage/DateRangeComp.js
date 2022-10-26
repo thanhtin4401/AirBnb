@@ -31,21 +31,10 @@ const DateRangeComp = (props) => {
   const handleCloseDateRange = () => {
     props.setOpenDateRange(false);
   };
-  // open close
-  //   const [open, setOpen] = useState(true);
 
-  // get the target element to toggle
   const refOne = useRef(null);
 
-  //   useEffect(() => {
-  //     // event listeners
-  //     document.addEventListener('keydown', hideOnEscape, true);
-  //     document.addEventListener('click', hideOnClickOutside, true);
-  //   }, []);
-
-  // hide dropdown on ESC press
   const hideOnEscape = (e) => {
-    // console.log(e.key)
     if (e.key === 'Escape') {
       props.setOpenDateRange(false);
     }
@@ -53,8 +42,6 @@ const DateRangeComp = (props) => {
 
   // Hide on outside click
   const hideOnClickOutside = (e) => {
-    // console.log(refOne.current)
-    // console.log(e.target)
     if (refOne.current && !refOne.current.contains(e.target)) {
       props.setOpenDateRange(false);
     }

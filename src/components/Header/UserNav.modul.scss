@@ -1,4 +1,4 @@
-.dropdown{
+.dropdown {
     position: absolute;
     padding: 5px 0;
     width: 210px;
@@ -9,13 +9,14 @@
     z-index: 99;
 }
 
-.dropdownItem{
-    padding: 10px ;
+.dropdownItem {
+    padding: 10px;
 }
-.ant-select-selector{
-    border-radius: 5px;
-}
-.dropdownLanguage{
+
+// .ant-select-selector{
+//     border-radius: 5px;
+// }
+.dropdownLanguage {
     position: absolute;
     padding: 5px 0;
     width: 210px;

@@ -22,6 +22,7 @@ import CommentPush from '../../components/Comment/CommentPush';
 
 import { detailInfoRoom } from '../../redux/room/roomBooking';
 import SkeletonDetail from '../../components/Skeleton/SkeletonDetail';
+import { getRoomList } from '../../redux/room/roomList';
 function DetailRoomPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -29,12 +30,10 @@ function DetailRoomPage() {
   const commentSuccess = useSelector((state) => state.comment.commentSuccess);
   const roomDetailInfo = useSelector((state) => state.room.bookingRoom.roomDetail);
   const isFetching = useSelector((state) => state.room.bookingRoom.isfetching);
-  const [total, setTotal] = useState(roomDetailInfo?.giaTien);
-  const { RangePicker } = DatePicker;
-  const { Option } = Select;
+  const price = useSelector((state) => state.room.bookingRoom.price);
+  const [total, setTotal] = useState(0);
+
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
-  const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
-  const [listComment, setListComment] = useState([]);
   const allRoom = useSelector((state) => state.room.listRoom.allRoom);
 
   const handleIsGuestsSelect = () => {
@@ -48,23 +47,37 @@ function DetailRoomPage() {
     let ImgRoom = room.filter((item) => {
       return item.id == id;
     });
-    console.log('ImgRoom', ImgRoom);
+
     setImgRoomList(ImgRoom);
   };
 
-  const roomId = useParams();
-  console.log('roomId', roomId);
+  const { roomId } = useParams();
+
   useEffect(() => {
-    dispatch(detailInfoRoom(roomId.roomId));
-    renderRoomItem(roomId.roomId);
+    dispatch(getRoomList());
+    dispatch(detailInfoRoom(roomId));
+    dispatch(getCommentUser(roomId));
+    renderRoomItem(roomId);
+
+    setTotal(price);
   }, []);
   useEffect(() => {
-    dispatch(detailInfoRoom(roomId.roomId));
-    renderRoomItem(roomId.roomId);
-  }, [roomId.roomId]);
+    console.log('roomId5', price);
+    setTotal(price);
+    renderRoomItem(roomId);
+  }, [price]);
+
+  useEffect(() => {
+    dispatch(getRoomList());
+    dispatch(detailInfoRoom(roomId));
+    dispatch(getCommentUser(roomId));
+    renderRoomItem(roomId);
+    console.log('roomId5', price);
+    setTotal(price);
+  }, [roomId]);
   const handleRenderComment = () => {
     return allComment?.map((item, index) => {
-      return <Comment data={item} hello={'hello'} key={index} />;
+      return <Comment data={item} key={index} />;
     });
   };
   const handleRenderCommentMobile = () => {
@@ -76,18 +89,10 @@ function DetailRoomPage() {
       );
     });
   };
-
-  console.log(roomId.roomId);
-
-  console.log('allComment', allComment);
   useEffect(() => {
-    console.log('roomId.roomId', roomId.roomId);
-    dispatch(getCommentUser(roomId.roomId));
-  }, []);
-  useEffect(() => {
-    console.log('roomId.roomId');
-    dispatch(getCommentUser(roomId.roomId));
-  }, [roomId.roomId, commentSuccess]);
+    dispatch(getCommentUser(roomId));
+    renderRoomItem(roomId);
+  }, [roomId, commentSuccess]);
 
   return (
     <>
@@ -218,7 +223,7 @@ function DetailRoomPage() {
               </SwiperSlide>
             </Swiper>
             <div className="header mb-[2rem]">
-              <h1 className="text-[1.625rem] font-[500]">{roomDetailInfo.tenPhong}</h1>
+              <h1 className="text-[1.625rem] font-[500]">{roomDetailInfo?.tenPhong}</h1>
               <div className="flex justify-between">
                 <p className="text-[1rem] font-[400] underline">Maldives</p>
                 <div className="flex items-center mb:hidden sm:hidden md:flex">
@@ -380,7 +385,7 @@ function DetailRoomPage() {
                 </div>
                 <div className="aircover py-[2.2rem] border-b-[1px] border-[#dadada]">
                   <p className="text-[1rem] font-[300] my-[0.7rem] text-[#222222]">
-                    {roomDetailInfo.moTa}
+                    {roomDetailInfo?.moTa}
                   </p>
                 </div>
                 {/* ================= Where you'll sleep ==================== */}
@@ -527,7 +532,7 @@ function DetailRoomPage() {
                 {handleRenderComment()}
               </div>
               <div className="w-full mt-6">
-                <CommentPush roomId={roomId.roomId} />
+                <CommentPush roomId={roomId} />
               </div>
             </div>
             <div className="reviews"></div>

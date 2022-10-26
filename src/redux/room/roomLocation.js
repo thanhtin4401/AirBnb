@@ -42,7 +42,7 @@ const listLocationSlice = createSlice({
         return {
           ...state,
           isfetching: false,
-          allLocation: payload.content,
+          allLocation: payload?.content,
         };
       });
   },
