@@ -148,7 +148,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             />
           </svg>
           <p className="text-[0.8rem] font-[500] mx-1">4.8</p>
-          <span> . </span>
+
           <span className="text-[0.8rem] font-[500] opacity-60 underline">5 review</span>
         </div>
       </div>

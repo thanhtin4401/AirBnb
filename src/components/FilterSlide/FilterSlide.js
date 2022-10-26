@@ -21,7 +21,7 @@ function FilterSlice() {
     maxPrice: 0,
     pool: false,
     driver: false,
-    countBed: 0,
+    countBed: 'any',
   });
   window.addEventListener('resize', resize);
   // let screenWidth = window.screen.width;
@@ -31,13 +31,11 @@ function FilterSlice() {
   };
   const handleOk = () => {
     setIsModalOpen(false);
-    console.log('filterForm:', filterForm);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
   const onChangeMinPrice = (value) => {
-    console.log('filterForm1', value);
     setFilterForm({
       ...filterForm,
       minPrice: value,
@@ -50,7 +48,6 @@ function FilterSlice() {
     });
   };
   const isPoolChecked = (e) => {
-    console.log('filterForm2', e.target.checked);
     setFilterForm({
       ...filterForm,
       pool: e.target.checked,
@@ -65,11 +62,22 @@ function FilterSlice() {
   const [rangePrice, setRangePrice] = useState([0, 0]);
   function onChange(value) {
     setRangePrice(value);
+    setFilterForm({
+      ...filterForm,
+      minPrice: value[0],
+      maxPrice: value[1],
+    });
   }
 
   function onAfterChange(value) {
     console.log('onAfterChange: ', value);
   }
+  const handleBedCheck = (e) => {
+    setFilterForm({
+      ...filterForm,
+      countBed: e.target.value,
+    });
+  };
   return (
     <div className="flex w-full items-center">
       <div className="filter-wrapper mb:w-full md:w-full sm:w-full lg:w-11/12">
@@ -374,7 +382,7 @@ function FilterSlice() {
             </div>
             <p className="mx-4">~</p>
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
-              <p className="font-[300] text-[0.6rem]">Min price</p>
+              <p className="font-[300] text-[0.6rem]">Max price</p>
               <div>
                 <InputNumber
                   disabled
@@ -419,31 +427,61 @@ function FilterSlice() {
           <h1 className="font-[600] text-[1rem]">Rooms and beds</h1>
           <p className="font-[400] text-[0.8rem] my-4">Bedrooms</p>
           <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
+            <input
+              onChange={handleBedCheck}
+              value="any"
+              className="radio-btn"
+              type="radio"
+              name="bed"
+            />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
               any
             </span>
           </label>
           <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
+            <input
+              onChange={handleBedCheck}
+              value="2"
+              className="radio-btn"
+              type="radio"
+              name="bed"
+            />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
               2
             </span>
           </label>
           <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
+            <input
+              onChange={handleBedCheck}
+              value="4"
+              className="radio-btn"
+              type="radio"
+              name="bed"
+            />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
               4
             </span>
           </label>
           <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
+            <input
+              onChange={handleBedCheck}
+              value="6"
+              className="radio-btn"
+              type="radio"
+              name="bed"
+            />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
               6
             </span>
           </label>
           <label className="cursor-pointer">
-            <input className="radio-btn" type="radio" name="bed" />
+            <input
+              onChange={handleBedCheck}
+              value="8+"
+              className="radio-btn"
+              type="radio"
+              name="bed"
+            />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
               8+
             </span>
