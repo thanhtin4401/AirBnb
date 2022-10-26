@@ -79,6 +79,11 @@ function LocationManager() {
           x: 1300,
         }}
       />
+      <div className="btn-css">
+        <Button className="btn-add">Thêm người dùng</Button>
+        <Button className="btn-delete">Xoá người dùng</Button>
+        <Button className="btn-update">Sửa thông tin</Button>
+      </div>
     </div>
   );
 }

@@ -27,6 +27,15 @@ export const pushUser = createAsyncThunk('user/push', async (data) => {
     message.error(error.response.data.message);
   }
 });
+export const searchUser = createAsyncThunk('user/search', async (data) => {
+  try {
+    const res = await https.get(`/api/users/search/${data}`);
+    console.log('res', res);
+    return res;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
 export const deleteUser = createAsyncThunk('user/delete', async (id) => {
   try {
     const res = await https.post(`/api/users/id=${id}`);

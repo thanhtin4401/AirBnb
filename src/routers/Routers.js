@@ -46,7 +46,6 @@ export default function Routers() {
           <Route path="/Manager/User" element={<UserManager />} />
           <Route path="/Manager/Room" element={<RoomManager />} />
           <Route path="/Manager/Location" element={<LocationManager />} />
-          {/* <Route path="/order" element={<ManagerPage />} /> */}
         </Route>
 
         <Route

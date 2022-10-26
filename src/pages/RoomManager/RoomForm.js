@@ -49,6 +49,54 @@ const RoomForm = () => {
       <Form.Item label="Field B">
         <Input placeholder="input placeholder" />
       </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field A">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field A">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
       <Form.Item {...buttonItemLayout}>
         <Button type="primary">Submit</Button>
       </Form.Item>

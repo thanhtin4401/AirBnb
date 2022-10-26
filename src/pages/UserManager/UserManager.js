@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserList } from '../../redux/manager/user';
+import UserForm from './UserForm';
+import './UserManager.scss';
+
 function UserManager() {
+  const handleSearch = () => {};
+
   const { Search } = Input;
   const dispatch = useDispatch();
   const allUserList = useSelector((state) => state.manager.user.allUser);
@@ -12,11 +17,12 @@ function UserManager() {
   useEffect(() => {
     dispatch(getUserList());
   }, []);
+
   const columns = [
     {
       title: 'ID',
       width: 100,
-      dataIndex: 'ID',
+      dataIndex: 'id',
       key: 'ID',
       fixed: 'left',
     },
@@ -86,6 +92,12 @@ function UserManager() {
           width: 200,
         }}
       />{' '}
+      <UserForm />
+      <div className="btn-css">
+        <Button className="btn-add">Thêm người dùng</Button>
+        <Button className="btn-delete">Xoá người dùng</Button>
+        <Button className="btn-update">Sửa thông tin</Button>
+      </div>
       <Table
         columns={columns}
         dataSource={allUserList}

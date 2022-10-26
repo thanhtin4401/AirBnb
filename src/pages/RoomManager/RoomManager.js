@@ -5,6 +5,8 @@ import { AudioOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoomList } from '../../redux/manager/room';
 import RoomForm from './RoomForm';
+import './RoomManager.scss';
+
 function RoomManager() {
   const { Search } = Input;
   const dispatch = useDispatch();
@@ -143,6 +145,11 @@ function RoomManager() {
         }}
       />{' '}
       <RoomForm />
+      <div className="btn-css">
+        <Button className="btn-add">Thêm người dùng</Button>
+        <Button className="btn-delete">Xoá người dùng</Button>
+        <Button className="btn-update">Sửa thông tin</Button>
+      </div>
       <Table
         columns={columns}
         dataSource={allRoomList}
