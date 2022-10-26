@@ -7,6 +7,16 @@
     border-radius: 0.5rem;
 }
 
-.ant-select-selector {
-    border-radius: 1px!important;
+.dropdowregister.ant-select {
+    border-radius: 0.3rem!important;
+    .ant-select-selector {
+        border-radius: 0.3rem!important;
+    }
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        border-radius: none;
+    }
+}
+
+.datepicker-register {
+    border-radius: 0.3rem!important;
 }

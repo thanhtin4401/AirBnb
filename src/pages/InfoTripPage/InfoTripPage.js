@@ -15,7 +15,6 @@ export default function InfoTripPage() {
     roomService
       .getOderRoomById(idUser)
       .then((res) => {
-        console.log(res.data.content);
         setbookedRoom(res.data.content);
       })
       .catch((err) => {
@@ -26,7 +25,6 @@ export default function InfoTripPage() {
     roomService
       .deleteOrderRoom(idRoom)
       .then((res) => {
-        console.log(res);
         message.success('Xóa Thành Công');
       })
       .catch((err) => {

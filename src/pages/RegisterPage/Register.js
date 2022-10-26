@@ -45,7 +45,6 @@ function Register() {
 
   const { Option } = Select;
 
-
   const { t } = useTranslation();
   const navigater = useNavigate();
   const auth = useSelector((state) => state.auth);
@@ -146,7 +145,7 @@ function Register() {
                     wrapperCol={{ sm: 24 }}
                     style={{ width: '100%', marginRight: '1rem' }}
                   >
-                    <DatePicker className="w-full " format={'DD/MM/YYYY'} />
+                    <DatePicker className="datepicker-register w-full " format={'DD/MM/YYYY'} />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
@@ -157,7 +156,7 @@ function Register() {
                     style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
                     name="gender"
                   >
-                    <Select className="w-full " placeholder="gender">
+                    <Select className="w-full dropdowregister " placeholder="gender">
                       <Select.Option value="true">Nam</Select.Option>
                       <Select.Option value="false">Nữ</Select.Option>
                     </Select>
@@ -185,7 +184,7 @@ function Register() {
                 className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
                 type="primary"
                 size="large"
-                htmlType="submit"
+                htmltype="submit"
               >
                 Register
               </Button>

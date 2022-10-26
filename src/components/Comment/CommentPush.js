@@ -14,7 +14,7 @@ function CommentPush(props) {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-
+  const userAPI = localStorageService.get('USER')?.user;
   const auth = useSelector((state) => state.auth.isLoggedIn);
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
@@ -45,7 +45,11 @@ function CommentPush(props) {
     <>
       <div className="flex items-center justify-start mb-2">
         <img
-          src="https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg"
+          src={`${
+            userAPI
+              ? userAPI.avatar
+              : 'https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg'
+          }`}
           alt=""
           className="mb:w-[32px] mb:h-[32px] sm:w-[32px] sm:h-[32px] md:w-[2.2rem] md:h-[2.2rem] rounded-[50%] mr-2"
         />
@@ -82,7 +86,7 @@ function CommentPush(props) {
             <button
               className="text-black py-[6px] px-[12px] border rounded-lg text-[1rem] font-[600] hover:bg-[#FF385C] hover:text-white transition-all"
               type="primary"
-              htmlType="submit"
+              htmltype="submit"
             >
               Comment
             </button>

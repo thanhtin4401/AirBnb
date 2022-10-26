@@ -26,40 +26,37 @@ export default function ProfilePage() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [birthday, setBirthday] = useState('');
- 
+
   useEffect(() => {
     userService
       .getUser(idUser)
       .then((res) => {
-        console.log(res.data.content)
-        setUserApi(res.data.content);
+        setUserApi(res.data?.content);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
   const putInfo = () => {
-    name === "" ? userPut.name = userAPI.name : userPut.name = name
-    email === "" ? userPut.email = userAPI.email : userPut.email = email
-    phone === "" ? userPut.phone = userAPI.phone : userPut.phone = phone
-    birthday === "" ? userPut.birthday = userAPI.birthday : userPut.birthday = birthday
+    name === '' ? (userPut.name = userAPI.name) : (userPut.name = name);
+    email === '' ? (userPut.email = userAPI.email) : (userPut.email = email);
+    phone === '' ? (userPut.phone = userAPI.phone) : (userPut.phone = phone);
+    birthday === '' ? (userPut.birthday = userAPI.birthday) : (userPut.birthday = birthday);
     setUserApi(userPut);
-    if(name === "" && email === "" && phone === "" && birthday === "" ){
-      message.error("Điền thông tin bạn muốn thay đổi")
-    }else{
-        setChangeBtn(false);
-        setOpenInput(false);
+    if (name === '' && email === '' && phone === '' && birthday === '') {
+      message.error('Điền thông tin bạn muốn thay đổi');
+    } else {
+      setChangeBtn(false);
+      setOpenInput(false);
       userService
-      .putUser(idUser, userPut)
-      .then((res) => {
-        message.success("Cập Nhật Thành Công")
-      })
-      .catch((err) => {
-        message.error(err.response.data);
-      });
-      
+        .putUser(idUser, userPut)
+        .then((res) => {
+          message.success('Cập Nhật Thành Công');
+        })
+        .catch((err) => {
+          message.error(err.response.data);
+        });
     }
-   
   };
   return (
     <div className="container mx-auto">
@@ -71,7 +68,11 @@ export default function ProfilePage() {
               <div className="flex justify-center items-center flex-col">
                 <img
                   className="w-[120px] h-[120px] object-cover rounded-[50%]"
-                  src={`${userAPI?.avatar === "" ? "https://airbnb.cybersoft.edu.vn/public/images/avatar/1665245190154_mountains-1.jpg": userAPI?.avatar}`}
+                  src={`${
+                    userAPI?.avatar === ''
+                      ? 'https://airbnb.cybersoft.edu.vn/public/images/avatar/1665245190154_mountains-1.jpg'
+                      : userAPI?.avatar
+                  }`}
                   alt=""
                 />
                 <h1 className="text-[#666] hover:text-black underline mt-2">Cập Nhật Ảnh</h1>
@@ -121,7 +122,6 @@ export default function ProfilePage() {
                   <button
                     onClick={() => {
                       putInfo();
-                     
                     }}
                     className={`${
                       changeBtn ? '' : 'hidden'
@@ -136,7 +136,7 @@ export default function ProfilePage() {
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">Tên: {userAPI?.name}</h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
-                    className="profilepage-input"
+                      className="profilepage-input"
                       onChange={(e) => {
                         setName(e.target.value);
                       }}
@@ -144,14 +144,14 @@ export default function ProfilePage() {
                     />
                   </div>
                 </div>
-                
+
                 <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">
                     Ngày Sinh: {userAPI?.birthday}
                   </h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
-                    className="profilepage-input"
+                      className="profilepage-input"
                       onChange={(e) => {
                         setBirthday(e.target.value);
                       }}
@@ -163,7 +163,7 @@ export default function ProfilePage() {
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">Email: {userAPI?.email}</h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
-                    className="profilepage-input"
+                      className="profilepage-input"
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -177,7 +177,7 @@ export default function ProfilePage() {
                   </h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
                     <Input
-                    className="profilepage-input"
+                      className="profilepage-input"
                       onChange={(e) => {
                         setPhone(e.target.value);
                       }}
