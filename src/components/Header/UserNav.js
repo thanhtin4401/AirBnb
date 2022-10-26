@@ -11,7 +11,7 @@ import { userService } from '../../services/userService';
 export default function UserNav({ bg }) {
   const [open, setOpen] = useState(false);
   const [openLanguage, setOpenLanguage] = useState(false);
-  const [isUser, setisUser] = useState('');
+  const [isUser, setisUser] = useState();
   const [userAPI, setUserAPI] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
   useEffect(() => {
@@ -41,7 +41,6 @@ export default function UserNav({ bg }) {
       localStorageService.remove('accessToken');
       setuser(null);
       dispatch(logoutUser(null));
-      message.success('Đăng xuất thành công!');
     }, 1000);
   };
   const closeDropDown = () => {
@@ -107,7 +106,7 @@ export default function UserNav({ bg }) {
               bg ? 'sm:text-black lg:text-white' : 'text-black '
             } text-[16px] mr-[0.2rem]`}
           />
-          {userAPI?.avatar === '' ? (
+          {userAPI?.avatar === '' || user === null ? (
             <RiAccountCircleFill
               className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
             />

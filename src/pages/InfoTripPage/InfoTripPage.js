@@ -6,11 +6,15 @@ import { GrBike } from 'react-icons/gr';
 import { RiMotorbikeFill } from 'react-icons/ri';
 import { localStorageService } from '../../services/localStorageService';
 import { roomService } from '../../services/RoomService';
-
+import {data} from './dataImgTrip'
+import { Modal } from 'antd';
 export default function InfoTripPage() {
   const [user, setuser] = useState(localStorageService.get('USER'));
   const [idUser, setIdUser] = useState(user.user.id);
+  const [idRoom, setIdRoom] = useState();
   const [bookedRoom, setbookedRoom] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+
   useEffect(() => {
     roomService
       .getOderRoomById(idUser)
@@ -20,19 +24,27 @@ export default function InfoTripPage() {
       .catch((err) => {
         message.error(err);
       });
-  }, []);
-  const deleteOrderRoom = (idRoom) => {
+  }, [openModal]);
+  const openModalDelete = () => {
+    setOpenModal(true)
+  };
+  const handleOk = (idRoom) => { 
     roomService
-      .deleteOrderRoom(idRoom)
-      .then((res) => {
-        message.success('Xóa Thành Công');
-      })
-      .catch((err) => {
-        message.error(err.reponse);
-      });
+    .deleteOrderRoom(idRoom)
+    .then((res) => {
+      message.success('Xóa Thành Công');
+      setOpenModal(false)
+    })
+    .catch((err) => {
+      message.error(err.reponse);
+    });
+   }
+  const handleCancel = () => {
+    setOpenModal(false);
   };
   const renderBookedRoom = () => {
     return bookedRoom.map((item, index) => {
+      let random =Math.floor(Math.random() * data.length);
       return (
         <div
           key={index}
@@ -40,7 +52,8 @@ export default function InfoTripPage() {
         >
           <img
             className="lg:block md:block sm:block mb:hidden w-[100px] h-[130px] rounded-xl object-cover"
-            src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
+            // src={data[index]}
+            src='https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
             alt=""
           />
           <div className="lg:w-1/3  sm:w-1/3 mb:w-1/2 space-y-2">
@@ -59,9 +72,10 @@ export default function InfoTripPage() {
 
           <div>
             <button
-              onClick={() => {
-                deleteOrderRoom(item.id);
-              }}
+              onClick={() => { 
+                setIdRoom(item.id)
+                openModalDelete()
+               }}
               className="px-3 py-1 bg-[#FF385C] font-bold text-white rounded-xl"
             >
               Hủy
@@ -72,6 +86,15 @@ export default function InfoTripPage() {
     });
   };
   return (
+    <>
+     <Modal 
+      className='modalUploadImg'
+      open={openModal}
+      onOk={() => { handleOk(idRoom) }}
+      onCancel={handleCancel}
+      >
+        <h1 className='text-base font-bold mb-5'>Bạn chắc chắn muốn hủy chuyến đi này?</h1>
+      </Modal>v
     <div className="mt-24 mb-10 container mx-auto">
       <h1 className="font-bold text-xl flex items-center">
         {' '}
@@ -108,5 +131,6 @@ export default function InfoTripPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

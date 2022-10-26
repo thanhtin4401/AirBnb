@@ -108,7 +108,7 @@ export default function UserNav({ bg }) {
               bg ? 'sm:text-black lg:text-white' : 'text-black '
             } text-[16px] mr-[0.2rem]`}
           />
-          {userAPI?.avatar === '' ? (
+          {userAPI?.avatar === '' || user === null ? (
             <RiAccountCircleFill
               className={`${bg ? 'sm:text-black lg:text-white' : 'text-black '} text-[30px]`}
             />
