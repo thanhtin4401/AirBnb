@@ -44,7 +44,7 @@ function DetailRoomPage() {
     let room = allRoom?.map((item, index) => {
       return { ...item, data: dataIMG[index] };
     });
-    let ImgRoom = room.filter((item) => {
+    let ImgRoom = room?.filter((item) => {
       return item.id == id;
     });
 

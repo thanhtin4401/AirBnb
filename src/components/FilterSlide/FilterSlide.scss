@@ -275,3 +275,19 @@ input[type="radio"]:checked~span {
         }
     }
 }
+
+.ant-slider:hover .ant-slider-track {
+    background-color: #ff3a5b;
+}
+
+.ant-slider-track {
+    background-color: #ff3a5b9e;
+}
+
+.ant-slider-handle {
+    border: solid 2px #ff3a5b;
+}
+
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+    border-color: #ff3a5b;
+}
