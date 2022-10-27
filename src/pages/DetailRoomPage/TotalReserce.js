@@ -13,7 +13,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bookingRoom } from '../../redux/room/roomBooking';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, total, setTotal }) {
+  const { t } = useTranslation();
   const isBookingSuccess = useSelector((state) => state.room.bookingRoom.isBookingSuccess);
   const [isGuestsSelect, setisGuestsSelect] = useState(false);
   const [isCANCELLATIONPOLICES, setisCANCELLATIONPOLICES] = useState(false);
@@ -106,6 +108,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
     });
   };
+
   return (
     <div
       className={`p-[1.5rem] card-total border rounded-[0.5rem] ${

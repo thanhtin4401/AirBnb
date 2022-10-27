@@ -10,11 +10,13 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, Input, Button, Select, DatePicker, Col, Row } from 'antd';
 import moment from 'moment';
+
 import { unstable_useEnhancedEffect } from '@mui/material';
 function Register() {
   const dispatch = useDispatch();
   const registerSuccess = useSelector((state) => state.auth.registerSuccess);
   const [authLogin, setauthLogin] = useState({});
+
   const onFinish = (values) => {
     let birthday = moment(values.birthday).format('dd / mm / yyyy');
 

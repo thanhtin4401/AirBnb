@@ -11,14 +11,14 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Pagination, Navigation } from 'swiper';
-function FilterSlice() {
+function FilterSlice({ handleQueryFilter }) {
   const [screen, setScreen] = useState(window.innerWidth);
   const resize = () => {
     setScreen(window.innerWidth);
   };
   const [filterForm, setFilterForm] = useState({
     minPrice: 0,
-    maxPrice: 0,
+    maxPrice: 100,
     pool: false,
     driver: false,
     countBed: 'any',
@@ -31,7 +31,8 @@ function FilterSlice() {
   };
   const handleOk = () => {
     setIsModalOpen(false);
-    console.log(filterForm);
+
+    handleQueryFilter(filterForm);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -357,10 +358,10 @@ function FilterSlice() {
           <h1 className="font-[600] text-[1rem]">Price range</h1>
           <Slider
             range
-            step={10}
+            step={5}
             min={0}
-            max={10000}
-            defaultValue={[1000, 5000]}
+            max={1000}
+            defaultValue={[0, 20]}
             onChange={onChange}
             onAfterChange={onAfterChange}
           />
