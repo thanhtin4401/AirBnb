@@ -6,6 +6,23 @@
     "Register": "Register",
     "register": "register",
     "REGISTER": "REGISTER",
-    "Password": "Password"
-
+    "Password": "Password",
+    "Explore nearby": "Explore nearby",
+    "filter": "filter",
+    "Show All": "Show All",
+    "Pet Allower": "Pet Allower",
+    "Date start": "Date-start",
+    "Date end": "Date-end",
+    "GUESTS": "GUESTS",
+    "CANCELLATIONPOLICES": "CANCELLATIONPOLICES",
+    "Reserve": "Reserve",
+    "Share": "Share",
+    "Save": "Save",
+    "Show price details": "Show price details",
+    "Total before taxes": "Total before taxes",
+    "Where you'll sleep": "Where you'll sleep",
+    "what this place offers": "what this place offers",
+    "Comment": "Comment",
+    "Show all": "Show All",
+    "Where you'll be": "where you'll be"
 }
