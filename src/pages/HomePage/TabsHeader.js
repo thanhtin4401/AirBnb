@@ -8,8 +8,9 @@ import CardItem from '../../components/CardItem/CardItem';
 import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
 import GridImgHeader from '../../components/CardItem/GridImgHeader';
-
+import { useTranslation } from 'react-i18next';
 function TabPanel(props) {
+  const { t } = useTranslation();
   const { children, value, index, ...other } = props;
 
   const [screen, setScreen] = useState(window.innerHeight);

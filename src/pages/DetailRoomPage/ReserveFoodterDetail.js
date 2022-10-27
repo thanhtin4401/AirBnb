@@ -1,8 +1,9 @@
 import { hasLoadedNamespace } from 'i18next';
 import React, { useState } from 'react';
 import TotalReserce from './TotalReserce';
-
+import { useTranslation } from 'react-i18next';
 function ReserveFoodterDetail(props) {
+  const { t } = useTranslation();
   const [isReserve, setisReserve] = useState(false);
   const handleIsReserve = () => {
     setisReserve(!isReserve);

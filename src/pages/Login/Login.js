@@ -96,7 +96,7 @@ function Login() {
                 ]}
               >
                 <Input
-                  className="input border px-[14px] py-[14px] rounded-[0.5rem] w-[320px] "
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem] w-[320px] input-user"
                   placeholder="Input your email/phone number"
                 />
               </Form.Item>

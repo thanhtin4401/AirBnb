@@ -6,8 +6,9 @@ import { addDays } from 'date-fns';
 import './DateRangeComp.scss';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-
+import { useTranslation } from 'react-i18next';
 const DateRangeComp = (props) => {
+  const { t } = useTranslation();
   // date state
   const [range, setRange] = useState([
     {
