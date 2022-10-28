@@ -23,7 +23,9 @@ import CommentPush from '../../components/Comment/CommentPush';
 import { detailInfoRoom } from '../../redux/room/roomBooking';
 import SkeletonDetail from '../../components/Skeleton/SkeletonDetail';
 import { getRoomList } from '../../redux/room/roomList';
+import { useTranslation } from 'react-i18next';
 function DetailRoomPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allComment = useSelector((state) => state.comment.allComment);

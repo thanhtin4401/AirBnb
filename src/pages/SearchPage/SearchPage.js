@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom';
 import CardItem from '../../components/CardItem/CardItem';
 import { roomService } from '../../services/RoomService';
 import { dataIMG } from '../../Data/Data';
+import { useTranslation } from 'react-i18next';
 export default function SearchPage() {
+  const { t } = useTranslation();
   //https://source.unsplash.com/random random ảnh
   let { id } = useParams();
   let [listRoom, setListRoom] = useState([]);
