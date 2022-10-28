@@ -1,3 +1,32 @@
-.ant-input{
-    width: 100% !important;
+.profilepage-input {
+    .ant-input {
+        width: 100% !important;
+    }
+}
+.modalUploadImg {
+    .ant-modal-header {
+        border-radius: 1rem 1rem 0rem 0rem;
+        background-color: #FF385C;
+        .ant-modal-title {
+            color: white
+        }
+    }
+    .ant-modal-content {
+        border-radius: 1rem;
+    }
+    .ant-modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        .ant-btn.ant-btn-default {
+            color: black
+        }
+        .ant-btn.ant-btn-primary {
+            background-color: #FF385C;
+        }
+    }
+    .ant-btn {
+        width: unset;
+        // padding: unset;
+        padding: 0 1rem;
+    }
 }

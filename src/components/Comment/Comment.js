@@ -1,5 +1,6 @@
 import React from 'react';
 import './Comment.scss';
+import { Rate } from 'antd';
 function Comment(props) {
   return (
     <div className="w-full">
@@ -17,6 +18,16 @@ function Comment(props) {
           <p className="font-[600] text-[1rem]">{props.data.tenNguoiBinhLuan}</p>
           <p className="font-[400] text-[0.8rem] text-[#717171]">{props.data.ngayBinhLuan}</p>
         </div>
+      </div>
+      <div className="w-full">
+        <Rate
+          allowHalf
+          disabled
+          defaultValue={props.data.saoBinhLuan}
+          onChange={(count) => {
+            setRateCount(count);
+          }}
+        />
       </div>
       <div className="">
         <p className="font-[300] text-left text-[0.8rem]">{props.data.noiDung}</p>

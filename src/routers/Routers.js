@@ -4,6 +4,7 @@ import RequestAuth from '../components/App/requestAuth';
 import RequestPage from '../components/App/requestPage';
 import Authlayout from '../layout/Authlayout';
 import Mainlayout from '../layout/Mainlayout';
+import Homelayout from '../layout/Homelayout';
 import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
 
 import HomePage from '../pages/HomePage/HomePage';
@@ -24,13 +25,16 @@ import Wishlists from '../pages/WishlistsPage/WishlistsPage';
 import UserManager from '../pages/UserManager/UserManager';
 import RoomManager from '../pages/RoomManager/RoomManager';
 import LocationManager from '../pages/LocationManager/LocationManager';
+import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
 
 export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Mainlayout />}>
+        <Route path="/" element={<Homelayout />}>
           <Route path="/" element={<HomePage />}></Route>
+        </Route>
+        <Route path="/" element={<Mainlayout />}>
           <Route path="/Profile-Person" element={<ProfilePage />}></Route>
           <Route path="/Profile" element={<ProfilePageMobile />}></Route>
           <Route path="/Message" element={<MessagePage />}></Route>
@@ -46,18 +50,17 @@ export default function Routers() {
           <Route path="/Manager/User" element={<UserManager />} />
           <Route path="/Manager/Room" element={<RoomManager />} />
           <Route path="/Manager/Location" element={<LocationManager />} />
+          <Route path="/Manager/AddUser" element={<UserAddForm />} />
+        </Route>
+        <Route path="/Manager" element={<ManagerLayout />}>
+          <Route path="/Manager/Home" element={<ManagerPage />} />
+          <Route path="/Manager/User" element={<UserManager />} />
+          <Route path="/Manager/Room" element={<RoomManager />} />
+          <Route path="/Manager/Location" element={<LocationManager />} />
+          <Route path="/Manager/AddUser" element={<UserAddForm />} />
+          <Route path="/Manager/hotel" element={<HotelManager />} />
         </Route>
 
-        <Route
-          path="/"
-          element={
-            <RequestAuth>
-              <Mainlayout />
-            </RequestAuth>
-          }
-        >
-          {/* <Route path="/Detail-Room" element={<DetailRoomPage />}></Route> */}
-        </Route>
         <Route
           path="/"
           element={

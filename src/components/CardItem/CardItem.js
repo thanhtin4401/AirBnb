@@ -9,10 +9,13 @@ import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
 import { Link } from 'react-router-dom';
-
+import { dataIMG } from '../../Data/Data';
 function CardItem({ roomInfor }) {
   return (
-    <Link to={`/detail-room/${roomInfor.id}`} className="relative bg-white rounded-[2rem]">
+    <Link
+      to={`/detail-room/${roomInfor.id}`}
+      className="relative text-black hover:text-black bg-white rounded-[2rem]"
+    >
       <div className="">
         <Swiper
           loop={true}
@@ -27,25 +30,33 @@ function CardItem({ roomInfor }) {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover max-h-full max-w-full">
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
             <img
-              src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
+              src={`${roomInfor.data?.img1}`}
               alt=""
               className="rounded-[0.8rem] min-h-[260px] h-full object-cover max-h-full "
             />
           </SwiperSlide>
-          <SwiperSlide className=" min-h-[260px]rounded-[0.8rem] object-cover max-h-full max-w-full">
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
             <img
-              src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
+              src={`${roomInfor.data?.img2}`}
               alt=""
               className="rounded-[0.8rem] object-cover max-h-full"
             />
           </SwiperSlide>
-          <SwiperSlide className=" min-h-[260px]rounded-[0.8rem] object-cover max-h-full max-w-full">
-            Slide 3
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
+            <img
+              src={`${roomInfor.data?.img3}`}
+              alt=""
+              className="rounded-[0.8rem] object-cover max-h-full"
+            />
           </SwiperSlide>
-          <SwiperSlide className=" min-h-[260px]rounded-[0.8rem] object-cover max-h-full max-w-full">
-            Slide 4
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
+            <img
+              src={`${roomInfor.data?.img4}`}
+              alt=""
+              className="rounded-[0.8rem] object-cover w-full"
+            />
           </SwiperSlide>
         </Swiper>
       </div>

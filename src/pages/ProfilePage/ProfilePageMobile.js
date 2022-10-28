@@ -1,8 +1,26 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logoutUser } from '../../redux/auth/authSlice';
+import { localStorageService } from '../../services/localStorageService';
 
 function ProfilePageMobile() {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate('/profile-person');
+  };
+  const dispatch = useDispatch();
+  const Logout = () => {
+    setTimeout(() => {
+      localStorageService.remove('USER');
+      localStorageService.remove('accessToken');
+
+      dispatch(logoutUser(null));
+      navigate('/');
+    }, 1000);
+  };
   return (
-    <div className="container w-full mx-auto py-6">
+    <div className="container w-full mx-auto pb-6 pt-[5rem]">
       <div className="mb-6">
         <img
           className="rounded-[5rem] w-[45px] h-[45px]"
@@ -298,7 +316,10 @@ function ProfilePageMobile() {
           </button>
         </div>
       </div>
-      <button className="border w-full border-black rounded-[0.5rem] flex justify-center py-2 font-[500] text-[1rem] ">
+      <button
+        onClick={Logout}
+        className="border w-full border-black rounded-[0.5rem] flex justify-center py-2 font-[500] text-[1rem] "
+      >
         {' '}
         Log out
       </button>

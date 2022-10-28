@@ -3,22 +3,29 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CardItem from '../../components/CardItem/CardItem';
 import { roomService } from '../../services/RoomService';
-
+import { dataIMG } from '../../Data/Data';
 export default function SearchPage() {
+  //https://source.unsplash.com/random random ảnh
   let { id } = useParams();
   let [listRoom, setListRoom] = useState([]);
   useEffect(() => {
     roomService
       .getRoomLocation(id)
       .then((res) => {
-        setListRoom(res.data.content);
+        setListRoom(res.data?.content);
       })
       .catch((err) => {
         message.error(err);
       });
   }, [id]);
   const renderRoomLocation = () => {
-    return listRoom?.map((item, index) => {
+    let room = listRoom?.map((item, index) => {
+      let random = Math.floor(Math.random() * 10);
+      random++;
+
+      return { ...item, data: dataIMG[random] };
+    });
+    return room?.map((item, index) => {
       return (
         <div className="col-span-1" key={index}>
           <CardItem roomInfor={item} />
@@ -64,7 +71,7 @@ export default function SearchPage() {
                 frameBorder="0"
                 scrolling="no"
                 marginHeight="0"
-                marginHidth="0"
+                // marginhidth="0"
                 src="https://maps.google.com/maps?width=1001&amp;height=567&amp;hl=en&amp;q=ho chi minh&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
               ></iframe>
             </div>

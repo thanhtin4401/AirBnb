@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -8,9 +8,16 @@ import CardItem from '../../components/CardItem/CardItem';
 import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
 import GridImgHeader from '../../components/CardItem/GridImgHeader';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
+  const [screen, setScreen] = useState(window.innerHeight);
+  const resize = () => {
+    setScreen(window.innerHeight);
+  };
+
+  window.addEventListener('resize', resize);
   return (
     <div
       role="tabpanel"
@@ -106,7 +113,7 @@ export default function TabsHeader({ props }) {
           />
         </Tabs>
       </Box>
-      <TabPanel className="overflow-scroll h-[40rem]" value={value} index={0}>
+      <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={0}>
         <CardItemHeader
           src="https://media.worldnomads.com/explore/vietnam/halong-bay-vietnam-from-above-gettyimages.jpg"
           content={{
@@ -148,7 +155,7 @@ export default function TabsHeader({ props }) {
           }}
         />
       </TabPanel>
-      <TabPanel className="overflow-scroll h-[40rem]" value={value} index={1}>
+      <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={1}>
         <GridImgHeader />
       </TabPanel>
       <TabPanel value={value} index={2}>

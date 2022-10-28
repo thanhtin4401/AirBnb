@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { DateRange } from 'react-date-range';
-
+import dateFormat, { masks } from 'dateformat';
 import format from 'date-fns/format';
 import { addDays } from 'date-fns';
 import './DateRangeComp.scss';
@@ -13,9 +13,17 @@ const DateRangeComp = (props) => {
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
-      key: 'selection',
+      // key: 'selection',
     },
   ]);
+
+  useEffect(() => {
+    const date = {
+      startDate: dateFormat(range[0].startDate, 'fullDate'),
+      endDate: dateFormat(range[0].endDate, 'fullDate'),
+    };
+    props.setDateBooking(date);
+  }, [range]);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     setOpen(props.openDateRange);
@@ -23,21 +31,10 @@ const DateRangeComp = (props) => {
   const handleCloseDateRange = () => {
     props.setOpenDateRange(false);
   };
-  // open close
-  //   const [open, setOpen] = useState(true);
 
-  // get the target element to toggle
   const refOne = useRef(null);
 
-  //   useEffect(() => {
-  //     // event listeners
-  //     document.addEventListener('keydown', hideOnEscape, true);
-  //     document.addEventListener('click', hideOnClickOutside, true);
-  //   }, []);
-
-  // hide dropdown on ESC press
   const hideOnEscape = (e) => {
-    // console.log(e.key)
     if (e.key === 'Escape') {
       props.setOpenDateRange(false);
     }
@@ -45,8 +42,6 @@ const DateRangeComp = (props) => {
 
   // Hide on outside click
   const hideOnClickOutside = (e) => {
-    // console.log(refOne.current)
-    // console.log(e.target)
     if (refOne.current && !refOne.current.contains(e.target)) {
       props.setOpenDateRange(false);
     }
@@ -54,7 +49,7 @@ const DateRangeComp = (props) => {
 
   return (
     <div
-      className={`calendarWrap absolute -top-2 -right-2 w-[120%] bg-white p-[12px] ${
+      className={`calendarWrap absolute md:-top-2 md:-right-2 md:w-[120%] sm:top-0 sm:right-0 sm:w-[100%] mb:top-0 mb:right-0 mb:w-[100%]  bg-white p-[12px] ${
         props.openDateRange ? 'block' : 'hidden'
       }`}
     >

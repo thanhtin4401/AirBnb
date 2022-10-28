@@ -27,9 +27,9 @@ export const pushUser = createAsyncThunk('user/push', async (data) => {
     message.error(error.response.data.message);
   }
 });
-export const searchUser = createAsyncThunk('user/search', async (data) => {
+export const searchUser = createAsyncThunk('user/search', async (name) => {
   try {
-    const res = await https.get(`/api/users/search/${data}`);
+    const res = await https.get(`/api/users/search/${name}`);
     console.log('res', res);
     return res;
   } catch (error) {
@@ -37,6 +37,15 @@ export const searchUser = createAsyncThunk('user/search', async (data) => {
   }
 });
 export const deleteUser = createAsyncThunk('user/delete', async (id) => {
+  try {
+    const res = await https.post(`/api/users/id=${id}`);
+    console.log('res', res);
+    return res;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+export const updateUser = createAsyncThunk('user/update', async (id) => {
   try {
     const res = await https.post(`/api/users/id=${id}`);
     console.log('res', res);
@@ -81,6 +90,19 @@ const userSlice = createSlice({
         };
       })
       .addCase(deleteUser.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          isfetching: false,
+          content: payload.data.content,
+        };
+      })
+      .addCase(updateUser.pending, (state) => {
+        return {
+          ...state,
+          isfetching: true,
+        };
+      })
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,

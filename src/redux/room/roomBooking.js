@@ -3,13 +3,25 @@ import { message } from 'antd';
 import { https } from '../../services/axiosClient';
 /** State **/
 const initialState = {
-  allRoom: [],
+  roomDetail: [],
+  price: 0,
   isfetching: false,
+  isBookingSuccess: false,
 };
 
-export const getRoomList = createAsyncThunk('room/list', async () => {
+export const bookingRoom = createAsyncThunk('room/booking', async (data) => {
   try {
-    const res = await https.get('/api/phong-thue');
+    const res = await https.post('/api/dat-phong', data);
+
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+
+export const detailInfoRoom = createAsyncThunk('room/detail', async (id) => {
+  try {
+    const res = await https.get(`/api/phong-thue/${id}`);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -17,36 +29,52 @@ export const getRoomList = createAsyncThunk('room/list', async () => {
 });
 
 const bookingRoomSlice = createSlice({
-  name: 'room/list',
+  name: 'booking',
   initialState,
   reducers: {
     reset: (state) => {
       return {
         ...state,
-        allRoom: [],
+        roomDetail: [],
+        price: 0,
+        isBookingSuccess: false,
         isfetching: false,
       };
     },
   },
   extraReducers: (builder) => {
     return builder
-      .addCase(getRoomList.pending, (state) => {
+      .addCase(bookingRoom.pending, (state) => {
         return {
           ...state,
-
-          allRoom: null,
+          isBookingSuccess: false,
           isfetching: true,
         };
       })
-      .addCase(getRoomList.fulfilled, (state, { payload }) => {
+      .addCase(bookingRoom.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          allRoom: payload.content,
+          isBookingSuccess: true,
+        };
+      })
+      .addCase(detailInfoRoom.pending, (state) => {
+        return {
+          ...state,
+
+          isfetching: true,
+        };
+      })
+      .addCase(detailInfoRoom.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          roomDetail: payload.content,
+          price: payload.content.giaTien,
+          isfetching: false,
         };
       });
   },
 });
 
-export const { reset } = listRoomSlice.actions;
-export default listRoomSlice.reducer;
+export const { reset } = bookingRoomSlice.actions;
+export default bookingRoomSlice.reducer;

@@ -3,10 +3,10 @@
     .btn-add{
         background-color: #1890ff ;
     }
-    .btn-delete{
-        background-color: #ff4d4f;
-    }
-    .btn-update{
-        background-color: #faad14;
-    }
+}
+.btn-delete{
+    color: red;
+}
+.btn-put{
+    color: green($color: #000000);
 }
