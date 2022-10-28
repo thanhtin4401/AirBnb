@@ -5,7 +5,9 @@ import { localStorageService } from '../../services/localStorageService';
 import { useDispatch, useSelector } from 'react-redux';
 import { postCommentUser } from '../../redux/comment/commentSlice';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 function CommentPush(props) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isModalOpenLogin, setIsModalOpenLogin] = useState(false);
   const { TextArea } = Input;
@@ -88,7 +90,7 @@ function CommentPush(props) {
               type="primary"
               htmltype="submit"
             >
-              Comment
+              {t('Comment')}
             </button>
             <Modal
               className="modal-reserce"
@@ -98,7 +100,7 @@ function CommentPush(props) {
               onCancel={handleCancelLogin}
             >
               <p className="w-full text-center font-600 text-[1rem]">
-                Plese login to booking room.thank you
+                {t('Plese login to comment.thank you')}
               </p>
             </Modal>
           </Form.Item>

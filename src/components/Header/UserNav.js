@@ -8,12 +8,20 @@ import { useDispatch } from 'react-redux';
 import { message } from 'antd';
 import { loginUser, logoutUser } from '../../redux/auth/authSlice';
 import { userService } from '../../services/userService';
+import { useTranslation } from 'react-i18next';
+import i18next from '../../i18next';
 export default function UserNav({ bg }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [openLanguage, setOpenLanguage] = useState(false);
   const [isUser, setisUser] = useState();
   const [userAPI, setUserAPI] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
+  const [languageSelect, setlanguageSelect] = useState('EN');
+  const handleLanguageSelect = (lang) => {
+    localStorageService.set('lang', lang);
+    i18next.changeLanguage(lang);
+  };
   useEffect(() => {
     if (user) {
       setisUser(user);
@@ -66,7 +74,7 @@ export default function UserNav({ bg }) {
             bg ? 'sm:text-black lg:text-white hover:bg-gray-700' : 'text-black hover:bg-gray-200'
           } font-medium text-sm rounded-3xl py-2 px-4  transition duration-300 cursor-pointer`}
         >
-          Trở Thành Chủ Nhà
+          {t('Become a Host')}
         </h1>
         <div
           onClick={() => {
@@ -86,10 +94,20 @@ export default function UserNav({ bg }) {
               openLanguage ? '' : 'hidden'
             } animate__animated animate__fadeInUp bg-white dropdownLanguage rounded-xl border border-gray-300 transition duration-500`}
           >
-            <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+            <li
+              onClick={() => {
+                handleLanguageSelect('VN');
+              }}
+              className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+            >
               <p className="hover:text-black transition duration-100">Tiếng Việt</p>
             </li>
-            <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
+            <li
+              onClick={() => {
+                handleLanguageSelect('EN');
+              }}
+              className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+            >
               <p className="hover:text-black transition duration-100">English</p>
             </li>
           </ul>
@@ -133,14 +151,14 @@ export default function UserNav({ bg }) {
                   to="/Profile-person"
                   className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full"
                 >
-                  {'Xin Chào ' + userAPI?.name}
+                  {t('Hello') + userAPI?.name}
                 </Link>
               ) : (
                 <Link
                   to="/Register"
                   className="w-full block h-full hover:text-black transition duration-100"
                 >
-                  Đăng Kí
+                  {t('Register')}
                 </Link>
               )}
             </li>
@@ -182,26 +200,28 @@ export default function UserNav({ bg }) {
                   onClick={Logout}
                   className="w-full block h-full text-left hover:text-black transition duration-100"
                 >
-                  Đăng Xuất
+                  {t('Logout')}
                 </button>
               ) : (
                 <Link
                   to="/Login"
                   className="w-full block h-full hover:text-black transition duration-100"
                 >
-                  Đăng Nhập
+                  {t('Login')}
                 </Link>
               )}
             </li>
             <div className="bg-gray-300 w-full h-[1px] my-[5px]"></div>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <p className="hover:text-black transition duration-100">Cho Thuê Nhà</p>
+              <p className="hover:text-black transition duration-100">{t('House for rent')}</p>
             </li>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <p className="hover:text-black transition duration-100">Tổ chức Trải Nghiệm</p>
+              <p className="hover:text-black transition duration-100">
+                {t('Organize the experience')}
+              </p>
             </li>
             <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
-              <p className="hover:text-black transition duration-100">Trợ Giúp</p>
+              <p className="hover:text-black transition duration-100">{t('Help')}</p>
             </li>
           </ul>
         </div>

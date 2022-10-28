@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import './Header.modul.scss';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 export default function Header() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [bg, setBg] = useState(false);
   const [idViTri, setIdViTri] = useState(0);
@@ -74,14 +76,14 @@ export default function Header() {
                   bg ? 'text-white' : 'text-black'
                 } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
               >
-                Địa điểm
+                {t('Any point')}
               </label>
               <Select
                 style={{
                   width: 160,
                 }}
                 showSearch
-                placeholder="Vị Trí"
+                placeholder={t('Location')}
                 optionFilterProp="children"
                 className="dropdow-header"
                 onChange={onChange}
@@ -104,7 +106,7 @@ export default function Header() {
                 onClick={searchBtn}
                 className="bg-[#FF385C] hover:bg-red-500 transition duration-300 px-5 py-2 rounded font-bold text-white"
               >
-                Tìm kiếm
+                {t('Search')}
               </button>
             </div>
           </div>
@@ -146,21 +148,21 @@ export default function Header() {
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                Địa Điểm Bất kỳ
+                {t('Any point')}
               </h1>
             </div>
             <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden border-r-2">
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                Tuần Bất Kỳ
+                {t('Any Week')}
               </h1>
             </div>
             <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden ">
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                Thêm Khách
+                {t('Add Guest')}
               </h1>
             </div>
             <div className="p-2 bg-[#FF385C] rounded-3xl">

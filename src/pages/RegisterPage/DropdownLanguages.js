@@ -24,12 +24,12 @@ function DropdownLanguages() {
 
   return (
     <>
-      <div className="relative inline-block text-left">
+      <div className="relative inline-block text-left rounded-lg">
         <div>
           <button
             onClick={handleisOpenSelection}
             type="button"
-            className="flex text-[12px] items-center  w-full justify-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100"
+            className="flex text-[12px] items-center  w-full justify-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg focus:ring-offset-gray-100"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"

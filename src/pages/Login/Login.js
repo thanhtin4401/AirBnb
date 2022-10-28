@@ -91,13 +91,13 @@ function Login() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your email!',
+                    message: t('Please input your email!'),
                   },
                 ]}
               >
                 <Input
                   className="input border px-[14px] py-[14px] rounded-[0.5rem] w-[320px] input-user"
-                  placeholder="Input your email/phone number"
+                  placeholder={t('Input your email/phone number')}
                 />
               </Form.Item>
 
@@ -106,13 +106,13 @@ function Login() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your password!',
+                    message: t('Please input your password!'),
                   },
                 ]}
               >
                 <Input.Password
                   className="border password px-[14px] py-[14px] rounded-[0.5rem] w-[320px] "
-                  placeholder="Input your email/phone number"
+                  placeholder={t('Input your email/phone number')}
                 />
               </Form.Item>
 
@@ -122,15 +122,15 @@ function Login() {
                 size="large"
                 htmlType="submit"
               >
-                Login
+                {t('Login')}
               </Button>
             </Form>
             <div className="w-full flex justify-between">
               <Link to="/Register" className="mt-5 text-blue w-full inline text-left text-bold">
-                Register
+                {t('Register')}
               </Link>
               <a to="/" className="mt-5 text-blue w-full inline text-right text-bold">
-                forget password
+                {t('forget password')}
               </a>
             </div>
 
@@ -139,7 +139,7 @@ function Login() {
                 className="my-5 text-center
                opacity-40 relative login-with"
               >
-                login with
+                {t('login with')}
               </p>
             </div>
             <div className=""></div>
