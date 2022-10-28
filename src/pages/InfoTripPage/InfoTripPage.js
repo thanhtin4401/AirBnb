@@ -2,18 +2,17 @@ import { message } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { GrBike } from 'react-icons/gr';
 import { RiMotorbikeFill } from 'react-icons/ri';
 import { localStorageService } from '../../services/localStorageService';
 import { roomService } from '../../services/RoomService';
 import {data} from './dataImgTrip'
-import { Modal } from 'antd';
+import { Modal,notification  } from 'antd';
 export default function InfoTripPage() {
   const [user, setuser] = useState(localStorageService.get('USER'));
   const [idUser, setIdUser] = useState(user.user.id);
   const [idRoom, setIdRoom] = useState();
   const [bookedRoom, setbookedRoom] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
     roomService
@@ -22,25 +21,31 @@ export default function InfoTripPage() {
         setbookedRoom(res.data.content);
       })
       .catch((err) => {
-        message.error(err);
+        openNotificationWithIcon('error','Thất bại',`${err.response.data.content}`);
       });
-  }, [openModal]);
+  }, [isOpenModal]);
   const openModalDelete = () => {
-    setOpenModal(true)
+    setIsOpenModal(true)
   };
   const handleOk = (idRoom) => { 
     roomService
     .deleteOrderRoom(idRoom)
     .then((res) => {
-      message.success('Xóa Thành Công');
-      setOpenModal(false)
+      openNotificationWithIcon('success','Hoàn tất','Bạn đã hủy chuyến đi thành công!');
+      setIsOpenModal(false)
     })
     .catch((err) => {
-      message.error(err.reponse);
+      openNotificationWithIcon('error','Thất bại',`${err.response.data.content}`);
     });
    }
   const handleCancel = () => {
-    setOpenModal(false);
+    setIsOpenModal(false);
+  };
+  const openNotificationWithIcon = (type,mess,description) => {
+    notification[type]({
+      message: mess,
+      description:description,
+    });
   };
   const renderBookedRoom = () => {
     return bookedRoom.map((item, index) => {
@@ -89,12 +94,12 @@ export default function InfoTripPage() {
     <>
      <Modal 
       className='modalUploadImg'
-      open={openModal}
+      open={isOpenModal}
       onOk={() => { handleOk(idRoom) }}
       onCancel={handleCancel}
       >
         <h1 className='text-base font-bold mb-5'>Bạn chắc chắn muốn hủy chuyến đi này?</h1>
-      </Modal>v
+      </Modal>
     <div className="mt-24 mb-10 container mx-auto">
       <h1 className="font-bold text-xl flex items-center">
         {' '}
