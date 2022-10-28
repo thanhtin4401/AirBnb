@@ -220,7 +220,6 @@ export default function ProfilePage() {
                       />
                     </div>
                   </div>
-                </div>
                 <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                   <h1 className="text-gray-700 text-sm font-bold mb-1 ">Email: {userAPI?.email}</h1>
                   <div className={`${openInput ? '' : 'hidden'}`}>
@@ -232,6 +231,7 @@ export default function ProfilePage() {
                       
                       placeholder="dinhdanh183@gmail"
                     />
+                </div>
                   </div>
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                     <h1 className="text-gray-700 text-sm font-bold mb-1 ">

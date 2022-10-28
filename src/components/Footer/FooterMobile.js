@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { localStorageService } from '../../services/localStorageService';
 import './FooterSticky';
 function FooterMobile() {
   const navigate = useNavigate();
+  const [isUser, setisUser] = useState();
+  const [user, setuser] = useState(localStorageService.get('USER'));
+  useEffect(() => {
+    if (user) {
+      setisUser(user);
+    }
+  }, []);
+  useEffect(() => {
+    setisUser(user);
+  }, [user]);
+  console.log(isUser)
   return (
     <div className="footer-sticky w-full mb:block sm:block lg:hidden">
       <div className="bg-white border w-full grid grid-cols-5 ">
@@ -53,7 +65,7 @@ function FooterMobile() {
         </button>
         <button
           onClick={() => {
-            navigate('/trip');
+           isUser ? navigate('/Trip') : navigate('/TripMobile');
           }}
           className=" flex flex-col justify-center items-center opacity-60 py-3 focus:opacity-100 focus:font-bold focus:text-[red]"
         >
