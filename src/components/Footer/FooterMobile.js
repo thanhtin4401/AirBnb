@@ -14,7 +14,6 @@ function FooterMobile() {
   useEffect(() => {
     setisUser(user);
   }, [user]);
-  console.log(isUser)
   return (
     <div className="footer-sticky w-full mb:block sm:block lg:hidden">
       <div className="bg-white border w-full grid grid-cols-5 ">

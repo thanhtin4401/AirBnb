@@ -27,9 +27,7 @@ export default function InfoTripPage() {
   const openModalDelete = () => {
     setIsOpenModal(true)
   };
-  if(user !== null){
-    console.log("1")
-  }
+
   const handleOk = (idRoom) => { 
     roomService
     .deleteOrderRoom(idRoom)
