@@ -64,7 +64,6 @@ function DetailRoomPage() {
     setTotal(price);
   }, []);
   useEffect(() => {
-    console.log('roomId5', price);
     setTotal(price);
     renderRoomItem(roomId);
   }, [price]);
@@ -74,7 +73,7 @@ function DetailRoomPage() {
     dispatch(detailInfoRoom(roomId));
     dispatch(getCommentUser(roomId));
     renderRoomItem(roomId);
-    console.log('roomId5', price);
+
     setTotal(price);
   }, [roomId]);
   const handleRenderComment = () => {

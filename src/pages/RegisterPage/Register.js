@@ -41,9 +41,7 @@ function Register() {
       dispatch(loginUser(authLogin));
     }
   }, [registerSuccess]);
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const onFinishFailed = (errorInfo) => {};
 
   const { Option } = Select;
 

@@ -72,9 +72,7 @@ function FilterSlice({ handleQueryFilter }) {
     });
   }
 
-  function onAfterChange(value) {
-    console.log('onAfterChange: ', value);
-  }
+  function onAfterChange(value) {}
   const handleBedCheck = (e) => {
     setFilterForm({
       ...filterForm,

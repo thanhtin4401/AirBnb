@@ -39,8 +39,6 @@ function HomePage() {
     });
 
     setNewRoom(roomFilter);
-    console.log('roomFilter', roomFilter);
-    console.log('roomFilter', queyFilter.maxPrice);
   }, [queyFilter]);
   useEffect(() => {
     renderRoomItem();

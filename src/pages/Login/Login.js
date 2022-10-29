@@ -161,12 +161,7 @@ function Login() {
                 isSignedIn={true}
               />
               {/* </button> */}
-              <button
-                onClick={() => {
-                  console.log(auth.isLoggedIn);
-                }}
-                className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]"
-              >
+              <button className="flex mt-5 justify-center items-center text-[16px] w-full border p-3 rounded-[0.5rem]">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
                   alt=""

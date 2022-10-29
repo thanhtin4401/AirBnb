@@ -13,9 +13,7 @@ function CommentPush(props) {
   const { TextArea } = Input;
   const dispatch = useDispatch();
   const [rateCount, setRateCount] = useState(5);
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const onFinishFailed = (errorInfo) => {};
   const userAPI = localStorageService.get('USER')?.user;
   const auth = useSelector((state) => state.auth.isLoggedIn);
   const current = new Date();

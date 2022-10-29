@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserNav from './UserNav';
 import { FaSearch } from 'react-icons/fa';
-import { DatePicker, message, Space } from 'antd';
-import { Select } from 'antd';
+import { DatePicker, message, Space ,Select,notification} from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import './Header.modul.scss';
@@ -48,8 +47,15 @@ export default function Header() {
     if (idViTri !== 0) {
       history(`SearchPage/${idViTri}`);
     } else {
-      message.error('Chọn vị trí cần tìm kiếm');
+      openNotificationWithIcon('error');
     }
+  };
+  const openNotificationWithIcon = (type) => {
+    notification[type]({
+      message: 'Thất bại',
+      description:
+        'Vui lòng chọn vị trí cần tìm kiếm!',
+    });
   };
   return (
     <div

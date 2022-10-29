@@ -14,7 +14,7 @@ const DateRangeComp = (props) => {
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
-      // key: 'selection',
+      key: 'selection',
     },
   ]);
 
