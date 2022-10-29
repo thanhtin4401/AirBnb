@@ -165,14 +165,14 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
               onClick={handleOpenDateRange}
               className=" datestart p-[12px] transition-all cursor-pointer border-r-[1px] border-black w-2/4"
             >
-              <h2 className="font-[700]  text-[1rem] mb-1">Date Start</h2>
+              <h2 className="font-[700]  text-[1rem] mb-1">{t('Date Start')}</h2>
               <p>{dateBooking.startDate}</p>
             </div>
             <div
               onClick={handleOpenDateRange}
               className=" dateend p-[12px] transition-all cursor-pointer w-2/4"
             >
-              <h2 className="font-[700] text-[1rem] mb-1">Date End</h2>
+              <h2 className="font-[700] text-[1rem] mb-1">{t('Date End')}</h2>
               <p>{dateBooking.endDate}</p>
             </div>
           </div>
@@ -186,7 +186,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             onClick={handleIsGuestsSelect}
           >
             <div className="">
-              <h2 className="font-[400] text-[1rem]">GUESTS</h2>
+              <h2 className="font-[400] text-[1rem]">{t('GUESTS')}</h2>
               <p className="font-[300] text-[1rem] mt-1">{guets} guests</p>
             </div>
             <svg

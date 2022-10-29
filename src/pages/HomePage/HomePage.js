@@ -39,8 +39,6 @@ function HomePage() {
     });
 
     setNewRoom(roomFilter);
-    console.log('roomFilter', roomFilter);
-    console.log('roomFilter', queyFilter.maxPrice);
   }, [queyFilter]);
   useEffect(() => {
     renderRoomItem();
@@ -101,7 +99,7 @@ function HomePage() {
       </div>
       <div className="container m-auto mb:mt-[10rem] sm:mt-[10rem] lg:mt-10 mb-10">
         <div className="mb-10">
-          <h1 className="text-[3rem] font-bold mb-10">Explore nearby</h1>
+          <h1 className="text-[3rem] font-bold mb-10">{t('Explore nearby')}</h1>
           <div className="grid mb:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-4">
             <div className="flex justify-start items-center">
               <img

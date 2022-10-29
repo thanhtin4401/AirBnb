@@ -6,7 +6,7 @@ import { Input, message } from 'antd';
 import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
-import { Button, Modal,notification } from 'antd';
+import { Button, Modal, notification } from 'antd';
 
 export default function ProfilePage() {
   const [openInput, setOpenInput] = useState(false);
@@ -44,17 +44,17 @@ export default function ProfilePage() {
     birthday === '' ? (userPut.birthday = userAPI.birthday) : (userPut.birthday = birthday);
     setUserApi(userPut);
     if (name === '' && email === '' && phone === '' && birthday === '') {
-      openNotificationWithIcon('error','Thất bại',`Điền thông tin mà bạn muốn thay đổi`);
+      openNotificationWithIcon('error', 'Thất bại', `Điền thông tin mà bạn muốn thay đổi`);
     } else {
       setChangeBtn(false);
       setOpenInput(false);
       userService
         .putUser(idUser, userPut)
         .then((res) => {
-        openNotificationWithIcon('success','Hoàn tất','Bạn vừa cập nhật thông tin thành công!');
+          openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
         })
         .catch((err) => {
-        openNotificationWithIcon('error','Thất bại',`${err.response.data.content}`);
+          openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
         });
     }
   };
@@ -63,7 +63,7 @@ export default function ProfilePage() {
     // let reader = new FileReader();
     // reader.readAsDataURL(e.target.files[0])
     // reader.onload = (e) => {
-    //   console.log(e.target.result)
+
     //   setImgSrc(e.target.result)
     //  }
     if (e.target && e.target.files[0]) {
@@ -73,25 +73,25 @@ export default function ProfilePage() {
   const openModalClick = () => {
     setOpenModal(true);
   };
-  const handleOk = () => { 
-     userService
+  const handleOk = () => {
+    userService
       .uploadAvt(formData)
       .then((res) => {
-        setAvatar(res.data.content.avatar)
-        openNotificationWithIcon('success','Hoàn tất','Bạn vừa cập nhật thông tin thành công!');
-        setOpenModal(false)
+        setAvatar(res.data.content.avatar);
+        openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
+        setOpenModal(false);
       })
       .catch((err) => {
-        openNotificationWithIcon('error','Thất bại',`${err.response.data.content}`);
+        openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
       });
   };
   const handleCancel = () => {
     setOpenModal(false);
   };
-  const openNotificationWithIcon = (type,mess,description) => {
+  const openNotificationWithIcon = (type, mess, description) => {
     notification[type]({
       message: mess,
-      description:description,
+      description: description,
     });
   };
   return (
@@ -220,18 +220,19 @@ export default function ProfilePage() {
                       />
                     </div>
                   </div>
-                <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                  <h1 className="text-gray-700 text-sm font-bold mb-1 ">Email: {userAPI?.email}</h1>
-                  <div className={`${openInput ? '' : 'hidden'}`}>
-                    <Input
-                      className="profilepage-input"
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                      }}
-                      
-                      placeholder="dinhdanh183@gmail"
-                    />
-                </div>
+                  <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
+                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
+                      Email: {userAPI?.email}
+                    </h1>
+                    <div className={`${openInput ? '' : 'hidden'}`}>
+                      <Input
+                        className="profilepage-input"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                        placeholder="dinhdanh183@gmail"
+                      />
+                    </div>
                   </div>
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                     <h1 className="text-gray-700 text-sm font-bold mb-1 ">

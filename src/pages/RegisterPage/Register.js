@@ -41,9 +41,7 @@ function Register() {
       dispatch(loginUser(authLogin));
     }
   }, [registerSuccess]);
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const onFinishFailed = (errorInfo) => {};
 
   const { Option } = Select;
 
@@ -91,7 +89,7 @@ function Register() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your Email!',
+                    message: t('Please input your Email!'),
                   },
                 ]}
               >
@@ -101,14 +99,14 @@ function Register() {
                   placeholder="Email"
                 />
               </Form.Item>
-              <p className="">Password</p>
+              <p className="">{t('Password')}</p>
               <Form.Item
                 className="mb-4"
                 name="password"
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your password!',
+                    message: t('Please input your password!'),
                   },
                 ]}
               >
@@ -116,17 +114,17 @@ function Register() {
                   style={{ width: '100%' }}
                   className="border password px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                  placeholder="Password"
+                  placeholder={t('Password')}
                 />
               </Form.Item>
-              <p className="">Full Name</p>
+              <p className="">{t('Full Name')}</p>
               <Form.Item
                 className="mb-4"
                 name="name"
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your username!',
+                    message: t('Please input your username!'),
                   },
                 ]}
               >
@@ -134,13 +132,13 @@ function Register() {
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                  placeholder="Full name"
+                  placeholder={t('Full name')}
                 />
               </Form.Item>
 
               <Row span={24} style={{ width: '100%' }}>
                 <Col span={12} style={{ paddingRight: '0.2rem' }}>
-                  <p className="">Birthday</p>
+                  <p className="">{t('Birthday')}</p>
                   <Form.Item
                     className="mb-4"
                     name="birthday"
@@ -151,35 +149,35 @@ function Register() {
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <p className="">Gender</p>
+                  <p className="">{t('Gender')}</p>
                   <Form.Item
                     className="mb-4"
                     wrapperCol={{ sm: 24 }}
                     style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
                     name="gender"
                   >
-                    <Select className="w-full dropdowregister " placeholder="gender">
-                      <Select.Option value="true">Nam</Select.Option>
-                      <Select.Option value="false">Nữ</Select.Option>
+                    <Select className="w-full dropdowregister " placeholder={t('gender')}>
+                      <Select.Option value="true">{t('male')}</Select.Option>
+                      <Select.Option value="false">{t('female')}</Select.Option>
                     </Select>
                   </Form.Item>
                 </Col>
               </Row>
-              <p className="">Phone Number</p>
+              <p className="">{t('Phone Number')}</p>
               <Form.Item
                 className="mb-4"
                 name="phone"
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your username!',
+                    message: t('Please input your username!'),
                   },
                 ]}
               >
                 <Input
                   style={{ width: '100%' }}
                   className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                  placeholder="+84 Phone Number"
+                  placeholder={t('+84 Phone Number')}
                 />
               </Form.Item>
               <Button
@@ -188,12 +186,12 @@ function Register() {
                 size="large"
                 htmltype="submit"
               >
-                Register
+                {t('Register')}
               </Button>
             </Form>
             <div className="flex justify-center w-full">
               <Link to="/Login" className="mt-5 text-blue text-left text-bold">
-                Login
+                {t('Login')}
               </Link>
             </div>
           </div>
