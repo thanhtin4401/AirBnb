@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { getUserList } from '../../redux/manager/user';
 import './UserManager.scss';
 import { useNavigate } from 'react-router-dom';
-import { userService } from '../../services/userService';
 import UserTable from './UserTable';
 function UserManager() {
   const { Search } = Input;
