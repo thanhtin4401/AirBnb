@@ -21,6 +21,7 @@ import MessagePage from '../pages/MessagePage/MessagePage';
 import DetailPageLayout from '../layout/DetailPageLayout';
 import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
 import Wishlists from '../pages/WishlistsPage/WishlistsPage';
+import InfoTripMobilePage from '../pages/InfoTripMobilePage/InfoTripMobilePage';
 
 export default function Routers() {
   return (
@@ -35,6 +36,7 @@ export default function Routers() {
           <Route path="/Message" element={<MessagePage />}></Route>
           <Route path="/Trip" element={<InfoTripPage />}></Route>
           <Route path="/Wishlist" element={<Wishlists />}></Route>
+          <Route path="/TripMobile" element={<InfoTripMobilePage />}></Route>
         </Route>
         <Route path="/Detail-Room" element={<DetailPageLayout />}>
           <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>

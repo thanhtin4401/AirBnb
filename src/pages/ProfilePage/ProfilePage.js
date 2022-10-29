@@ -6,12 +6,9 @@ import { Input, message } from 'antd';
 import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
-import { Button, Modal } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Button, Modal, notification } from 'antd';
+
 export default function ProfilePage() {
-  const { t } = useTranslation();
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
   const [openInput, setOpenInput] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [changeBtn, setChangeBtn] = useState(false);
@@ -47,17 +44,17 @@ export default function ProfilePage() {
     birthday === '' ? (userPut.birthday = userAPI.birthday) : (userPut.birthday = birthday);
     setUserApi(userPut);
     if (name === '' && email === '' && phone === '' && birthday === '') {
-      message.error('Điền thông tin bạn muốn thay đổi');
+      openNotificationWithIcon('error', 'Thất bại', `Điền thông tin mà bạn muốn thay đổi`);
     } else {
       setChangeBtn(false);
       setOpenInput(false);
       userService
         .putUser(idUser, userPut)
         .then((res) => {
-          message.success('Cập Nhật Thành Công');
+          openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
         })
         .catch((err) => {
-          message.error(err.response.data);
+          openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
         });
     }
   };
@@ -66,7 +63,7 @@ export default function ProfilePage() {
     // let reader = new FileReader();
     // reader.readAsDataURL(e.target.files[0])
     // reader.onload = (e) => {
-    //   console.log(e.target.result)
+
     //   setImgSrc(e.target.result)
     //  }
     if (e.target && e.target.files[0]) {
@@ -77,21 +74,25 @@ export default function ProfilePage() {
     setOpenModal(true);
   };
   const handleOk = () => {
-    console.log('form', formData.get('formFile'));
     userService
       .uploadAvt(formData)
       .then((res) => {
         setAvatar(res.data.content.avatar);
-        message.success('Cập nhật thành công');
+        openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
         setOpenModal(false);
       })
       .catch((err) => {
-        console.log(err);
-        message.error(err.response.data.content);
+        openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
       });
   };
   const handleCancel = () => {
     setOpenModal(false);
+  };
+  const openNotificationWithIcon = (type, mess, description) => {
+    notification[type]({
+      message: mess,
+      description: description,
+    });
   };
   return (
     <>
