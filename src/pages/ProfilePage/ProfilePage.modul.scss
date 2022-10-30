@@ -1,6 +1,11 @@
 .profilepage-input.ant-input {
         width: 100% !important;
 }
+.profilepage-input.ant-picker{
+    width: 100%;
+    padding: 14px;
+    border-radius: 0.5rem;
+}
 .modalUploadImg {
     .ant-modal-header {
         border-radius: 1rem 1rem 0rem 0rem;

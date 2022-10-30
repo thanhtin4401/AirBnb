@@ -17,3 +17,28 @@
     background-color: white;
     // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.text-home {
+    font-family: 'Russo One', sans-serif;
+    width: 100%; height: 100%;
+  }
+  .text-home text {
+    text-transform: uppercase;
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #fff;
+    font-size: 180px;
+    font-weight: 700;
+  }
+  @keyframes stroke {
+    0%   {
+      fill: rgba(72,138,20,0); stroke: rgba(256,256,256);
+      stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    70%  {fill: rgba(72,138,20,0); stroke: rgba(256,256,256); }
+    80%  {fill: rgba(72,138,20,0); stroke: rgba(256,256,256); stroke-width: 3; }
+    100% {
+      fill: rgba(256,256,256,1); stroke: rgba(54,95,160,0); 
+      stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
+  }

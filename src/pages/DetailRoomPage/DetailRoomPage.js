@@ -266,9 +266,9 @@ function DetailRoomPage() {
               </div>
             </div>
             <div className="image mb-2 mb:hidden sm:hidden md:block">
-              <div className="grid grid-cols-4 grid-rows-2 gap-4">
+              <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[350px]">
                 <img
-                  className="rounded-[0.5rem] row-span-2 col-span-2 w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full row-span-2 col-span-2 w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img1
@@ -277,7 +277,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img2
@@ -286,7 +286,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img3
@@ -296,7 +296,7 @@ function DetailRoomPage() {
                 />
                 <div className="overflow-hidden col-span-1">
                   <img
-                    className="rounded-[0.5rem] object-cover col-span-1"
+                    className="rounded-[0.5rem] h-full w-full object-cover col-span-1"
                     src={`${
                       imgRoomList
                         ? imgRoomList[0]?.data.img4
@@ -307,7 +307,7 @@ function DetailRoomPage() {
                 </div>
 
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img5
@@ -474,7 +474,7 @@ function DetailRoomPage() {
                       {t('Long-term stays allowed')}
                     </p>
                   </div>
-                  <button className="py-[0.75rem] px-[1.5rem] text-[1rem] font-[600] rounded-[0.5rem] border">
+                  <button className="py-[0.75rem] px-[1.5rem] text-[1rem] font-[600] rounded-[0.5rem] h-full w-full border">
                     {' '}
                     {t('Showall 14 amentities')}
                   </button>

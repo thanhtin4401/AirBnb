@@ -13,7 +13,7 @@ export let userService = {
   deleteUser: (idUser) => {
     return https.delete(`/api/users/${idUser}`);
   },
-  // searchUser: (TenNguoiDung) => {
-  //   return https.get(`/api/users/search/${TenNguoiDung}`);
-  // },
+  searchUser: (TenNguoiDung) => {
+    return https.get(`/api/users/search/${TenNguoiDung}`);
+  },
 };

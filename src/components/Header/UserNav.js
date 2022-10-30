@@ -49,6 +49,7 @@ export default function UserNav({ bg }) {
       localStorageService.remove('accessToken');
       setuser(null);
       dispatch(logoutUser(null));
+      navigate('/');
     }, 1000);
   };
   const closeDropDown = () => {

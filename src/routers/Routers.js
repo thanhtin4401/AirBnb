@@ -29,6 +29,7 @@ import LocationManager from '../pages/LocationManager/LocationManager';
 import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
 import Modal from '../HOC/Modal.js/Modal';
 import PopUpModal from '../pages/PopUpModal/PopUpModal';
+import ProfileManagerPage from '../pages/ProfileManagerPage/ProfileManagerPage';
 
 export default function Routers() {
   return (
@@ -58,6 +59,7 @@ export default function Routers() {
           <Route path="/Manager/Location" element={<LocationManager />} />
           <Route path="/Manager/AddUser" element={<UserAddForm />} />
           <Route path="/Manager/hotel" element={<HotelManager />} />
+          <Route path="/Manager/profile" element={<ProfileManagerPage />} />
         </Route>
 
         <Route

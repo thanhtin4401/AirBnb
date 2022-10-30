@@ -1,66 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { MdOutlineSecurity } from 'react-icons/md';
 import { AiOutlineCheck } from 'react-icons/ai';
-import { BsPersonSquare } from 'react-icons/bs';
-import { Input, message } from 'antd';
 import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
-import { Button, Modal, notification } from 'antd';
+import { Button, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
-
+import { Modal } from 'antd';
+import ProfileRight from './ProfileRight';
+import { useNavigate } from 'react-router-dom';
 export default function ProfilePage() {
   const { t } = useTranslation();
 
   const [openInput, setOpenInput] = useState(false);
+
   const [openModal, setOpenModal] = useState(false);
-  const [changeBtn, setChangeBtn] = useState(false);
   const [avatar, setAvatar] = useState('');
   const [imgSrc, setImgSrc] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
-  const [idUser, setIdUer] = useState(user.user.id);
-  const [userAPI, setUserApi] = useState();
-  const [userPut, setUserPut] = useState({
-    id: idUser,
-    name: '',
-    email: '',
-    phone: '',
-    birthday: '',
-    gender: true,
-    role: 'USER',
-  });
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [birthday, setBirthday] = useState('');
+  const [idUser, setIdUer] = useState(user?.user.id);
 
   useEffect(() => {
-    userService.getUser(idUser).then((res) => {
-      setUserApi(res.data.content);
-      setAvatar(res.data.content.avatar);
-    });
+    userService
+      .getUser(idUser)
+      .then((res) => {
+        setUserApi(res.data.content);
+        setAvatar(res.data.content.avatar);
+      })
+      .catch((err) => {
+        message.error(err.response.data.content);
+      });
   }, []);
-  const putInfo = () => {
-    name === '' ? (userPut.name = userAPI.name) : (userPut.name = name);
-    email === '' ? (userPut.email = userAPI.email) : (userPut.email = email);
-    phone === '' ? (userPut.phone = userAPI.phone) : (userPut.phone = phone);
-    birthday === '' ? (userPut.birthday = userAPI.birthday) : (userPut.birthday = birthday);
-    setUserApi(userPut);
-    if (name === '' && email === '' && phone === '' && birthday === '') {
-      openNotificationWithIcon('error', 'Thất bại', `Điền thông tin mà bạn muốn thay đổi`);
-    } else {
-      setChangeBtn(false);
-      setOpenInput(false);
-      userService
-        .putUser(idUser, userPut)
-        .then((res) => {
-          openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
-        })
-        .catch((err) => {
-          openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
-        });
-    }
-  };
+
   const formData = new FormData();
   const changeHandler = (e) => {
     // let reader = new FileReader();
