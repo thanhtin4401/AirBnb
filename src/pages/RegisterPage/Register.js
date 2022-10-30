@@ -117,7 +117,7 @@ function Register() {
                   placeholder={t('Password')}
                 />
               </Form.Item>
-              <p className="">{t('Full Name')}</p>
+              <p className="">{t('Full name')}</p>
               <Form.Item
                 className="mb-4"
                 name="name"
@@ -156,7 +156,7 @@ function Register() {
                     style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
                     name="gender"
                   >
-                    <Select className="w-full dropdowregister " placeholder={t('gender')}>
+                    <Select className="w-full dropdowregister " placeholder={t('Gender')}>
                       <Select.Option value="true">{t('male')}</Select.Option>
                       <Select.Option value="false">{t('female')}</Select.Option>
                     </Select>

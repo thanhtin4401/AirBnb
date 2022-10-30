@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserNav from './UserNav';
 import { FaSearch } from 'react-icons/fa';
-import { DatePicker, message, Space ,Select,notification} from 'antd';
+import { DatePicker, message, Space, Select, notification } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import './Header.modul.scss';
@@ -53,8 +53,7 @@ export default function Header() {
   const openNotificationWithIcon = (type) => {
     notification[type]({
       message: 'Thất bại',
-      description:
-        'Vui lòng chọn vị trí cần tìm kiếm!',
+      description: 'Vui lòng chọn vị trí cần tìm kiếm!',
     });
   };
   return (
@@ -82,7 +81,7 @@ export default function Header() {
                   bg ? 'text-white' : 'text-black'
                 } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
               >
-                {t('Any point')}
+                {t('Any location')}
               </label>
               <Select
                 style={{
