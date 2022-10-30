@@ -1,6 +1,10 @@
 import React from 'react';
 import './BannerVideo.scss';
+import { useTranslation } from 'react-i18next';
+
 function BannerVideo() {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="container flex mx-auto h-full mb:hidden sm:hidden lg:flex">
@@ -12,13 +16,13 @@ function BannerVideo() {
           />
           <div className="max-w-[450px] flex flex-col justify-center mb:mb-8 lg:mb-0 sm:mb-8 items-center">
             <h1 className="text-[3.5rem] font-[700] text-center text-white">
-              Try hosting on Airbnb
+              {t('Try hosting on Airbnb')}
             </h1>
             <p className="text-center  my-[40px] text-[1rem] text-[#A1A1A1] font-[400]">
-              Join us. we’ll help uoy every <br /> step of the way
+              {t('Join us! We’ll help you every')} <br /> {t('step of the way')}
             </p>
             <button className="btn__try-hosting px-[26px] py-[14px] text-white text-[0.8rem] font-[500]">
-              Try hosting
+              {t('Try hosting')}
             </button>
           </div>
         </div>
@@ -37,10 +41,10 @@ function BannerVideo() {
         <div className="left relative flex py-[1.5rem] mb:items-end sm:items-end lg:items-center mb:w-full sm:w-full justify-center  lg:w-2/4 bg-black">
           <div className="flex flex-col justify-center mb:mb-8 lg:mb-0 sm:mb-8 items-center">
             <h1 className="mb:text-[2.5rem] sm:text-[2.5rem] lg:text-[3.5rem] font-[700] text-center text-white">
-              Try hosting on Airbnb
+              {t('Try hosting on Airbnb')}
             </h1>
             <p className="text-center  my-[40px] text-[1rem] text-[#A1A1A1] font-[400]">
-              Join us. we’ll help uoy every <br /> step of the way
+              {t('Join us! We’ll help you every')} <br /> {t('step of the way')}
             </p>
             <button className="btn__try-hosting px-[26px] py-[14px] text-white text-[0.8rem] font-[500]">
               Try hosting

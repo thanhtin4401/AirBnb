@@ -1,14 +1,17 @@
+import { Button } from 'antd';
 import React from 'react';
 import './CardItemHeader.scss';
+import PopUp from './PopUp';
 function CardItemHeader(props) {
   return (
     <div className="relative bg-white rounded-[1rem] mb-[1.5rem] p-4 ">
       <div className="">
         <img
+          onClick={props.showTrailers}
           src={props.src}
           alt=""
           className="rounded-[1rem] w-full max-h-[7rem] object-cover max-w-full"
-        />
+        ></img>
       </div>
 
       <div className="">

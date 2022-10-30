@@ -7,8 +7,11 @@ import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
 import { Button, Modal, notification } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 export default function ProfilePage() {
+  const { t } = useTranslation();
+
   const [openInput, setOpenInput] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [changeBtn, setChangeBtn] = useState(false);
@@ -135,27 +138,27 @@ export default function ProfilePage() {
                     onClick={openModalClick}
                     className="text-[#666] font-bold hover:text-[#FF385C] transition-all duration-300 underline mt-2"
                   >
-                    Cập Nhật Ảnh
+                    {t('Update Avatar')}
                   </h1>
                 </div>
                 <div className="my-5">
                   <h1 className="flex items-center font-bold text-lg">
                     {' '}
-                    <MdOutlineSecurity className="mr-3 text-[#FF385C]" /> Xác Minh Danh Tính
+                    <MdOutlineSecurity className="mr-3 text-[#FF385C]" /> {t('Idenity Verified')}
                   </h1>
                   <h1 className="text-[#666] text-base">
-                    Xác thực danh tính của bạn với huy hiệu xác minh danh tính.
+                    {t('Verify your profile by obtainning Armorials')}
                   </h1>
                 </div>
                 <div className="mb-5 ">
                   <button className="px-3 py-2 rounded-md font-bold border-[1px] border-[#666]">
-                    Nhận Huy Hiệu
+                    {t('Get your Armorials here!')}
                   </button>
                 </div>
                 <div>
-                  <h1 className="font-bold text-lg">Đã xác nhận</h1>
+                  <h1 className="font-bold text-lg">{t('Verified')}</h1>
                   <h1 className="flex items-center">
-                    <AiOutlineCheck className="mr-3 " /> Địa chỉ email
+                    <AiOutlineCheck className="mr-3 " /> {t('Email')}
                   </h1>
                 </div>
               </div>
@@ -166,7 +169,7 @@ export default function ProfilePage() {
                 <div className="flex justify-between m-3">
                   <h1 className="font-bold text-xl flex items-center">
                     <BsPersonSquare className="mr-3 text-[#FF385C]" />
-                    Thông Tin
+                    {t('My Information')}
                   </h1>
                   <div>
                     <button
@@ -178,7 +181,7 @@ export default function ProfilePage() {
                         changeBtn ? 'hidden' : ''
                       } px-3 py-2 rounded-lg font-bold text-white bg-[#FF385C] mr-3`}
                     >
-                      Cập Nhật
+                      {t('Update')}
                     </button>
                     <button
                       onClick={() => {
@@ -188,13 +191,15 @@ export default function ProfilePage() {
                         changeBtn ? '' : 'hidden'
                       } px-3 py-2 rounded-lg font-bold text-white bg-[#FF385C]`}
                     >
-                      Lưu Thay Đổi
+                      {t('Save Changes')}
                     </button>
                   </div>
                 </div>
                 <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 mb:grid-cols-1 ">
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">Tên: {userAPI?.name}</h1>
+                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
+                      {t('Name: ')} {userAPI?.name}
+                    </h1>
                     <div className={`${openInput ? '' : 'hidden'}`}>
                       <Input
                         className="profilepage-input"
@@ -208,7 +213,7 @@ export default function ProfilePage() {
 
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                     <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      Ngày Sinh: {userAPI?.birthday}
+                      {t('Birthday: ')} {userAPI?.birthday}
                     </h1>
                     <div className={`${openInput ? '' : 'hidden'}`}>
                       <Input
@@ -222,7 +227,8 @@ export default function ProfilePage() {
                   </div>
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                     <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      Email: {userAPI?.email}
+                      {t('Email: ')}
+                      {userAPI?.email}
                     </h1>
                     <div className={`${openInput ? '' : 'hidden'}`}>
                       <Input
@@ -236,7 +242,8 @@ export default function ProfilePage() {
                   </div>
                   <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
                     <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      Điện Thoại: {userAPI?.phone}
+                      {t('Phone number: ')}
+                      {userAPI?.phone}
                     </h1>
                     <div className={`${openInput ? '' : 'hidden'}`}>
                       <Input

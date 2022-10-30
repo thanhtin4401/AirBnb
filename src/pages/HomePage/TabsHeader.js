@@ -9,10 +9,12 @@ import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
 import GridImgHeader from '../../components/CardItem/GridImgHeader';
 import { useTranslation } from 'react-i18next';
+import PopUp from '../../components/CardItem/PopUp';
 function TabPanel(props) {
   const { t } = useTranslation();
-  const { children, value, index, ...other } = props;
+  const [popTrailer, setpopTrailer] = useState();
 
+  const { children, value, index, ...other } = props;
   const [screen, setScreen] = useState(window.innerHeight);
   const resize = () => {
     setScreen(window.innerHeight);
@@ -41,7 +43,11 @@ TabPanel.propTypes = {
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
-
+function showTrailers(e) {
+  e.preventDefault();
+  console.log('res');
+  <PopUp />;
+}
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -96,26 +102,27 @@ export default function TabsHeader({ props }) {
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Galeria"
+            label="Blogs"
             {...a11yProps(0)}
             sx={{ justifyContent: 'center' }}
           />
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Alojamiento"
+            label="Media"
             {...a11yProps(1)}
           />
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Experiencias"
+            label="Experiences"
             {...a11yProps(2)}
           />
         </Tabs>
       </Box>
       <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={0}>
         <CardItemHeader
+          showTrailers={showTrailers}
           src="https://media.worldnomads.com/explore/vietnam/halong-bay-vietnam-from-above-gettyimages.jpg"
           content={{
             title: 'Is Halong Bay in Vietnam Really Worth It?',
