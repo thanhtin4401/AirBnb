@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdOutlineSecurity } from 'react-icons/md';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { BsPersonSquare } from 'react-icons/bs';
-import { Input, message } from 'antd';
+import { DatePicker, Input, Form } from 'antd';
 import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
@@ -211,13 +211,7 @@ export default function ProfilePage() {
                       Ngày Sinh: {userAPI?.birthday}
                     </h1>
                     <div className={`${openInput ? '' : 'hidden'}`}>
-                      <Input
-                        className="profilepage-input"
-                        onChange={(e) => {
-                          setBirthday(e.target.value);
-                        }}
-                        placeholder="18/03/2001"
-                      />
+                      <DatePicker  placeholder={`${userAPI?.birthday}`} className="profilepage-input" onChange={(date, dateString) => { setBirthday(dateString) }} />
                     </div>
                   </div>
                 <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
