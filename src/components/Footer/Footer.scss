@@ -1,0 +1,8 @@
+.footer-sticky {
+    position: -webkit-sticky;
+    position: fixed!important;
+    bottom: 0px;
+    z-index: 30;
+    background-color: white;
+    border-top: 1px solid rgba(128, 128, 128, 0.502);
+}

@@ -4,28 +4,53 @@ import RequestAuth from '../components/App/requestAuth';
 import RequestPage from '../components/App/requestPage';
 import Authlayout from '../layout/Authlayout';
 import Mainlayout from '../layout/Mainlayout';
-import BookRoomPage from '../pages/BookRoomPage.js/BookRoomPage';
+import Homelayout from '../layout/Homelayout';
+import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
+
 import HomePage from '../pages/HomePage/HomePage';
 import Login from '../pages/Login/Login';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
+import Register from '../pages/RegisterPage/Register';
+import ManagerLayout from '../layout/ManagerLayout';
+import ManagerPage from '../pages/ManagerPage/ManagerPage';
+import 'boxicons/css/boxicons.min.css';
+import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import MessagePage from '../pages/MessagePage/MessagePage';
+import DetailPageLayout from '../layout/DetailPageLayout';
+import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
+import Wishlists from '../pages/WishlistsPage/WishlistsPage';
+import InfoTripMobilePage from '../pages/InfoTripMobilePage/InfoTripMobilePage';
 
 export default function Routers() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Mainlayout />}>
+        <Route path="/" element={<Homelayout />}>
           <Route path="/" element={<HomePage />}></Route>
         </Route>
-        <Route
-          path="/BookRoom"
-          element={
-            <RequestAuth>
-              <Mainlayout />
-            </RequestAuth>
-          }
-        >
-          <Route path="/BookRoom" element={<BookRoomPage />}></Route>
+        <Route path="/" element={<Mainlayout />}>
+          <Route path="/Profile-Person" element={<ProfilePage />}></Route>
+          <Route path="/Profile" element={<ProfilePageMobile />}></Route>
+          <Route path="/Message" element={<MessagePage />}></Route>
+          <Route path="/Trip" element={<InfoTripPage />}></Route>
+          <Route path="/Wishlist" element={<Wishlists />}></Route>
+          <Route path="/TripMobile" element={<InfoTripMobilePage />}></Route>
         </Route>
+        <Route path="/Detail-Room" element={<DetailPageLayout />}>
+          <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>
+        </Route>
+
+        {/* <Route path="/" element={<ManagerLayout />}>
+          <Route path="/Manager" element={<ManagerPage />} />
+          <Route index element={<ManagerPage />} />
+          <Route path="/started" element={<ManagerPage />} />
+          <Route path="/calendar" element={<ManagerPage />} />
+          <Route path="/user" element={<ManagerPage />} />
+          <Route path="/order" element={<ManagerPage />} />
+        </Route> */}
+
         <Route
           path="/"
           element={
@@ -35,6 +60,10 @@ export default function Routers() {
           }
         >
           <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
+        </Route>
+        <Route path="/" element={<Mainlayout />}>
+          <Route path="/SearchPage/:id" element={<SearchPage />}></Route>
         </Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>
