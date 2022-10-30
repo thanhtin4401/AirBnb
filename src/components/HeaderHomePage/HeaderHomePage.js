@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserNav from './UserNavHomePage';
 import { FaSearch } from 'react-icons/fa';
-import { DatePicker, message, Space,Select,notification } from 'antd';
+import { DatePicker, message, Space, Select, notification } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocationList } from '../../redux/room/roomLocation';
 import './HeaderHomePage.modul.scss';
@@ -57,8 +57,7 @@ export default function HeaderHomePage() {
   const openNotificationWithIcon = (type) => {
     notification[type]({
       message: 'Thất bại',
-      description:
-        'Vui lòng chọn vị trí cần tìm kiếm!',
+      description: 'Vui lòng chọn vị trí cần tìm kiếm!',
     });
   };
   return (
@@ -158,7 +157,7 @@ export default function HeaderHomePage() {
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                {t('Any point')}
+                {t('Any location')}
               </h1>
             </div>
             <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden border-r-2">
