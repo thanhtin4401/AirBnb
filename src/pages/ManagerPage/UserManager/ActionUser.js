@@ -4,6 +4,7 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 import './ActionUser.scss';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../../redux/manager/user';
+import UpdateUserPage from './UpdateUserPage';
 
 export default function ActionUser({ ID, userInfor }) {
   const dispatch = useDispatch();
@@ -34,6 +35,10 @@ export default function ActionUser({ ID, userInfor }) {
     setOpen(false);
     dispatch(deleteUser(id));
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleShowModal = () => {
+    setIsModalOpen(true);
+  };
   return (
     <div className="space-x-5 flex">
       <button
@@ -44,8 +49,8 @@ export default function ActionUser({ ID, userInfor }) {
       </button>
 
       <button
+        onClick={handleShowModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
-        onClick={confirm}
       >
         Cập nhật
       </button>
@@ -60,6 +65,7 @@ export default function ActionUser({ ID, userInfor }) {
       >
         <h1 className="">Bạn có chắc muốn xoá tài khoản: {userInfor?.name}</h1>
       </Modal>
+      <UpdateUserPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
     </div>
   );
 }
