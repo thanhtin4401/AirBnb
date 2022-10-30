@@ -1,0 +1,12 @@
+.btn-css{
+    display: flex;
+    .btn-add{
+        background-color: #1890ff ;
+    }
+}
+.btn-delete{
+    color: red;
+}
+.btn-put{
+    color: green($color: #000000);
+}

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -7,9 +7,17 @@ import Box from '@mui/material/Box';
 import CardItem from '../../components/CardItem/CardItem';
 import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
+import GridImgHeader from '../../components/CardItem/GridImgHeader';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
+  const [screen, setScreen] = useState(window.innerHeight);
+  const resize = () => {
+    setScreen(window.innerHeight);
+  };
+
+  window.addEventListener('resize', resize);
   return (
     <div
       role="tabpanel"
@@ -20,7 +28,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -77,7 +85,11 @@ export default function TabsHeader({ props }) {
             width: '100%',
             justifyContent: 'space-around',
 
-            '& button': { color: 'white', fontSize: 22 },
+            '& button': { color: 'white', fontSize: '1rem', opacity: '0.6' },
+            '& button:hover': { opacity: '1', color: 'white' },
+            '& button:active': { opacity: '1', color: 'white' },
+            '& button:focus': { opacity: '1', color: 'white' },
+            '& button.Mui-selected': { opacity: '1', color: 'white' },
           }}
         >
           <Tab
@@ -101,17 +113,50 @@ export default function TabsHeader({ props }) {
           />
         </Tabs>
       </Box>
-      <TabPanel className="overflow-scroll h-[76rem]" value={value} index={0}>
-        <CardItemHeader />
-        <CardItemHeader />
-        <CardItemHeader />
-        <CardItemHeader />
-        <CardItemHeader />
-        <CardItemHeader />
-        <CardItemHeader />
+      <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={0}>
+        <CardItemHeader
+          src="https://media.worldnomads.com/explore/vietnam/halong-bay-vietnam-from-above-gettyimages.jpg"
+          content={{
+            title: 'Is Halong Bay in Vietnam Really Worth It?',
+            heart: '23',
+            text: 'Images may be subject to copyright 200',
+          }}
+        />
+        <CardItemHeader
+          src="https://upload.travelawaits.com/ta/uploads/2021/04/ef89ea2918733bbe55510ded85699ef89ea.jpg"
+          content={{
+            title: 'The Best Things To Do In Rio De Janeiro',
+            heart: '53',
+            text: 'Images may be subject to copyright 400',
+          }}
+        />
+        <CardItemHeader
+          src="https://www.abercrombiekent.com/-/media/ak/media-for-prod/destinations/mastheads/asia-singapore-marina-skyline-mh.jpg?h=660&w=1920&la=en&hash=9D036204A16170792E3931E00D9FF027"
+          content={{
+            title: 'Singapore Luxury Travel: Luxury Singapore Tours',
+            heart: '123',
+            text: 'Images may be subject to copyright 600',
+          }}
+        />
+        <CardItemHeader
+          src="https://smile.cebupacificair.com/wp-content/uploads/2015/12/shutterstock_697069453_Singapore.jpg"
+          content={{
+            title: 'Singapore Travel Guide and Itinerary',
+            heart: '64',
+            text: 'Images may be subject to copyright 100',
+          }}
+        />
+        <CardItemHeader
+          src="https://i0.wp.com/www.eastmojo.com/wp-content/uploads/2022/03/Singapore-scaled.jpg?fit=1200%2C800&ssl=1"
+          content={{
+            title: 'Singapore to ease cross-border ',
+            heart: '79',
+            text: 'Images may be subject to copyright 800',
+          }}
+        />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
+      <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={1}>
+        <GridImgHeader />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

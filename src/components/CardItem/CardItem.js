@@ -8,21 +8,21 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import { Link } from 'react-router-dom';
+import { dataIMG } from '../../Data/Data';
 function CardItem({ roomInfor }) {
   return (
-    <div className="relative bg-white rounded-[2rem]">
+    <Link
+      to={`/detail-room/${roomInfor.id}`}
+      className="relative text-black hover:text-black bg-white rounded-[2rem]"
+    >
       <div className="">
-        {/* <img
-          src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
-          alt=""
-          className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
-        /> */}
         <Swiper
           loop={true}
           cssMode={true}
           navigation={true}
-          // mousewheel={true}
-          // keyboard={true}
+          mousewheel={true}
+          keyboard={true}
           slidesPerView={1}
           pagination={{
             clickable: true,
@@ -30,25 +30,33 @@ function CardItem({ roomInfor }) {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
             <img
-              src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
+              src={`${roomInfor.data?.img1}`}
               alt=""
-              className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
+              className="rounded-[0.8rem] min-h-[260px] h-full object-cover max-h-full "
             />
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
             <img
-              src="https://i.vntrip.vn/471x290/smart/https://statics.vntrip.vn/data-v2/hotels/9906/img_max/9906_1499226454_97987435.jpg"
+              src={`${roomInfor.data?.img2}`}
               alt=""
-              className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full"
+              className="rounded-[0.8rem] object-cover max-h-full"
             />
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
-            Slide 3
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
+            <img
+              src={`${roomInfor.data?.img3}`}
+              alt=""
+              className="rounded-[0.8rem] object-cover max-h-full"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-[1rem] min-h-[314px] min-w-[314px] object-cover max-h-full max-w-full">
-            Slide 4
+          <SwiperSlide className=" min-h-[260px] rounded-[0.8rem] object-cover h-[270px] w-full">
+            <img
+              src={`${roomInfor.data?.img4}`}
+              alt=""
+              className="rounded-[0.8rem] object-cover w-full"
+            />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -73,22 +81,22 @@ function CardItem({ roomInfor }) {
       </svg>
       <div className="mt-[8px]">
         <div className="w-full flex justify-between">
-          <h1 className="text-[18px] font-[500]">Name resort</h1>
+          <h1 className="text-[1rem] font-[500]">{roomInfor.tenPhong}</h1>
           <div className="flex justify-center items-center">
-            <span className=" text-[18px] opacity-60">5.0</span>
-            <FaStar size="18px" className="ml-2 opacity-60" />
+            <FaStar size="0.8rem" className="mr-2" />
+            <span className=" text-[1rem] font-[300]">5.0</span>
           </div>
         </div>
-        <p className="text-[16px] text-left font-[400] text-[black] opacity-60">
+        <p className="text-[0.8rem] text-left font-[400] text-[black] opacity-60">
           9000km kilometers away
         </p>
-        <p className="text-[16px] text-left text-[black] opacity-60">Oct 2-9</p>
+        <p className="text-[0.8rem] text-left text-[black] opacity-60">Oct 2-9</p>
         <div className="flex items-center">
-          <p className="text-[18px] mr-2 font-[500] text-[black] ">$300</p>
-          <span className="font-300 text-[16px] font-[400] text-[black]">night</span>
+          <p className="text-[0.9rem] mr-2 font-[500] text-[black] ">$300</p>
+          <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

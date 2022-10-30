@@ -7,28 +7,19 @@ import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import DropdownLanguages from './DropdownLanguages';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 function Login() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
     dispatch(loginUser(values));
     // dispatch(on_loading(12));
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
+  const onFinishFailed = (errorInfo) => {};
+  const handleChange = (value) => {};
   const { Option } = Select;
-  const handleCallBackRespone = (res) => {
-    console.log('token' + res.credential);
-  };
-  const onSuccess = (res) => {
-    console.log('res', res);
-  };
-  const onFail = (res) => {
-    console.log('fail', res);
-  };
+  const handleCallBackRespone = (res) => {};
+  const onSuccess = (res) => {};
+  const onFail = (res) => {};
   const clientId = '887923344894-gd09ok46pli0071vdgasta0o9fkhjj10.apps.googleusercontent.com';
   useEffect(() => {
     // google.accounts.id.initialize({
@@ -48,16 +39,20 @@ function Login() {
     }
     gapi.load('client:auth2', start);
   }, []);
+  const navigater = useNavigate();
   const { t } = useTranslation();
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
-      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen  lg:h-[50rem]">
-        <img
-          className="absolute top-[24px] left-[24px] w-[6rem]"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
-          alt=""
-        />
+      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]">
+        <Link className="absolute top-[24px] left-[24px]" to="/">
+          <img
+            className=" w-[6rem]"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
+            alt=""
+          />
+        </Link>
+
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
           <div className="">
             <div className="flex justify-between mb-2 items-center">
@@ -96,7 +91,7 @@ function Login() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your username!',
+                    message: 'Please input your email!',
                   },
                 ]}
               >
@@ -130,9 +125,15 @@ function Login() {
                 Login
               </Button>
             </Form>
-            <a to="/" className="mt-5 text-blue w-full block text-left text-bold">
-              forget password
-            </a>
+            <div className="w-full flex justify-between">
+              <Link to="/Register" className="mt-5 text-blue w-full inline text-left text-bold">
+                Register
+              </Link>
+              <a to="/" className="mt-5 text-blue w-full inline text-right text-bold">
+                forget password
+              </a>
+            </div>
+
             <div className="relative">
               <p
                 className="my-5 text-center
@@ -177,11 +178,11 @@ function Login() {
           </div>
         </div>
         <div className="w-2/4 mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
-          <div className="glass h-[40rem] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
+          <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
             </h1>
-            <img src="../img/img.png" className="bottom-0 absolute left-20" alt="" />
+            <img src="../img/img.png" className="bottom-0 w-[70%] absolute left-20" alt="" />
           </div>
           <img
             className="absolute right-[9rem] bottom-0 z-none"

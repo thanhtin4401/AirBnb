@@ -5,7 +5,6 @@ import { https } from '../../services/axiosClient';
 const initialState = {
   allRoom: [],
   isfetching: false,
-  
 };
 
 export const getRoomList = createAsyncThunk('room/list', async () => {
@@ -43,7 +42,7 @@ const listRoomSlice = createSlice({
         return {
           ...state,
           isfetching: false,
-          allRoom: payload.content,
+          allRoom: payload?.content,
         };
       });
   },
