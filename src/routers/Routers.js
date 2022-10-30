@@ -4,17 +4,11 @@ import RequestAuth from '../components/App/requestAuth';
 import RequestPage from '../components/App/requestPage';
 import Authlayout from '../layout/Authlayout';
 import Mainlayout from '../layout/Mainlayout';
-<<<<<<< HEAD
-import ManagerLayout from '../layout/ManagerLayout';
-import BookRoomPage from '../pages/BookRoomPage.js/BookRoomPage';
-=======
 import Homelayout from '../layout/Homelayout';
 import DetailRoomPage from '../pages/DetailRoomPage/DetailRoomPage';
 
->>>>>>> d8781471cab2e6d8b2bd9aea73a1e822b6d93683
 import HomePage from '../pages/HomePage/HomePage';
 import Login from '../pages/Login/Login';
-import ManagerHome from '../pages/Manager/ManagerHome';
 import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
@@ -57,13 +51,6 @@ export default function Routers() {
           <Route path="/Manager/Room" element={<RoomManager />} />
           <Route path="/Manager/Location" element={<LocationManager />} />
           <Route path="/Manager/AddUser" element={<UserAddForm />} />
-        </Route>
-        <Route path="/Manager" element={<ManagerLayout />}>
-          <Route path="/Manager/Home" element={<ManagerPage />} />
-          <Route path="/Manager/User" element={<UserManager />} />
-          <Route path="/Manager/Room" element={<RoomManager />} />
-          <Route path="/Manager/Location" element={<LocationManager />} />
-          <Route path="/Manager/AddUser" element={<UserAddForm />} />
           <Route path="/Manager/hotel" element={<HotelManager />} />
         </Route>
 
@@ -81,9 +68,7 @@ export default function Routers() {
         <Route path="/" element={<Mainlayout />}>
           <Route path="/SearchPage/:id" element={<SearchPage />}></Route>
         </Route>
-        <Route path="/Manager" element={<ManagerLayout />}>
-          <Route path="ManagerHome" element={<ManagerHome />}></Route>
-        </Route>
+        <Route path="/Manager" element={<ManagerLayout />}></Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>
     </BrowserRouter>
