@@ -8,17 +8,18 @@ import { InputNumber, Space } from 'antd';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import { useTranslation } from 'react-i18next';
 // import required modules
 import { Pagination, Navigation } from 'swiper';
-function FilterSlice() {
+function FilterSlice({ handleQueryFilter }) {
+  const { t } = useTranslation();
   const [screen, setScreen] = useState(window.innerWidth);
   const resize = () => {
     setScreen(window.innerWidth);
   };
   const [filterForm, setFilterForm] = useState({
     minPrice: 0,
-    maxPrice: 0,
+    maxPrice: 100,
     pool: false,
     driver: false,
     countBed: 'any',
@@ -31,7 +32,8 @@ function FilterSlice() {
   };
   const handleOk = () => {
     setIsModalOpen(false);
-    console.log(filterForm);
+
+    handleQueryFilter(filterForm);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -70,9 +72,7 @@ function FilterSlice() {
     });
   }
 
-  function onAfterChange(value) {
-    console.log('onAfterChange: ', value);
-  }
+  function onAfterChange(value) {}
   const handleBedCheck = (e) => {
     setFilterForm({
       ...filterForm,
@@ -320,7 +320,7 @@ function FilterSlice() {
                 d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
               />
             </svg>
-            <p className="font-[500]">Filter</p>
+            <p className="font-[500]">{t('Filter')}</p>
           </div>
         </button>
       </div>
@@ -343,7 +343,7 @@ function FilterSlice() {
               d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
             />
           </svg>
-          <p className="font-[500]">Filter</p>
+          <p className="font-[500]">{t('Filter')}</p>
         </div>
       </button>
       <Modal
@@ -354,19 +354,19 @@ function FilterSlice() {
         onCancel={handleCancel}
       >
         <div className="price pb-4 border-b-[1px]">
-          <h1 className="font-[600] text-[1rem]">Price range</h1>
+          <h1 className="font-[600] text-[1rem]">{t('Price range')}</h1>
           <Slider
             range
-            step={10}
+            step={5}
             min={0}
-            max={10000}
-            defaultValue={[1000, 5000]}
+            max={1000}
+            defaultValue={[0, 20]}
             onChange={onChange}
             onAfterChange={onAfterChange}
           />
           <div className="flex w-full justify-between items-center">
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
-              <p className="font-[300] text-[0.6rem]">Min price</p>
+              <p className="font-[300] text-[0.6rem]">{t('Min price')}</p>
               <div>
                 <InputNumber
                   disabled
@@ -383,7 +383,7 @@ function FilterSlice() {
             </div>
             <p className="mx-4">~</p>
             <div className="p-2 w-2/4 border-[1px] rounded-lg">
-              <p className="font-[300] text-[0.6rem]">Max price</p>
+              <p className="font-[300] text-[0.6rem]">{t('Max price')}</p>
               <div>
                 <InputNumber
                   disabled
@@ -399,15 +399,15 @@ function FilterSlice() {
           </div>
         </div>
         <div className="check pb-4 border-b-[1px]">
-          <h1 className="font-[600] text-[1rem] mb-4">Type of place</h1>
+          <h1 className="font-[600] text-[1rem] mb-4">{t('Type of place')}</h1>
           <div className="grid grid-cols-2 gap-4">
             <label className="cursor-pointer flex items-center">
               {/* <input type="checkbox" value="pool" name="bed" /> */}
               <Checkbox className="radio-btn mr-2" onChange={isPoolChecked}>
                 <div className="">
-                  <p className="text-[1rem] font-[400]">Pool</p>
+                  <p className="text-[1rem] font-[400]">{t('Pool')}</p>
                   <p className="text-[0.6rem] font-[300]">
-                    Your own room in a home or a hotel, plus some shared common spaces
+                    {t('Your own room in a home or a hotel, plus some shared common spaces')}
                   </p>
                 </div>
               </Checkbox>
@@ -415,9 +415,9 @@ function FilterSlice() {
             <label className="cursor-pointer flex items-center">
               <Checkbox className="radio-btn mr-2" onChange={isDriverChecked}>
                 <div className="">
-                  <p className="text-[1rem] font-[400]">Driver</p>
+                  <p className="text-[1rem] font-[400]">{t('Driver')}</p>
                   <p className="text-[0.6rem] font-[300]">
-                    Your own room in a home or a hotel, plus some shared common spaces
+                    {t('Your own room in a home or a hotel, plus some shared common spaces')}
                   </p>
                 </div>
               </Checkbox>
@@ -425,8 +425,8 @@ function FilterSlice() {
           </div>
         </div>
         <div className="bed">
-          <h1 className="font-[600] text-[1rem]">Rooms and beds</h1>
-          <p className="font-[400] text-[0.8rem] my-4">Bedrooms</p>
+          <h1 className="font-[600] text-[1rem]">{t('Rooms and beds')}</h1>
+          <p className="font-[400] text-[0.8rem] my-4">{t('Bedrooms')}</p>
           <label className="cursor-pointer">
             <input
               onChange={handleBedCheck}

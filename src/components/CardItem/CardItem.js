@@ -92,7 +92,7 @@ function CardItem({ roomInfor }) {
         </p>
         <p className="text-[0.8rem] text-left text-[black] opacity-60">Oct 2-9</p>
         <div className="flex items-center">
-          <p className="text-[0.9rem] mr-2 font-[500] text-[black] ">$300</p>
+          <p className="text-[0.9rem] mr-2 font-[500] text-[black] ">${roomInfor.giaTien}</p>
           <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
         </div>
       </div>

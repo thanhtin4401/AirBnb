@@ -13,32 +13,48 @@ import Banner from '../../components/Banner/Banner';
 import BannerVideo from '../../components/Banner/BannerVideo';
 import Collection from '../../components/Collection/Collection';
 import LiveAnyway from './LiveAnyway';
-import {dataIMG} from '../../Data/Data'
+import { dataIMG } from '../../Data/Data';
+import { useTranslation } from 'react-i18next';
 function HomePage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const allRoom = useSelector((state) => state.room.listRoom.allRoom);
   const isfetching = useSelector((state) => state.room.listRoom.isfetching);
   const allLocation = useSelector((state) => state.room.listLocation.allLocation);
   const [openShadowFilter, setopenShadowFilter] = useState(false);
-  const [newRoom,setNewRoom] = useState([]);
+  const [newRoom, setNewRoom] = useState([]);
+  const [queyFilter, setQueyFilter] = useState({});
+  const handleQueyFilter = (data) => {
+    setQueyFilter(data);
+  };
   useEffect(() => {
     dispatch(getRoomList());
     dispatch(getLocationList());
   }, []);
+  useEffect(() => {
+    const temp = allRoom;
 
-  useEffect(() => { 
-    setNewRoom(allRoom)
-   },[allRoom])
+    const roomFilter = temp.filter((item) => {
+      return item.giaTien <= queyFilter.maxPrice && item.giaTien >= queyFilter.minPrice;
+    });
+
+    setNewRoom(roomFilter);
+  }, [queyFilter]);
+  useEffect(() => {
+    renderRoomItem();
+  }, [newRoom]);
+  useEffect(() => {
+    setNewRoom(allRoom);
+  }, [allRoom]);
   const renderRoomItem = () => {
-    let room =  newRoom?.map((item,index) => { 
-            return {...item,data : dataIMG[index]}
-         })
-    return room?.slice(0,15).map((roomInfor, index) => {
+    let room = newRoom?.map((item, index) => {
+      return { ...item, data: dataIMG[index] };
+    });
+    return room?.slice(0, 15).map((roomInfor, index) => {
       return <CardItem key={index} roomInfor={roomInfor} />;
     });
   };
- 
-  
+
   const closeNav = () => {
     if (window.scrollY >= 1100) {
       setopenShadowFilter(true);
@@ -83,7 +99,7 @@ function HomePage() {
       </div>
       <div className="container m-auto mb:mt-[10rem] sm:mt-[10rem] lg:mt-10 mb-10">
         <div className="mb-10">
-          <h1 className="text-[3rem] font-bold mb-10">Explore nearby</h1>
+          <h1 className="text-[3rem] font-bold mb-10">{t('Explore nearby')}</h1>
           <div className="grid mb:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-4">
             <div className="flex justify-start items-center">
               <img
@@ -182,7 +198,7 @@ function HomePage() {
         style={{ boxShadow: `${openShadowFilter ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : ''}` }}
       >
         <div className="mb:w-full sm:w-full lg:container m-auto mt-10">
-          <FilterSlide />
+          <FilterSlide handleQueryFilter={handleQueyFilter} />
         </div>
       </div>
 

@@ -15,7 +15,6 @@ export const getCommentUser = createAsyncThunk('user/comment-list', async (id) =
     return res.data;
   } catch (error) {
     // message.error(error.response.data.message);
-    console.log(error);
   }
 });
 export const postCommentUser = createAsyncThunk('user/comment-post', async (comment) => {
@@ -23,9 +22,7 @@ export const postCommentUser = createAsyncThunk('user/comment-post', async (comm
     const res = await https.post(`api/binh-luan`, comment);
 
     return res.data;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 });
 
 const listCommentSlice = createSlice({

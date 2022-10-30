@@ -23,7 +23,9 @@ import CommentPush from '../../components/Comment/CommentPush';
 import { detailInfoRoom } from '../../redux/room/roomBooking';
 import SkeletonDetail from '../../components/Skeleton/SkeletonDetail';
 import { getRoomList } from '../../redux/room/roomList';
+import { useTranslation } from 'react-i18next';
 function DetailRoomPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allComment = useSelector((state) => state.comment.allComment);
@@ -62,7 +64,6 @@ function DetailRoomPage() {
     setTotal(price);
   }, []);
   useEffect(() => {
-    console.log('roomId5', price);
     setTotal(price);
     renderRoomItem(roomId);
   }, [price]);
@@ -72,7 +73,7 @@ function DetailRoomPage() {
     dispatch(detailInfoRoom(roomId));
     dispatch(getCommentUser(roomId));
     renderRoomItem(roomId);
-    console.log('roomId5', price);
+
     setTotal(price);
   }, [roomId]);
   const handleRenderComment = () => {
@@ -141,7 +142,7 @@ function DetailRoomPage() {
                       d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
                     />
                   </svg>
-                  <p className="ml-1">Share</p>{' '}
+                  <p className="ml-1">{t('Share')}</p>{' '}
                 </div>
                 <div className="hover:underline cursor-pointer flex items-center justify-center">
                   <svg
@@ -158,7 +159,7 @@ function DetailRoomPage() {
                       d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                     />
                   </svg>
-                  <p className="ml-1">Save</p>{' '}
+                  <p className="ml-1">{t('Save')}</p>{' '}
                 </div>
               </div>
             </div>
@@ -390,7 +391,9 @@ function DetailRoomPage() {
                 </div>
                 {/* ================= Where you'll sleep ==================== */}
                 <div className="w-full py-[2.2rem] border-b-[1px] border-[#dadada]">
-                  <h1 className="text-[1.625rem] mb-[1.25rem] font-[600]">Where you'll sleep</h1>
+                  <h1 className="text-[1.625rem] mb-[1.25rem] font-[600]">
+                    {t("Where you'll sleep")}
+                  </h1>
                   <div className="p-[1.2rem] text-left border rounded-[0.4rem] block">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -406,13 +409,13 @@ function DetailRoomPage() {
                         d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                       />
                     </svg>
-                    <h2 className="font-[500] mt-3 mb-1 text-[1rem]">Bedroom</h2>
+                    <h2 className="font-[500] mt-3 mb-1 text-[1rem]">{t('Bedroom')}</h2>
                     <p className="font-[300] text-[0.8rem]">1 double bed</p>
                   </div>
                 </div>
                 {/* ================= what this place offers ==================== */}
                 <div className="w-full py-[2.2rem] border-b-[1px] border-[#dadada]">
-                  <h1 className="text-[1.625rem] font-[600]">what this place offers</h1>
+                  <h1 className="text-[1.625rem] font-[600]">{t('what this place offers')}</h1>
                   <div className="grid grid-cols-2 w-3/4 gap-y-2 my-5 gap-x-16">
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -537,7 +540,7 @@ function DetailRoomPage() {
             </div>
             <div className="reviews"></div>
             <div className="map w-full mt-5">
-              <h1 className="text-[1.625rem]   font-[600]">Where you'll be</h1>
+              <h1 className="text-[1.625rem]   font-[600]">{t("Where you'll be")}</h1>
               <Map />
             </div>
           </>
