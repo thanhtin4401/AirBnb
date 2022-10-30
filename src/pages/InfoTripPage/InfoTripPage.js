@@ -1,15 +1,14 @@
 import { message } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RiMotorbikeFill } from 'react-icons/ri';
 import { localStorageService } from '../../services/localStorageService';
 import { roomService } from '../../services/RoomService';
-import {data} from './dataImgTrip'
 import { Modal,notification  } from 'antd';
 export default function InfoTripPage() {
   const [user, setuser] = useState(localStorageService.get('USER'));
-  const [idUser, setIdUser] = useState(user.user.id);
+  const [idUser, setIdUser] = useState(user?.user.id);
   const [idRoom, setIdRoom] = useState();
   const [bookedRoom, setbookedRoom] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(false);

@@ -71,10 +71,11 @@ function HomePage() {
         <div className="filter-background absolute bg-[#0000007a] w-full z-10 top-0 right-0 h-full "></div>
         <div className="flex px-[4rem] container justify-between z-20 w-full h-full items-center pt-[1rem]">
           <div className="text-center w-2/4 ">
-            <h1 className="font-bold mb-10 text-white text-[1.5rem] text-left animate__animated animate__fadeInLeft">
+            <svg className='text-home' viewBox="0 0 1320 300">
+              <text x="50%" y="50%" dy=".35em" text-anchor="middle">
               Monaco
-              <p className="text-[1.2rem]">Mar mediterrance</p>
-            </h1>
+              </text>
+            </svg>
             {/* <button
               className="btn-here-me text-[#F2555A] bg-white hover:text-white hover:bg-[#F2555A] transition-all"
               style={{
