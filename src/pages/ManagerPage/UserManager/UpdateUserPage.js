@@ -8,11 +8,12 @@ import moment from 'moment';
 import './AddUserPage.scss';
 function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch();
+  }, []);
   const onFinish = (values) => {
     let birthday = moment(values.birthday).format('dd / mm / yyyy');
 
-    useEffect(() => {}, []);
     const infor = {
       name: values.name,
       email: values.email,

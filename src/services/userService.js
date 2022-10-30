@@ -4,6 +4,9 @@ export let userService = {
   getUserList: () => {
     return https.get(`/api/users/`);
   },
+  getUser: (id) => {
+    return https.get(`/api/users/${id}`);
+  },
   getSearchUser: (id) => {
     return https.get(`/api/users/search/${id}`);
   },
@@ -16,7 +19,7 @@ export let userService = {
   deleteUser: (idUser) => {
     return https.delete(`/api/users?${idUser}`);
   },
-  // searchUser: (TenNguoiDung) => {
-  //   return https.get(`/api/users/search/${TenNguoiDung}`);
-  // },
+  searchUser: (TenNguoiDung) => {
+    return https.get(`/api/users/search/${TenNguoiDung}`);
+  },
 };

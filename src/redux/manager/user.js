@@ -18,7 +18,15 @@ export const getUserList = createAsyncThunk('user/list', async () => {
     message.error(error.response.data.message);
   }
 });
-
+export const getDetailUser = createAsyncThunk('user/Detail', async () => {
+  try {
+    const res = await https.get(`/api/users/`);
+    console.log('res', res);
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
 export const getSearchUser = createAsyncThunk('user/search', async (keyword) => {
   try {
     const res = await https.get(`/api/users/search/${keyword}`);
