@@ -13,7 +13,7 @@ import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
 import ManagerLayout from '../layout/ManagerLayout';
-import ManagerPage from '../pages/ManagerPage/ManagerPage';
+// import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
 import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
 import HotelManager from '../pages/HotelManager/HotelManager';
@@ -30,7 +30,7 @@ import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
 import Modal from '../HOC/Modal.js/Modal';
 import PopUpModal from '../pages/PopUpModal/PopUpModal';
 import ProfileManagerPage from '../pages/ProfileManagerPage/ProfileManagerPage';
-
+import ListUserPage from '../pages/ManagerPage/UserManager/ListUserPage';
 export default function Routers() {
   return (
     <BrowserRouter>
@@ -53,8 +53,10 @@ export default function Routers() {
         </Route>
 
         <Route path="/Manager" element={<ManagerLayout />}>
-          <Route path="/Manager/Home" element={<ManagerPage />} />
-          <Route path="/Manager/User" element={<UserManager />} />
+          {/* <Route path="/Manager/Home" element={<ManagerPage />} /> */}
+          {/* <Route path="/Manager/User" element={<UserManager />} /> */}
+
+          <Route path="/Manager/User" element={<ListUserPage />} />
           <Route path="/Manager/Room" element={<RoomManager />} />
           <Route path="/Manager/Location" element={<LocationManager />} />
           <Route path="/Manager/AddUser" element={<UserAddForm />} />
