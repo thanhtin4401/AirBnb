@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-
-function PopUp(props) {
+export default function PopUpModal({ open, close }) {
+  if (!open) return null;
   return (
     <div className="fixed top-0 left-0 w-full h-full z-50 bg-black/90">
       <div className="flex justify-end">
@@ -10,12 +10,14 @@ function PopUp(props) {
         </button>
       </div>
       <div className="flex items-center justify-center">
-        <iframe style={{ width: '70%', height: '500px' }} className="">
-          <i class="fas fa-h1">Hi</i>
-        </iframe>
+        <iframe
+          width="500"
+          height="400"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
       </div>
     </div>
   );
 }
-
-export default PopUp;

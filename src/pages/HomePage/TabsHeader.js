@@ -9,11 +9,8 @@ import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
 import GridImgHeader from '../../components/CardItem/GridImgHeader';
 import { useTranslation } from 'react-i18next';
-import PopUp from '../../components/CardItem/PopUp';
 function TabPanel(props) {
   const { t } = useTranslation();
-  const [popTrailer, setpopTrailer] = useState();
-
   const { children, value, index, ...other } = props;
   const [screen, setScreen] = useState(window.innerHeight);
   const resize = () => {
@@ -43,11 +40,7 @@ TabPanel.propTypes = {
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
-function showTrailers(e) {
-  e.preventDefault();
-  console.log('res');
-  <PopUp />;
-}
+
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -122,7 +115,6 @@ export default function TabsHeader({ props }) {
       </Box>
       <TabPanel className={`overflow-scroll h-[75vh]`} value={value} index={0}>
         <CardItemHeader
-          showTrailers={showTrailers}
           src="https://media.worldnomads.com/explore/vietnam/halong-bay-vietnam-from-above-gettyimages.jpg"
           content={{
             title: 'Is Halong Bay in Vietnam Really Worth It?',
@@ -130,6 +122,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 200',
           }}
         />
+
         <CardItemHeader
           src="https://upload.travelawaits.com/ta/uploads/2021/04/ef89ea2918733bbe55510ded85699ef89ea.jpg"
           content={{

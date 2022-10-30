@@ -1,13 +1,29 @@
 import { Button } from 'antd';
 import React from 'react';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import PopUpModal from '../../pages/PopUpModal/PopUpModal';
 import './CardItemHeader.scss';
-import PopUp from './PopUp';
+import { Component } from 'react';
+import { useTranslation } from 'react-i18next';
+
 function CardItemHeader(props) {
+  const { t } = useTranslation();
+  const [openTraiLer, setOpenTrailer] = useState(false);
+  const handleClickOpen = () => {
+    setOpenTrailer(!openTraiLer);
+  };
+  const closeTrailer = () => {
+    setOpenTrailer(false);
+  };
+  const [heartColor, setheartColor] = useState(false);
+  const handleHeartColor = () => {
+    setheartColor(true);
+  };
   return (
     <div className="relative bg-white rounded-[1rem] mb-[1.5rem] p-4 ">
       <div className="">
         <img
-          onClick={props.showTrailers}
           src={props.src}
           alt=""
           className="rounded-[1rem] w-full max-h-[7rem] object-cover max-w-full"
@@ -18,6 +34,8 @@ function CardItemHeader(props) {
         <div className="w-full flex justify-between mt-2">
           <h1 className=" text-[1.2rem] font-bold">{props.content.title}</h1>
           <svg
+            onClick={handleHeartColor}
+            style={{ fill: heartColor ? 'red' : 'none' }}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -53,6 +71,17 @@ function CardItemHeader(props) {
             <span className="font-[400] text-[0.8rem]">{props.content.text}</span>
           </span>
         </div>
+        <NavLink to="/">
+          <Button className="btn-more" onClick={handleClickOpen}>
+            {t('Find out More')}
+          </Button>
+          <PopUpModal
+            open={openTraiLer}
+            close={() => {
+              setOpenTrailer(false);
+            }}
+          />
+        </NavLink>
       </div>
     </div>
   );
