@@ -24,9 +24,10 @@
     "confirm password": "Xác nhận mật khẩu",
     "Logout": "Đăng xuất",
 
+    "Full name": "Tên đầy đủ",
 
     "Explore nearby": "Khám phá lân cận",
-    "filter": "lọc",
+    "Filter": "lọc",
     "Show All": "Hiển thị tất cả",
     "Pet Allower": "Cho phép vật nuôi",
     "Date start": "Ngày bắt đầu",
@@ -67,7 +68,7 @@
     "Plese login to booking room.thank you": "Vui lòng đăng nhập để đặt phòng.cảm ơn",
     "Plese login to comment.thank you": "Vui lòng đăng nhập để binh luận.cảm ơn",
 
-    "Any point": "Địa điểm bất kỳ",
+    "Any location": "Địa điểm bất kỳ",
     "Any Week": "Tuần Bất Kỳ",
     "Add Guest": "Thêm Khách",
     "Become a Host": "Trở Thành Chủ Nhà",
