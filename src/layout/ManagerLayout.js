@@ -10,7 +10,9 @@ function ManagerLayout() {
       }}
     >
       <Sidebar />
-      <Outlet />
+      <div className="p-10">
+        <Outlet />
+      </div>
     </div>
   );
 }
