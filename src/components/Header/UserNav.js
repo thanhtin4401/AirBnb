@@ -49,7 +49,7 @@ export default function UserNav({ bg }) {
       localStorageService.remove('accessToken');
       setuser(null);
       dispatch(logoutUser(null));
-      navigate("/")
+      navigate('/');
     }, 1000);
   };
   const closeDropDown = () => {
@@ -152,7 +152,7 @@ export default function UserNav({ bg }) {
                   to="/Profile-person"
                   className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full"
                 >
-                  {t('Hello ') + userAPI?.name}
+                  {t('Hello ') + ' ' + userAPI?.name}
                 </Link>
               ) : (
                 <Link
@@ -172,7 +172,7 @@ export default function UserNav({ bg }) {
               >
                 <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
                   <p className="w-full block h-full text-left hover:text-black transition duration-100">
-                    {'Chuyến đi'}
+                    {t('My Trips')}
                   </p>
                 </li>
               </Link>
