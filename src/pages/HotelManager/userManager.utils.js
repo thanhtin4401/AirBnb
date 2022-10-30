@@ -50,13 +50,13 @@ export const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a class="btn-delete">Xoá</a>,
+    render: () => <a className="btn-delete">Xoá</a>,
   },
   {
     title: 'Action',
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a class="btn-put">Sửa</a>,
+    render: () => <a className="btn-put">Sửa</a>,
   },
 ];

@@ -95,15 +95,14 @@ function UserAddForm() {
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Thêm">
-        <Button className="text-white" htmlType="submit" class="btn-add">
+        <Button className="text-white btn-add" htmlType="submit">
           Thêm
         </Button>
         <Button
           onClick={() => {
             navigation('/manager/user');
           }}
-          className="border ml-2 back-btn bg-white"
-          class="btn-back"
+          className="border ml-2 back-btn bg-white btn-back"
         >
           Trở về
         </Button>

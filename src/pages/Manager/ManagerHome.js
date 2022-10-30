@@ -3,16 +3,16 @@ import React from 'react';
 function ManagerHome() {
   return (
     <div>
-      <div class="flex items-start">
+      <div className="flex items-start">
         <ul
-          class="nav nav-tabs flex flex-col flex-wrap list-none border-b-0 pl-0 mr-4"
+          className="nav nav-tabs flex flex-col flex-wrap list-none border-b-0 pl-0 mr-4"
           id="tabs-tabVertical"
           role="tablist"
         >
-          <li class="nav-item flex-grow text-center" role="presentation">
+          <li className="nav-item flex-grow text-center" role="presentation">
             <a
               href="#tabs-homeVertical"
-              class="
+              className="
           nav-link
           block
           font-medium
@@ -37,10 +37,10 @@ function ManagerHome() {
               Home
             </a>
           </li>
-          <li class="nav-item flex-grow text-center" role="presentation">
+          <li className="nav-item flex-grow text-center" role="presentation">
             <a
               href="#tabs-profileVertical"
-              class="
+              className="
           nav-link
           block
           font-medium
@@ -64,10 +64,10 @@ function ManagerHome() {
               Profile
             </a>
           </li>
-          <li class="nav-item flex-grow text-center" role="presentation">
+          <li className="nav-item flex-grow text-center" role="presentation">
             <a
               href="#tabs-messagesVertical"
-              class="
+              className="
           nav-link
           block
           font-medium
@@ -92,9 +92,9 @@ function ManagerHome() {
             </a>
           </li>
         </ul>
-        <div class="tab-content" id="tabs-tabContentVertical">
+        <div className="tab-content" id="tabs-tabContentVertical">
           <div
-            class="tab-pane fade show active"
+            className="tab-pane fade show active"
             id="tabs-homeVertical"
             role="tabpanel"
             aria-labelledby="tabs-home-tabVertical"
@@ -102,7 +102,7 @@ function ManagerHome() {
             Tab 1 content vertical
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="tabs-profileVertical"
             role="tabpanel"
             aria-labelledby="tabs-profile-tabVertical"
@@ -110,7 +110,7 @@ function ManagerHome() {
             Tab 2 content vertical
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="tabs-messagesVertical"
             role="tabpanel"
             aria-labelledby="tabs-profile-tabVertical"
