@@ -92,7 +92,7 @@ export default function HeaderHomePage() {
                   width: 160,
                 }}
                 showSearch
-                placeholder={t('Location')}
+                placeholder={t('Locations')}
                 optionFilterProp="children"
                 className="dropdow-header"
                 onChange={onChange}
@@ -157,7 +157,7 @@ export default function HeaderHomePage() {
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                {t('Any location')}
+                {t('Any Location')}
               </h1>
             </div>
             <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden border-r-2">

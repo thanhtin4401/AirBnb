@@ -403,7 +403,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           } w-full border-black border rounded-lg`}
         >
           <div className="flex justify-between p-[12px] items-center border-b-[1px] border-black">
-            <p className="font-[300] text-[1rem]">Non-refunable</p>
+            <p className="font-[300] text-[1rem]">{t('Non-refunable')}</p>
             <input
               type="radio"
               name="refund"
@@ -413,10 +413,12 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           </div>
           <div className="flex justify-between p-[12px] items-center ">
             <p className="font-[300] text-[1rem] w-[90%]">
-              Non-refunable br <br />
+              {t('Non-refunable')}
+              <br />
               <span className="text-[0.8rem] opacity-70 block font-[300]">
-                Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial
-                refund.
+                {t(
+                  'Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.'
+                )}
               </span>
             </p>
 
@@ -434,7 +436,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
         className="flex mb-[0.75rem] py-[0.75rem] justify-center font-bold text-[1.1rem] text-white w-full rounded-[8px] "
         onClick={showModal}
       >
-        Reserve
+        {t('Reserve')}
       </button>
       <>
         {/* <Button type="primary" onClick={showModal}>
@@ -448,36 +450,38 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           onCancel={handleCancel}
         >
           <div className="flex items-center justify-between w-full">
-            <span className="font-[600] text-[1rem] ">Tên Khách sạn</span>
+            <span className="font-[600] text-[1rem] ">{t('Hotel Name')}</span>
             <span className="font-[300] text-[1rem]">$506</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[600] text-[1rem] ">Số lượng Khách:</span>
+            <span className="font-[600] text-[1rem] ">{t('Number of Guests')}:</span>
             <span className="font-[600] text-[1rem]">{guets}</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[300] text-[0.8rem] ">children:</span>
+            <span className="font-[300] text-[0.8rem] ">{t('Children')}:</span>
             <span className="font-[300] text-[0.8rem]">{children} x 50$</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[300] text-[0.8rem] ">adults:</span>
+            <span className="font-[300] text-[0.8rem] ">{t('Adults')}:</span>
             <span className="font-[300] text-[0.8rem]">{adults} x 100$</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[300] text-[0.8rem] ">infants:</span>
+            <span className="font-[300] text-[0.8rem] ">{t('Infants')}:</span>
             <span className="font-[300] text-[0.8rem]">{infants} x 10$</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[600] text-[1rem] ">Ngày đến:</span>
+            <span className="font-[600] text-[1rem] ">{t('Arrival Day:  ')}</span>
             <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-[600] text-[1rem]">Ngày trả:</span>
+            <span className="font-[600] text-[1rem]">{t('Check-out Day: ')}</span>
             <span className="font-[300] text-[1rem]">{dateBooking.startDate}</span>
           </div>
           <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
-            <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
-            <p className="text-[1rem] font-[600]">{total} total</p>
+            <h1 className="font-[500] text-[1rem]">{t('Total before taxes: ')}</h1>
+            <p className="text-[1rem] font-[600]">
+              {total} {'Total'}
+            </p>
           </div>
         </Modal>
         <Modal
@@ -488,24 +492,24 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           onCancel={handleCancelLogin}
         >
           <p className="w-full text-center font-600 text-[1rem]">
-            Plese login to booking room.thank you
+            {t('Please login to booking room. Thank you!')}
           </p>
         </Modal>
       </>
-      <p className="text-center text-[0.875rem] font-[300]">You won't be charged yet</p>
+      <p className="text-center text-[0.875rem] font-[300]">{t('You will not be charged yet')}</p>
       <div className="py-4">
         <div className="flex items-center justify-between w-full">
-          <span className="font-[300] text-[1rem] underline ">Show price details</span>
+          <span className="font-[300] text-[1rem] underline ">{t('Show price details')}</span>
           <span className="font-[300] text-[1rem]">$506</span>
         </div>
         <div className="flex items-center justify-between w-full mt-2">
-          <span className="font-[300] text-[1rem] underline ">Service fee</span>
+          <span className="font-[300] text-[1rem] underline ">{t('Service fee')}</span>
           <span className="font-[300] text-[1rem]">$506</span>
         </div>
       </div>
       <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
-        <h1 className="font-[500] text-[1rem]">Total before taxes</h1>
-        <p className="text-[1rem] font-[600]">{total} total</p>
+        <h1 className="font-[500] text-[1rem]">{t('Total before taxes')}</h1>
+        <p className="text-[1rem] font-[600]">{total} Total</p>
       </div>
       <button
         onClick={() => {
@@ -515,7 +519,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           mobile ? 'block ' : 'hidden'
         }`}
       >
-        Close
+        {t('Close')}
       </button>
     </div>
   );

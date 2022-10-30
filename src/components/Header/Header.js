@@ -81,7 +81,7 @@ export default function Header() {
                   bg ? 'text-white' : 'text-black'
                 } block text-sm font-medium  mr-3 lg:block md:block sm:hidden mb:hidden`}
               >
-                {t('Any location')}
+                {t('Any Location')}
               </label>
               <Select
                 style={{
@@ -153,7 +153,7 @@ export default function Header() {
               <h1
                 className={`${bg ? 'md:text-black sm:text-black lg:text-white' : 'lg:text-black'}`}
               >
-                {t('Any point')}
+                {t('Any Location')}
               </h1>
             </div>
             <div className="font-medium  cursor-pointer  px-2 lg:block md:hidden sm:hidden mb:hidden border-r-2">

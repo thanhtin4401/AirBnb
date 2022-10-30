@@ -20,6 +20,7 @@
         "animate.css": "^4.1.1",
         "antd": "^4.23.6",
         "axios": "^0.27.2",
+        "bootstrap": "^5.2.2",
         "boxicons": "^2.1.4",
         "css-loader": "^6.7.1",
         "date-format": "^4.0.14",
