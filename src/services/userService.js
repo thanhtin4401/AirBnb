@@ -1,8 +1,14 @@
 import { https } from './axiosClient';
 
 export let userService = {
-  getUser: (idUser) => {
-    return https.get(`/api/users/${idUser}`);
+  getUserList: () => {
+    return https.get(`/api/users/`);
+  },
+  getUser: (id) => {
+    return https.get(`/api/users/${id}`);
+  },
+  getSearchUser: (id) => {
+    return https.get(`/api/users/search/${id}`);
   },
   putUser: (idUser, user) => {
     return https.put(`/api/users/${idUser}`, user);
@@ -11,7 +17,7 @@ export let userService = {
     return https.post(`/api/users/upload-avatar`, formData);
   },
   deleteUser: (idUser) => {
-    return https.delete(`/api/users/${idUser}`);
+    return https.delete(`/api/users?id=${idUser}`);
   },
   searchUser: (TenNguoiDung) => {
     return https.get(`/api/users/search/${TenNguoiDung}`);

@@ -4,27 +4,36 @@ import { AiOutlineCheck } from 'react-icons/ai';
 import './ProfilePage.modul.scss';
 import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
-import { Modal, notification } from 'antd';
+import { Button, notification } from 'antd';
+import { useTranslation } from 'react-i18next';
+import {BsPersonSquare} from 'react-icons/bs'
+import { Input, message } from 'antd';
+import { Modal } from 'antd';
 import ProfileRight from './ProfileRight';
 import { useNavigate } from 'react-router-dom';
-
 export default function ProfilePage() {
+  const { t } = useTranslation();
+  const [openInput, setOpenInput] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [changeBtn, setChangeBtn] = useState(false);
   const [avatar, setAvatar] = useState('');
   const [imgSrc, setImgSrc] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
   const [idUser, setIdUer] = useState(user?.user.id);
+  const [userAPI, setUserApi] = useState();
 
   useEffect(() => {
-    userService.getUser(idUser).then((res) => {
-      setUserApi(res.data.content);
-      setAvatar(res.data.content.avatar);
-          })
-          .catch((err) => {
-            message.error(err.response.data.content);
-          });
+    userService
+      .getUser(idUser)
+      .then((res) => {
+        setUserApi(res.data.content);
+        setAvatar(res.data.content.avatar);
+      })
+      .catch((err) => {
+        message.error(err.response.data.content);
+      });
   }, []);
- 
+
   const formData = new FormData();
   const changeHandler = (e) => {
     // let reader = new FileReader();
@@ -102,34 +111,34 @@ export default function ProfilePage() {
                     onClick={openModalClick}
                     className="text-[#666] font-bold hover:text-[#FF385C] transition-all duration-300 underline mt-2"
                   >
-                    Cập Nhật Ảnh
+                    {t('Update Avatar')}
                   </h1>
                 </div>
                 <div className="my-5">
                   <h1 className="flex items-center font-bold text-lg">
                     {' '}
-                    <MdOutlineSecurity className="mr-3 text-[#FF385C]" /> Xác Minh Danh Tính
+                    <MdOutlineSecurity className="mr-3 text-[#FF385C]" /> {t('Idenity Verified')}
                   </h1>
                   <h1 className="text-[#666] text-base">
-                    Xác thực danh tính của bạn với huy hiệu xác minh danh tính.
+                    {t('Verify your profile by obtainning Armorials')}
                   </h1>
                 </div>
                 <div className="mb-5 ">
                   <button className="px-3 py-2 rounded-md font-bold border-[1px] border-[#666]">
-                    Nhận Huy Hiệu
+                    {t('Get your Armorials here!')}
                   </button>
                 </div>
                 <div>
-                  <h1 className="font-bold text-lg">Đã xác nhận</h1>
+                  <h1 className="font-bold text-lg">{t('Verified')}</h1>
                   <h1 className="flex items-center">
-                    <AiOutlineCheck className="mr-3 " /> Địa chỉ email
+                    <AiOutlineCheck className="mr-3 " /> {t('Email')}
                   </h1>
                 </div>
               </div>
             </div>
             {/* RIGHT */}
             <div className="lg:col-span-9 md:col-span-12 sm:col-span-12 mb:col-span-12">
-             <ProfileRight/>
+              <ProfileRight/>
             </div>
           </div>
         </div>

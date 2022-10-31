@@ -398,8 +398,8 @@ function FilterSlice({ handleQueryFilter }) {
             </div>
           </div>
         </div>
-        <div className="check pb-4 border-b-[1px]">
-          <h1 className="font-[600] text-[1rem] mb-4">{t('Type of place')}</h1>
+        <div className="check pb-4 bo                                             r                   der-b-[1px]">
+          <h1 className="font-[600] text-[1rem] mb-4">{t('Type of place')} </h1>
           <div className="grid grid-cols-2 gap-4">
             <label className="cursor-pointer flex items-center">
               {/* <input type="checkbox" value="pool" name="bed" /> */}
@@ -425,7 +425,7 @@ function FilterSlice({ handleQueryFilter }) {
           </div>
         </div>
         <div className="bed">
-          <h1 className="font-[600] text-[1rem]">{t('Rooms and beds')}</h1>
+          <h1 className="font-[600] text-[1rem]">{t('Rooms and Beds')}</h1>
           <p className="font-[400] text-[0.8rem] my-4">{t('Bedrooms')}</p>
           <label className="cursor-pointer">
             <input
@@ -436,7 +436,7 @@ function FilterSlice({ handleQueryFilter }) {
               name="bed"
             />
             <span className="tag-content mt-2 mb-0 border-black relative rounded-[4px]text-left border mr-[4px] p-2 inline-block">
-              any
+              {t('Any')}
             </span>
           </label>
           <label className="cursor-pointer">
