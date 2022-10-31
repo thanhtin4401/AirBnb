@@ -5,6 +5,8 @@ const initialState = {
   allLocation: [],
   isfetching: false,
   content: {},
+  isDeleteSuccess: false,
+  isUpdateSuccess: false,
 };
 export const getLocationList = createAsyncThunk('location/list', async () => {
   try {

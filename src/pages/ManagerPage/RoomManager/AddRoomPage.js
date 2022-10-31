@@ -67,49 +67,49 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Email</p>
+            <p className="">Tên phòng</p>
             <Form.Item
               className="mb-4"
-              name="email"
+              name="tenPhong"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your Email!'),
+                  message: t('Please input your Room Name!'),
                 },
               ]}
             >
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder="Email"
+                placeholder="Tên phòng"
               />
             </Form.Item>
-            <p className="">{t('Password')}</p>
+            <p className="">{t('Số lượng khách')}</p>
             <Form.Item
               className="mb-4"
-              name="password"
+              name="guest"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your password!'),
+                  message: t('Please input your Guest Number!'),
                 },
               ]}
             >
-              <Input.Password
+              <Input
                 style={{ width: '100%' }}
-                className="border password px-[14px] py-[14px] rounded-[0.5rem] 
+                className="border px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Password')}
+                placeholder={t('Bed Room')}
               />
             </Form.Item>
-            <p className="">{t('Full name')}</p>
+            <p className="">{t('Bedroom')}</p>
             <Form.Item
               className="mb-4"
-              name="name"
+              name="bedroom"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your username!'),
+                  message: t('Please input your bedroom number!'),
                 },
               ]}
             >
@@ -117,66 +117,62 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Full name')}
+                placeholder={t('')}
               />
             </Form.Item>
 
+            <p className="">{t('Giường')}</p>
             <Row span={24} style={{ width: '100%' }}>
-              <Col span={12} style={{ paddingRight: '0.2rem' }}>
-                <p className="">{t('Birthday')}</p>
-                <Form.Item
-                  className="mb-4"
-                  name="birthday"
-                  wrapperCol={{ sm: 24 }}
-                  style={{ width: '100%', marginRight: '1rem' }}
-                >
-                  <DatePicker className="datepicker-register w-full " format={'DD/MM/YYYY'} />
-                </Form.Item>
-              </Col>
+              <Form.Item
+                className="mb-4"
+                name="bed"
+                rules={[
+                  {
+                    required: true,
+                    message: t('Please input your bed number!'),
+                  },
+                ]}
+              >
+                <Input
+                  style={{ width: '100%' }}
+                  className="input border px-[14px] py-[14px] rounded-[0.5rem] 
+                  "
+                  placeholder={t('Bed')}
+                />
+              </Form.Item>
               <Col span={12}>
-                <p className="">{t('Gender')}</p>
+                <p className="">{t('Bathroom')}</p>
                 <Form.Item
                   className="mb-4"
                   wrapperCol={{ sm: 24 }}
                   style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
-                  name="gender"
+                  name="bathroom"
                 >
-                  <Select className="w-full dropdowregister " placeholder={t('Gender')}>
-                    <Select.Option value="true">{t('male')}</Select.Option>
-                    <Select.Option value="false">{t('female')}</Select.Option>
+                  <Select className="w-full dropdowregister " placeholder={t('Phòng tắm')}>
+                    <Select.Option value="true">{t('có')}</Select.Option>
+                    <Select.Option value="false">{t('không')}</Select.Option>
                   </Select>
                 </Form.Item>
               </Col>
             </Row>
-            <p className="">{t('Phone Number')}</p>
+            <p className="">{t('Giá tiền')}</p>
             <Form.Item
               className="mb-4"
-              name="phone"
+              name="price"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your username!'),
+                  message: t('Please input your Price!'),
                 },
               ]}
             >
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder={t('+84 Phone Number')}
+                placeholder={t('Nhập giá tiền')}
               />
             </Form.Item>
-            <p className="">{t('Role')}</p>
-            <Form.Item
-              className="mb-4"
-              wrapperCol={{ sm: 24 }}
-              style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
-              name="role"
-            >
-              <Select className="w-full dropdowregister " placeholder={t('Role')}>
-                <Select.Option value="User">{t('User')}</Select.Option>
-                <Select.Option value="Admin">{t('Amin')}</Select.Option>
-              </Select>
-            </Form.Item>
+
             {/* <Button
               className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
               type="primary"
@@ -191,7 +187,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                 htmlType="submit"
                 className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
               >
-                {t('Register')}
+                {t('Add Room')}
               </Button>
             </Form.Item>
           </Form>

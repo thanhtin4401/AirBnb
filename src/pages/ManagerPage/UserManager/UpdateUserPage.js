@@ -1,16 +1,59 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Modal, Form, Input, Select, DatePicker, Col, Row } from 'antd';
+import {
+  Button,
+  Modal,
+  Form,
+  Input,
+  Select,
+  DatePicker,
+  Col,
+  Row,
+  message,
+  notification,
+} from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../../redux/auth/authSlice';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import './AddUserPage.scss';
-function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
+import { userService } from '../../../services/userService';
+import { updateInforUser } from '../../../redux/manager/user';
+function UpdateUserPage({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate }) {
   const dispatch = useDispatch();
+  const [userApi, setUserApi] = useState({});
+  const [Avatar, setAvatar] = useState({});
+  const [form] = Form.useForm();
+  const openNotificationWithIcon = (type, mess, description) => {
+    notification[type]({
+      message: mess,
+      description: description,
+    });
+  };
   useEffect(() => {
-    dispatch();
+    userService
+      .getUser(ID)
+      .then((res) => {
+        setUserApi(res.data.content);
+        setAvatar(res.data.content.avatar);
+      })
+      .catch((err) => {
+        message.error(err.response.data.content);
+      });
   }, []);
+  useEffect(() => {
+    userApi &&
+      form.setFieldsValue({
+        name: userApi.name,
+        email: userApi.email,
+        password: userApi.password,
+        phone: userApi.phone,
+        birthday: moment(userApi.birthday),
+        gender: userApi.gender,
+        role: userApi.role,
+      });
+  }, [form, userApi]);
+
   const onFinish = (values) => {
     let birthday = moment(values.birthday).format('dd / mm / yyyy');
 
@@ -23,9 +66,19 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
       gender: values.gender,
       role: 'USER',
     };
-    dispatch(registerUser(infor));
+    userService
+      .putUser(ID, infor)
+      .then((res) => {
+        openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
+        handleOnSuccessUpdate();
+      })
+      .catch((err) => {
+        openNotificationWithIcon('error', 'Thất bại');
+      });
+
+    // setIsModalOpen(false);
   };
-  const [imgSRC, setimgSRC] = useState([]);
+
   const onFinishFailed = (errorInfo) => {};
 
   const { t } = useTranslation();
@@ -33,25 +86,10 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const handleChangeFile = async (e) => {
-    let file = e.target.files[0];
-    if (
-      file.type === 'image/jpeg' ||
-      file.type === 'image/png' ||
-      file.type === 'image/gif' ||
-      file.type === 'image/jpg'
-    ) {
-      await setfile(file);
-      let reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        setimgSRC(e.target.result);
-      };
-    }
-  };
+
   return (
     <Modal
-      title="Thêm Tài Khoản"
+      title="Cập nhật tài khoản"
       open={isModalOpen}
       className="modal_add-user"
       onCancel={handleCancel}
@@ -59,6 +97,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
       <div className=" w-fll flex justify-center items-center">
         <div className="">
           <Form
+            form={form}
             name="basic"
             labelCol={{
               span: 8,
@@ -90,24 +129,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 placeholder="Email"
               />
             </Form.Item>
-            <p className="">{t('Password')}</p>
-            <Form.Item
-              className="mb-4"
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: t('Please input your password!'),
-                },
-              ]}
-            >
-              <Input.Password
-                style={{ width: '100%' }}
-                className="border password px-[14px] py-[14px] rounded-[0.5rem] 
-                  "
-                placeholder={t('Password')}
-              />
-            </Form.Item>
+
             <p className="">{t('Full name')}</p>
             <Form.Item
               className="mb-4"
@@ -183,27 +205,15 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 <Select.Option value="Admin">{t('Amin')}</Select.Option>
               </Select>
             </Form.Item>
-            <Form.Item
-              rules={[{ required: true, message: 'Vui lòng nhập hình ảnh' }]}
-              label="Poster"
-              valuePropName="hinhAnh"
-            >
-              <input
-                type="file"
-                onChange={handleChangeFile}
-                accept="image/png,image/jpeg,image/jpg,image/gif"
-              />
-              <br></br>
-              <img className="w-[150px]" src={imgSRC === '' ? movieInfor.hinhAnh : imgSRC} alt="" />
-            </Form.Item>
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button
+
+            <Form.Item>
+              <button
                 type="primary"
                 htmlType="submit"
-                className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
+                className="hover:blacks rounded-[0.5rem] bg-slate-500 btn-login text-white py-[1rem] px-[0.5rem]"
               >
-                {t('Register')}
-              </Button>
+                {t('Update')}
+              </button>
             </Form.Item>
           </Form>
         </div>

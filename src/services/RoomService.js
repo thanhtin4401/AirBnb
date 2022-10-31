@@ -21,4 +21,7 @@ export let roomService = {
       `api/phong-thue/phan-trang-tim-kiem?pageIndex=1&pageSize=1&keyword=${tenPhong}`
     );
   },
+  deleteRoom: (id) => {
+    return https.delete(`api/phong-thue/${id}`);
+  },
 };

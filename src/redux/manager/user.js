@@ -7,12 +7,12 @@ const initialState = {
   isfetching: false,
   content: {},
   isDeleteSuccess: false,
+  isUpdateSuccess: false,
 };
 
 export const getUserList = createAsyncThunk('user/list', async () => {
   try {
     const res = await https.get(`/api/users/`);
-    console.log('res', res);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -21,7 +21,15 @@ export const getUserList = createAsyncThunk('user/list', async () => {
 export const getDetailUser = createAsyncThunk('user/Detail', async () => {
   try {
     const res = await https.get(`/api/users/`);
-    console.log('res', res);
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+export const updateInforUser = createAsyncThunk('user/update', async (idUser, user) => {
+  try {
+    const res = await https.put(`/api/users/${idUser}`, user);
+    console.log(res.data);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -107,17 +115,18 @@ const userSlice = createSlice({
           isDeleteSuccess: true,
         };
       })
-      .addCase(updateUser.pending, (state) => {
+
+      .addCase(updateInforUser.pending, (state) => {
         return {
           ...state,
           isfetching: true,
         };
       })
-      .addCase(updateUser.fulfilled, (state, { payload }) => {
+      .addCase(updateInforUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          content: payload.data.content,
+          isUpdateSuccess: true,
         };
       });
   },

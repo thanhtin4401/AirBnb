@@ -25,12 +25,12 @@ import Wishlists from '../pages/WishlistsPage/WishlistsPage';
 import InfoTripMobilePage from '../pages/InfoTripMobilePage/InfoTripMobilePage';
 import UserManager from '../pages/UserManager/UserManager';
 import ListRoomPage from '../pages/ManagerPage/RoomManager/ListRoomPage';
-import LocationManager from '../pages/LocationManager/LocationManager';
 import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
 import Modal from '../HOC/Modal.js/Modal';
 import PopUpModal from '../pages/PopUpModal/PopUpModal';
 import ProfileManagerPage from '../pages/ProfileManagerPage/ProfileManagerPage';
 import ListUserPage from '../pages/ManagerPage/UserManager/ListUserPage';
+import ListLocationPage from '../pages/ManagerPage/LocationManager/ListLocationPage';
 export default function Routers() {
   return (
     <BrowserRouter>
@@ -58,7 +58,7 @@ export default function Routers() {
 
           <Route path="/Manager/User" element={<ListUserPage />} />
           <Route path="/Manager/Room" element={<ListRoomPage />} />
-          <Route path="/Manager/Location" element={<LocationManager />} />
+          <Route path="/Manager/Location" element={<ListLocationPage />} />
           <Route path="/Manager/AddUser" element={<UserAddForm />} />
           <Route path="/Manager/hotel" element={<HotelManager />} />
           <Route path="/Manager/profile" element={<ProfileManagerPage />} />

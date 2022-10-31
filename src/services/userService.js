@@ -17,7 +17,7 @@ export let userService = {
     return https.post(`/api/users/upload-avatar`, formData);
   },
   deleteUser: (idUser) => {
-    return https.delete(`/api/users?${idUser}`);
+    return https.delete(`/api/users?id=${idUser}`);
   },
   searchUser: (TenNguoiDung) => {
     return https.get(`/api/users/search/${TenNguoiDung}`);

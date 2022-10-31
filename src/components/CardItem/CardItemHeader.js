@@ -21,7 +21,7 @@ function CardItemHeader(props) {
     setheartColor(true);
   };
   return (
-    <div className="relative bg-white rounded-[1rem] mb-[1.5rem] p-4 ">
+    <div className=" bg-white rounded-[1rem] mb-[1.5rem] p-4 ">
       <div className="">
         <img
           src={props.src}
@@ -58,6 +58,7 @@ function CardItemHeader(props) {
             strokeWidth="1.5"
             stroke="white"
             className="w-5 h-5 text-black"
+            k
           >
             <path
               strokeLinecap="round"
@@ -71,17 +72,21 @@ function CardItemHeader(props) {
             <span className="font-[400] text-[0.8rem]">{props.content.text}</span>
           </span>
         </div>
-        <NavLink to="/">
-          <Button className="btn-more" onClick={handleClickOpen}>
+        <div className="w-full text-left">
+          <button
+            className="text-left rounded-[0.2rem] underline text-black  py-[6px]"
+            onClick={handleClickOpen}
+          >
             {t('Find out More')}
-          </Button>
-          <PopUpModal
-            open={openTraiLer}
-            close={() => {
-              setOpenTrailer(false);
-            }}
-          />
-        </NavLink>
+          </button>
+        </div>
+
+        <PopUpModal
+          open={openTraiLer}
+          close={() => {
+            setOpenTrailer(false);
+          }}
+        />
       </div>
     </div>
   );

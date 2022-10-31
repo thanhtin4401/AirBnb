@@ -5,6 +5,8 @@ const initialState = {
   allRoom: [],
   isfetching: false,
   content: {},
+  isDeleteSuccess: false,
+  isUpdateSuccess: false,
 };
 export const getRoomList = createAsyncThunk('room/list', async () => {
   try {
@@ -34,15 +36,16 @@ export const getSearchRoom = createAsyncThunk('room/search', async (keyword) => 
     message.error(error.response.data.message);
   }
 });
-export const deleteRoom = createAsyncThunk('room/delete', async (id) => {
-  try {
-    const res = await https.post(`/api/phong-thue/id=${id}`);
-    console.log('res', res);
-    return res;
-  } catch (error) {
-    message.error(error.response.data.message);
-  }
-});
+// export const deleteRoom = createAsyncThunk('room/delete', async (id) => {
+//   try {
+//     const res = await https.post(`api/phong-thue/${id}`);
+//     message.success('delete success');
+//     console.log('res', res);
+//     return res;
+//   } catch (error) {
+//     message.error(error.response.data.message);
+//   }
+// });
 const roomSlice = createSlice({
   name: 'room',
   initialState,
@@ -70,20 +73,20 @@ const roomSlice = createSlice({
           isfetching: false,
           allRoom: payload?.content,
         };
-      })
-      .addCase(deleteRoom.pending, (state) => {
-        return {
-          ...state,
-          isfetching: true,
-        };
-      })
-      .addCase(deleteRoom.fulfilled, (state, { payload }) => {
-        return {
-          ...state,
-          isfetching: false,
-          content: payload.data.content,
-        };
       });
+    // .addCase(deleteRoom.pending, (state) => {
+    //   return {
+    //     ...state,
+    //     isfetching: true,
+    //   };
+    // })
+    // .addCase(deleteRoom.fulfilled, (state, { payload }) => {
+    //   return {
+    //     ...state,
+    //     isfetching: false,
+    //     isDeleteSuccess: true,
+    //   };
+    // });
   },
 });
 

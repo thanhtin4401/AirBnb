@@ -6,11 +6,11 @@ import { registerUser } from '../../../redux/auth/authSlice';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import './AddRoomPage.scss';
-function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch();
-  }, []);
+function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch();
+  // }, []);
   const onFinish = (values) => {
     let birthday = moment(values.birthday).format('dd / mm / yyyy');
 
@@ -50,12 +50,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
     }
   };
   return (
-    <Modal
-      title="Thêm Tài Khoản"
-      open={isModalOpen}
-      className="modal_add-user"
-      onCancel={handleCancel}
-    >
+    <Modal title="Thêm Phòng" open={isModalOpen} className="modal_add-user" onCancel={handleCancel}>
       <div className=" w-fll flex justify-center items-center">
         <div className="">
           <Form
@@ -73,14 +68,14 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Email</p>
+            <p className="">Thêm tên phòng</p>
             <Form.Item
               className="mb-4"
-              name="email"
+              name="Tên Phòng"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your Email!'),
+                  message: t('Please input your Room Name!'),
                 },
               ]}
             >
@@ -90,32 +85,32 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 placeholder="Email"
               />
             </Form.Item>
-            <p className="">{t('Password')}</p>
+            <p className="">{t('Guest')}</p>
             <Form.Item
               className="mb-4"
-              name="password"
+              name="guest"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your password!'),
+                  message: t('Please input your guest!'),
                 },
               ]}
             >
-              <Input.Password
+              <Input
                 style={{ width: '100%' }}
-                className="border password px-[14px] py-[14px] rounded-[0.5rem] 
+                className="border  px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Password')}
+                placeholder={t('Khách')}
               />
             </Form.Item>
-            <p className="">{t('Full name')}</p>
+            <p className="">{t('Số phòng ngủ')}</p>
             <Form.Item
               className="mb-4"
-              name="name"
+              name="bedroom"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your username!'),
+                  message: t('Please input your Bedroom number!'),
                 },
               ]}
             >
@@ -123,55 +118,53 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Full name')}
+                placeholder={t('Phòng ngủ')}
               />
             </Form.Item>
 
             <Row span={24} style={{ width: '100%' }}>
               <Col span={12} style={{ paddingRight: '0.2rem' }}>
-                <p className="">{t('Birthday')}</p>
+                <p className="">{t('Giường')}</p>
                 <Form.Item
                   className="mb-4"
-                  name="birthday"
+                  name="bed"
                   wrapperCol={{ sm: 24 }}
                   style={{ width: '100%', marginRight: '1rem' }}
-                >
-                  <DatePicker className="datepicker-register w-full " format={'DD/MM/YYYY'} />
-                </Form.Item>
+                ></Form.Item>
               </Col>
               <Col span={12}>
-                <p className="">{t('Gender')}</p>
+                <p className="">{t('Bathroom')}</p>
                 <Form.Item
                   className="mb-4"
                   wrapperCol={{ sm: 24 }}
                   style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
-                  name="gender"
+                  name="bathroom"
                 >
-                  <Select className="w-full dropdowregister " placeholder={t('Gender')}>
-                    <Select.Option value="true">{t('male')}</Select.Option>
-                    <Select.Option value="false">{t('female')}</Select.Option>
+                  <Select className="w-full dropdowregister " placeholder={t('Phòng tắm')}>
+                    <Select.Option value="true">{t('có')}</Select.Option>
+                    <Select.Option value="false">{t('không')}</Select.Option>
                   </Select>
                 </Form.Item>
               </Col>
             </Row>
-            <p className="">{t('Phone Number')}</p>
+            <p className="">{t('Giá tiền')}</p>
             <Form.Item
               className="mb-4"
-              name="phone"
+              name="price"
               rules={[
                 {
                   required: true,
-                  message: t('Please input your username!'),
+                  message: t('Please input your Price!'),
                 },
               ]}
             >
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder={t('+84 Phone Number')}
+                placeholder={t('Nhập giá tiền')}
               />
             </Form.Item>
-            <p className="">{t('Role')}</p>
+            {/* <p className="">{t('Role')}</p>
             <Form.Item
               className="mb-4"
               wrapperCol={{ sm: 24 }}
@@ -182,7 +175,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 <Select.Option value="User">{t('User')}</Select.Option>
                 <Select.Option value="Admin">{t('Amin')}</Select.Option>
               </Select>
-            </Form.Item>
+            </Form.Item> */}
             <Form.Item
               rules={[{ required: true, message: 'Vui lòng nhập hình ảnh' }]}
               label="Poster"
@@ -202,7 +195,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
                 htmlType="submit"
                 className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
               >
-                {t('Register')}
+                {t('Update Room')}
               </Button>
             </Form.Item>
           </Form>
@@ -212,4 +205,4 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID }) {
   );
 }
 
-export default UpdateUserPage;
+export default UpdateRoomPage;

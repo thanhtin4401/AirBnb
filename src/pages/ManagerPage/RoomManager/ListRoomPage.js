@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import AddRoomPage from './AddRoomPage';
 function RoomManager() {
   const isDeleteSuccess = useSelector((state) => state.manager.room.isDeleteSuccess);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
   const columns = [
     {
@@ -112,14 +112,25 @@ function RoomManager() {
     {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
-      key: '17',
+      key: 'avatar',
+      render: (text, record) => {
+        return (
+          <img
+            className="w-[32px] h-[32px] rounded-[50rem]"
+            src={
+              record.hinhAnh
+                ? record.hinhAnh
+                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
+            }
+          />
+        );
+      },
     },
+
     {
-      title: 'Action',
-      key: 'operation',
-      fixed: 'right',
-      width: 100,
-      render: () => <a>action</a>,
+      title: 'Thao tác',
+      dataIndex: 'action',
+      key: 'acion',
     },
   ];
   const { Search } = Input;
@@ -183,8 +194,15 @@ function RoomManager() {
             let roomList = res.data.content.map((room, index) => {
               return {
                 key: index,
-                ...user,
-                action: <ActionRoom roomInfor={room} key={index} ID={room.id} />,
+                ...room,
+                action: (
+                  <ActionRoom
+                    roomInfor={room}
+                    key={index}
+                    ID={room.id}
+                    handleOnSuccess={fetchListRoom}
+                  />
+                ),
               };
             });
             setDataRoom(roomList);

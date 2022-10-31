@@ -1,15 +1,16 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import './ActionRoom.scss';
+import './ActionLocation.scss';
 import { useDispatch } from 'react-redux';
-import { deleteUser } from '../../../redux/manager/user';
-import UpdateRoomPage from './UpdateRoomPage';
-
-export default function ActionRoom({ ID, roomInfor }) {
-  // const dispatch = useDispatch();
-  let handleUserDelete = () => {
+import { deleteLocation } from '../../../redux/manager/location';
+import UpdateLocationPage from './UpdateLocation';
+import { locationService } from '../../../services/locationService';
+export default function ActionLocation({ ID, LocationInfor, handleOnSuccess }) {
+  const dispatch = useDispatch();
+  let handleLocationDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
+
     Modal.destroyAll();
   };
 
@@ -20,7 +21,7 @@ export default function ActionRoom({ ID, roomInfor }) {
   //     content: 'Bạn có chắc muốn xoá phim này',
   //     okText: 'Xác nhận',
   //     cancelText: 'Huỷ',
-  //     onOk: handleUserDelete,
+  //     onOk: handleLocationDelete,
   //   });
   // };
   const [open, setOpen] = useState(false);
@@ -31,9 +32,19 @@ export default function ActionRoom({ ID, roomInfor }) {
     setOpen(false);
   };
   const handleComfirm = (id) => {
+    console.log(id);
     setOpen(false);
-    dispatch(deleteUser(id));
+    locationService
+      .deleteLocation(id)
+      .then((res) => {
+        handleOnSuccess();
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -62,9 +73,14 @@ export default function ActionRoom({ ID, roomInfor }) {
         okText="comfirm"
         cancelText="cancle"
       >
-        <h1 className="">Bạn có chắc muốn xoá phòng: {roomInfor?.room}</h1>
+        <h1 className="">Bạn có chắc muốn xoá vị trí: {LocationInfor?.name}</h1>
       </Modal>
-      <UpdateRoomPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
+      <UpdateLocationPage
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        ID={ID}
+        handleOnSuccessUpdate={handleOnSuccess}
+      />
     </div>
   );
 }

@@ -33,6 +33,7 @@ function Register() {
       email: values.email,
       password: values.password,
     });
+
     dispatch(registerUser(infor));
   };
 
@@ -88,6 +89,10 @@ function Register() {
                 name="email"
                 rules={[
                   {
+                    type: 'email',
+                    message: t('The input is not valid E-mail!'),
+                  },
+                  {
                     required: true,
                     message: t('Please input your Email!'),
                   },
@@ -108,6 +113,8 @@ function Register() {
                     required: true,
                     message: t('Please input your password!'),
                   },
+                  { max: 16, message: t('your password must be max 16 characters.') },
+                  { min: 6, message: t('your password must be minimum 6 characters.') },
                 ]}
               >
                 <Input.Password
@@ -122,6 +129,11 @@ function Register() {
                 className="mb-4"
                 name="name"
                 rules={[
+                  {
+                    pattern: new RegExp(/^[a-zA-Z]*$/),
+                    message: 'field does not accept numbers or special charactor',
+                  },
+
                   {
                     required: true,
                     message: t('Please input your username!'),
@@ -168,9 +180,15 @@ function Register() {
                 className="mb-4"
                 name="phone"
                 rules={[
+                  { max: 9, message: 'Userphone must be minimum 9 characters.' },
+
                   {
                     required: true,
                     message: t('Please input your username!'),
+                  },
+                  {
+                    pattern: /^(?:\d*)$/,
+                    message: t('Please input your number!'),
                   },
                 ]}
               >
