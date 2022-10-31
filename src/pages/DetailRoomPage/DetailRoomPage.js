@@ -47,19 +47,23 @@ function DetailRoomPage() {
       return { ...item, data: dataIMG[index] };
     });
     let ImgRoom = room?.filter((item) => {
+      console.log(item.id);
       return item.id == id;
     });
+    console.log('ImgRoom', ImgRoom);
+    console.log('ImgRoom', id);
 
     setImgRoomList(ImgRoom);
   };
 
   const { roomId } = useParams();
-
+  useEffect(() => {
+    renderRoomItem(roomId);
+  }, [allRoom]);
   useEffect(() => {
     dispatch(getRoomList());
     dispatch(detailInfoRoom(roomId));
     dispatch(getCommentUser(roomId));
-    renderRoomItem(roomId);
 
     setTotal(price);
   }, []);
@@ -243,7 +247,7 @@ function DetailRoomPage() {
                         d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
                       />
                     </svg>
-                    <p className="ml-1">Share</p>{' '}
+                    <p className="ml-1">{t('Share')}</p>{' '}
                   </div>
                   <div className="hover:underline cursor-pointer flex items-center justify-center">
                     <svg
@@ -260,15 +264,15 @@ function DetailRoomPage() {
                         d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                       />
                     </svg>
-                    <p className="ml-1">Save</p>{' '}
+                    <p className="ml-1">{t('Save')}</p>{' '}
                   </div>
                 </div>
               </div>
             </div>
             <div className="image mb-2 mb:hidden sm:hidden md:block">
-              <div className="grid grid-cols-4 grid-rows-2 gap-4">
+              <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[350px]">
                 <img
-                  className="rounded-[0.5rem] row-span-2 col-span-2 w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full row-span-2 col-span-2 w-full h-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img1
@@ -277,7 +281,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img2
@@ -286,7 +290,7 @@ function DetailRoomPage() {
                   alt=""
                 />
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img3
@@ -296,7 +300,7 @@ function DetailRoomPage() {
                 />
                 <div className="overflow-hidden col-span-1">
                   <img
-                    className="rounded-[0.5rem] object-cover col-span-1"
+                    className="rounded-[0.5rem] h-full w-full object-cover col-span-1"
                     src={`${
                       imgRoomList
                         ? imgRoomList[0]?.data.img4
@@ -307,7 +311,7 @@ function DetailRoomPage() {
                 </div>
 
                 <img
-                  className="rounded-[0.5rem] w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
                       ? imgRoomList[0]?.data.img5
@@ -322,7 +326,7 @@ function DetailRoomPage() {
                 <div className="w-full mb:py-[1rem] sm:py-[1rem] md:py-[2.2rem] border-b-[1px] border-[#dadada]">
                   <h2 className="text-[1.375rem] font-[500]">Dome hosted Dorothy</h2>
                   <span className="text-[0.8rem] font-[400] text-[#717171]">
-                    3 guest - 1 bedroom - 1bed - bathroom
+                    3 {t('Guest')} - 1 {t('Bedroom')} - 1 {t('Bed')} - {t('Bathroom')}
                   </span>
                 </div>
                 <div className=" py-[2.2rem] border-b-[1px] border-[#dadada]">
@@ -343,9 +347,9 @@ function DetailRoomPage() {
                     </svg>
 
                     <div className="ml-2">
-                      <h2 className="text-[1rem] font-[500]">Dive right in</h2>
+                      <h2 className="text-[1rem] font-[500]">{t('Dive right in')}</h2>
                       <p className="text-[0.8rem] font-[400] text-[#717171]">
-                        This is one of the few places in the area with a pool
+                        {t('This is one of the few places in the area with a pool')}
                       </p>
                     </div>
                   </div>
@@ -366,9 +370,9 @@ function DetailRoomPage() {
                     </svg>
 
                     <div className="ml-2">
-                      <h2 className="text-[1rem] font-[500]">Dive right in</h2>
+                      <h2 className="text-[1rem] font-[500]">{t('Dive right in')}</h2>
                       <p className="text-[0.8rem] font-[400] text-[#717171]">
-                        This is one of the few places in the area with a pool
+                        {t('This is one of the few places in the area with a pool')}
                       </p>
                     </div>
                   </div>
@@ -410,7 +414,7 @@ function DetailRoomPage() {
                       />
                     </svg>
                     <h2 className="font-[500] mt-3 mb-1 text-[1rem]">{t('Bedroom')}</h2>
-                    <p className="font-[300] text-[0.8rem]">1 double bed</p>
+                    <p className="font-[300] text-[0.8rem]">1 {t('Double Bed')}</p>
                   </div>
                 </div>
                 {/* ================= what this place offers ==================== */}
@@ -423,7 +427,7 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      wifi
+                      Wifi
                     </p>
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -431,7 +435,7 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      Pool
+                      {t('Pool')}
                     </p>
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -447,7 +451,7 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      Air conditioning
+                      {t('Air Conditioning')}
                     </p>
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -455,7 +459,7 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      Hair dryer
+                      {t('Hair Dryer')}
                     </p>
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -463,7 +467,7 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      Breakfast
+                      {t('Breakfast')}
                     </p>
                     <p className="flex items-center font-[300] text-[1rem]">
                       <img
@@ -471,12 +475,12 @@ function DetailRoomPage() {
                         className="w-[1.1rem] h-[1.1rem] mr-[1rem]"
                         alt=""
                       />
-                      long-term stays allowed
+                      {t('Long-term stays allowed')}
                     </p>
                   </div>
-                  <button className="py-[0.75rem] px-[1.5rem] text-[1rem] font-[600] rounded-[0.5rem] border">
+                  <button className="py-[0.75rem] px-[1.5rem] text-[1rem] font-[600] rounded-[0.5rem] h-full w-full border">
                     {' '}
-                    Showall 14 amentities
+                    {t('Showall 14 amentities')}
                   </button>
                 </div>
               </div>

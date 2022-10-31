@@ -11,6 +11,10 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
 import { Link } from 'react-router-dom';
 import { dataIMG } from '../../Data/Data';
 function CardItem({ roomInfor }) {
+  const [heartColor, setheartColor] = useState(false);
+  const handleHeartColor = () => {
+    setheartColor(true);
+  };
   return (
     <Link
       to={`/detail-room/${roomInfor.id}`}
@@ -61,6 +65,7 @@ function CardItem({ roomInfor }) {
         </Swiper>
       </div>
       <svg
+        onClick={setheartColor}
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -69,7 +74,7 @@ function CardItem({ roomInfor }) {
         className="absolute top-2 right-2 z-10"
         style={{
           display: 'block',
-          fill: 'rgba(0, 0, 0, 0.5)',
+          fill: heartColor == true ? 'red' : 'rgba(0, 0, 0, 0.5)',
           height: 24,
           width: 24,
           stroke: 'rgb(255, 255, 255)',
@@ -79,6 +84,7 @@ function CardItem({ roomInfor }) {
       >
         <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
       </svg>
+
       <div className="mt-[8px]">
         <div className="w-full flex justify-between">
           <h1 className="text-[1rem] font-[500]">{roomInfor.tenPhong}</h1>

@@ -12,7 +12,6 @@ import { useTranslation } from 'react-i18next';
 function TabPanel(props) {
   const { t } = useTranslation();
   const { children, value, index, ...other } = props;
-
   const [screen, setScreen] = useState(window.innerHeight);
   const resize = () => {
     setScreen(window.innerHeight);
@@ -96,20 +95,20 @@ export default function TabsHeader({ props }) {
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Galeria"
+            label="Blogs"
             {...a11yProps(0)}
             sx={{ justifyContent: 'center' }}
           />
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Alojamiento"
+            label="Media"
             {...a11yProps(1)}
           />
           <Tab
             styles={{ button: { color: 'white' } }}
             className="text-white "
-            label="Experiencias"
+            label="Experiences"
             {...a11yProps(2)}
           />
         </Tabs>
@@ -123,6 +122,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 200',
           }}
         />
+
         <CardItemHeader
           src="https://upload.travelawaits.com/ta/uploads/2021/04/ef89ea2918733bbe55510ded85699ef89ea.jpg"
           content={{

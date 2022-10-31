@@ -49,7 +49,7 @@ export default function UserNav({ bg }) {
       localStorageService.remove('accessToken');
       setuser(null);
       dispatch(logoutUser(null));
-      message.success('Đăng xuất thành công!');
+      navigate('/');
     }, 1000);
   };
   const closeDropDown = () => {
@@ -152,7 +152,7 @@ export default function UserNav({ bg }) {
                   to="/Profile-person"
                   className="hover:text-black font-[700] transition duration-100 text-[#FF385C] text-left overflow-hidden w-full"
                 >
-                  {t('Hello') + userAPI?.name}
+                  {t('Hello ') + ' ' + userAPI?.name}
                 </Link>
               ) : (
                 <Link
@@ -163,7 +163,7 @@ export default function UserNav({ bg }) {
                 </Link>
               )}
             </li>
-            {user?.user?.role == 'USER' ? (
+            {user?.user.role == 'USER' ? (
               <Link
                 onClick={() => {
                   closeDropDown();
@@ -179,7 +179,7 @@ export default function UserNav({ bg }) {
             ) : (
               ''
             )}
-            {user?.user?.role == 'admin' ? (
+            {user?.user?.role == 'ADMIN' ? (
               <Link
                 onClick={() => {
                   closeDropDown();

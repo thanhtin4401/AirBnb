@@ -8,6 +8,7 @@ const initialState = {
   isloading: false,
   isLoggedIn: !!localStorageService.get('USER'),
   registerSuccess: false,
+  isRegisterAccountSuccess: false,
 };
 
 //LOGIN
@@ -113,6 +114,7 @@ const authSlice = createSlice({
           ...state,
           isLoading: false,
           registerSuccess: false,
+          isRegisterAccountSuccess: true,
         };
       });
   },

@@ -13,16 +13,24 @@ import NoteFoundPage from '../pages/NotFoundPage/NoteFoundPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import Register from '../pages/RegisterPage/Register';
 import ManagerLayout from '../layout/ManagerLayout';
-import ManagerPage from '../pages/ManagerPage/ManagerPage';
+// import ManagerPage from '../pages/ManagerPage/ManagerPage';
 import 'boxicons/css/boxicons.min.css';
 import ProfilePageMobile from '../pages/ProfilePage/ProfilePageMobile';
+import HotelManager from '../pages/HotelManager/HotelManager';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import MessagePage from '../pages/MessagePage/MessagePage';
 import DetailPageLayout from '../layout/DetailPageLayout';
 import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
 import Wishlists from '../pages/WishlistsPage/WishlistsPage';
 import InfoTripMobilePage from '../pages/InfoTripMobilePage/InfoTripMobilePage';
-
+import UserManager from '../pages/UserManager/UserManager';
+import RoomManager from '../pages/RoomManager/RoomManager';
+import LocationManager from '../pages/LocationManager/LocationManager';
+import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
+import Modal from '../HOC/Modal.js/Modal';
+import PopUpModal from '../pages/PopUpModal/PopUpModal';
+import ProfileManagerPage from '../pages/ProfileManagerPage/ProfileManagerPage';
+import ListUserPage from '../pages/ManagerPage/UserManager/ListUserPage';
 export default function Routers() {
   return (
     <BrowserRouter>
@@ -37,19 +45,24 @@ export default function Routers() {
           <Route path="/Trip" element={<InfoTripPage />}></Route>
           <Route path="/Wishlist" element={<Wishlists />}></Route>
           <Route path="/TripMobile" element={<InfoTripMobilePage />}></Route>
+          <Route path="/Modal" element={<Modal />}></Route>
+          <Route path="/PopUpModal" element={<PopUpModal />}></Route>
         </Route>
         <Route path="/Detail-Room" element={<DetailPageLayout />}>
           <Route path="/Detail-Room/:roomId" element={<DetailRoomPage />}></Route>
         </Route>
 
-        {/* <Route path="/" element={<ManagerLayout />}>
-          <Route path="/Manager" element={<ManagerPage />} />
-          <Route index element={<ManagerPage />} />
-          <Route path="/started" element={<ManagerPage />} />
-          <Route path="/calendar" element={<ManagerPage />} />
-          <Route path="/user" element={<ManagerPage />} />
-          <Route path="/order" element={<ManagerPage />} />
-        </Route> */}
+        <Route path="/Manager" element={<ManagerLayout />}>
+          {/* <Route path="/Manager/Home" element={<ManagerPage />} /> */}
+          {/* <Route path="/Manager/User" element={<UserManager />} /> */}
+
+          <Route path="/Manager/User" element={<ListUserPage />} />
+          <Route path="/Manager/Room" element={<RoomManager />} />
+          <Route path="/Manager/Location" element={<LocationManager />} />
+          <Route path="/Manager/AddUser" element={<UserAddForm />} />
+          <Route path="/Manager/hotel" element={<HotelManager />} />
+          <Route path="/Manager/profile" element={<ProfileManagerPage />} />
+        </Route>
 
         <Route
           path="/"
@@ -65,6 +78,7 @@ export default function Routers() {
         <Route path="/" element={<Mainlayout />}>
           <Route path="/SearchPage/:id" element={<SearchPage />}></Route>
         </Route>
+        <Route path="/Manager" element={<ManagerLayout />}></Route>
         <Route path="/*" element={<NoteFoundPage />} />
       </Routes>
     </BrowserRouter>
