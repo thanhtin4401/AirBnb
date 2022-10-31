@@ -33,6 +33,7 @@ function Register() {
       email: values.email,
       password: values.password,
     });
+
     dispatch(registerUser(infor));
   };
 
@@ -88,6 +89,10 @@ function Register() {
                 name="email"
                 rules={[
                   {
+                    type: 'email',
+                    message: t('The input is not valid E-mail!'),
+                  },
+                  {
                     required: true,
                     message: t('Please input your Email!'),
                   },
@@ -108,6 +113,8 @@ function Register() {
                     required: true,
                     message: t('Please input your password!'),
                   },
+                  { max: 16, message: t('your password must be max 16 characters.') },
+                  { min: 6, message: t('your password must be minimum 6 characters.') },
                 ]}
               >
                 <Input.Password
@@ -117,11 +124,16 @@ function Register() {
                   placeholder={t('Password')}
                 />
               </Form.Item>
-              <p className="">{t('Full Name')}</p>
+              <p className="">{t('Full name')}</p>
               <Form.Item
                 className="mb-4"
                 name="name"
                 rules={[
+                  {
+                    pattern: new RegExp(/^[a-zA-Z]*$/),
+                    message: 'field does not accept numbers or special charactor',
+                  },
+
                   {
                     required: true,
                     message: t('Please input your username!'),
@@ -156,7 +168,7 @@ function Register() {
                     style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
                     name="gender"
                   >
-                    <Select className="w-full dropdowregister " placeholder={t('gender')}>
+                    <Select className="w-full dropdowregister " placeholder={t('Gender')}>
                       <Select.Option value="true">{t('male')}</Select.Option>
                       <Select.Option value="false">{t('female')}</Select.Option>
                     </Select>
@@ -168,9 +180,15 @@ function Register() {
                 className="mb-4"
                 name="phone"
                 rules={[
+                  { max: 9, message: 'Userphone must be minimum 9 characters.' },
+
                   {
                     required: true,
                     message: t('Please input your username!'),
+                  },
+                  {
+                    pattern: /^(?:\d*)$/,
+                    message: t('Please input your number!'),
                   },
                 ]}
               >

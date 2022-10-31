@@ -6,12 +6,38 @@ const initialState = {
   allUser: [],
   isfetching: false,
   content: {},
+  isDeleteSuccess: false,
+  isUpdateSuccess: false,
 };
 
 export const getUserList = createAsyncThunk('user/list', async () => {
   try {
-    const res = await https.get('/api/users');
-    console.log('res', res);
+    const res = await https.get(`/api/users/`);
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+export const getDetailUser = createAsyncThunk('user/Detail', async () => {
+  try {
+    const res = await https.get(`/api/users/`);
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+export const updateInforUser = createAsyncThunk('user/update', async (idUser, user) => {
+  try {
+    const res = await https.put(`/api/users/${idUser}`, user);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
+export const getSearchUser = createAsyncThunk('user/search', async (keyword) => {
+  try {
+    const res = await https.get(`/api/users/search/${keyword}`);
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -27,19 +53,12 @@ export const pushUser = createAsyncThunk('user/push', async (data) => {
     message.error(error.response.data.message);
   }
 });
-export const searchUser = createAsyncThunk('user/search', async (name) => {
-  try {
-    const res = await https.get(`/api/users/search/${name}`);
-    console.log('res', res);
-    return res;
-  } catch (error) {
-    message.error(error.response.data.message);
-  }
-});
+
 export const deleteUser = createAsyncThunk('user/delete', async (id) => {
   try {
-    const res = await https.post(`/api/users/id=${id}`);
-    console.log('res', res);
+    const res = await https.delete(`/api/users?id=${id}`);
+
+    message.success('xoa thanh cong');
     return res;
   } catch (error) {
     message.error(error.response.data.message);
@@ -93,20 +112,21 @@ const userSlice = createSlice({
         return {
           ...state,
           isfetching: false,
-          content: payload.data.content,
+          isDeleteSuccess: true,
         };
       })
-      .addCase(updateUser.pending, (state) => {
+
+      .addCase(updateInforUser.pending, (state) => {
         return {
           ...state,
           isfetching: true,
         };
       })
-      .addCase(updateUser.fulfilled, (state, { payload }) => {
+      .addCase(updateInforUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isfetching: false,
-          content: payload.data.content,
+          isUpdateSuccess: true,
         };
       });
   },
