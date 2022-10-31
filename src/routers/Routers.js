@@ -24,7 +24,7 @@ import InfoTripPage from '../pages/InfoTripPage/InfoTripPage';
 import Wishlists from '../pages/WishlistsPage/WishlistsPage';
 import InfoTripMobilePage from '../pages/InfoTripMobilePage/InfoTripMobilePage';
 import UserManager from '../pages/UserManager/UserManager';
-import RoomManager from '../pages/RoomManager/RoomManager';
+import ListRoomPage from '../pages/ManagerPage/RoomManager/ListRoomPage';
 import LocationManager from '../pages/LocationManager/LocationManager';
 import UserAddForm from '../pages/UserManager/UserAdd/UserAddForm';
 import Modal from '../HOC/Modal.js/Modal';
@@ -57,7 +57,7 @@ export default function Routers() {
           {/* <Route path="/Manager/User" element={<UserManager />} /> */}
 
           <Route path="/Manager/User" element={<ListUserPage />} />
-          <Route path="/Manager/Room" element={<RoomManager />} />
+          <Route path="/Manager/Room" element={<ListRoomPage />} />
           <Route path="/Manager/Location" element={<LocationManager />} />
           <Route path="/Manager/AddUser" element={<UserAddForm />} />
           <Route path="/Manager/hotel" element={<HotelManager />} />

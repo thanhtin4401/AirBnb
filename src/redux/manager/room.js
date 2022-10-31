@@ -24,6 +24,16 @@ export const pushRoom = createAsyncThunk('room/push', async (data) => {
     message.error(error.response.data.message);
   }
 });
+export const getSearchRoom = createAsyncThunk('room/search', async (keyword) => {
+  try {
+    const res = await https.get(
+      `api/phong-thue/phan-trang-tim-kiem?pageIndex=1&pageSize=1&keyword=${keyword}`
+    );
+    return res.data;
+  } catch (error) {
+    message.error(error.response.data.message);
+  }
+});
 export const deleteRoom = createAsyncThunk('room/delete', async (id) => {
   try {
     const res = await https.post(`/api/phong-thue/id=${id}`);
