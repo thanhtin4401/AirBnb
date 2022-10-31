@@ -137,6 +137,11 @@
     "Cleanliness": "Cleanliness",
     "Non-refunable": "Non-refunable",
     "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.": "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.",
-    "Find out More": "Find out More"
+    "Find out More": "Find out More",
+
+
+    "The input is not valid E-mail!": "The input is not valid E-mail!",
+    "your password must be max 16 characters.": "your password must be max 16 characters.",
+    "your password must be minimum 6 characters.": "your password must be minimum 6 characters."
 
 }

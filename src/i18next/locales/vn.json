@@ -140,6 +140,12 @@
     "Close": "Đóng",
     "Non-refunable": "Không hoàn tiền",
     "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.": "Hoàn tiền miễn phí trước ngày 22 tháng Sáu. Hủy trước ngày check-in 23 tháng Sáu sẽ chỉ hoàn một phần tiền đặt cọc",
-    "Find out More": "Tìm hiểu thêm"
+    "Find out More": "Tìm hiểu thêm",
+
+    "your password must be max 16 characters.": "Mật khẩu của bạn chỉ được chứa tối đa 16 ký tự",
+    "your password must be minimum 6 characters.": "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
+    "The input is not valid E-mail!": "Email của bạn chưa đúng định dạng!",
+    "field does not accept numbers or special charactor": "không được chứa số hoặc ký tự đặc biệt",
+    "your password must be max 9 characters.": "Số điện thoại của bạn chỉ được chứa tối đa 9 ký tự"
 
 }
