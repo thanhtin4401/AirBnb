@@ -13,8 +13,12 @@ import { userService } from '../../../services/userService';
 const ListUserPage = () => {
   // const allUserList = useSelector((state) => state.manager.user.allUser);
   const isDeleteSuccess = useSelector((state) => state.manager.user.isDeleteSuccess);
+  const isUpdateSuccess = useSelector((state) => state.manager.user.isUpdateSuccess);
+  console.log('isUpdateSuccess', isUpdateSuccess);
   const dispatch = useDispatch();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
+
+  const [isUpdateUserSuccess, setIsUpdateUserSuccess] = useState(false);
   const columns = [
     {
       title: 'ID',
@@ -63,7 +67,6 @@ const ListUserPage = () => {
       dataIndex: 'Role',
       key: 'role',
       render: (text, record) => {
-        console.log(record.role);
         if (record.role === 'ADMIN') {
           return <Tag color={'red'}>Quản trị</Tag>;
         } else {
@@ -81,7 +84,6 @@ const ListUserPage = () => {
   const [searchUser, setsearchUser] = useState(null);
   const onSearchUser = (value) => {
     setsearchUser(value);
-    console.log(value);
   };
   const [dataUser, setDataUser] = useState([]);
 
@@ -94,20 +96,23 @@ const ListUserPage = () => {
             return {
               key: index,
               ...user,
-              action: <ActionUser key={index} ID={user.id} />,
+              action: (
+                <ActionUser
+                  key={index}
+                  ID={user.id}
+                  setIsUpdateUserSuccess={setIsUpdateUserSuccess}
+                />
+              ),
             };
           });
-          console.log(userList);
 
           setDataUser(userList);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     };
     fetchListUser();
   }, []);
-  console.log('dataUser', dataUser);
+  console.log('dataUser', isUpdateUserSuccess);
   useEffect(() => {
     if (searchUser == '' || searchUser == null) {
       let fetchListUser = () => {
@@ -118,7 +123,7 @@ const ListUserPage = () => {
               return {
                 key: index,
                 ...user,
-                action: <ActionUser key={index} ID={user.id} />,
+                action: <ActionUser key={index} ID={user.id} handleOnSuccess={fetchListUser} />,
               };
             });
 
@@ -139,7 +144,14 @@ const ListUserPage = () => {
               return {
                 key: index,
                 ...user,
-                action: <ActionUser userInfor={user} key={index} ID={user.id} />,
+                action: (
+                  <ActionUser
+                    userInfor={user}
+                    key={index}
+                    ID={user.id}
+                    handleOnSuccess={fetchListUser}
+                  />
+                ),
               };
             });
             setDataUser(userList);
@@ -151,7 +163,7 @@ const ListUserPage = () => {
       console.log('qua la xam');
       fetchListUser();
     }
-  }, [searchUser, isDeleteSuccess, isRegisterAccountSuccess]);
+  }, [searchUser, isDeleteSuccess, isRegisterAccountSuccess, isUpdateSuccess]);
   // useEffect(() => {
   //   dispatch(getSearchUser(searchUser));
   //   const userList = allUserList?.map((user, index) => {
@@ -182,23 +194,31 @@ const ListUserPage = () => {
   };
   return (
     <>
-      <div className="w-full text-center p-2 bg-[#FF385C]">
+      <div className="w-full text-left p-2 bg-[#FF385C]">
         <h1 className="text-white text-[3rem] font-[700]">LIST USER</h1>
       </div>
-      <Search
-        placeholder="Tìm tài khoản"
-        onSearch={onSearchUser}
-        enterButton
-        className="search-user"
-      />
-      <div className="w-full mt-2 mb-2">
+      <div className="flex items-center my-4">
+        <Search
+          placeholder="Tìm tài khoản"
+          onSearch={onSearchUser}
+          enterButton
+          className="search-user"
+        />
+        <button
+          onClick={handleShowModal}
+          className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1rem] h-[3.2rem]"
+        >
+          + Thêm tài khoản
+        </button>
+      </div>
+      {/* <div className="w-full mt-2 mb-2">
         <button
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1.2rem] "
         >
           + Thêm tài khoản
         </button>
-      </div>
+      </div> */}
       <Table
         columns={columns}
         dataSource={dataUser}

@@ -5,8 +5,9 @@ import './ActionUser.scss';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../../redux/manager/user';
 import UpdateUserPage from './UpdateUserPage';
+import { userService } from '../../../services/userService';
 
-export default function ActionUser({ ID, userInfor }) {
+export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
   const dispatch = useDispatch();
   let handleUserDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
@@ -32,9 +33,19 @@ export default function ActionUser({ ID, userInfor }) {
     setOpen(false);
   };
   const handleComfirm = (id) => {
+    console.log(id);
     setOpen(false);
-    dispatch(deleteUser(id));
+    userService
+      .deleteUser(id)
+      .then((res) => {
+        handleOnSuccess();
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -65,7 +76,12 @@ export default function ActionUser({ ID, userInfor }) {
       >
         <h1 className="">Bạn có chắc muốn xoá tài khoản: {userInfor?.name}</h1>
       </Modal>
-      <UpdateUserPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
+      <UpdateUserPage
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        ID={ID}
+        handleOnSuccessUpdate={handleOnSuccess}
+      />
     </div>
   );
 }
