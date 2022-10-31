@@ -142,6 +142,7 @@
 
     "The input is not valid E-mail!": "The input is not valid E-mail!",
     "your password must be max 16 characters.": "your password must be max 16 characters.",
-    "your password must be minimum 6 characters.": "your password must be minimum 6 characters."
-
+    "your password must be minimum 6 characters.": "your password must be minimum 6 characters.",
+    "your password must be max 9 characters.": "your password must be max 9 characters.",
+    "field does not accept numbers or special charactor":"field does not accept numbers or special charactor"
 }
