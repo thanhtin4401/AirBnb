@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoomList } from '../../../redux/manager/room';
 import RoomForm from './RoomForm';
-import './RoomManager.scss';
+import './ListRoomPage.scss';
 import { roomService } from '../../../services/RoomService';
 import ActionRoom from './ActionRoom';
 import { useState } from 'react';
@@ -196,7 +196,7 @@ function RoomManager() {
                 key: index,
                 ...room,
                 action: (
-                  <ActionRoom
+                  <ActionRooms
                     roomInfor={room}
                     key={index}
                     ID={room.id}
@@ -206,12 +206,14 @@ function RoomManager() {
               };
             });
             setDataRoom(roomList);
+            console.log(roomList);
           })
           .catch((err) => {
             console.log(err);
           });
       };
       console.log('qua la xam');
+
       fetchListRoom();
     }
   }, [searchRoom, isDeleteSuccess, isRegisterAccountSuccess]);
