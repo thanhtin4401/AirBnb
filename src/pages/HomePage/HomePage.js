@@ -215,7 +215,7 @@ function HomePage() {
       <div className="container mx-auto my-20">
         <LiveAnyway />
       </div>
-      <div className="flex relative mt-10 bg-black w-full h-screen">
+      <div className="flex relative mb:hidden mt-10 bg-black w-full h-screen">
         <div className="flex relative  bg-black w-full h-screen mb:flex-col sm:flex-col ">
           <BannerVideo />
         </div>

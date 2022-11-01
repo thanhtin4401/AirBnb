@@ -52,7 +52,6 @@ export default function InfoTripPage() {
   };
   const renderBookedRoom = () => {
     return bookedRoom.map((item, index) => {
-      let random = Math.floor(Math.random() * data.length);
       return (
         <div
           key={index}

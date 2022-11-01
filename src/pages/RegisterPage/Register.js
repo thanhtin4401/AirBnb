@@ -131,7 +131,7 @@ function Register() {
                 rules={[
                   {
                     pattern: new RegExp(/^[a-zA-Z]*$/),
-                    message: 'field does not accept numbers or special charactor',
+                    message: t('field does not accept numbers or special charactor'),
                   },
 
                   {
@@ -180,7 +180,7 @@ function Register() {
                 className="mb-4"
                 name="phone"
                 rules={[
-                  { max: 9, message: 'Userphone must be minimum 9 characters.' },
+                  { max: 9, message: t('Userphone must be max  9 characters.') },
 
                   {
                     required: true,

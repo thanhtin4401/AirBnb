@@ -179,7 +179,7 @@ export default function UserNav({ bg }) {
             ) : (
               ''
             )}
-            {user?.user?.role == 'admin' ? (
+            {user?.user?.role == 'ADMIN' ? (
               <Link
                 onClick={() => {
                   closeDropDown();

@@ -142,6 +142,32 @@
 
     "The input is not valid E-mail!": "The input is not valid E-mail!",
     "your password must be max 16 characters.": "your password must be max 16 characters.",
-    "your password must be minimum 6 characters.": "your password must be minimum 6 characters."
-
+    "your password must be minimum 6 characters.": "your password must be minimum 6 characters.",
+    "your password must be max 9 characters.": "your password must be max 9 characters.",
+    "field does not accept numbers or special charactor":"field does not accept numbers or special charactor",
+    "Show profile":"Hiện hồ sơ của bạn",
+"Personal info": "Personal info",
+"Hosting": "Hosting",
+"Host a home": "Host a home",
+"Host an experience": "Host an experience",
+"Referrals & credits": "Referrals & credits",
+"Refer a Host": "Refer a Host",
+"Support": "Support",
+"How Airbnb works": "How Airbnb works",
+"Get help": "Get help",
+"Contact neighborhood Support":"Contact neighborhood Support",
+"Help & support": "Help & support",
+"You have no unread messages": "You have no unread messages",
+"When you book a trip or experience": "When you book a trip or experience",
+"messages from your host will show up here":
+"messages from your host will show up here",
+"Login": "Login",
+"Inbox": "Inbox",
+"Messages": "Messages",
+"Explore Airbnb": "Explore Airbnb",
+"Wishlists": "Wishlists",
+"When you like a trip or experience":"When you like a trip or experience",
+"messages from your host will show up here":"messages from your host will show up here",
+"Explore Airbnb":"Explore Airbnb",
+"List":"List"
 }

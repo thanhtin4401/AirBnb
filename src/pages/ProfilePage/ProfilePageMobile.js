@@ -6,12 +6,19 @@ import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
 import './ProfilePageMobile';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 function ProfilePageMobile() {
+  const [open, setOpen] = useState(false);
+  const [openLanguage, setOpenLanguage] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isUser, setisUser] = useState();
   const [userAPI, setUserAPI] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
+  const handleLanguageSelect = (lang) => {
+    localStorageService.set('lang', lang);
+    i18next.changeLanguage(lang);
+  };
   useEffect(() => {
     if (user) {
       setisUser(user);
@@ -63,13 +70,13 @@ function ProfilePageMobile() {
                 onClick={handleNavigateToProfilePerson}
                 className="text-[0.8rem underline font-[400]]"
               >
-                Show profile
+                {t('Show profile')}
               </button>
             </div>
             <ul className="border-b-[1px] border-[gray] pb-3">
               <li
                 onClick={handleNavigateToProfilePerson}
-                className="flex justify-between items-center py-4"
+                className="flex justify-between items-center py-4 cursor-pointer"
               >
                 <div className="flex">
                   <svg
@@ -87,7 +94,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Personal info</span>
+                  <span className="text-[1rem] cursor-pointer">{t('Personal info')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +133,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Personal info</span>
+                  <span className="text-[1rem]">{t('Personal info')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +151,7 @@ function ProfilePageMobile() {
                 </svg>
               </li>
             </ul>
-            <h1 className="text-[1rem] font-[600] mt-4 mb-4">Hosting</h1>
+            <h1 className="text-[1rem] font-[600] mt-4 mb-4">{t('Hosting')}</h1>
             <ul className="border-b-[1px] border-[gray] pb-3">
               <li className="flex justify-between items-center py-4">
                 <div className="flex">
@@ -163,7 +170,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Host a home</span>
+                  <span className="text-[1rem]">{t('Host a home')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -197,11 +204,11 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Host an experience</span>
+                  <span className="text-[1rem]">{t('Host an experience')}</span>
                 </div>
               </li>
             </ul>
-            <h1 className="text-[1rem] font-[600] mt-4 mb-4">Referrals & credits</h1>
+            <h1 className="text-[1rem] font-[600] mt-4 mb-4">{t('Referrals & credits')}</h1>
             <ul className="border-b-[1px] border-[gray] pb-3">
               <li className="flex justify-between items-center py-4">
                 <div className="flex">
@@ -220,7 +227,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Refer a Host</span>
+                  <span className="text-[1rem]">{t('Refer a Host')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +245,7 @@ function ProfilePageMobile() {
                 </svg>
               </li>
             </ul>
-            <h1 className="text-[1rem] font-[600] mt-4 mb-4">Support</h1>
+            <h1 className="text-[1rem] font-[600] mt-4 mb-4">{t('Support')}</h1>
             <ul className="border-b-[1px] border-[gray] pb-3">
               <li className="flex justify-between items-center py-4">
                 <div className="flex">
@@ -255,7 +262,7 @@ function ProfilePageMobile() {
                       <path d="M30.83,25.06c-.12-.29-.24-.6-.36-.87L29.92,23l0,0c-1.66-3.6-3.44-7.25-5.31-10.86l-.07-.14c-.2-.36-.39-.74-.58-1.13a6.67,6.67,0,0,0-.87-1.32A3.86,3.86,0,0,0,20,8,4,4,0,0,0,17,9.44a8.33,8.33,0,0,0-.87,1.32c-.19.39-.38.77-.57,1.13l-.07.15c-1.85,3.6-3.66,7.25-5.31,10.85l0,.05-.55,1.23c-.12.26-.24.55-.36.86a5.44,5.44,0,0,0-.29,2.6,5.13,5.13,0,0,0,3.12,4A5.05,5.05,0,0,0,14,32a4.32,4.32,0,0,0,.62-.05A6.37,6.37,0,0,0,17,31.14a12.58,12.58,0,0,0,3-2.5,12.75,12.75,0,0,0,3,2.5,6.37,6.37,0,0,0,2.41.81A4.32,4.32,0,0,0,26,32a5,5,0,0,0,1.95-.38,5.1,5.1,0,0,0,3.12-4A4.49,4.49,0,0,0,30.83,25.06ZM20,26.31a11.88,11.88,0,0,1-2.43-4.47,3.94,3.94,0,0,1-.07-1.47,2.3,2.3,0,0,1,.39-1A2.52,2.52,0,0,1,20,18.31a2.45,2.45,0,0,1,2.11,1.05,2.3,2.3,0,0,1,.39,1,3.92,3.92,0,0,1-.07,1.47A12.26,12.26,0,0,1,20,26.31Zm9.59,1.13a3.58,3.58,0,0,1-2.19,2.81,3.68,3.68,0,0,1-1.83.24,4.83,4.83,0,0,1-1.82-.63A11,11,0,0,1,21,27.53a13.56,13.56,0,0,0,2.91-5.31,6.28,6.28,0,0,0,.12-2,4,4,0,0,0-.65-1.63A4.07,4.07,0,0,0,20,16.84a4.12,4.12,0,0,0-3.39,1.71A4,4,0,0,0,16,20.18a5.13,5.13,0,0,0,.12,2A14,14,0,0,0,19,27.56a10.72,10.72,0,0,1-2.74,2.33,4.64,4.64,0,0,1-1.82.62,3.83,3.83,0,0,1-1.83-.24,3.57,3.57,0,0,1-2.19-2.81,4,4,0,0,1,.22-1.87,8.27,8.27,0,0,1,.31-.77c.17-.39.36-.8.56-1.2l0-.05C13.18,20,15,16.34,16.8,12.78l.08-.14c.19-.36.38-.75.57-1.11a5.81,5.81,0,0,1,.68-1.06,2.53,2.53,0,0,1,3.84,0,5.76,5.76,0,0,1,.67,1.06l.58,1.11.07.14c1.83,3.58,3.6,7.23,5.26,10.81v0c.19.38.36.81.55,1.2s.24.53.32.77A4.16,4.16,0,0,1,29.59,27.44Z" />
                     </g>
                   </svg>
-                  <span className="text-[1rem]">How Airbnb works</span>
+                  <span className="text-[1rem]">{t('How Airbnb works')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -289,7 +296,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Get help</span>
+                  <span className="text-[1rem]">{t('Get help')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -323,7 +330,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Contact neighborhood Support</span>
+                  <span className="text-[1rem]">{t('Contact neighborhood Support')}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -342,7 +349,13 @@ function ProfilePageMobile() {
               </li>
             </ul>
             <div className="flex items-center my-5">
-              <div className="language flex items-center mr-4">
+              <button
+                onClick={() => {
+                  setOpen(!open);
+                  setOpenLanguage(!openLanguage);
+                }}
+                className="language flex items-center mr-4"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -358,9 +371,33 @@ function ProfilePageMobile() {
                   />
                 </svg>
 
-                <button href="#" className="text-[0.8] hover:underline font-[600]">
+                <p href="#" className="text-[0.8] hover:underline font-[600]">
                   English(EN)
-                </button>
+                </p>
+              </button>
+              <div className="dropdownLanguge relative ">
+                <ul
+                  className={`${
+                    openLanguage ? '' : 'hidden'
+                  } animate__animated animate__fadeInUp bg-white dropdownLanguage absolute -left-[8rem] rounded-xl border border-gray-300 transition duration-500`}
+                >
+                  <li
+                    onClick={() => {
+                      handleLanguageSelect('VN');
+                    }}
+                    className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+                  >
+                    <p className="hover:text-black transition duration-100">Tiếng Việt</p>
+                  </li>
+                  <li
+                    onClick={() => {
+                      handleLanguageSelect('EN');
+                    }}
+                    className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+                  >
+                    <p className="hover:text-black transition duration-100">English</p>
+                  </li>
+                </ul>
               </div>
               <div className="USD flex items-center mr-4">
                 <svg
@@ -392,9 +429,9 @@ function ProfilePageMobile() {
             </button>
             <div className="py-6 flex justify-center">
               <div className="flex">
-                <p className="font-[500] text-[0.8rem] underline ">Help & supprt</p>.
-                <p className="font-[500] text-[0.8rem] underline ">Help & supprt</p>.
-                <p className="font-[500] text-[0.8rem] underline ">Help & supprt</p>
+                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>.
+                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>.
+                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>
               </div>
             </div>
           </div>
@@ -405,9 +442,10 @@ function ProfilePageMobile() {
             <h1 className="text-[1.8rem] mb-4 font-[600]">Profile</h1>
             <p className="text-[1rem] w-full pb-4 border-b-[1px] border-[gray] font-[400]"></p>
             <div className="flex flex-col items-center justify-center mt-4 text-center">
-              <h1 className="mb-2 font-[600] text-[1rem]">You have no unread messages</h1>
+              <h1 className="mb-2 font-[600] text-[1rem]">{t('You have no unread messages')}</h1>
               <p className="font-[300] text-[1rem] opacity-70 mb-2">
-                When you book a trip or experience <br /> messages from your host will show up here{' '}
+                {t('When you book a trip or experience')} <br /> messages from your host will show
+                up here{' '}
               </p>
               <button
                 onClick={() => {
@@ -415,7 +453,7 @@ function ProfilePageMobile() {
                 }}
                 className="font-[400] text-[1rem] py-[8px] border-[1px] border-black rounded-lg px-[24px]"
               >
-                Login
+                {t('Login')}
               </button>
             </div>
             <div className="flex items-center my-5">

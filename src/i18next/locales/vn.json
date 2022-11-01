@@ -146,6 +146,31 @@
     "your password must be minimum 6 characters.": "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
     "The input is not valid E-mail!": "Email của bạn chưa đúng định dạng!",
     "field does not accept numbers or special charactor": "không được chứa số hoặc ký tự đặc biệt",
-    "your password must be max 9 characters.": "Số điện thoại của bạn chỉ được chứa tối đa 9 ký tự"
+    "your password must be max 9 characters.": "Số điện thoại của bạn chỉ được chứa tối đa 9 ký tự",
+"Show profile":"Hiện hồ sơ của bạn",
+"Personal info": "Thông tin cá nhân",
+"Hosting": "Cho thuê",
+"Host a home": "Cho thuê nhà",
+"Host an experience": "Tổ chức trải nghiệm",
+"Referrals & credits": "Lượt giới thiệu và điểm tích luỹ",
+"Refer a Host": "Giới thiệu chủ nhà",
+"Support": "Hỗ trợ",
+"How Airbnb works": "Cách Airbnb hoạt động",
+"Get help": "Nhận trợ giúp",
+"Contact neighborhood Support":"Liên hệ bộ phận hỗ trợ lân cận",
+"Help & support": "Trợ giúp & Hỗ trợ",
+"You have no unread messages": "Bạn không có tin nhắn nào",
+"When you book a trip or experience": "Khi bạn đặt chuyến đi hoặc chuyến trải nghiệm",
+"messages from your host will show up here":
+"tin nhắn từ người tổ chức hay chủ nhà sẽ xuất hiện ở đây",
+"Login": "Đăng nhập",
+"Inbox": "Hộp thư",
+"Messages": "Tin nhắn",
+"Explore Airbnb": "Khám phá Airbnb",
+"Wishlists": "Yêu thích",
+"When you like a trip or experience":"Khi bạn thích một chuyến đi hay trải nghiệm",
+"messages from your host will show up here":"tin nhắn từ người tổ chức hay người chủ sẽ hiện lên ở đây",
+"List":"Danh sách"
+
 
 }
