@@ -175,8 +175,10 @@
 "You have no login": "Bạn chưa đăng nhập",
 "Please login":"Vui lòng đăng nhập",
 "to view your trip details":"để xem chi tiết chuyến đi",
-"Login Airbnb":"Đăng nhập vào Airbnb"
-
+"Login Airbnb":"Đăng nhập vào Airbnb",
+"You have no wishlist": "Bạn chưa có địa điểm hay chuyến đi ưa thích",
+"Log out":"Đăng xuất",
+"Trip": "Chuyến đi "
 
 
 }

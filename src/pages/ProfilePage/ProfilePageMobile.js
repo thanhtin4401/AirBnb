@@ -425,13 +425,13 @@ function ProfilePageMobile() {
               className="border w-full border-black rounded-[0.5rem] flex justify-center py-2 font-[500] text-[1rem] "
             >
               {' '}
-              Log out
+              {t('Log out')}
             </button>
             <div className="py-6 flex justify-center">
               <div className="flex">
-                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>.
-                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>.
-                <p className="font-[500] text-[0.8rem] underline ">{t(Help & support)}</p>
+                <p className="font-[500] text-[0.8rem] underline ">{t('Help & support')}</p>.
+                <p className="font-[500] text-[0.8rem] underline ">{t('Help & support')}</p>.
+                <p className="font-[500] text-[0.8rem] underline ">{t('Help & support')}</p>
               </div>
             </div>
           </div>
@@ -439,13 +439,13 @@ function ProfilePageMobile() {
       ) : (
         <>
           <div className="container mx-auto h-screen pt-[7rem]">
-            <h1 className="text-[1.8rem] mb-4 font-[600]">Profile</h1>
+            <h1 className="text-[1.8rem] mb-4 font-[600]">{t('Profile')}</h1>
             <p className="text-[1rem] w-full pb-4 border-b-[1px] border-[gray] font-[400]"></p>
             <div className="flex flex-col items-center justify-center mt-4 text-center">
               <h1 className="mb-2 font-[600] text-[1rem]">{t('You have no unread messages')}</h1>
               <p className="font-[300] text-[1rem] opacity-70 mb-2">
-                {t('When you book a trip or experience')} <br /> messages from your host will show
-                up here{' '}
+                {t('When you book a trip or experience')} <br />{' '}
+                {t('messages from your host will show up here')}{' '}
               </p>
               <button
                 onClick={() => {
