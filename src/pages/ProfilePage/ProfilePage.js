@@ -6,19 +6,21 @@ import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
 import { Button, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
+import {BsPersonSquare} from 'react-icons/bs'
+import { Input, message } from 'antd';
 import { Modal } from 'antd';
 import ProfileRight from './ProfileRight';
 import { useNavigate } from 'react-router-dom';
 export default function ProfilePage() {
   const { t } = useTranslation();
-
   const [openInput, setOpenInput] = useState(false);
-
   const [openModal, setOpenModal] = useState(false);
+  const [changeBtn, setChangeBtn] = useState(false);
   const [avatar, setAvatar] = useState('');
   const [imgSrc, setImgSrc] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
   const [idUser, setIdUer] = useState(user?.user.id);
+  const [userAPI, setUserApi] = useState();
 
   useEffect(() => {
     userService
@@ -136,98 +138,7 @@ export default function ProfilePage() {
             </div>
             {/* RIGHT */}
             <div className="lg:col-span-9 md:col-span-12 sm:col-span-12 mb:col-span-12">
-              <div className="py-5 lg:px-10 md:px-0 sm:px-0 mb:px-0">
-                <div className="flex justify-between m-3">
-                  <h1 className="font-bold text-xl flex items-center">
-                    <BsPersonSquare className="mr-3 text-[#FF385C]" />
-                    {t('My Information')}
-                  </h1>
-                  <div>
-                    <button
-                      onClick={() => {
-                        setChangeBtn(true);
-                        setOpenInput(true);
-                      }}
-                      className={`${
-                        changeBtn ? 'hidden' : ''
-                      } px-3 py-2 rounded-lg font-bold text-white bg-[#FF385C] mr-3`}
-                    >
-                      {t('Update')}
-                    </button>
-                    <button
-                      onClick={() => {
-                        putInfo();
-                      }}
-                      className={`${
-                        changeBtn ? '' : 'hidden'
-                      } px-3 py-2 rounded-lg font-bold text-white bg-[#FF385C]`}
-                    >
-                      {t('Save Changes')}
-                    </button>
-                  </div>
-                </div>
-                <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 mb:grid-cols-1 ">
-                  <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      {t('Name: ')} {userAPI?.name}
-                    </h1>
-                    <div className={`${openInput ? '' : 'hidden'}`}>
-                      <Input
-                        className="profilepage-input"
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                        placeholder={`${userAPI?.name}`}
-                      />
-                    </div>
-                  </div>
-
-                  <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      {t('Birthday: ')} {userAPI?.birthday}
-                    </h1>
-                    <div className={`${openInput ? '' : 'hidden'}`}>
-                      <Input
-                        className="profilepage-input"
-                        onChange={(e) => {
-                          setBirthday(e.target.value);
-                        }}
-                        placeholder="18/03/2001"
-                      />
-                    </div>
-                  </div>
-                  <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      {t('Email: ')}
-                      {userAPI?.email}
-                    </h1>
-                    <div className={`${openInput ? '' : 'hidden'}`}>
-                      <Input
-                        className="profilepage-input"
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
-                        placeholder="dinhdanh183@gmail"
-                      />
-                    </div>
-                  </div>
-                  <div className=" m-3 rounded-xl border-[1px] border-[#999] py-3 px-5">
-                    <h1 className="text-gray-700 text-sm font-bold mb-1 ">
-                      {t('Phone number: ')}
-                      {userAPI?.phone}
-                    </h1>
-                    <div className={`${openInput ? '' : 'hidden'}`}>
-                      <Input
-                        className="profilepage-input"
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                        }}
-                        placeholder="123456789"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ProfileRight/>
             </div>
           </div>
         </div>

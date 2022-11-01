@@ -6,12 +6,19 @@ import { localStorageService } from '../../services/localStorageService';
 import { userService } from '../../services/userService';
 import './ProfilePageMobile';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 function ProfilePageMobile() {
+  const [open, setOpen] = useState(false);
+  const [openLanguage, setOpenLanguage] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isUser, setisUser] = useState();
   const [userAPI, setUserAPI] = useState();
   const [user, setuser] = useState(localStorageService.get('USER'));
+  const handleLanguageSelect = (lang) => {
+    localStorageService.set('lang', lang);
+    i18next.changeLanguage(lang);
+  };
   useEffect(() => {
     if (user) {
       setisUser(user);
@@ -69,7 +76,7 @@ function ProfilePageMobile() {
             <ul className="border-b-[1px] border-[gray] pb-3">
               <li
                 onClick={handleNavigateToProfilePerson}
-                className="flex justify-between items-center py-4"
+                className="flex justify-between items-center py-4 cursor-pointer"
               >
                 <div className="flex">
                   <svg
@@ -87,7 +94,7 @@ function ProfilePageMobile() {
                     />
                   </svg>
 
-                  <span className="text-[1rem]">Personal info</span>
+                  <span className="text-[1rem] cursor-pointer">Personal info</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -342,7 +349,13 @@ function ProfilePageMobile() {
               </li>
             </ul>
             <div className="flex items-center my-5">
-              <div className="language flex items-center mr-4">
+              <button
+                onClick={() => {
+                  setOpen(!open);
+                  setOpenLanguage(!openLanguage);
+                }}
+                className="language flex items-center mr-4"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -358,9 +371,33 @@ function ProfilePageMobile() {
                   />
                 </svg>
 
-                <button href="#" className="text-[0.8] hover:underline font-[600]">
+                <p href="#" className="text-[0.8] hover:underline font-[600]">
                   English(EN)
-                </button>
+                </p>
+              </button>
+              <div className="dropdownLanguge relative ">
+                <ul
+                  className={`${
+                    openLanguage ? '' : 'hidden'
+                  } animate__animated animate__fadeInUp bg-white dropdownLanguage absolute -left-[8rem] rounded-xl border border-gray-300 transition duration-500`}
+                >
+                  <li
+                    onClick={() => {
+                      handleLanguageSelect('VN');
+                    }}
+                    className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+                  >
+                    <p className="hover:text-black transition duration-100">Tiếng Việt</p>
+                  </li>
+                  <li
+                    onClick={() => {
+                      handleLanguageSelect('EN');
+                    }}
+                    className="dropdownItem cursor-pointer  hover:bg-gray-200 transition duration-300"
+                  >
+                    <p className="hover:text-black transition duration-100">English</p>
+                  </li>
+                </ul>
               </div>
               <div className="USD flex items-center mr-4">
                 <svg
