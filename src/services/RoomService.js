@@ -16,4 +16,18 @@ export let roomService = {
   bookingRoom: (data) => {
     return https.post('/api/dat-phong', data);
   },
+  getRoomList: () => {
+    return https.get(`api/phong-thue`);
+  },
+  getsearchRoom: (tenPhong) => {
+    return https.get(
+      `api/phong-thue/phan-trang-tim-kiem?pageIndex=1&pageSize=1&keyword=${tenPhong}`
+    );
+  },
+  deleteRoom: (id) => {
+    return https.delete(`api/phong-thue/${id}`);
+  },
+  postRoom: (data) => {
+    return https.post(`/api/vi-tri`, data);
+  },
 };

@@ -1,7 +1,7 @@
 import { useSelect, Search } from '@material-tailwind/react';
 import React, { useEffect, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table, Input, Button, Tag } from 'antd';
+import { Table, Input, Button, Tag, message } from 'antd';
 import { getSearchUser, getUserList } from '../../../redux/manager/user';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
@@ -98,6 +98,7 @@ const ListUserPage = () => {
               ...user,
               action: (
                 <ActionUser
+                  handleOnSuccess={fetchListUser}
                   key={index}
                   ID={user.id}
                   setIsUpdateUserSuccess={setIsUpdateUserSuccess}

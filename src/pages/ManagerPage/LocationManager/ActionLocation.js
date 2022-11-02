@@ -1,15 +1,14 @@
-import { Modal } from 'antd';
+import { message, Modal } from 'antd';
 import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import './ActionUser.scss';
+import './ActionLocation.scss';
 import { useDispatch } from 'react-redux';
-import { deleteUser } from '../../../redux/manager/user';
-import UpdateUserPage from './UpdateUserPage';
-import { userService } from '../../../services/userService';
-
-export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
+import { deleteLocation } from '../../../redux/manager/location';
+import UpdateLocationPage from './UpdateLocation';
+import { locationService } from '../../../services/locationService';
+export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
   const dispatch = useDispatch();
-  let handleUserDelete = () => {
+  let handleLocationDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
 
     Modal.destroyAll();
@@ -22,28 +21,29 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
   //     content: 'Bạn có chắc muốn xoá phim này',
   //     okText: 'Xác nhận',
   //     cancelText: 'Huỷ',
-  //     onOk: handleUserDelete,
+  //     onOk: handleLocationDelete,
   //   });
   // };
+  console.log('userInfor', ID);
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
-  console.log('userInfor', userInfor);
   const hideModal = () => {
     setOpen(false);
   };
   const handleComfirm = (id) => {
-    console.log(id);
     setOpen(false);
-    userService
-      .deleteUser(id)
+    locationService
+      .deleteLocation(id)
       .then((res) => {
         handleOnSuccess();
+        message.success(res.data.message);
+
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        message.success(err.response.data.message);
       });
   };
 
@@ -75,9 +75,10 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
         okText="comfirm"
         cancelText="cancle"
       >
-        <h1 className="">Bạn có chắc muốn xoá tài khoản: {userInfor?.name}</h1>
+        <h1 className="">Bạn có chắc muốn xoá vị trí: {locationInfor?.name}</h1>
       </Modal>
-      <UpdateUserPage
+      <UpdateLocationPage
+        locationInfor={locationInfor}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         ID={ID}
