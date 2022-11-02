@@ -1,0 +1,25 @@
+.btn_addLocation {
+    background-color: black!important;
+    width: unset !important;
+}
+
+.search-location {
+    width: unset!important;
+    .ant-input-wrapper {
+        input {
+            width: 100%!important;
+            border-radius: 0!important;
+        }
+        .ant-input-group-addon {
+            background-color: black;
+            transition: all 0.3s ease;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            button {
+                background-color: black;
+                font-size: 20px;
+                line-height: 0;
+            }
+        }
+    }
+}

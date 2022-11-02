@@ -14,7 +14,6 @@ function UserManager() {
 
   const onSearch = (value) => {
     setsearchUser(value);
-    console.log(value);
   };
 
   const navigation = useNavigate();

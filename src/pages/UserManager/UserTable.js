@@ -8,19 +8,20 @@ import { columns } from './UserManagerUtils/userManager.utils';
 function UserTable({ search }) {
   const allUserList = useSelector((state) => state.manager.user.allUser);
   const [dataUser, setDataUser] = useState([]);
-  useEffect(() => { 
-    setDataUser(allUserList)
-   },[allUserList])
-  console.log(search)
-  useEffect(() => { 
-    userService.searchUser(search).then((res) => {
-            console.log(res);
-            setDataUser(res.data.content)
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-   },[search])
+  useEffect(() => {
+    setDataUser(allUserList);
+  }, [allUserList]);
+
+  useEffect(() => {
+    userService
+      .searchUser(search)
+      .then((res) => {
+        setDataUser(res.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [search]);
   return (
     <div>
       <Table

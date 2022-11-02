@@ -10,7 +10,6 @@ function UserTable({ search }) {
   const [searchUser, setsearchUser] = useState(null);
   const onSearch = (value) => {
     setsearchUser(value);
-    console.log(value);
   };
 
   useEffect(() => {

@@ -1,18 +1,15 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import './ActionUser.scss';
+import './ActionRoom.scss';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../../redux/manager/user';
-import UpdateUserPage from './UpdateUserPage';
-import { userService } from '../../../services/userService';
-import { useTranslation } from 'react-i18next';
-export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
+import UpdateRoomPage from './UpdateRoomPage';
+
+export default function ActionRoom({ ID, roomInfor }) {
+  // const dispatch = useDispatch();
   let handleUserDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
-
     Modal.destroyAll();
   };
 
@@ -30,23 +27,13 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
   const showModal = () => {
     setOpen(true);
   };
-
   const hideModal = () => {
     setOpen(false);
   };
   const handleComfirm = (id) => {
     setOpen(false);
-    userService
-      .deleteUser(id)
-      .then((res) => {
-        handleOnSuccess();
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(deleteUser(id));
   };
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -57,7 +44,7 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
         onClick={showModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        {'Delete'}
+        {t('Delete')}
       </button>
 
       <button
@@ -76,15 +63,11 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
         cancelText="cancle"
       >
         <h1 className="">
-          {'Are you sure you want to delete account: '} {userInfor?.name}
+          {t('Are you sure you want to delete room: ')}
+          {roomInfor?.room}
         </h1>
       </Modal>
-      <UpdateUserPage
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        ID={ID}
-        handleOnSuccessUpdate={handleOnSuccess}
-      />
+      <UpdateRoomPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
     </div>
   );
 }

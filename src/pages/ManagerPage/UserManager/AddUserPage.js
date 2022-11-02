@@ -42,7 +42,7 @@ function AddUserPage({ setIsModalOpen, isModalOpen }) {
   };
   return (
     <Modal
-      title="Thêm Tài Khoản"
+      title={t('Add Account')}
       open={isModalOpen}
       className="modal_add-user"
       onCancel={handleCancel}
@@ -64,7 +64,7 @@ function AddUserPage({ setIsModalOpen, isModalOpen }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Email</p>
+            <p className="">{t('Email')}</p>
             <Form.Item
               className="mb-4"
               name="email"
