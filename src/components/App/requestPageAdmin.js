@@ -4,9 +4,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { localStorageService } from '../../services/localStorageService';
 
 function RequestPageAdmin() {
-  //   const auth = useSelector((state) => state.auth.isLoggedIn);
   const auth = localStorageService.get('USER');
-  console.log(auth);
+
   const navigate = useNavigate();
 
   useEffect(() => {

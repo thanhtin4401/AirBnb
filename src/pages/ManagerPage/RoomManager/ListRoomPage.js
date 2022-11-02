@@ -137,7 +137,6 @@ function RoomManager() {
   const [searchRoom, setsearchRoom] = useState(null);
   const onSearchRoom = (value) => {
     setsearchRoom(value);
-    console.log(value);
   };
   const [dataRoom, setDataRoom] = useState([]);
 
@@ -153,7 +152,6 @@ function RoomManager() {
               action: <ActionRoom key={index} ID={room.id} />,
             };
           });
-          console.log(roomList);
 
           setDataRoom(roomList);
         })
@@ -163,7 +161,7 @@ function RoomManager() {
     };
     fetchListRoom();
   }, []);
-  console.log('dataRoom', dataRoom);
+
   useEffect(() => {
     if (searchRoom == '' || searchRoom == null) {
       let fetchListRoom = () => {
@@ -206,13 +204,11 @@ function RoomManager() {
               };
             });
             setDataRoom(roomList);
-            console.log(roomList);
           })
           .catch((err) => {
             console.log(err);
           });
       };
-      console.log('qua la xam');
 
       fetchListRoom();
     }

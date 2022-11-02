@@ -14,7 +14,7 @@ import UpdateLocation from './UpdateLocation';
 import UploadImg from '../UserManager/UploadImg';
 function ListLocationPage() {
   const isUpdateSuccess = useSelector((state) => state.manager.location.isUpdateSuccess);
-  console.log('isUpdateSuccess', isUpdateSuccess);
+
   const [isUpdateLocationSuccess, setIsUpdateLocationSuccess] = useState(false);
 
   // const dispatch = useDispatch();
@@ -136,7 +136,7 @@ function ListLocationPage() {
     };
     fetchListLocation();
   }, []);
-  console.log('dataLocation', isUpdateLocationSuccess);
+
   useEffect(() => {
     if (searchLocation == '' || searchLocation == null) {
       let fetchListLocation = () => {
@@ -166,7 +166,7 @@ function ListLocationPage() {
                 ),
               };
             });
-            console.log(locationList);
+
             setDataLocation(locationList);
           })
           .catch((err) => {
@@ -180,7 +180,7 @@ function ListLocationPage() {
         let locationRes = dataLocation.filter((loca) => {
           return convertString(loca.tenViTri) === convertString(searchLocation);
         });
-        console.log('locationRes:', locationRes);
+
         const locationList = [
           {
             ...locationRes[0],
@@ -195,7 +195,7 @@ function ListLocationPage() {
             ),
           },
         ];
-        console.log(locationList);
+
         setDataLocation(locationList);
       };
 

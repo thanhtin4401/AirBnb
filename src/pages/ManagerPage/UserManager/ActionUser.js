@@ -34,7 +34,6 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
     setOpen(false);
   };
   const handleComfirm = (id) => {
-    console.log(id);
     setOpen(false);
     userService
       .deleteUser(id)

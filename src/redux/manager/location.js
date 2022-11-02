@@ -11,7 +11,7 @@ const initialState = {
 export const getLocationList = createAsyncThunk('location/list', async () => {
   try {
     const res = await https.get('/api/vi-tri');
-    console.log('res', res);
+
     return res.data;
   } catch (error) {
     message.error(error.response.data.message);
@@ -20,7 +20,6 @@ export const getLocationList = createAsyncThunk('location/list', async () => {
 export const pushLocation = createAsyncThunk('location/push', async (data) => {
   try {
     const res = await https.post('/api/vi-tri', data);
-    console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);
@@ -29,7 +28,6 @@ export const pushLocation = createAsyncThunk('location/push', async (data) => {
 export const deleteLocation = createAsyncThunk('location/delete', async (id) => {
   try {
     const res = await https.post(`/api/vi-tri/id=${id}`);
-    console.log('res', res);
     return res;
   } catch (error) {
     message.error(error.response.data.message);

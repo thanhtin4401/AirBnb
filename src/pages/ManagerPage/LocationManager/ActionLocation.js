@@ -15,17 +15,6 @@ export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
     Modal.destroyAll();
   };
 
-  // const confirm = () => {
-  //   Modal.confirm({
-  //     title: 'Xác nhận',
-  //     icon: <ExclamationCircleOutlined />,
-  //     content: 'Bạn có chắc muốn xoá phim này',
-  //     okText: 'Xác nhận',
-  //     cancelText: 'Huỷ',
-  //     onOk: handleLocationDelete,
-  //   });
-  // };
-  console.log('userInfor', ID);
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);

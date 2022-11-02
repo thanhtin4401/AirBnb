@@ -13,8 +13,7 @@ import { userService } from '../../../services/userService';
 import { locationService } from '../../../services/locationService';
 const UploadImg = ({ ID, imgLocation, handleOnSuccess }) => {
   const dispatch = useDispatch();
-  console.log('imgLocation', imgLocation);
-  console.log('ID', ID);
+
   const [hinhAnh, sethinhAnh] = useState({});
   const [imgSRC, setimgSRC] = useState('');
   const [file, setfile] = useState({});

@@ -11,10 +11,9 @@ import ActionUser from './ActionUser';
 import { setDate } from 'date-fns';
 import { userService } from '../../../services/userService';
 const ListUserPage = () => {
-  // const allUserList = useSelector((state) => state.manager.user.allUser);
   const isDeleteSuccess = useSelector((state) => state.manager.user.isDeleteSuccess);
   const isUpdateSuccess = useSelector((state) => state.manager.user.isUpdateSuccess);
-  console.log('isUpdateSuccess', isUpdateSuccess);
+
   const dispatch = useDispatch();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
 
@@ -113,7 +112,7 @@ const ListUserPage = () => {
     };
     fetchListUser();
   }, []);
-  console.log('dataUser', isUpdateUserSuccess);
+
   useEffect(() => {
     if (searchUser == '' || searchUser == null) {
       let fetchListUser = () => {
@@ -161,7 +160,7 @@ const ListUserPage = () => {
             console.log(err);
           });
       };
-      console.log('qua la xam');
+
       fetchListUser();
     }
   }, [searchUser, isDeleteSuccess, isRegisterAccountSuccess, isUpdateSuccess]);
