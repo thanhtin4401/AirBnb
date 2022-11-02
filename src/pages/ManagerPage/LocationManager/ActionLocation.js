@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 import { deleteLocation } from '../../../redux/manager/location';
 import UpdateLocationPage from './UpdateLocation';
 import { locationService } from '../../../services/locationService';
+import { useTranslation } from 'react-i18next';
 export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   let handleLocationDelete = () => {
@@ -36,7 +38,6 @@ export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
         message.success(err.response.data.message);
       });
   };
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -47,14 +48,14 @@ export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
         onClick={showModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Xoá
+        {t('Delete')}
       </button>
 
       <button
         onClick={handleShowModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Cập nhật
+        {t('Update')}
       </button>
       <Modal
         className="modal-confirm-delete"

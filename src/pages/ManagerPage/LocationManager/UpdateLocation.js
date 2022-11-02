@@ -11,6 +11,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
   const [imgSRC, setimgSRC] = useState('');
   const [file, setfile] = useState({});
   const [form] = Form.useForm();
+  const { t } = useTranslation();
   const openNotificationWithIcon = (type, mess, description) => {
     notification[type]({
       message: mess,
@@ -62,8 +63,6 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
 
   const onFinishFailed = (errorInfo) => {};
 
-  const { t } = useTranslation();
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -85,7 +84,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
   };
   return (
     <Modal
-      title="Thêm Vị Trí"
+      title={'Thêm Vị Trí'}
       open={isModalOpen}
       className="modal_update-location"
       onCancel={handleCancel}
@@ -108,7 +107,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Vị trí</p>
+            <p className="">{t('Location')}</p>
             <Form.Item
               className="mb-4"
               name="tenViTri"
@@ -122,7 +121,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder="Vị Trí"
+                placeholder={t('Location')}
               />
             </Form.Item>
             <p className="">{t('Province')}</p>

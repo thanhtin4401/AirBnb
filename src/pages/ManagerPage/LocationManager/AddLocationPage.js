@@ -65,7 +65,7 @@ function AddLocationPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Vị trí</p>
+            <p className="">{t('Location')}</p>
             <Form.Item
               className="mb-4"
               name="tenViTri"

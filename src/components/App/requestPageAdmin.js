@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { localStorageService } from '../../services/localStorageService';
 
-function RequestPageAdmin() {
+function RequestPageAdmin({ children }) {
   const auth = localStorageService.get('USER');
 
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function RequestPageAdmin() {
       navigate('/');
     }
   }, []);
-  return <Outlet />;
+  return <>{children}</>;
 }
 
 export default RequestPageAdmin;

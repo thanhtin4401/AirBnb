@@ -12,7 +12,9 @@ import './ListLocationPage.scss';
 import ActionLocation from './ActionLocation';
 import UpdateLocation from './UpdateLocation';
 import UploadImg from '../UserManager/UploadImg';
+
 function ListLocationPage() {
+  const { t } = useTranslation();
   const isUpdateSuccess = useSelector((state) => state.manager.location.isUpdateSuccess);
 
   const [isUpdateLocationSuccess, setIsUpdateLocationSuccess] = useState(false);
@@ -29,42 +31,30 @@ function ListLocationPage() {
       fixed: 'left',
     },
     {
-      title: 'Tên Vị Trí',
+      title: t('Location Name'),
       width: 100,
       dataIndex: 'tenViTri',
       key: 'tenViTri',
       fixed: 'left',
     },
     {
-      title: 'Tỉnh Thành',
+      title: t('Province'),
       dataIndex: 'tinhThanh',
       key: '1',
     },
     {
-      title: 'Quốc Gia',
+      title: t('Country'),
       dataIndex: 'quocGia',
       key: '2',
     },
     {
-      title: 'Hình Ảnh',
+      title: t('Picture'),
       dataIndex: 'hinhAnh',
       key: '3',
-      // render: (text, record) => {
-      //   return (
-      //     <img
-      //       className="w-[32px] h-[32px] rounded-[50rem]"
-      //       src={
-      //         record.hinhAnh
-      //           ? record.hinhAnh
-      //           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
-      //       }
-      //     />
-      //   );
-      // },
     },
 
     {
-      title: 'Thao tác',
+      title: t('Action'),
       dataIndex: 'action',
       key: 'acion',
     },
@@ -203,7 +193,6 @@ function ListLocationPage() {
     }
   }, [searchLocation]);
 
-  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -211,11 +200,11 @@ function ListLocationPage() {
   return (
     <>
       <div className="w-full text-left p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">List Location</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('LOCATION LIST')}</h1>
       </div>
       <div className="flex items-center my-4">
         <Search
-          placeholder="Tìm vị trí"
+          placeholder={t('Find Location')}
           onSearch={onSearchLocation}
           enterButton
           className="search-location"
@@ -224,7 +213,7 @@ function ListLocationPage() {
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1rem] h-[3.2rem]"
         >
-          + Thêm vị trí
+          {t('+ Add Location')}
         </button>
       </div>
       <Table

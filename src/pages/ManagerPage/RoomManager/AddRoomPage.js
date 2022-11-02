@@ -49,7 +49,12 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
     setIsModalOpen(false);
   };
   return (
-    <Modal title="Thêm Phòng" open={isModalOpen} className="modal_add-room" onCancel={handleCancel}>
+    <Modal
+      title={t('Add Room')}
+      open={isModalOpen}
+      className="modal_add-room"
+      onCancel={handleCancel}
+    >
       <div className=" w-fll flex justify-center items-center">
         <div className="">
           <Form
@@ -67,7 +72,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Tên phòng</p>
+            <p className="">{t('Room Name')}</p>
             <Form.Item
               className="mb-4"
               name="tenPhong"
@@ -81,7 +86,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder="Tên phòng"
+                placeholder={t('Room Name')}
               />
             </Form.Item>
             <p className="">{t('Số lượng khách')}</p>

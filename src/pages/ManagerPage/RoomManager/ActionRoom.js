@@ -44,14 +44,14 @@ export default function ActionRoom({ ID, roomInfor }) {
         onClick={showModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Xoá
+        {t('Delete')}
       </button>
 
       <button
         onClick={handleShowModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Cập nhật
+        {t('Update')}
       </button>
       <Modal
         className="modal-confirm-delete"
@@ -62,7 +62,10 @@ export default function ActionRoom({ ID, roomInfor }) {
         okText="comfirm"
         cancelText="cancle"
       >
-        <h1 className="">Bạn có chắc muốn xoá phòng: {roomInfor?.room}</h1>
+        <h1 className="">
+          {t('Are you sure you want to delete room: ')}
+          {roomInfor?.room}
+        </h1>
       </Modal>
       <UpdateRoomPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
     </div>
