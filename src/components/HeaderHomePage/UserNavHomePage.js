@@ -184,7 +184,7 @@ export default function UserNav({ bg }) {
                 onClick={() => {
                   closeDropDown();
                 }}
-                to="/Manager"
+                to="/Manager/user"
               >
                 <li className="dropdownItem  hover:bg-gray-200 transition duration-300">
                   <p className="w-full block h-full text-left hover:text-black transition duration-100">

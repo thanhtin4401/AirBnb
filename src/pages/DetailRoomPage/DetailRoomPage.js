@@ -47,11 +47,8 @@ function DetailRoomPage() {
       return { ...item, data: dataIMG[index] };
     });
     let ImgRoom = room?.filter((item) => {
-      console.log(item.id);
       return item.id == id;
     });
-    console.log('ImgRoom', ImgRoom);
-    console.log('ImgRoom', id);
 
     setImgRoomList(ImgRoom);
   };

@@ -14,6 +14,7 @@ import { bookingRoom } from '../../redux/room/roomBooking';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { roomService } from '../../services/RoomService';
 function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, total, setTotal }) {
   const { t } = useTranslation();
   const isBookingSuccess = useSelector((state) => state.room.bookingRoom.isBookingSuccess);
@@ -89,7 +90,16 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
       soLuongKhach: guets,
       maNguoiDung: localStorageService.get('USER').user.id,
     };
-    dispatch(bookingRoom(bookRoom));
+
+    roomService
+      .bookingRoom(bookRoom)
+      .then((res) => {
+        openNotificationWithIcon('success', 'Hoàn tất', 'Bạn đã đặt chuyến đi thành công!');
+        setIsOpenModal(false);
+      })
+      .catch((err) => {
+        openNotificationWithIcon('error', 'Thất bại', `${err.response.data.content}`);
+      });
   };
 
   const handleCancel = () => {

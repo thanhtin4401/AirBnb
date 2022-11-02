@@ -35,7 +35,7 @@
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-svg" "^4.2.1"
     "@babel/runtime" "^7.11.2"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-util" "^5.9.4"
 
 "@ant-design/react-slick@~0.29.1":
@@ -44,7 +44,7 @@
   "version" "0.29.2"
   dependencies:
     "@babel/runtime" "^7.10.4"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "json2mq" "^0.2.0"
     "lodash" "^4.17.21"
     "resize-observer-polyfill" "^1.5.1"
@@ -134,9 +134,9 @@
     "browserslist" "^4.21.3"
     "semver" "^6.3.0"
 
-"@babel/helper-create-class-features-plugin@^7.18.6", "@babel/helper-create-class-features-plugin@^7.19.0":
+"@babel/helper-create-className-features-plugin@^7.18.6", "@babel/helper-create-className-features-plugin@^7.19.0":
   "integrity" "sha512-NRz8DwF4jT3UfrmUoZjd0Uph9HQnP30t7Ash+weACcyNkiYTywpIjDBgReJMKgr+n86sn2nPVVmJ28Dm053Kqw=="
-  "resolved" "https://registry.npmjs.org/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.19.0.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/helper-create-className-features-plugin/-/helper-create-className-features-plugin-7.19.0.tgz"
   "version" "7.19.0"
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.18.6"
@@ -350,29 +350,29 @@
     "@babel/helper-remap-async-to-generator" "^7.18.9"
     "@babel/plugin-syntax-async-generators" "^7.8.4"
 
-"@babel/plugin-proposal-class-properties@^7.16.0", "@babel/plugin-proposal-class-properties@^7.18.6":
+"@babel/plugin-proposal-className-properties@^7.16.0", "@babel/plugin-proposal-className-properties@^7.18.6":
   "integrity" "sha512-cumfXOF0+nzZrrN8Rf0t7M+tF6sZc7vhQwYQck9q1/5w2OExlD+b4v4RpMJFaV1Z7WcDRgO6FqvxqxGlwo+RHQ=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.18.6.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-className-properties/-/plugin-proposal-className-properties-7.18.6.tgz"
   "version" "7.18.6"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.18.6"
+    "@babel/helper-create-className-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
 
-"@babel/plugin-proposal-class-static-block@^7.18.6":
+"@babel/plugin-proposal-className-static-block@^7.18.6":
   "integrity" "sha512-+I3oIiNxrCpup3Gi8n5IGMwj0gOCAjcJUSQEcotNnCCPMEnixawOQ+KeJPlgfjzx+FKQ1QSyZOWe7wmoJp7vhw=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-class-static-block/-/plugin-proposal-class-static-block-7.18.6.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-className-static-block/-/plugin-proposal-className-static-block-7.18.6.tgz"
   "version" "7.18.6"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.18.6"
+    "@babel/helper-create-className-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
-    "@babel/plugin-syntax-class-static-block" "^7.14.5"
+    "@babel/plugin-syntax-className-static-block" "^7.14.5"
 
 "@babel/plugin-proposal-decorators@^7.16.4":
   "integrity" "sha512-LfIKNBBY7Q1OX5C4xAgRQffOg2OnhAo9fnbcOHgOC9Yytm2Sw+4XqHufRYU86tHomzepxtvuVaNO+3EVKR4ivw=="
   "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.19.1.tgz"
   "version" "7.19.1"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.19.0"
+    "@babel/helper-create-className-features-plugin" "^7.19.0"
     "@babel/helper-plugin-utils" "^7.19.0"
     "@babel/helper-replace-supers" "^7.19.1"
     "@babel/helper-split-export-declaration" "^7.18.6"
@@ -459,7 +459,7 @@
   "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.18.6.tgz"
   "version" "7.18.6"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.18.6"
+    "@babel/helper-create-className-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
 
 "@babel/plugin-proposal-private-property-in-object@^7.18.6":
@@ -468,7 +468,7 @@
   "version" "7.18.6"
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.18.6"
-    "@babel/helper-create-class-features-plugin" "^7.18.6"
+    "@babel/helper-create-className-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
     "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
 
@@ -494,16 +494,16 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.0"
 
-"@babel/plugin-syntax-class-properties@^7.12.13", "@babel/plugin-syntax-class-properties@^7.8.3":
+"@babel/plugin-syntax-className-properties@^7.12.13", "@babel/plugin-syntax-className-properties@^7.8.3":
   "integrity" "sha512-fm4idjKla0YahUNgFNLCB0qySdsoPiZP3iQE3rky0mBUtMZ23yDJ9SJdg6dXTSDnulOVqiF3Hgr9nbXvXTQZYA=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-class-properties/-/plugin-syntax-class-properties-7.12.13.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-className-properties/-/plugin-syntax-className-properties-7.12.13.tgz"
   "version" "7.12.13"
   dependencies:
     "@babel/helper-plugin-utils" "^7.12.13"
 
-"@babel/plugin-syntax-class-static-block@^7.14.5":
+"@babel/plugin-syntax-className-static-block@^7.14.5":
   "integrity" "sha512-b+YyPmr6ldyNnM6sqYeMWE+bgJcJpO6yS4QD7ymxgH34GBPNDM/THBh8iunyvKIZztiwLH4CJZ0RxTk9emgpjw=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-class-static-block/-/plugin-syntax-class-static-block-7.14.5.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/plugin-syntax-className-static-block/-/plugin-syntax-className-static-block-7.14.5.tgz"
   "version" "7.14.5"
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
@@ -657,9 +657,9 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.18.9"
 
-"@babel/plugin-transform-classes@^7.19.0":
+"@babel/plugin-transform-classNamees@^7.19.0":
   "integrity" "sha512-YfeEE9kCjqTS9IitkgfJuxjcEtLUHMqa8yUJ6zdz8vR7hKuo6mOy2C05P0F1tdMmDCeuyidKnlrw/iTppHcr2A=="
-  "resolved" "https://registry.npmjs.org/@babel/plugin-transform-classes/-/plugin-transform-classes-7.19.0.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/plugin-transform-classNamees/-/plugin-transform-classNamees-7.19.0.tgz"
   "version" "7.19.0"
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.18.6"
@@ -930,7 +930,7 @@
   "resolved" "https://registry.npmjs.org/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.19.1.tgz"
   "version" "7.19.1"
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.19.0"
+    "@babel/helper-create-className-features-plugin" "^7.19.0"
     "@babel/helper-plugin-utils" "^7.19.0"
     "@babel/plugin-syntax-typescript" "^7.18.6"
 
@@ -961,8 +961,8 @@
     "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression" "^7.18.6"
     "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining" "^7.18.9"
     "@babel/plugin-proposal-async-generator-functions" "^7.19.1"
-    "@babel/plugin-proposal-class-properties" "^7.18.6"
-    "@babel/plugin-proposal-class-static-block" "^7.18.6"
+    "@babel/plugin-proposal-className-properties" "^7.18.6"
+    "@babel/plugin-proposal-className-static-block" "^7.18.6"
     "@babel/plugin-proposal-dynamic-import" "^7.18.6"
     "@babel/plugin-proposal-export-namespace-from" "^7.18.9"
     "@babel/plugin-proposal-json-strings" "^7.18.6"
@@ -976,8 +976,8 @@
     "@babel/plugin-proposal-private-property-in-object" "^7.18.6"
     "@babel/plugin-proposal-unicode-property-regex" "^7.18.6"
     "@babel/plugin-syntax-async-generators" "^7.8.4"
-    "@babel/plugin-syntax-class-properties" "^7.12.13"
-    "@babel/plugin-syntax-class-static-block" "^7.14.5"
+    "@babel/plugin-syntax-className-properties" "^7.12.13"
+    "@babel/plugin-syntax-className-static-block" "^7.14.5"
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-syntax-export-namespace-from" "^7.8.3"
     "@babel/plugin-syntax-import-assertions" "^7.18.6"
@@ -994,7 +994,7 @@
     "@babel/plugin-transform-async-to-generator" "^7.18.6"
     "@babel/plugin-transform-block-scoped-functions" "^7.18.6"
     "@babel/plugin-transform-block-scoping" "^7.18.9"
-    "@babel/plugin-transform-classes" "^7.19.0"
+    "@babel/plugin-transform-classNamees" "^7.19.0"
     "@babel/plugin-transform-computed-properties" "^7.18.9"
     "@babel/plugin-transform-destructuring" "^7.18.13"
     "@babel/plugin-transform-dotall-regex" "^7.18.6"
@@ -1159,9 +1159,9 @@
     "@csstools/postcss-progressive-custom-properties" "^1.1.0"
     "postcss-value-parser" "^4.2.0"
 
-"@csstools/postcss-is-pseudo-class@^2.0.7":
+"@csstools/postcss-is-pseudo-className@^2.0.7":
   "integrity" "sha512-7JPeVVZHd+jxYdULl87lvjgvWldYu+Bc62s9vD/ED6/QTGjy0jy0US/f6BG53sVMTBJ1lzKZFpYmofBN9eaRiA=="
-  "resolved" "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.7.tgz"
+  "resolved" "https://registry.npmjs.org/@csstools/postcss-is-pseudo-className/-/postcss-is-pseudo-className-2.0.7.tgz"
   "version" "2.0.7"
   dependencies:
     "@csstools/selector-specificity" "^2.0.0"
@@ -1838,7 +1838,7 @@
   "version" "1.2.4"
   dependencies:
     "@floating-ui/react-dom-interactions" "^0.8.1"
-    "classnames" "^2.3.1"
+    "classNames" "^2.3.1"
     "deepmerge" "^4.2.2"
     "downshift" "^6.1.7"
     "framer-motion" "^6.5.1"
@@ -3115,7 +3115,7 @@
     "@ant-design/react-slick" "~0.29.1"
     "@babel/runtime" "^7.18.3"
     "@ctrl/tinycolor" "^3.4.0"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "copy-to-clipboard" "^3.2.0"
     "lodash" "^4.17.21"
     "memoize-one" "^6.0.0"
@@ -3424,7 +3424,7 @@
   dependencies:
     "@babel/plugin-syntax-async-generators" "^7.8.4"
     "@babel/plugin-syntax-bigint" "^7.8.3"
-    "@babel/plugin-syntax-class-properties" "^7.8.3"
+    "@babel/plugin-syntax-className-properties" "^7.8.3"
     "@babel/plugin-syntax-import-meta" "^7.8.3"
     "@babel/plugin-syntax-json-strings" "^7.8.3"
     "@babel/plugin-syntax-logical-assignment-operators" "^7.8.3"
@@ -3449,7 +3449,7 @@
   "version" "10.0.1"
   dependencies:
     "@babel/core" "^7.16.0"
-    "@babel/plugin-proposal-class-properties" "^7.16.0"
+    "@babel/plugin-proposal-className-properties" "^7.16.0"
     "@babel/plugin-proposal-decorators" "^7.16.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.16.0"
     "@babel/plugin-proposal-numeric-separator" "^7.16.0"
@@ -3771,9 +3771,9 @@
   "resolved" "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   "version" "1.2.2"
 
-"classnames@^2.2.1", "classnames@^2.2.3", "classnames@^2.2.5", "classnames@^2.2.6", "classnames@^2.3.1", "classnames@2.x":
+"classNames@^2.2.1", "classNames@^2.2.3", "classNames@^2.2.5", "classNames@^2.2.6", "classNames@^2.3.1", "classNames@2.x":
   "integrity" "sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw=="
-  "resolved" "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
+  "resolved" "https://registry.npmjs.org/classNames/-/classNames-2.3.2.tgz"
   "version" "2.3.2"
 
 "clean-css@^5.2.2":
@@ -7770,9 +7770,9 @@
   dependencies:
     "postcss-selector-parser" "^6.0.4"
 
-"postcss-dir-pseudo-class@^6.0.5":
+"postcss-dir-pseudo-className@^6.0.5":
   "integrity" "sha512-eqn4m70P031PF7ZQIvSgy9RSJ5uI2171O/OO/zcRNYpJbvaeKFUlar1aJ7rmgiQtbm0FSPsRewjpdS0Oew7MPA=="
-  "resolved" "https://registry.npmjs.org/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-6.0.5.tgz"
+  "resolved" "https://registry.npmjs.org/postcss-dir-pseudo-className/-/postcss-dir-pseudo-className-6.0.5.tgz"
   "version" "6.0.5"
   dependencies:
     "postcss-selector-parser" "^6.0.10"
@@ -8111,7 +8111,7 @@
     "@csstools/postcss-font-format-keywords" "^1.0.1"
     "@csstools/postcss-hwb-function" "^1.0.2"
     "@csstools/postcss-ic-unit" "^1.0.1"
-    "@csstools/postcss-is-pseudo-class" "^2.0.7"
+    "@csstools/postcss-is-pseudo-className" "^2.0.7"
     "@csstools/postcss-nested-calc" "^1.0.0"
     "@csstools/postcss-normalize-display-values" "^1.0.1"
     "@csstools/postcss-oklab-function" "^1.1.1"
@@ -8134,7 +8134,7 @@
     "postcss-custom-media" "^8.0.2"
     "postcss-custom-properties" "^12.1.9"
     "postcss-custom-selectors" "^6.0.3"
-    "postcss-dir-pseudo-class" "^6.0.5"
+    "postcss-dir-pseudo-className" "^6.0.5"
     "postcss-double-position-gradients" "^3.1.2"
     "postcss-env-function" "^4.0.6"
     "postcss-focus-visible" "^6.0.4"
@@ -8151,14 +8151,14 @@
     "postcss-overflow-shorthand" "^3.0.4"
     "postcss-page-break" "^3.0.4"
     "postcss-place" "^7.0.5"
-    "postcss-pseudo-class-any-link" "^7.1.6"
+    "postcss-pseudo-className-any-link" "^7.1.6"
     "postcss-replace-overflow-wrap" "^4.0.0"
     "postcss-selector-not" "^6.0.1"
     "postcss-value-parser" "^4.2.0"
 
-"postcss-pseudo-class-any-link@^7.1.6":
+"postcss-pseudo-className-any-link@^7.1.6":
   "integrity" "sha512-9sCtZkO6f/5ML9WcTLcIyV1yz9D1rf0tWc+ulKcvV30s0iZKS/ONyETvoWsr6vnrmW+X+KmuK3gV/w5EWnT37w=="
-  "resolved" "https://registry.npmjs.org/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-7.1.6.tgz"
+  "resolved" "https://registry.npmjs.org/postcss-pseudo-className-any-link/-/postcss-pseudo-className-any-link-7.1.6.tgz"
   "version" "7.1.6"
   dependencies:
     "postcss-selector-parser" "^6.0.10"
@@ -8418,7 +8418,7 @@
   "version" "4.0.12"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "dom-align" "^1.7.0"
     "lodash" "^4.17.21"
     "rc-util" "^5.3.0"
@@ -8431,7 +8431,7 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
     "array-tree-filter" "^2.1.0"
-    "classnames" "^2.3.1"
+    "classNames" "^2.3.1"
     "rc-select" "~14.1.0"
     "rc-tree" "~5.7.0"
     "rc-util" "^5.6.1"
@@ -8442,7 +8442,7 @@
   "version" "2.3.2"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
 
 "rc-collapse@~3.3.0":
   "integrity" "sha512-cOJfcSe3R8vocrF8T+PgaHDrgeA1tX+lwfhwSj60NX9QVRidsILIbRNDLD6nAzmcvVC5PWiIRiR4S1OobxdhCg=="
@@ -8450,7 +8450,7 @@
   "version" "3.3.1"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-motion" "^2.3.4"
     "rc-util" "^5.2.1"
     "shallowequal" "^1.1.0"
@@ -8461,7 +8461,7 @@
   "version" "8.9.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-motion" "^2.3.0"
     "rc-util" "^5.21.0"
 
@@ -8471,7 +8471,7 @@
   "version" "5.1.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-motion" "^2.6.1"
     "rc-util" "^5.21.2"
 
@@ -8481,7 +8481,7 @@
   "version" "4.0.1"
   dependencies:
     "@babel/runtime" "^7.18.3"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-trigger" "^5.3.1"
     "rc-util" "^5.17.0"
 
@@ -8500,7 +8500,7 @@
   "version" "5.7.1"
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-dialog" "~8.9.0"
     "rc-util" "^5.0.6"
 
@@ -8510,7 +8510,7 @@
   "version" "7.3.9"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "rc-util" "^5.23.0"
 
 "rc-input@~0.1.2":
@@ -8519,7 +8519,7 @@
   "version" "0.1.4"
   dependencies:
     "@babel/runtime" "^7.11.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-util" "^5.18.1"
 
 "rc-mentions@~1.10.0":
@@ -8528,7 +8528,7 @@
   "version" "1.10.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-menu" "~9.6.0"
     "rc-textarea" "^0.4.0"
     "rc-trigger" "^5.0.4"
@@ -8540,7 +8540,7 @@
   "version" "9.6.4"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-motion" "^2.4.3"
     "rc-overflow" "^1.2.0"
     "rc-trigger" "^5.1.2"
@@ -8553,7 +8553,7 @@
   "version" "2.6.2"
   dependencies:
     "@babel/runtime" "^7.11.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-util" "^5.21.0"
 
 "rc-notification@~4.6.0":
@@ -8562,7 +8562,7 @@
   "version" "4.6.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-motion" "^2.2.0"
     "rc-util" "^5.20.1"
 
@@ -8572,7 +8572,7 @@
   "version" "1.2.8"
   dependencies:
     "@babel/runtime" "^7.11.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-resize-observer" "^1.0.0"
     "rc-util" "^5.19.2"
 
@@ -8582,7 +8582,7 @@
   "version" "3.1.17"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
 
 "rc-picker@~2.6.11":
   "integrity" "sha512-INJ7ULu+Kj4UgqbcqE8Q+QpMw55xFf9kkyLBHJFk0ihjJpAV4glialRfqHE7k4KX2BWYPQfpILwhwR14x2EiRQ=="
@@ -8590,7 +8590,7 @@
   "version" "2.6.11"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "date-fns" "2.x"
     "dayjs" "1.x"
     "moment" "^2.24.0"
@@ -8604,7 +8604,7 @@
   "version" "3.3.3"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-util" "^5.16.1"
 
 "rc-rate@~2.9.0":
@@ -8613,7 +8613,7 @@
   "version" "2.9.2"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "rc-util" "^5.0.1"
 
 "rc-resize-observer@^1.0.0", "rc-resize-observer@^1.1.0", "rc-resize-observer@^1.2.0":
@@ -8622,7 +8622,7 @@
   "version" "1.2.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-util" "^5.15.0"
     "resize-observer-polyfill" "^1.5.1"
 
@@ -8632,7 +8632,7 @@
   "version" "2.1.0"
   dependencies:
     "@babel/runtime" "^7.11.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-motion" "^2.4.4"
     "rc-util" "^5.17.0"
 
@@ -8642,7 +8642,7 @@
   "version" "14.1.13"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-motion" "^2.0.1"
     "rc-overflow" "^1.0.0"
     "rc-trigger" "^5.0.4"
@@ -8655,7 +8655,7 @@
   "version" "10.0.1"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "rc-util" "^5.18.1"
     "shallowequal" "^1.1.0"
 
@@ -8665,7 +8665,7 @@
   "version" "4.1.4"
   dependencies:
     "@babel/runtime" "^7.10.2"
-    "classnames" "^2.2.3"
+    "classNames" "^2.2.3"
     "rc-util" "^5.0.1"
 
 "rc-switch@~3.2.0":
@@ -8674,7 +8674,7 @@
   "version" "3.2.2"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-util" "^5.0.1"
 
 "rc-table@~7.26.0":
@@ -8683,7 +8683,7 @@
   "version" "7.26.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "rc-resize-observer" "^1.1.0"
     "rc-util" "^5.22.5"
     "shallowequal" "^1.1.0"
@@ -8694,7 +8694,7 @@
   "version" "12.2.1"
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-dropdown" "~4.0.0"
     "rc-menu" "~9.6.0"
     "rc-motion" "^2.6.2"
@@ -8707,7 +8707,7 @@
   "version" "0.4.6"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "^2.2.1"
+    "classNames" "^2.2.1"
     "rc-resize-observer" "^1.0.0"
     "rc-util" "^5.24.4"
     "shallowequal" "^1.1.0"
@@ -8718,7 +8718,7 @@
   "version" "5.2.2"
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "classnames" "^2.3.1"
+    "classNames" "^2.3.1"
     "rc-trigger" "^5.0.0"
 
 "rc-tree-select@~5.5.0":
@@ -8727,7 +8727,7 @@
   "version" "5.5.3"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-select" "~14.1.0"
     "rc-tree" "~5.7.0"
     "rc-util" "^5.16.1"
@@ -8738,7 +8738,7 @@
   "version" "5.7.0"
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "classnames" "2.x"
+    "classNames" "2.x"
     "rc-motion" "^2.0.1"
     "rc-util" "^5.16.1"
     "rc-virtual-list" "^3.4.8"
@@ -8749,7 +8749,7 @@
   "version" "5.3.3"
   dependencies:
     "@babel/runtime" "^7.18.3"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-align" "^4.0.0"
     "rc-motion" "^2.0.0"
     "rc-util" "^5.19.2"
@@ -8760,7 +8760,7 @@
   "version" "4.3.4"
   dependencies:
     "@babel/runtime" "^7.18.3"
-    "classnames" "^2.2.5"
+    "classNames" "^2.2.5"
     "rc-util" "^5.2.0"
 
 "rc-util@^5.0.1", "rc-util@^5.0.6", "rc-util@^5.12.0", "rc-util@^5.15.0", "rc-util@^5.16.1", "rc-util@^5.17.0", "rc-util@^5.18.1", "rc-util@^5.19.2", "rc-util@^5.2.0", "rc-util@^5.2.1", "rc-util@^5.20.1", "rc-util@^5.21.0", "rc-util@^5.21.2", "rc-util@^5.22.5", "rc-util@^5.23.0", "rc-util@^5.24.4", "rc-util@^5.3.0", "rc-util@^5.4.0", "rc-util@^5.5.0", "rc-util@^5.6.1", "rc-util@^5.8.0", "rc-util@^5.9.4":
@@ -8778,7 +8778,7 @@
   "version" "3.4.11"
   dependencies:
     "@babel/runtime" "^7.20.0"
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "rc-resize-observer" "^1.0.0"
     "rc-util" "^5.15.0"
 
@@ -8803,7 +8803,7 @@
     "@restart/hooks" "^0.4.6"
     "@restart/ui" "^1.3.1"
     "@types/react-transition-group" "^4.4.4"
-    "classnames" "^2.3.1"
+    "classNames" "^2.3.1"
     "dom-helpers" "^5.2.1"
     "invariant" "^2.2.4"
     "prop-types" "^15.8.1"
@@ -8817,7 +8817,7 @@
   "resolved" "https://registry.npmjs.org/react-date-range/-/react-date-range-1.4.0.tgz"
   "version" "1.4.0"
   dependencies:
-    "classnames" "^2.2.6"
+    "classNames" "^2.2.6"
     "prop-types" "^15.7.2"
     "react-list" "^0.8.13"
     "shallow-equal" "^1.2.1"

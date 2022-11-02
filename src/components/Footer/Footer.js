@@ -5,7 +5,6 @@ import './Footer.scss';
 import FooterMobile from './FooterMobile';
 
 function Footer() {
-
   return (
     <div className="footer-infor bg-[#F7F7F7] pt-8 pb-[5rem]  w-full border-t-[1px] border-[#DDDDDD] ">
       <div className="container m-auto grid mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

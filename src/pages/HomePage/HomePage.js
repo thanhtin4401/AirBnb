@@ -71,9 +71,9 @@ function HomePage() {
         <div className="filter-background absolute bg-[#0000007a] w-full z-10 top-0 right-0 h-full "></div>
         <div className="flex px-[4rem] container justify-between z-20 w-full h-full items-center pt-[1rem]">
           <div className="text-center w-2/4 ">
-            <svg className='text-home' viewBox="0 0 1320 300">
+            <svg className="text-home" viewBox="0 0 1320 300">
               <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-              Monaco
+                Monaco
               </text>
             </svg>
             {/* <button
@@ -215,7 +215,7 @@ function HomePage() {
       <div className="container mx-auto my-20">
         <LiveAnyway />
       </div>
-      <div className="flex relative mt-10 bg-black w-full h-screen">
+      <div className="flex relative mb:hidden mt-10 bg-black w-full h-screen">
         <div className="flex relative  bg-black w-full h-screen mb:flex-col sm:flex-col ">
           <BannerVideo />
         </div>

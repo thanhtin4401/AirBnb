@@ -1,7 +1,7 @@
 import { useSelect, Search } from '@material-tailwind/react';
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect, koutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table, Input, Button, Tag } from 'antd';
+import { Table, Input, Button, Tag, message } from 'antd';
 import { getSearchUser, getUserList } from '../../../redux/manager/user';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
@@ -11,12 +11,12 @@ import ActionUser from './ActionUser';
 import { setDate } from 'date-fns';
 import { userService } from '../../../services/userService';
 const ListUserPage = () => {
-  // const allUserList = useSelector((state) => state.manager.user.allUser);
   const isDeleteSuccess = useSelector((state) => state.manager.user.isDeleteSuccess);
   const isUpdateSuccess = useSelector((state) => state.manager.user.isUpdateSuccess);
-  console.log('isUpdateSuccess', isUpdateSuccess);
+
   const dispatch = useDispatch();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
+  const { t } = useTranslation();
 
   const [isUpdateUserSuccess, setIsUpdateUserSuccess] = useState(false);
   const columns = [
@@ -26,27 +26,27 @@ const ListUserPage = () => {
       key: 'ID',
     },
     {
-      title: 'Họ tên',
+      title: t('Name'),
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Email',
+      title: t('Email'),
       dataIndex: 'email',
       key: 'email',
     },
     {
-      title: 'Birthday',
+      title: t('Birthday'),
       dataIndex: 'birthday',
       key: 'birthday',
     },
     {
-      title: 'phone',
+      title: t('phone'),
       dataIndex: 'phone',
       key: 'phone',
     },
     {
-      title: 'Avatar',
+      title: t('Avatar'),
       dataIndex: 'avatar',
       key: 'avatar',
       render: (text, record) => {
@@ -63,14 +63,14 @@ const ListUserPage = () => {
       },
     },
     {
-      title: 'Role',
+      title: t('Role'),
       dataIndex: 'Role',
       key: 'role',
       render: (text, record) => {
         if (record.role === 'ADMIN') {
-          return <Tag color={'red'}>Quản trị</Tag>;
+          return <Tag color={'red'}>{t('Admin')}</Tag>;
         } else {
-          return <Tag color={'blue'}>Khách hàng</Tag>;
+          return <Tag color={'blue'}>{t('Guest')}</Tag>;
         }
       },
     },
@@ -98,6 +98,7 @@ const ListUserPage = () => {
               ...user,
               action: (
                 <ActionUser
+                  handleOnSuccess={fetchListUser}
                   key={index}
                   ID={user.id}
                   setIsUpdateUserSuccess={setIsUpdateUserSuccess}
@@ -112,7 +113,7 @@ const ListUserPage = () => {
     };
     fetchListUser();
   }, []);
-  console.log('dataUser', isUpdateUserSuccess);
+
   useEffect(() => {
     if (searchUser == '' || searchUser == null) {
       let fetchListUser = () => {
@@ -160,7 +161,7 @@ const ListUserPage = () => {
             console.log(err);
           });
       };
-      console.log('qua la xam');
+
       fetchListUser();
     }
   }, [searchUser, isDeleteSuccess, isRegisterAccountSuccess, isUpdateSuccess]);
@@ -187,7 +188,6 @@ const ListUserPage = () => {
   //   });
   //   setDataUser(userList);
   // }, []);
-  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -195,11 +195,11 @@ const ListUserPage = () => {
   return (
     <>
       <div className="w-full text-left p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">LIST USER</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('LIST USER')}</h1>
       </div>
       <div className="flex items-center my-4">
         <Search
-          placeholder="Tìm tài khoản"
+          placeholder={t('Find Account')}
           onSearch={onSearchUser}
           enterButton
           className="search-user"
@@ -208,7 +208,7 @@ const ListUserPage = () => {
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1rem] h-[3.2rem]"
         >
-          + Thêm tài khoản
+          {t('+ Add Account')}
         </button>
       </div>
       {/* <div className="w-full mt-2 mb-2">
