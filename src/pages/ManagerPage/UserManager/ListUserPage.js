@@ -1,5 +1,5 @@
 import { useSelect, Search } from '@material-tailwind/react';
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect, koutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table, Input, Button, Tag, message } from 'antd';
 import { getSearchUser, getUserList } from '../../../redux/manager/user';

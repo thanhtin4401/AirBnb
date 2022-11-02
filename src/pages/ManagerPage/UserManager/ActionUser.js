@@ -29,7 +29,7 @@ export default function ActionUser({ ID, userInfor, handleOnSuccess }) {
   const showModal = () => {
     setOpen(true);
   };
-  console.log('userInfor', userInfor);
+
   const hideModal = () => {
     setOpen(false);
   };

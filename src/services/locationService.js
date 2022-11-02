@@ -19,4 +19,13 @@ export let locationService = {
   deleteLocation: (idLocation) => {
     return https.delete(`api/vi-tri/${idLocation}`);
   },
+  putLocation: (locationId, data) => {
+    return https.put(`/api/vi-tri/${locationId}`, data);
+  },
+  postLocation: (data) => {
+    return https.post(`/api/vi-tri`, data);
+  },
+  uploadImgLocation: (locationId, formData) => {
+    return https.post(`/api/vi-tri/upload-hinh-vitri?maViTri=${locationId}`, formData);
+  },
 };

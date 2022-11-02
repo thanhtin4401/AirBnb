@@ -27,7 +27,4 @@ export let roomService = {
   deleteRoom: (id) => {
     return https.delete(`api/phong-thue/${id}`);
   },
-  postRoom: (data) => {
-    return https.post(`/api/vi-tri`, data);
-  },
 };

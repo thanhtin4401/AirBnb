@@ -8,6 +8,7 @@ import UpdateLocationPage from './UpdateLocation';
 import { locationService } from '../../../services/locationService';
 export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
   const dispatch = useDispatch();
+
   let handleLocationDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
 

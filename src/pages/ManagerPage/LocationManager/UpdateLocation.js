@@ -1,4 +1,4 @@
-import { Form, Input, Modal } from 'antd';
+import { Form, Input, message, Modal } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { locationService } from '../../../services/locationService';
@@ -17,6 +17,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
       description: description,
     });
   };
+
   useEffect(() => {
     locationService
       .getLocation(ID)
@@ -45,18 +46,19 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
       quocGia: values.quocGia,
       hinhAnh: values.hinhAnh,
     };
-
+    console.log(infor);
     locationService
       .putLocation(ID, infor)
       .then((res) => {
-        openNotificationWithIcon('success', 'Hoàn tất', 'Bạn vừa cập nhật thông tin thành công!');
+        message.success('Cap nhat thanh cong');
+        setIsModalOpen(false);
         handleOnSuccessUpdate();
       })
       .catch((err) => {
+        setIsModalOpen(false);
         openNotificationWithIcon('error', 'Thất bại');
       });
   };
-  // setIsModalOpen(false);
 
   const onFinishFailed = (errorInfo) => {};
 
@@ -168,11 +170,11 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
                 alt=""
               />
               <br></br>
-              <input
+              {/* <input
                 type="file"
                 onChange={handleChangeFile}
                 accept="image/png,image/jpeg,image/jpg,image/gif"
-              />
+              /> */}
             </Form.Item>
             <Form.Item>
               <button

@@ -5,6 +5,7 @@ import './AddLocationPage.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { roomService } from '../../../services/RoomService';
+import { locationService } from '../../../services/locationService';
 function AddLocationPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
   const dispatch = useDispatch();
 
@@ -16,8 +17,8 @@ function AddLocationPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
       hinhAnh: values.hinhAnh,
     };
 
-    roomService
-      .postRoom(infor)
+    locationService
+      .postLocation(infor)
       .then((res) => {
         message.success('them thanh cong');
         handleOnSuccess();

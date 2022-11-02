@@ -10,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 import AddLocationPage from './AddLocationPage';
 import './ListLocationPage.scss';
 import ActionLocation from './ActionLocation';
+import UpdateLocation from './UpdateLocation';
+import UploadImg from '../UserManager/UploadImg';
 function ListLocationPage() {
   const isUpdateSuccess = useSelector((state) => state.manager.location.isUpdateSuccess);
   console.log('isUpdateSuccess', isUpdateSuccess);
@@ -47,18 +49,18 @@ function ListLocationPage() {
       title: 'Hình Ảnh',
       dataIndex: 'hinhAnh',
       key: '3',
-      render: (text, record) => {
-        return (
-          <img
-            className="w-[32px] h-[32px] rounded-[50rem]"
-            src={
-              record.hinhAnh
-                ? record.hinhAnh
-                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
-            }
-          />
-        );
-      },
+      // render: (text, record) => {
+      //   return (
+      //     <img
+      //       className="w-[32px] h-[32px] rounded-[50rem]"
+      //       src={
+      //         record.hinhAnh
+      //           ? record.hinhAnh
+      //           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
+      //       }
+      //     />
+      //   );
+      // },
     },
 
     {
@@ -108,16 +110,26 @@ function ListLocationPage() {
             return {
               key: index,
               ...location,
+              hinhAnh: (
+                <UploadImg
+                  handleOnSuccess={() => {
+                    handleOnSuccess();
+                  }}
+                  imgLocation={location.hinhAnh}
+                  key={index}
+                  ID={location.id}
+                />
+              ),
               action: (
                 <ActionLocation
                   key={index}
-                  ID={location.id}
+                  ID={location?.id}
+                  locationInfor={location}
                   setIsUpdateLocationSuccess={setIsUpdateLocationSuccess}
                 />
               ),
             };
           });
-
           setDataLocation(locationList);
         })
         .catch((err) => {});
@@ -135,10 +147,19 @@ function ListLocationPage() {
               return {
                 key: index,
                 ...location,
+                hinhAnh: (
+                  <UploadImg
+                    handleOnSuccess={() => {
+                      handleOnSuccess();
+                    }}
+                    imgLocation={location.hinhAnh}
+                    ID={location.id}
+                  />
+                ),
                 action: (
                   <ActionLocation
                     key={index}
-                    ID={location.id}
+                    ID={location?.id}
                     handleOnSuccess={fetchListLocation}
                     locationInfor={location}
                   />
@@ -166,7 +187,7 @@ function ListLocationPage() {
             action: (
               <ActionLocation
                 locationInfor={locationRes[0]}
-                ID={locationRes[0].id}
+                ID={locationRes[0]?.id}
                 handleOnSuccess={() => {
                   handleOnSuccess();
                 }}
@@ -181,29 +202,7 @@ function ListLocationPage() {
       fetchListLocation();
     }
   }, [searchLocation]);
-  // useEffect(() => {
-  //   dispatch(getSearchLocation(searchLocation));
-  //   const LocationList = allLocationList?.map((Location, index) => {
-  //     return {
-  //       key: index,
-  //       ...Location,
-  //       action: <ActionLocation ID={Location.id} />,
-  //     };
-  //   });
-  //   setDataLocation(LocationList);
-  // }, [searchLocation]);
 
-  // useEffect(() => {
-  //   dispatch(getLocationList());
-  //   const LocationList = allLocationList?.map((Location, index) => {
-  //     return {
-  //       key: index,
-  //       ...Location,
-  //       action: <ActionLocation ID={Location.id} />,
-  //     };
-  //   });
-  //   setDataLocation(LocationList);
-  // }, []);
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
@@ -228,14 +227,6 @@ function ListLocationPage() {
           + Thêm vị trí
         </button>
       </div>
-      {/* <div className="w-full mt-2 mb-2">
-        <button
-          onClick={handleShowModal}
-          className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1.2rem] "
-        >
-          + Thêm tài khoản
-        </button>
-      </div> */}
       <Table
         columns={columns}
         dataSource={dataLocation}
