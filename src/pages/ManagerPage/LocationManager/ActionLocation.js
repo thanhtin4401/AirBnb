@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 import { deleteLocation } from '../../../redux/manager/location';
 import UpdateLocationPage from './UpdateLocation';
 import { locationService } from '../../../services/locationService';
+import { useTranslation } from 'react-i18next';
 export default function ActionLocation({ ID, LocationInfor, handleOnSuccess }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   let handleLocationDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
@@ -44,7 +46,6 @@ export default function ActionLocation({ ID, LocationInfor, handleOnSuccess }) {
         console.log(err);
       });
   };
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -55,14 +56,14 @@ export default function ActionLocation({ ID, LocationInfor, handleOnSuccess }) {
         onClick={showModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Xoá
+        {t('Delete')}
       </button>
 
       <button
         onClick={handleShowModal}
         className="border rounded text-black  hover:bg-[#FF385C] hover:text-white transition-all px-2 py-2"
       >
-        Cập nhật
+        {t('Update')}
       </button>
       <Modal
         className="modal-confirm-delete"
@@ -73,7 +74,9 @@ export default function ActionLocation({ ID, LocationInfor, handleOnSuccess }) {
         okText="comfirm"
         cancelText="cancle"
       >
-        <h1 className="">Bạn có chắc muốn xoá vị trí: {LocationInfor?.name}</h1>
+        <h1 className="">
+          {t('Are you sure you want to delete location: ')} {LocationInfor?.name}
+        </h1>
       </Modal>
       <UpdateLocationPage
         isModalOpen={isModalOpen}

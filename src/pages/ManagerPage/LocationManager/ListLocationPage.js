@@ -27,24 +27,24 @@ function ListLocationPage() {
       fixed: 'left',
     },
     {
-      title: 'Tên Vị Trí',
+      title: t('Location Name'),
       width: 100,
       dataIndex: 'tenViTri',
       key: 'tenViTri',
       fixed: 'left',
     },
     {
-      title: 'Tỉnh Thành',
+      title: t('Province'),
       dataIndex: 'tinhThanh',
       key: '1',
     },
     {
-      title: 'Quốc Gia',
+      title: t('Country'),
       dataIndex: 'quocGia',
       key: '2',
     },
     {
-      title: 'Hình Ảnh',
+      title: t('Picture'),
       dataIndex: 'hinhAnh',
       key: '3',
       render: (text, record) => {
@@ -62,7 +62,7 @@ function ListLocationPage() {
     },
 
     {
-      title: 'Thao tác',
+      title: t('Action'),
       dataIndex: 'action',
       key: 'acion',
     },
@@ -189,11 +189,11 @@ function ListLocationPage() {
   return (
     <>
       <div className="w-full text-left p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">List Location</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('LOCATION LIST')}</h1>
       </div>
       <div className="flex items-center my-4">
         <Search
-          placeholder="Tìm vị trí"
+          placeholder={T('Find Location')}
           onSearch={onSearchLocation}
           enterButton
           className="search-Location"
@@ -202,7 +202,7 @@ function ListLocationPage() {
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1rem] h-[3.2rem]"
         >
-          + Thêm vị trí
+          {t('+ Add Location')}
         </button>
       </div>
       {/* <div className="w-full mt-2 mb-2">

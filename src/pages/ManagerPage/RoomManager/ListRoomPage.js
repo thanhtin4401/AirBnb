@@ -23,29 +23,29 @@ function RoomManager() {
       fixed: 'left',
     },
     {
-      title: 'Tên Phòng',
+      title: t('Room Name'),
       width: 100,
       dataIndex: 'tenPhong',
       key: 'tenPhong',
       fixed: 'left',
     },
     {
-      title: 'Khách',
+      title: t('Guest'),
       dataIndex: 'khach',
       key: '1',
     },
     {
-      title: 'Phòng ngủ',
+      title: t('Bedroom'),
       dataIndex: 'phongNgu',
       key: '2',
     },
     {
-      title: 'Giường',
+      title: t('Bed'),
       dataIndex: 'giuong',
       key: '3',
     },
     {
-      title: 'Phòng tắm',
+      title: t('Bathroom'),
       dataIndex: 'phongTam',
       key: '4',
     },
@@ -55,7 +55,7 @@ function RoomManager() {
     //   key: '5',
     // },
     {
-      title: 'Gia tiền',
+      title: t('Price'),
       dataIndex: 'giaTien',
       key: '6',
     },
@@ -105,12 +105,12 @@ function RoomManager() {
     //   key: '15',
     // },
     {
-      title: 'Mã vị trí',
+      title: t('Location ID'),
       dataIndex: 'maViTri',
       key: '16',
     },
     {
-      title: 'Hình ảnh',
+      title: t('Picture'),
       dataIndex: 'hinhAnh',
       key: 'avatar',
       render: (text, record) => {
@@ -248,15 +248,20 @@ function RoomManager() {
   return (
     <>
       <div className="w-full text-center p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">LIST ROOM</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('LIST ROOM')}</h1>
       </div>
-      <Search placeholder="Tìm phòng" onSearch={onSearchRoom} enterButton className="search-room" />
+      <Search
+        placeholder={t('Find Room')}
+        onSearch={onSearchRoom}
+        enterButton
+        className="search-room"
+      />
       <div className="w-full mt-2 mb-2">
         <button
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1.2rem] "
         >
-          + Thêm phòng
+          {t('+ Add Room')}
         </button>
       </div>
       <Table

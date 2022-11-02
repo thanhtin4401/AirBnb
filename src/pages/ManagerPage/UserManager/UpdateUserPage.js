@@ -89,7 +89,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
 
   return (
     <Modal
-      title="Cập nhật tài khoản"
+      title={t('Update Account')}
       open={isModalOpen}
       className="modal_add-user"
       onCancel={handleCancel}
@@ -112,7 +112,7 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Email</p>
+            <p className="">{t('Email')}</p>
             <Form.Item
               className="mb-4"
               name="email"

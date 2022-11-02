@@ -68,10 +68,10 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Thêm tên phòng</p>
+            <p className="">{t('Add Room Name')}</p>
             <Form.Item
               className="mb-4"
-              name="Tên Phòng"
+              name={t('Room Name')}
               rules={[
                 {
                   required: true,
@@ -100,10 +100,10 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
                 style={{ width: '100%' }}
                 className="border  px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Khách')}
+                placeholder={t('Guest')}
               />
             </Form.Item>
-            <p className="">{t('Số phòng ngủ')}</p>
+            <p className="">{t('Bed number')}</p>
             <Form.Item
               className="mb-4"
               name="bedroom"
@@ -118,13 +118,13 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem] 
                   "
-                placeholder={t('Phòng ngủ')}
+                placeholder={t('Bed Room')}
               />
             </Form.Item>
 
             <Row span={24} style={{ width: '100%' }}>
               <Col span={12} style={{ paddingRight: '0.2rem' }}>
-                <p className="">{t('Giường')}</p>
+                <p className="">{t('Bed')}</p>
                 <Form.Item
                   className="mb-4"
                   name="bed"
@@ -140,14 +140,14 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
                   style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
                   name="bathroom"
                 >
-                  <Select className="w-full dropdowregister " placeholder={t('Phòng tắm')}>
+                  <Select className="w-full dropdowregister " placeholder={t('Bathroom')}>
                     <Select.Option value="true">{t('có')}</Select.Option>
-                    <Select.Option value="false">{t('không')}</Select.Option>
+                    <Select.Option value="false">{t('No')}</Select.Option>
                   </Select>
                 </Form.Item>
               </Col>
             </Row>
-            <p className="">{t('Giá tiền')}</p>
+            <p className="">{t('Price')}</p>
             <Form.Item
               className="mb-4"
               name="price"
@@ -161,7 +161,7 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder={t('Nhập giá tiền')}
+                placeholder={t('Enter Price')}
               />
             </Form.Item>
             {/* <p className="">{t('Role')}</p>
@@ -177,7 +177,7 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
               </Select>
             </Form.Item> */}
             <Form.Item
-              rules={[{ required: true, message: 'Vui lòng nhập hình ảnh' }]}
+              rules={[{ required: true, message: 'Please add picture' }]}
               label="Poster"
               valuePropName="hinhAnh"
             >

@@ -65,7 +65,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
 
   return (
     <Modal
-      title="Thêm Vị Trí"
+      title={'Thêm Vị Trí'}
       open={isModalOpen}
       className="modal_add-location"
       onCancel={handleCancel}
@@ -87,7 +87,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <p className="">Vị trí</p>
+            <p className="">{t('Location')}</p>
             <Form.Item
               className="mb-4"
               name="viTri"
@@ -101,7 +101,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
               <Input
                 style={{ width: '100%' }}
                 className="input border px-[14px] py-[14px] rounded-[0.5rem]"
-                placeholder="Vị Trí"
+                placeholder={to('Location')}
               />
             </Form.Item>
             <p className="">{t('Province')}</p>

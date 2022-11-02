@@ -17,6 +17,7 @@ const ListUserPage = () => {
   console.log('isUpdateSuccess', isUpdateSuccess);
   const dispatch = useDispatch();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
+  const { t } = useTranslation();
 
   const [isUpdateUserSuccess, setIsUpdateUserSuccess] = useState(false);
   const columns = [
@@ -26,27 +27,27 @@ const ListUserPage = () => {
       key: 'ID',
     },
     {
-      title: 'Họ tên',
+      title: t('Name'),
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Email',
+      title: t('Email'),
       dataIndex: 'email',
       key: 'email',
     },
     {
-      title: 'Birthday',
+      title: t('Birthday'),
       dataIndex: 'birthday',
       key: 'birthday',
     },
     {
-      title: 'phone',
+      title: t('phone'),
       dataIndex: 'phone',
       key: 'phone',
     },
     {
-      title: 'Avatar',
+      title: t('Avatar'),
       dataIndex: 'avatar',
       key: 'avatar',
       render: (text, record) => {
@@ -63,14 +64,14 @@ const ListUserPage = () => {
       },
     },
     {
-      title: 'Role',
+      title: t('Role'),
       dataIndex: 'Role',
       key: 'role',
       render: (text, record) => {
         if (record.role === 'ADMIN') {
-          return <Tag color={'red'}>Quản trị</Tag>;
+          return <Tag color={'red'}>{t('Admin')}</Tag>;
         } else {
-          return <Tag color={'blue'}>Khách hàng</Tag>;
+          return <Tag color={'blue'}>{t('Guest')}</Tag>;
         }
       },
     },
@@ -187,7 +188,6 @@ const ListUserPage = () => {
   //   });
   //   setDataUser(userList);
   // }, []);
-  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -195,11 +195,11 @@ const ListUserPage = () => {
   return (
     <>
       <div className="w-full text-left p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">LIST USER</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('LIST USER')}</h1>
       </div>
       <div className="flex items-center my-4">
         <Search
-          placeholder="Tìm tài khoản"
+          placeholder={t('Find Account')}
           onSearch={onSearchUser}
           enterButton
           className="search-user"
@@ -208,7 +208,7 @@ const ListUserPage = () => {
           onClick={handleShowModal}
           className="py-[6px] px-[12px] bg-black transition-all hover:bg-[#FF385C] text-white font-[600] text-[1rem] h-[3.2rem]"
         >
-          + Thêm tài khoản
+          {t('+ Add Account')}
         </button>
       </div>
       {/* <div className="w-full mt-2 mb-2">

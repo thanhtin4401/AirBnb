@@ -178,7 +178,33 @@
 "Login Airbnb":"Đăng nhập vào Airbnb",
 "You have no wishlist": "Bạn chưa có địa điểm hay chuyến đi ưa thích",
 "Log out":"Đăng xuất",
-"Trip": "Chuyến đi "
+"Trip": "Chuyến đi ",
+"Delete":"Xoá",
+"Update": "Cập nhật",
+"Are you sure you want to delete account: ":"Bạn có chắc là muốn xoá tài khoản: ",
+"Add Account":"Thêm Tài Khoản",
+"Admin":"Quản trị viên",
+"Guest":"Khách hàng",
+"LIST USER":"QUẢN LÍ NGƯỜI DÙNG",
+"Find Account":"Tìm tài khoản",
+"+ Add Account":"+ Thêm tài khoản",
+"Update Account":"Cập nhật tài khoản",
+"Are you sure you want to delete room: ":"Bạn có chắc là bạn muốn xoá Phòng: ",
+"Room Name":"Tên phòng",
+"Please input your Room Name!":"Vui lòng nhập tên phòng!",
+"Picture":"Hình ảnh",
+"Location ID":"Mã vị trí",
+"LIST ROOM":"QUẢN LÍ PHÒNG",
+"Find Room":"Tìm phòng",
+"Add Room Name":"Thêm tên phòng",
+"Bed number":"Số phòng ngủ",
+"Enter Price":"Nhập giá",
+"Please add picture":"Thêm hình ảnh"
+
+
+
+
+
 
 
 }
