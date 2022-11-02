@@ -138,8 +138,7 @@
     "Non-refunable": "Non-refunable",
     "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.": "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.",
     "Find out More": "Find out More",
-
-
+    "Under":"Under",
     "The input is not valid E-mail!": "The input is not valid E-mail!",
     "your password must be max 16 characters.": "your password must be max 16 characters.",
     "your password must be minimum 6 characters.": "your password must be minimum 6 characters.",
@@ -216,5 +215,18 @@
 "Peace":"Peace",
 "Tropical":"Tropical",
 "River Side":"River Side",
-"Star":"Star"
+"Star":"Star",
+"Cleanliness":"Cleanliness",
+"Communication":"Communication",
+"Check-in":"Check-in",
+"Accuracy":"Accuracy",
+"Location":"Location",
+"Value":"Value",
+"reviews":"reviews",
+"Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.":"Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.",
+"/night":"night",
+"guests":"guests",
+"Age":"Age",
+"kilometers away":"kilometers away"
+
 }

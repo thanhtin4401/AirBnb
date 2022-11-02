@@ -383,10 +383,11 @@ function DetailRoomPage() {
                     air<span className="font-[700] text-black text-[32px]">cover</span>
                   </h1>
                   <p className="text-[1rem] font-[300] my-[0.7rem] text-[#222222]">
-                    Every booking includes free protection from Host cancellations, listing
-                    inaccuracies, and other issues like trouble checking in.
+                    {t(
+                      'Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.'
+                    )}
                   </p>
-                  <span className="font-[700] underline text-[1rem]">Learn more</span>
+                  <span className="font-[700] underline text-[1rem]">{t('Learn more')}</span>
                 </div>
                 <div className="aircover py-[2.2rem] border-b-[1px] border-[#dadada]">
                   <p className="text-[1rem] font-[300] my-[0.7rem] text-[#222222]">
@@ -512,15 +513,15 @@ function DetailRoomPage() {
                     d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
                   />
                 </svg>
-                <p className="font-[600] text-[1.2rem]">4.75 . 4 reviews</p>
+                <p className="font-[600] text-[1.2rem]">4.75 . 4 {t('reviews')}</p>
               </div>
               <div className="rate grid grid-rows-3 mb:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-y-4  gap-x-16 my-4">
-                <RateStarReviewService service="Cleanliness" rate="4.8" />
-                <RateStarReviewService service="Communication" rate="5.0" />
-                <RateStarReviewService service="Check-in" rate="3.5" />
-                <RateStarReviewService service="Accuracy" rate="4.0" />
-                <RateStarReviewService service="Location" rate="4.5" />
-                <RateStarReviewService service="Value" rate="3.8" />
+                <RateStarReviewService service={t('Cleanliness')} rate="4.8" />
+                <RateStarReviewService service={t('Communication')} rate="5.0" />
+                <RateStarReviewService service={t('Check-in')} rate="3.5" />
+                <RateStarReviewService service={t('Accuracy')} rate="4.0" />
+                <RateStarReviewService service={t('Location')} rate="4.5" />
+                <RateStarReviewService service={t('Value')} rate="3.8" />
               </div>
 
               <div className="md:hidden w-full">
