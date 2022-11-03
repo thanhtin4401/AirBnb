@@ -9,10 +9,12 @@ import { roomService } from '../../../services/RoomService';
 import ActionRoom from './ActionRoom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import AddRoomPage from './AddRoomPage';
 function RoomManager() {
   const isDeleteSuccess = useSelector((state) => state.manager.room.isDeleteSuccess);
   // const dispatch = useDispatch();
+  const { t } = useTranslation();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
   const columns = [
     {
@@ -21,6 +23,23 @@ function RoomManager() {
       dataIndex: 'id',
       key: 'ID',
       fixed: 'left',
+    },
+    {
+      title: t('Picture'),
+      dataIndex: 'hinhAnh',
+      key: 'avatar',
+      render: (text, record) => {
+        return (
+          <img
+            className="w-[100px] h-[100px] rounded-[0.5rem] object-cover"
+            src={
+              record.hinhAnh
+                ? record.hinhAnh
+                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
+            }
+          />
+        );
+      },
     },
     {
       title: t('Room Name'),
@@ -104,28 +123,6 @@ function RoomManager() {
     //   dataIndex: 'banUi',
     //   key: '15',
     // },
-    {
-      title: t('Location ID'),
-      dataIndex: 'maViTri',
-      key: '16',
-    },
-    {
-      title: t('Picture'),
-      dataIndex: 'hinhAnh',
-      key: 'avatar',
-      render: (text, record) => {
-        return (
-          <img
-            className="w-[32px] h-[32px] rounded-[50rem]"
-            src={
-              record.hinhAnh
-                ? record.hinhAnh
-                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
-            }
-          />
-        );
-      },
-    },
 
     {
       title: 'Thao tác',
@@ -236,7 +233,7 @@ function RoomManager() {
   //   });
   //   setDataUser(userList);
   // }, []);
-  const { t } = useTranslation();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
