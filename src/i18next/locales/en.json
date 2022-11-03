@@ -12,8 +12,8 @@
     "Filter": "Filter",
     "Show All": "Show All",
     "Pet Allower": "Pet Allower",
-    "Date start": "Date-start",
-    "Date end": "Date-end",
+    "Date Start": "Date Start",
+    "Date End": "Date End",
     "GUESTS": "GUESTS",
     "_Guests": "Guests",
     "CANCELLATIONPOLICES": "CANCELLATIONPOLICES",
@@ -138,8 +138,7 @@
     "Non-refunable": "Non-refunable",
     "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.": "Free cancellation before 22 Jun. Cancel before check-in on 23 Jun for a partial refund.",
     "Find out More": "Find out More",
-
-
+    "Under": "Under",
     "The input is not valid E-mail!": "The input is not valid E-mail!",
     "your password must be max 16 characters.": "your password must be max 16 characters.",
     "your password must be minimum 6 characters.": "your password must be minimum 6 characters.",
@@ -159,10 +158,11 @@
     "Help & support": "Help & support",
     "You have no unread messages": "You have no unread messages",
     "When you book a trip or experience": "When you book a trip or experience",
-
-
+    "messages from your host will show up here": "messages from your host will show up here",
+    "Login": "Login",
+    "Inbox": "Inbox",
     "Messages": "Messages",
-
+    "Explore Airbnb": "Explore Airbnb",
     "Wishlists": "Wishlists",
     "When you like a trip or experience": "When you like a trip or experience",
     "messages from your host will show up here": "messages from your host will show up here",
@@ -177,11 +177,11 @@
     "Log out": "Log out",
     "Trip": "Trip",
     "Delete": "Delete",
-
+    "Update": "Update",
     "Are you sure you want to delete account: ": "Are you sure you want to delete account: ",
     "Add Account": "Add Account",
     "Admin": "Admin",
-
+    "Guest": "Guest",
     "LIST USER": "LIST USER",
     "Find Account": "Find Account",
     "+ Add Account": "+ Add Account",
@@ -189,7 +189,7 @@
     "Are you sure you want to delete room: ": "Are you sure you want to delete room: ",
     "Room Name": "Room Name",
     "Please input your Room Name!": "Please input your Room Name!",
-
+    "Picture": "Picture",
     "Location ID": "Location ID",
     "LIST ROOM": "LIST ROOM",
     "Find Room": "Find Room",
@@ -204,5 +204,28 @@
     "Picture": "Picture",
     "Action": "Action",
     "LOCATION LIST": "LOCATION LIST",
-    "+ Add Location": "+ Add Location"
+    "+ Add Location": "+ Add Location",
+    "Any Week": "Any Week",
+    "Add Guest": "Add Guest",
+    "MoonLight": "MoonLight",
+    "WaterFall": "WaterFall",
+    "River": "River",
+    "Desert": "Desert",
+    "Peace": "Peace",
+    "Tropical": "Tropical",
+    "River Side": "River Side",
+    "Star": "Star",
+    "Cleanliness": "Cleanliness",
+    "Communication": "Communication",
+    "Check-in": "Check-in",
+    "Accuracy": "Accuracy",
+    "Location": "Location",
+    "Value": "Value",
+    "reviews": "reviews",
+    "Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.": "Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.",
+    "/night": "night",
+    "guests": "guests",
+    "Age": "Age",
+    "kilometers away": "kilometers away"
+
 }

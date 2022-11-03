@@ -13,7 +13,6 @@ import { useTranslation } from 'react-i18next';
 import AddRoomPage from './AddRoomPage';
 function RoomManager() {
   const isDeleteSuccess = useSelector((state) => state.manager.room.isDeleteSuccess);
-  // const dispatch = useDispatch();
   const { t } = useTranslation();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
   const columns = [

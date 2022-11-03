@@ -10,7 +10,9 @@ import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
 import { Link } from 'react-router-dom';
 import { dataIMG } from '../../Data/Data';
+import { useTranslation } from 'react-i18next';
 function CardItem({ roomInfor }) {
+  const { t } = useTranslation();
   const [heartColor, setheartColor] = useState(false);
   const handleHeartColor = () => {
     setheartColor(true);
@@ -94,12 +96,12 @@ function CardItem({ roomInfor }) {
           </div>
         </div>
         <p className="text-[0.8rem] text-left font-[400] text-[black] opacity-60">
-          9000km kilometers away
+          9000km {t('kilometers away')}
         </p>
         <p className="text-[0.8rem] text-left text-[black] opacity-60">Oct 2-9</p>
         <div className="flex items-center">
           <p className="text-[0.9rem] mr-2 font-[500] text-[black] ">${roomInfor.giaTien}</p>
-          <span className="font-300 text-[0.8rem] font-[400] text-[black]">night</span>
+          <span className="font-300 text-[0.8rem] font-[400] text-[black]">{t('/night')}</span>
         </div>
       </div>
     </Link>
