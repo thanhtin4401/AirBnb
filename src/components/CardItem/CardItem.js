@@ -10,7 +10,9 @@ import { FaStar } from 'react-icons/fa';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
 import { Link } from 'react-router-dom';
 import { dataIMG } from '../../Data/Data';
+import { useTranslation } from 'react-i18next';
 function CardItem({ roomInfor }) {
+  const { t } = useTranslation();
   const [heartColor, setheartColor] = useState(false);
   const handleHeartColor = () => {
     setheartColor(true);
