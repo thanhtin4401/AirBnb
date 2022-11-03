@@ -129,10 +129,10 @@ function Register() {
                 className="mb-4"
                 name="name"
                 rules={[
-                  {
-                    pattern: new RegExp(/^[a-zA-Z]*$/),
-                    message: t('field does not accept numbers or special charactor'),
-                  },
+                  // {
+                  //   pattern: new RegExp(/^(?:\d*)$/),
+                  //   message: t('field does not accept numbers or special charactor'),
+                  // },
 
                   {
                     required: true,
@@ -180,7 +180,7 @@ function Register() {
                 className="mb-4"
                 name="phone"
                 rules={[
-                  { max: 9, message: t('Userphone must be max  9 characters.') },
+                  { max: 10, message: t('Userphone must be max  9 characters.') },
 
                   {
                     required: true,
@@ -198,14 +198,15 @@ function Register() {
                   placeholder={t('+84 Phone Number')}
                 />
               </Form.Item>
-              <Button
-                className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white"
+
+              <button
+                className="hover:blacks w-full rounded-[0.5rem] bg-slate-500 btn-login text-white py-[6px] px-[12px]"
                 type="primary"
                 size="large"
                 htmltype="submit"
               >
                 {t('Register')}
-              </Button>
+              </button>
             </Form>
             <div className="flex justify-center w-full">
               <Link to="/Login" className="mt-5 text-blue text-left text-bold">

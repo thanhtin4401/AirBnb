@@ -57,7 +57,6 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
       })
       .catch((err) => {
         setIsModalOpen(false);
-        openNotificationWithIcon('error', 'Thất bại');
       });
   };
 
