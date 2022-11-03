@@ -18,7 +18,8 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
       description: description,
     });
   };
-
+  console.log('ID update', ID);
+  console.log('ID locationInfor', locationInfor);
   useEffect(() => {
     locationService
       .getLocation(ID)
@@ -38,7 +39,7 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
         quocGia: locationInfor?.quocGia,
         hinhAnh: locationInfor?.hinhAnh,
       });
-  }, [form, locationApi]);
+  }, [form, locationApi, locationInfor]);
 
   const onFinish = (values) => {
     const infor = {
