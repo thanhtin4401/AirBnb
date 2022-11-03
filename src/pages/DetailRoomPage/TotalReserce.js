@@ -142,7 +142,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             />
           </svg>
           <p className="font-[500] text-[1.2rem] mx-1">{total}</p>
-          <span className="text-[0.6rem] font-[300]">night</span>
+          <span className="text-[0.6rem] font-[300]">{'night'}</span>
         </div>
 
         <div className="flex items-center">
@@ -162,7 +162,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           </svg>
           <p className="text-[0.8rem] font-[500] mx-1">4.8</p>
 
-          <span className="text-[0.8rem] font-[500] opacity-60 underline">5 review</span>
+          <span className="text-[0.8rem] font-[500] opacity-60 underline">5 {t('reviews')}</span>
         </div>
       </div>
       <div className="w-full  py-2">
@@ -197,7 +197,9 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           >
             <div className="">
               <h2 className="font-[400] text-[1rem]">{t('GUESTS')}</h2>
-              <p className="font-[300] text-[1rem] mt-1">{guets} guests</p>
+              <p className="font-[300] text-[1rem] mt-1">
+                {guets} {t('guests')}
+              </p>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -217,8 +219,8 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           >
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
-                <p className="text-[0.8rem] font-[600]">Adults</p>
-                <span className="text-[0.8rem] font-[300]">Age 13+</span>
+                <p className="text-[0.8rem] font-[600]">{t('Adults')}</p>
+                <span className="text-[0.8rem] font-[300]">{t('Age')} 13+</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
                 <button
@@ -271,8 +273,8 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             </div>
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
-                <p className="text-[0.8rem] font-[600]">Children</p>
-                <span className="text-[0.8rem] font-[300]">Age 12 - 16</span>
+                <p className="text-[0.8rem] font-[600]">{t('Children')}</p>
+                <span className="text-[0.8rem] font-[300]">{t('Age')} 12 - 16</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
                 <button
@@ -325,8 +327,8 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
             </div>
             <div className="flex items-center w-full my-[12px]">
               <div className="w-[70%] flex flex-col ">
-                <p className="text-[0.8rem] font-[600]">Infants</p>
-                <span className="text-[0.8rem] font-[300]">Under 2</span>
+                <p className="text-[0.8rem] font-[600]">{t('Infants')}</p>
+                <span className="text-[0.8rem] font-[300]">{t('Under')} 2</span>
               </div>
               <div className="w-[30%] flex items-center justify-center ">
                 <button
@@ -378,7 +380,9 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
               </div>
             </div>
             <p className="font-[300] text-[0.8rem]">
-              This place has a maximum of 8 guests, not including infants. Pets aren't allowed.
+              {t(
+                'This place has a maximum of 8 guests, not including infants. Pets are not allowed.'
+              )}
             </p>
 
             <p
@@ -395,7 +399,7 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
           }}
           className="my-4 flex justify-between w-full pr-[12px]"
         >
-          CANCELLATIONPOLICES{' '}
+          {t('CANCELLATIONPOLICES')}{' '}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -519,7 +523,9 @@ function TotalReserce({ mobile, handleIsReserve, isReserve, desktop, roomId, tot
       </div>
       <div className="total flex justify-between pt-[1.25rem] border-t-[1px] border-[#dadada]">
         <h1 className="font-[500] text-[1rem]">{t('Total before taxes')}</h1>
-        <p className="text-[1rem] font-[600]">{total} Total</p>
+        <p className="text-[1rem] font-[600]">
+          {total} {t('Total')}
+        </p>
       </div>
       <button
         onClick={() => {

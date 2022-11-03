@@ -91,39 +91,38 @@ function ListLocationPage() {
     return str.toLowerCase();
   }
   const onSearch = (value) => console.log(value);
+  let fetchListLocation = () => {
+    locationService
+      .getLocationList()
+      .then((res) => {
+        let locationList = res.data.content.map((location, index) => {
+          return {
+            key: index,
+            ...location,
+            hinhAnh: (
+              <UploadImg
+                handleOnSuccess={fetchListLocation}
+                imgLocation={location.hinhAnh}
+                key={index}
+                ID={location.id}
+              />
+            ),
+            action: (
+              <ActionLocation
+                key={index}
+                ID={location?.id}
+                handleOnSuccess={fetchListLocation}
+                locationInfor={location}
+                setIsUpdateLocationSuccess={setIsUpdateLocationSuccess}
+              />
+            ),
+          };
+        });
+        setDataLocation(locationList);
+      })
+      .catch((err) => {});
+  };
   useEffect(() => {
-    let fetchListLocation = () => {
-      locationService
-        .getLocationList()
-        .then((res) => {
-          let locationList = res.data.content.map((location, index) => {
-            return {
-              key: index,
-              ...location,
-              hinhAnh: (
-                <UploadImg
-                  handleOnSuccess={() => {
-                    handleOnSuccess();
-                  }}
-                  imgLocation={location.hinhAnh}
-                  key={index}
-                  ID={location.id}
-                />
-              ),
-              action: (
-                <ActionLocation
-                  key={index}
-                  ID={location?.id}
-                  locationInfor={location}
-                  setIsUpdateLocationSuccess={setIsUpdateLocationSuccess}
-                />
-              ),
-            };
-          });
-          setDataLocation(locationList);
-        })
-        .catch((err) => {});
-    };
     fetchListLocation();
   }, []);
 
@@ -139,9 +138,7 @@ function ListLocationPage() {
                 ...location,
                 hinhAnh: (
                   <UploadImg
-                    handleOnSuccess={() => {
-                      handleOnSuccess();
-                    }}
+                    handleOnSuccess={fetchListLocation}
                     imgLocation={location.hinhAnh}
                     ID={location.id}
                   />
@@ -178,9 +175,7 @@ function ListLocationPage() {
               <ActionLocation
                 locationInfor={locationRes[0]}
                 ID={locationRes[0]?.id}
-                handleOnSuccess={() => {
-                  handleOnSuccess();
-                }}
+                handleOnSuccess={fetchListLocation}
               />
             ),
           },
@@ -227,7 +222,7 @@ function ListLocationPage() {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         handleOnSuccess={() => {
-          handleOnSuccess();
+          fetchListLocation();
         }}
       />
       ;

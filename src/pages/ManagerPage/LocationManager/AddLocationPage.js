@@ -22,6 +22,7 @@ function AddLocationPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
       .then((res) => {
         message.success('them thanh cong');
         handleOnSuccess();
+        setIsModalOpen(false);
         return res;
       })
       .catch((err) => {

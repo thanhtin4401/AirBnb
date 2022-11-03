@@ -109,8 +109,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('MoonLight')}</h1>
+                <p className="opacity-60 text-[0.8rem]">350km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -120,8 +120,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('WaterFall')}</h1>
+                <p className="opacity-60 text-[0.8rem]">250km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -131,8 +131,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('River')}</h1>
+                <p className="opacity-60 text-[0.8rem]">550km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -142,8 +142,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('Desert')}</h1>
+                <p className="opacity-60 text-[0.8rem]">20km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -153,8 +153,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('Peace')}</h1>
+                <p className="opacity-60 text-[0.8rem]">200km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -164,8 +164,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{'Tropical'}</h1>
+                <p className="opacity-60 text-[0.8rem]">250km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -175,8 +175,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('River Side')}</h1>
+                <p className="opacity-60 text-[0.8rem]">30km</p>
               </div>
             </div>
             <div className="flex justify-start items-center">
@@ -186,8 +186,8 @@ function HomePage() {
                 alt=""
               />
               <div className="">
-                <h1 className="text-[0.9rem] font-bold">location name</h1>
-                <p className="opacity-60 text-[0.8rem]">start 250</p>
+                <h1 className="text-[0.9rem] font-bold">{t('Star')}</h1>
+                <p className="opacity-60 text-[0.8rem]">100km</p>
               </div>
             </div>
           </div>
