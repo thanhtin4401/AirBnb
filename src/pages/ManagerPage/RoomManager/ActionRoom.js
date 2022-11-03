@@ -5,8 +5,9 @@ import './ActionRoom.scss';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../../redux/manager/user';
 import UpdateRoomPage from './UpdateRoomPage';
-
+import { useTranslation } from 'react-i18next';
 export default function ActionRoom({ ID, roomInfor }) {
+  const { t } = useTranslation();
   // const dispatch = useDispatch();
   let handleUserDelete = () => {
     // dispatch(deleteMovieActionService(movieID, handleOnSuccess));

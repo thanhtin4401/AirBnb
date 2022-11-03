@@ -30,12 +30,12 @@ export default function ActionLocation({ ID, locationInfor, handleOnSuccess }) {
       .deleteLocation(id)
       .then((res) => {
         handleOnSuccess();
-        message.success(res.data.message);
+        message.success('Xoa Thanh Cong');
 
         return res;
       })
       .catch((err) => {
-        message.success(err.response.data.message);
+        message.success('Xoa That bai');
       });
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
