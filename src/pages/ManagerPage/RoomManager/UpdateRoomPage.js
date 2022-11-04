@@ -51,8 +51,8 @@ function UpdateRoomPage({ setIsModalOpen, isModalOpen, ID }) {
   };
   return (
     <Modal title="Thêm Phòng" open={isModalOpen} className="modal_add-user" onCancel={handleCancel}>
-      <div className=" w-fll flex justify-center items-center">
-        <div className="">
+      <div className=" w-full flex justify-center items-center">
+        <div className="w-full">
           <Form
             name="basic"
             labelCol={{
