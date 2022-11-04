@@ -11,7 +11,7 @@ import AddLocationPage from './AddLocationPage';
 import './ListLocationPage.scss';
 import ActionLocation from './ActionLocation';
 import UpdateLocation from './UpdateLocation';
-import UploadImg from '../UserManager/UploadImg';
+import UploadImg from './UploadImg';
 
 function ListLocationPage() {
   const { t } = useTranslation();
@@ -195,7 +195,7 @@ function ListLocationPage() {
   return (
     <>
       <div className="w-full text-left p-2 bg-[#FF385C]">
-        <h1 className="text-white text-[3rem] font-[700]">{t('LOCATION LIST')}</h1>
+        <h1 className="text-white text-[3rem] font-[700]">{t('Quản lý danh sách điạ điểm')}</h1>
       </div>
       <div className="flex items-center my-4">
         <Search

@@ -94,8 +94,8 @@ function UpdateUserPage({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
       className="modal_add-user"
       onCancel={handleCancel}
     >
-      <div className=" w-fll flex justify-center items-center">
-        <div className="">
+      <div className=" w-full flex justify-center items-center">
+        <div className="w-full">
           <Form
             form={form}
             name="basic"
