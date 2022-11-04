@@ -11,6 +11,7 @@ import {
   Row,
   InputNumber,
   Checkbox,
+  message,
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../../redux/auth/authSlice';
@@ -18,33 +19,54 @@ import { useTranslation } from 'react-i18next';
 import './AddRoomPage.scss';
 import moment from 'moment';
 import './AddRoomPage.scss';
-function AddRoomPage({ setIsModalOpen, isModalOpen }) {
+import { locationService } from '../../../services/locationService';
+import { roomService } from '../../../services/RoomService';
+function AddRoomPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
   const dispatch = useDispatch();
   const { TextArea } = Input;
   const onFinish = (values) => {
-    let birthday = moment(values.birthday).format('dd / mm / yyyy');
-
     const infor = {
       tenPhong: values.tenPhong,
-      khach: values.khach,
+      Khach: values.Khach,
       phongNgu: values.phongNgu,
       giuong: values.giuong,
-      phongTam: phongTam,
-      mayGiat: values.mayGiat,
-      banLa: values.banLa,
-      tivi: values.tivi,
-      wifi: values.wifi,
-      bep: values.bep,
-      doXe: values.doXe,
-      hoBoi: values.hoBoi,
-      banUi: values.banUi,
+      moTa: values.moTa,
+      phongTam: values.phongTam,
+      mayGiac: values.checkbox.indexOf('mayGiac') >= 1 ? true : false,
+      banLa: values.checkbox.indexOf('banLa') >= 1 ? true : false,
+      tivi: values.checkbox.indexOf('tivi') >= 1 ? true : false,
+      wifi: values.checkbox.indexOf('wifi') >= 1 ? true : false,
+      bep: values.checkbox.indexOf('bep') >= 1 ? true : false,
+      doXe: values.checkbox.indexOf('doXe') >= 1 ? true : false,
+      hoBoi: values.checkbox.indexOf('hoBoi') >= 1 ? true : false,
+      banUi: values.checkbox.indexOf('banUi') >= 1 ? true : false,
       maViTri: values.maViTri,
       hinhAnh: values.hinhAnh,
     };
-
-    dispatch(registerUser(infor));
+    roomService
+      .postRoom(infor)
+      .then((res) => {
+        message.success('them thanh cong');
+        handleOnSuccess();
+        setIsModalOpen(false);
+        return res;
+      })
+      .catch((err) => {
+        message.success('them thanh cong');
+        console.log(err);
+      });
   };
-
+  const [locationList, setLocationList] = useState([]);
+  useEffect(() => {
+    locationService
+      .getLocationList()
+      .then((res) => {
+        setLocationList(res.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const onFinishFailed = (errorInfo) => {};
 
   const { Option } = Select;
@@ -109,11 +131,12 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                   className="mb-4"
                   wrapperCol={{ sm: 24 }}
                   style={{ width: '100%', borderRadius: 'none', marginRight: 0 }}
-                  name="gender"
+                  name="maViTri"
                 >
                   <Select className="w-full dropdowregister " placeholder={t('Vị Trí')}>
-                    <Select.Option value="true">{t('male')}</Select.Option>
-                    <Select.Option value="false">{t('female')}</Select.Option>
+                    {locationList.map((item) => {
+                      return <Select.Option value={item.id}>{item.tenViTri}</Select.Option>;
+                    })}
                   </Select>
                 </Form.Item>
                 <div className="flex justify-between">
@@ -121,7 +144,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                     <p className="">{t('Số lượng khách')}</p>
                     <Form.Item
                       className="mb-4"
-                      name="soLuongKhach"
+                      name="Khach"
                       rules={[
                         {
                           required: true,
@@ -181,7 +204,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                 <p className="">{t('Mô tả')}</p>
                 <Form.Item
                   className="mb-4"
-                  name="quocGia"
+                  name="moTa"
                   rules={[
                     {
                       required: true,
@@ -198,7 +221,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                 <p className="">{t('Price')}</p>
                 <Form.Item
                   className="mb-4"
-                  name="hinhAnh"
+                  name="giaTien"
                   rules={[
                     {
                       required: true,
@@ -234,12 +257,12 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
               </div>
               <div className="w-2/4 pl-6">
                 <h2 className="font-[600] text-[1rem] text-[#FF385C] ">Thông tin bổ xung</h2>
-                <Form.Item name="checkbox-group">
+                <Form.Item name="checkbox">
                   <Checkbox.Group>
                     <div className="flex flex-col">
                       <Checkbox
                         className="checkbox-add-room"
-                        value="true"
+                        value="mayGiac"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -248,7 +271,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="Bàn là"
+                        value="banLa"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -257,7 +280,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value=""
+                        value="tivi"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -266,16 +289,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="Điều hoà"
-                        style={{
-                          lineHeight: '32px',
-                        }}
-                      >
-                        Điều hoà
-                      </Checkbox>
-                      <Checkbox
-                        className="checkbox-add-room"
-                        value="Wifi"
+                        value="wifi"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -284,7 +298,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="D"
+                        value="bep"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -293,7 +307,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="D"
+                        value="doXe"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -302,7 +316,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="D"
+                        value="hoBoi"
                         style={{
                           lineHeight: '32px',
                         }}
@@ -311,12 +325,12 @@ function AddRoomPage({ setIsModalOpen, isModalOpen }) {
                       </Checkbox>
                       <Checkbox
                         className="checkbox-add-room"
-                        value="D"
+                        value="banUi"
                         style={{
                           lineHeight: '32px',
                         }}
                       >
-                        Bàn ủi
+                        Bàn Ủi
                       </Checkbox>
                     </div>
                   </Checkbox.Group>

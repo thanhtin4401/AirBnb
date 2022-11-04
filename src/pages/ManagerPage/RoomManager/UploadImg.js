@@ -6,6 +6,7 @@ import { getSearchUser, getUserList } from '../../../redux/manager/user';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { locationService } from '../../../services/locationService';
+import { roomService } from '../../../services/RoomService';
 const UploadImgRoom = ({ ID, imgRoom, handleOnSuccess }) => {
   const dispatch = useDispatch();
 
@@ -20,8 +21,8 @@ const UploadImgRoom = ({ ID, imgRoom, handleOnSuccess }) => {
     setOpenModal(false);
     const formData = new FormData();
     formData.append('formFile', file);
-    locationService
-      .uploadImgLocation(ID, formData)
+    roomService
+      .uploadImgRoom(ID, formData)
       .then((res) => {
         message.success('cap nhat anh thanh cong');
         handleOnSuccess();

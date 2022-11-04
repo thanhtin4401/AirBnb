@@ -1,4 +1,4 @@
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import './ActionRoom.scss';
@@ -6,24 +6,14 @@ import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../../redux/manager/user';
 import UpdateRoomPage from './UpdateRoomPage';
 import { useTranslation } from 'react-i18next';
-export default function ActionRoom({ ID, roomInfor }) {
+import { roomService } from '../../../services/RoomService';
+export default function ActionRoom({ ID, roomInfor, handleOnSuccess }) {
   const { t } = useTranslation();
-  // const dispatch = useDispatch();
+
   let handleUserDelete = () => {
-    // dispatch(deleteMovieActionService(movieID, handleOnSuccess));
     Modal.destroyAll();
   };
 
-  // const confirm = () => {
-  //   Modal.confirm({
-  //     title: 'Xác nhận',
-  //     icon: <ExclamationCircleOutlined />,
-  //     content: 'Bạn có chắc muốn xoá phim này',
-  //     okText: 'Xác nhận',
-  //     cancelText: 'Huỷ',
-  //     onOk: handleUserDelete,
-  //   });
-  // };
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
@@ -33,7 +23,17 @@ export default function ActionRoom({ ID, roomInfor }) {
   };
   const handleComfirm = (id) => {
     setOpen(false);
-    dispatch(deleteUser(id));
+    roomService
+      .deleteRoom(id)
+      .then((res) => {
+        message.success('xoa thanh cong');
+        handleOnSuccess();
+        setIsModalOpen(false);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
