@@ -3,6 +3,7 @@ import './CardItem.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
+import { useTranslation } from 'react-i18next';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,6 +12,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
 import { Link } from 'react-router-dom';
 import { dataIMG } from '../../Data/Data';
 function CardItem({ roomInfor }) {
+  const { t } = useTranslation();
   const [heartColor, setheartColor] = useState(false);
   const handleHeartColor = () => {
     setheartColor(true);

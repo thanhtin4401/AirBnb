@@ -9,8 +9,12 @@ import CardItemHeader from '../../components/CardItem/CardItemHeader';
 import './TabsHeader.scss';
 import GridImgHeader from '../../components/CardItem/GridImgHeader';
 import { useTranslation } from 'react-i18next';
+import PopUpModal from '../PopUpModal/PopUpModal';
+import CardItemHeader2 from '../../components/CardItem/CardItemMultiple/CardItemHeader2';
+import CardItemHeader3 from '../../components/CardItem/CardItemMultiple/CardItemHeader3';
+import CardItemHeader4 from '../../components/CardItem/CardItemMultiple/CardItemHeader4';
+import CardItemHeader5 from '../../components/CardItem/CardItemMultiple/CardItemHeader5';
 function TabPanel(props) {
-  const { t } = useTranslation();
   const { children, value, index, ...other } = props;
   const [screen, setScreen] = useState(window.innerHeight);
   const resize = () => {
@@ -50,9 +54,17 @@ function a11yProps(index) {
 
 export default function TabsHeader({ props }) {
   const [value, setValue] = React.useState(0);
+  const { t } = useTranslation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const [openTraiLer, setOpenTrailer] = useState(false);
+  const handleClickOpen = () => {
+    setOpenTrailer(!openTraiLer);
+  };
+  const closeTrailer = () => {
+    setOpenTrailer(false);
   };
 
   return (
@@ -122,8 +134,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 200',
           }}
         />
-
-        <CardItemHeader
+        <CardItemHeader2
           src="https://upload.travelawaits.com/ta/uploads/2021/04/ef89ea2918733bbe55510ded85699ef89ea.jpg"
           content={{
             title: 'The Best Things To Do In Rio De Janeiro',
@@ -131,7 +142,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 400',
           }}
         />
-        <CardItemHeader
+        <CardItemHeader3
           src="https://www.abercrombiekent.com/-/media/ak/media-for-prod/destinations/mastheads/asia-singapore-marina-skyline-mh.jpg?h=660&w=1920&la=en&hash=9D036204A16170792E3931E00D9FF027"
           content={{
             title: 'Singapore Luxury Travel: Luxury Singapore Tours',
@@ -139,7 +150,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 600',
           }}
         />
-        <CardItemHeader
+        <CardItemHeader4
           src="https://smile.cebupacificair.com/wp-content/uploads/2015/12/shutterstock_697069453_Singapore.jpg"
           content={{
             title: 'Singapore Travel Guide and Itinerary',
@@ -147,7 +158,7 @@ export default function TabsHeader({ props }) {
             text: 'Images may be subject to copyright 100',
           }}
         />
-        <CardItemHeader
+        <CardItemHeader5
           src="https://i0.wp.com/www.eastmojo.com/wp-content/uploads/2022/03/Singapore-scaled.jpg?fit=1200%2C800&ssl=1"
           content={{
             title: 'Singapore to ease cross-border ',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-export default function PopUpModal({ open, close }) {
+export default function PopUpModal5({ open, close }) {
   if (!open) return null;
   return (
     <div className="sticky top-0 left-0 w-full h-full z-50 bg-black/90">
@@ -8,8 +8,8 @@ export default function PopUpModal({ open, close }) {
         <iframe
           width="500"
           height="400"
-          src="https://www.youtube.com/embed/SpOWgms2uto"
-          title="Vietnam's Ha Long Bay Is a Spectacular Garden of Islands | National Geographic"
+          src="https://www.youtube.com/embed/6BiPYh8jptA"
+          title="Malaysia, Singapore agree to ease COVID-19 curb for cross-border travel"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
