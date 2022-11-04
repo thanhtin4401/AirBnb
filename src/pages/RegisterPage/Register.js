@@ -61,15 +61,14 @@ function Register() {
         </Link>
 
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
-          <div className="animate__delay-1s animate__animated animate__fadeInUp">
+          <div className="animate__delay-1s animate__animated animate__fadeInUp w-[320px]">
             <div className="flex justify-between mb-2 items-center animate__delay-1s animate__animated animate__fadeInUp">
               <h1 className="font-bold text-[20px]">{t('REGISTER')}</h1>
-              <div className="flex items-center">
-                <DropdownLanguages />
-              </div>
+              <DropdownLanguages />
             </div>
             <Form
               name="basic"
+              className="register-form"
               labelCol={{
                 span: 8,
               }}
