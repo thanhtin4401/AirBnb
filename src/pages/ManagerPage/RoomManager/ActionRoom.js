@@ -35,6 +35,7 @@ export default function ActionRoom({ ID, roomInfor, handleOnSuccess }) {
         console.log(err);
       });
   };
+  console.log('roomInforaction', roomInfor);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -68,7 +69,13 @@ export default function ActionRoom({ ID, roomInfor, handleOnSuccess }) {
           {roomInfor?.room}
         </h1>
       </Modal>
-      <UpdateRoomPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ID={ID} />
+      <UpdateRoomPage
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        ID={ID}
+        roomInfor={roomInfor}
+        handleOnSuccessUpdate={handleOnSuccess}
+      />
     </div>
   );
 }

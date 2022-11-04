@@ -32,6 +32,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
       giuong: values.giuong,
       moTa: values.moTa,
       phongTam: values.phongTam,
+      giaTien: values.giaTien,
       mayGiac: values.checkbox.indexOf('mayGiac') >= 1 ? true : false,
       banLa: values.checkbox.indexOf('banLa') >= 1 ? true : false,
       tivi: values.checkbox.indexOf('tivi') >= 1 ? true : false,
@@ -139,68 +140,7 @@ function AddRoomPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
                     })}
                   </Select>
                 </Form.Item>
-                <div className="flex justify-between">
-                  <div className="">
-                    <p className="">{t('Số lượng khách')}</p>
-                    <Form.Item
-                      className="mb-4"
-                      name="Khach"
-                      rules={[
-                        {
-                          required: true,
-                          message: t('Please input your Guest Number!'),
-                        },
-                      ]}
-                    >
-                      <InputNumber
-                        className="border py-[14] rounded-[0.5rem]"
-                        min={1}
-                        max={10}
-                        defaultValue={1}
-                      />
-                    </Form.Item>
-                  </div>
-                  <div className="">
-                    <p className="">{t('Phòng ngũ')}</p>
-                    <Form.Item
-                      className="mb-4"
-                      name="phongNgu"
-                      rules={[
-                        {
-                          required: true,
-                          message: t('Please input your Guest Number!'),
-                        },
-                      ]}
-                    >
-                      <InputNumber
-                        className="border py-[14] rounded-[0.5rem]"
-                        min={1}
-                        max={10}
-                        defaultValue={1}
-                      />
-                    </Form.Item>
-                  </div>
-                  <div className="">
-                    <p className="">{t('Giường')}</p>
-                    <Form.Item
-                      className="mb-4"
-                      name="giuong"
-                      rules={[
-                        {
-                          required: true,
-                          message: t('Please input your Guest Number!'),
-                        },
-                      ]}
-                    >
-                      <InputNumber
-                        className="border py-[14] rounded-[0.5rem]"
-                        min={1}
-                        max={10}
-                        defaultValue={1}
-                      />
-                    </Form.Item>
-                  </div>
-                </div>
+
                 <p className="">{t('Mô tả')}</p>
                 <Form.Item
                   className="mb-4"
@@ -332,6 +272,69 @@ function AddRoomPage({ setIsModalOpen, isModalOpen, handleOnSuccess }) {
                       >
                         Bàn Ủi
                       </Checkbox>
+
+                      <h2 className="font-[600] text-[1rem] text-[#FF385C] ">Số lượng</h2>
+
+                      <div className="w-full">
+                        <p className="">{t('Số lượng khách')}</p>
+                        <Form.Item
+                          className="mb-4 w-full"
+                          name="Khach"
+                          rules={[
+                            {
+                              required: true,
+                              message: t('Please input your Guest Number!'),
+                            },
+                          ]}
+                        >
+                          <InputNumber
+                            className="border py-[14] rounded-[0.5rem]"
+                            min={1}
+                            max={10}
+                            defaultValue={1}
+                          />
+                        </Form.Item>
+                      </div>
+                      <div className="w-full">
+                        <p className="">{t('Phòng ngũ')}</p>
+                        <Form.Item
+                          className="mb-4 w-full"
+                          name="phongNgu"
+                          rules={[
+                            {
+                              required: true,
+                              message: t('Please input your Guest Number!'),
+                            },
+                          ]}
+                        >
+                          <InputNumber
+                            className="border py-[14] rounded-[0.5rem]"
+                            min={1}
+                            max={10}
+                            defaultValue={1}
+                          />
+                        </Form.Item>
+                      </div>
+                      <div className="w-full">
+                        <p className="">{t('Giường')}</p>
+                        <Form.Item
+                          className="mb-4 w-full"
+                          name="giuong"
+                          rules={[
+                            {
+                              required: true,
+                              message: t('Please input your Guest Number!'),
+                            },
+                          ]}
+                        >
+                          <InputNumber
+                            className="border py-[14] rounded-[0.5rem]"
+                            min={1}
+                            max={10}
+                            defaultValue={1}
+                          />
+                        </Form.Item>
+                      </div>
                     </div>
                   </Checkbox.Group>
                 </Form.Item>

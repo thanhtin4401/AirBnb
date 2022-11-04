@@ -167,7 +167,14 @@ function RoomManager() {
                 ID={room.id}
               />
             ),
-            action: <ActionRoom key={index} ID={room.id} handleOnSuccess={fetchListRoom} />,
+            action: (
+              <ActionRoom
+                roomInfor={room}
+                key={index}
+                ID={room.id}
+                handleOnSuccess={fetchListRoom}
+              />
+            ),
           };
         });
         console.log('roomList: ', roomList);
@@ -209,7 +216,14 @@ function RoomManager() {
                     ID={room.id}
                   />
                 ),
-                action: <ActionRoom key={index} ID={room.id} handleOnSuccess={fetchListRoom} />,
+                action: (
+                  <ActionRoom
+                    roomInfor={room}
+                    key={index}
+                    ID={room.id}
+                    handleOnSuccess={fetchListRoom}
+                  />
+                ),
               };
             });
 
