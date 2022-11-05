@@ -51,7 +51,7 @@ function Register() {
   const auth = useSelector((state) => state.auth);
   return (
     <div className="login flex items-center justify-center h-screen mb:p-0 sm :p-0 lg:p-[24px]">
-      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]">
+      <div className="flex bg-white items-center relative w-[70rem] border rounded-[0.5rem] login-wrapper p-5 mb:h-screen sm:h-screen md:h-screen lg:h-[100%]  animate__animated animate__fadeInUp">
         <Link className="absolute top-[24px] left-[24px]" to="/">
           <img
             className=" w-[6rem]"
@@ -61,15 +61,14 @@ function Register() {
         </Link>
 
         <div className=" mb:w-full sm:w-full lg:w-2/4 h-screen flex justify-center items-center">
-          <div className="">
-            <div className="flex justify-between mb-2 items-center">
+          <div className="animate__delay-1s animate__animated animate__fadeInUp w-[320px]">
+            <div className="flex justify-between mb-2 items-center animate__delay-1s animate__animated animate__fadeInUp">
               <h1 className="font-bold text-[20px]">{t('REGISTER')}</h1>
-              <div className="flex items-center">
-                <DropdownLanguages />
-              </div>
+              <DropdownLanguages />
             </div>
             <Form
               name="basic"
+              className="register-form"
               labelCol={{
                 span: 8,
               }}
@@ -216,7 +215,7 @@ function Register() {
           </div>
         </div>
         <div className="w-2/4  mb:hidden sm:hidden lg:flex relative bg-[#e86f7d] overflow-hidden h-full flex justify-center items-center rounded-[0.5rem]">
-          <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10">
+          <div className="glass h-[80%] relative w-[30rem] rouded-[0.5rem] bg-mainColor z-10 animate__delay-1s animate__animated animate__fadeInUp">
             <h1 className="text-white text-[30px] text-left p-5">
               Start your journey by one click, explore beautiful world!
             </h1>

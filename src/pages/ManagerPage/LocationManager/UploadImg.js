@@ -5,11 +5,6 @@ import { Table, Input, Button, Tag, message, Modal } from 'antd';
 import { getSearchUser, getUserList } from '../../../redux/manager/user';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import './ListUserPage.scss';
-import AddUserPage from './AddUserPage';
-import ActionUser from './ActionUser';
-import { setDate } from 'date-fns';
-import { userService } from '../../../services/userService';
 import { locationService } from '../../../services/locationService';
 const UploadImg = ({ ID, imgLocation, handleOnSuccess }) => {
   const dispatch = useDispatch();

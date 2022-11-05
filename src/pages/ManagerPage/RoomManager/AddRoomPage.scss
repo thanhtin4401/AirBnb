@@ -1,4 +1,5 @@
 .modal_add-room {
+    width: 800px !important;
     .ant-modal-header {
         border-radius: 1rem 1rem 0rem 0rem;
         background-color: #FF385C;
@@ -25,4 +26,12 @@
         // padding: unset;
         padding: 0 1rem;
     }
+}
+
+.ant-col-16 {
+    max-width: 100%!important;
+}
+
+.checkbox-add-room {
+    margin-left: 0!important;
 }

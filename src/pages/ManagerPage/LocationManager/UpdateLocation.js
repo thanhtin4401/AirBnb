@@ -84,13 +84,13 @@ function UpdateLocation({ setIsModalOpen, isModalOpen, ID, handleOnSuccessUpdate
   };
   return (
     <Modal
-      title={'Thêm Vị Trí'}
+      title={'Cập Nhật Vị Trí'}
       open={isModalOpen}
       className="modal_update-location"
       onCancel={handleCancel}
     >
-      <div className=" w-fll flex justify-center items-center">
-        <div className="">
+      <div className=" w-full flex justify-center items-center">
+        <div className="w-full">
           <Form
             form={form}
             name="basic"

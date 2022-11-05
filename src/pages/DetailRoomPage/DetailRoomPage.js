@@ -177,7 +177,9 @@ function DetailRoomPage() {
                 <img
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img1
+                      ? imgRoomList[0]?.data?.img1
+                        ? imgRoomList[0]?.data?.img1
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -187,7 +189,9 @@ function DetailRoomPage() {
                 <img
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img2
+                      ? imgRoomList[0]?.data?.img2
+                        ? imgRoomList[0]?.data?.img2
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -197,7 +201,9 @@ function DetailRoomPage() {
                 <img
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img3
+                      ? imgRoomList[0]?.data?.img3
+                        ? imgRoomList[0]?.data?.img3
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -207,7 +213,9 @@ function DetailRoomPage() {
                 <img
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img4
+                      ? imgRoomList[0]?.data?.img4
+                        ? imgRoomList[0]?.data?.img4
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -217,7 +225,9 @@ function DetailRoomPage() {
                 <img
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img5
+                      ? imgRoomList[0]?.data?.img4
+                        ? imgRoomList[0]?.data?.img4
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -269,10 +279,12 @@ function DetailRoomPage() {
             <div className="image mb-2 mb:hidden sm:hidden md:block">
               <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[350px]">
                 <img
-                  className="rounded-[0.5rem] h-full w-full row-span-2 col-span-2 w-full h-full object-cover"
+                  className="rounded-[0.5rem] h-full w-full row-span-2 col-span-2 object-cover"
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img1
+                      ? imgRoomList[0]?.data?.img1
+                        ? imgRoomList[0]?.data?.img1
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -281,7 +293,9 @@ function DetailRoomPage() {
                   className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img2
+                      ? imgRoomList[0]?.data?.img2
+                        ? imgRoomList[0]?.data?.img2
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -290,7 +304,9 @@ function DetailRoomPage() {
                   className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img3
+                      ? imgRoomList[0]?.data?.img3
+                        ? imgRoomList[0]?.data?.img4
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
@@ -300,7 +316,9 @@ function DetailRoomPage() {
                     className="rounded-[0.5rem] h-full w-full object-cover col-span-1"
                     src={`${
                       imgRoomList
-                        ? imgRoomList[0]?.data.img4
+                        ? imgRoomList[0]?.data?.img4
+                          ? imgRoomList[0]?.data?.img4
+                          : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                         : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                     }`}
                     alt=""
@@ -311,7 +329,9 @@ function DetailRoomPage() {
                   className="rounded-[0.5rem] h-full w-full object-cover"
                   src={`${
                     imgRoomList
-                      ? imgRoomList[0]?.data.img5
+                      ? imgRoomList[0]?.data?.img5
+                        ? imgRoomList[0]?.data?.img5
+                        : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                       : 'https://usbforwindows.com/storage/img/images_3/function_set_default_image_when_image_not_present.png'
                   }`}
                   alt=""
