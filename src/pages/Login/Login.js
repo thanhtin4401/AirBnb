@@ -57,22 +57,11 @@ function Login() {
           <div className="animate__delay-1s animate__animated animate__fadeInUp">
             <div className="flex justify-between mb-2 items-center animate__delay-1s animate__animated animate__fadeInUp">
               <h1 className="font-bold text-[20px]">{t('LOGIN')}</h1>
-              <div className="flex items-center ">
-                {/* <Select
-                  defaultValue="VN"
-                  style={{
-                    width: 120,
-                  }}
-                  onChange={handleChange}
-                >
-                  <Option value="jack">ENG</Option>
-                  <Option value="lucy">VN</Option>
-                </Select> */}
-                <DropdownLanguages />
-              </div>
+              <DropdownLanguages />
             </div>
             <Form
               name="basic"
+              className="form-login"
               labelCol={{
                 span: 8,
               }}

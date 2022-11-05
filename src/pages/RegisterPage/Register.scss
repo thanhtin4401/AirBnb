@@ -17,6 +17,11 @@
     }
 }
 
+.register-form {
+    position: relative;
+    z-index: -1;
+}
+
 .datepicker-register {
     border-radius: 0.3rem!important;
 }

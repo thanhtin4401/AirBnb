@@ -16,6 +16,28 @@ function RoomManager() {
   const isDeleteSuccess = useSelector((state) => state.manager.room.isDeleteSuccess);
   const { t } = useTranslation();
   const isRegisterAccountSuccess = useSelector((state) => state.auth.isRegisterAccountSuccess);
+  function convertString(str) {
+    // Gộp nhiều dấu space thành 1 space
+    str = str.replace(/\s+/g, ' ');
+    // loại bỏ toàn bộ dấu space (nếu có) ở 2 đầu của chuỗi
+    str = str.trim();
+    // bắt đầu xóa dấu tiếng việt  trong chuỗi
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+    str = str.replace(/đ/g, 'd');
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, 'A');
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, 'E');
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, 'I');
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, 'O');
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, 'U');
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, 'Y');
+    str = str.replace(/Đ/g, 'D');
+    return str.toLowerCase();
+  }
   const columns = [
     {
       title: 'ID',
@@ -28,21 +50,7 @@ function RoomManager() {
     {
       title: t('Picture'),
       dataIndex: 'hinhAnh',
-      // key: 'avatar',
       key: '3',
-      // width: 150,
-      // render: (text, record) => {
-      //   return (
-      //     <img
-      //       className="w-[100px] h-[100px] rounded-[0.5rem] object-cover"
-      //       src={
-      //         record.hinhAnh
-      //           ? record.hinhAnh
-      //           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYk517l_JVMrV2jf042ozAGKNehKJjjEHyQtS7bB3PUp_UUWofpG8qdylOOOgmjuxHzB4&usqp=CAU'
-      //       }
-      //     />
-      //   );
-      // },
     },
     {
       title: t('Room Name'),
@@ -133,45 +141,50 @@ function RoomManager() {
     setsearchRoom(value);
   };
   const [dataRoom, setDataRoom] = useState([]);
-
-  useEffect(() => {
-    let fetchListRoom = () => {
-      roomService
-        .getRoomList()
-        .then((res) => {
-          let roomList = res.data.content.map((room, index) => {
-            const dichVu =
-              `${room.mayGiat ? 'Máy Giặt' : ''}` +
-              `${room.banLa ? ', Bàn là' : ''}` +
-              `${room.tivi ? ', Tivi' : ''}` +
-              `${room.wifi ? ', Wifi' : ''}` +
-              `${room.bep ? ', Bếp' : ''}` +
-              `${room.doXe ? ', Đổ xe' : ''}` +
-              `${room.hoBoi ? ', Hồ bơi' : ''}` +
-              `${room.banUi ? ', Bàn Ủi' : ''}`;
-            console.log('dichVu', dichVu);
-            return {
-              key: index,
-              ...room,
-              dichVuKhac: dichVu,
-              hinhAnh: (
-                <UploadImgRoom
-                  handleOnSuccess={fetchListRoom}
-                  imgRoom={room.hinhAnh}
-                  key={index}
-                  ID={room.id}
-                />
-              ),
-              action: <ActionRoom key={index} ID={room.id} />,
-            };
-          });
-          console.log('roomList: ', roomList);
-          setDataRoom(roomList);
-        })
-        .catch((err) => {
-          console.log(err);
+  let fetchListRoom = () => {
+    roomService
+      .getRoomList()
+      .then((res) => {
+        let roomList = res.data.content.map((room, index) => {
+          const dichVu =
+            `${room.mayGiat ? 'Máy Giặt' : ''}` +
+            `${room.banLa ? ', Bàn là' : ''}` +
+            `${room.tivi ? ', Tivi' : ''}` +
+            `${room.wifi ? ', Wifi' : ''}` +
+            `${room.bep ? ', Bếp' : ''}` +
+            `${room.doXe ? ', Đổ xe' : ''}` +
+            `${room.hoBoi ? ', Hồ bơi' : ''}` +
+            `${room.banUi ? ', Bàn Ủi' : ''}`;
+          return {
+            key: index,
+            ...room,
+            dichVuKhac: dichVu,
+            hinhAnh: (
+              <UploadImgRoom
+                handleOnSuccess={fetchListRoom}
+                imgRoom={room.hinhAnh}
+                key={index}
+                ID={room.id}
+              />
+            ),
+            action: (
+              <ActionRoom
+                roomInfor={room}
+                key={index}
+                ID={room.id}
+                handleOnSuccess={fetchListRoom}
+              />
+            ),
+          };
         });
-    };
+        console.log('roomList: ', roomList);
+        setDataRoom(roomList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
     fetchListRoom();
   }, []);
 
@@ -203,7 +216,14 @@ function RoomManager() {
                     ID={room.id}
                   />
                 ),
-                action: <ActionRoom key={index} ID={room.id} />,
+                action: (
+                  <ActionRoom
+                    roomInfor={room}
+                    key={index}
+                    ID={room.id}
+                    handleOnSuccess={fetchListRoom}
+                  />
+                ),
               };
             });
 
@@ -217,37 +237,22 @@ function RoomManager() {
       fetchListRoom();
     } else {
       let fetchListRoom = () => {
-        roomService
-          .getsearchRoom(searchRoom)
-          .then((res) => {
-            let roomList = res.data.content.map((room, index) => {
-              return {
-                key: index,
-                ...room,
-                hinhAnh: (
-                  <UploadImgRoom
-                    handleOnSuccess={fetchListRoom}
-                    imgRoom={room.hinhAnh}
-                    key={index}
-                    ID={room.id}
-                  />
-                ),
-
-                action: (
-                  <ActionRooms
-                    roomInfor={room}
-                    key={index}
-                    ID={room.id}
-                    handleOnSuccess={fetchListRoom}
-                  />
-                ),
-              };
-            });
-            setDataRoom(roomList);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        let roomRes = dataRoom.filter((loca) => {
+          return convertString(loca.tenPhong) === convertString(searchRoom);
+        });
+        const roomList = [
+          {
+            ...roomRes[0],
+            action: (
+              <ActionRoom
+                roomInfor={roomRes[0]}
+                ID={roomRes[0]?.id}
+                handleOnSuccess={fetchListRoom}
+              />
+            ),
+          },
+        ];
+        setDataRoom(roomList);
       };
 
       fetchListRoom();
@@ -284,7 +289,14 @@ function RoomManager() {
           x: 1300,
         }}
       />
-      <AddRoomPage isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+      <AddRoomPage
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        handleOnSuccess={() => {
+          fetchListLocation();
+        }}
+      />
+      ;
     </>
   );
 }
